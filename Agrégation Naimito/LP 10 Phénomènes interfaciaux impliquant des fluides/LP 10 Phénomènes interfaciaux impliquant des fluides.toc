@@ -1,0 +1,8 @@
+\contentsline {subsubsection}{Introduction}{2}
+\contentsline {section}{\numberline {0.1}Tension superficielle}{2}
+\contentsline {subsection}{\numberline {0.1.1}D\IeC {\'e}finition microscopique}{2}
+\contentsline {subsection}{\numberline {0.1.2}Description macroscopique}{2}
+\contentsline {section}{\numberline {0.2}Interface entre deux fluides : loi de Laplace}{2}
+\contentsline {section}{\numberline {0.3}Ph\IeC {\'e}nom\IeC {\`e}nes interfaciaux}{2}
+\contentsline {subsection}{\numberline {0.3.1}Mouillage}{2}
+\contentsline {subsection}{\numberline {0.3.2}Capillarit\IeC {\'e}}{2}

@@ -1,0 +1,148 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 09 Modèle de l'écoulement parfait d'un fluide}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection{pré-requis}
+Notion de Viscosité\\
+Équation de Navier-Stokes\\
+Nombre de Reynolds
+
+\subsection{Introduction}
+Navier Stokes très compliqué à résoudre dans le cas général, mais on va voir aujourd'hui que si on se place dans une certaines limite on peut tout de même obtenir de beaux résultats analytiquement.
+
+\section{Modèle de l'écoulement parfait}
+\subsection{Définition}
+Un écoulement est parfait si on peut y négliger les phénomènes de diffusion.\\
+A ne pas confondre avec un fluide parfait, pour lequel la viscosité est nulle (le seul exemple est l'hélium superfluide).\\
+On va établir si un écoulement est parfait à partir du nombre de Reynolds
+\begin{eqnarray}
+Re = \frac{UL}{\nu} = \frac{L^2/\nu}{L/U} = \frac{\mathrm{temps\;caracteristique\;de\; diffusion}}{\mathrm{temps\;caracteristique\;de\;convection}}
+\end{eqnarray}
+qui caractérise le rapport des temps caractéristiques de diffusion et de convection. On aura donc un écoulement parfait dans le cas où on a $Re\gg1$ puisque c'est le mécanisme de propagation des perturbations le plus rapide qui impose la dynamique.
+
+\subsection{Équation d'Euler}
+On part de Navier-Stokes dans le cas général 
+\begin{eqnarray}
+\rho \frac{D\vec{v}}{Dt} = -\vec{\nabla} P + \rho \vec{f}+ \eta \Delta \vec{v} + \left(\zeta + \frac{\eta}{3}\right)\vec{\nabla}(\vec{\nabla}.\vec{v})
+\end{eqnarray}
+impossible à résoudre, puisqu'on a 4 inconnues $P$ et $\vec{v}$ pour seulement trois équations. Il faut donc fermer le système en y ajoutant l'équation de la conservation de la masse. Le système est maintenant solvable si on se donne des conditions limites, mais cela ne garanti pas que l'on puisse trouver une solution analytique, c'est pourquoi en général on va aussi négliger des termes afin de la résoudre.\\
+Dans le cas d'un écoulement parfait notamment on va pouvoir négliger les terme dépendant des viscosités  qui seront alors négligeable devant le terme convectif, on obtient ainsi l'équation d'Euler
+\begin{eqnarray}
+\rho \frac{D\vec{v}}{Dt} = -\vec{\nabla} P + \rho \vec{f}
+\end{eqnarray}
+
+Pour ce qui est des conditions limites que l'on se donne pour résoudre l'équation de Navier Stokes, on a que la pression est continue aux interfaces dans le cas où la tension superficielle n'intervient pas. De plus à la surface d'un solide, la condition de non pénétration impose que les vitesses normales à la surface du solides soient égales : $\vec{v}_f.\vec{n} = \vec{v}_s.\vec{n}$. Les composantes tangentielles sont quand à elles dépendantes de la viscosité, dans le cas où celle ci est nulle on a pas de conditions sur elle, tandis que dans le cas où cette dernière est non nulle on aura $\vec{v}_f = \vec{v}_s$.\\
+
+Dans la pratique la notion d'écoulement parfait est rarement valable très proche des parois solides où les effets de la viscosité ne peuvent êtres négligés, il se forme en effet une couche limite : couche de fluide collée à la paroi dans laquelle  les effets de la viscosité dominent. On pourra alors considérer le fluide comme parfait en dehors de ces couches limites, ce qui motive notamment cette approximation.\\
+
+On va maintenant regarder une conséquence très pratique du modèle que l'on vient de formuler.
+
+\section{Théorèmes de Bernoulli}
+\subsection{Pour un écoulement stationnaire}
+On considère le cas d'un écoulement parfait et on regarde le cas où il est de plus stationnaire. On peut alors récrire l'équation d'Euler en utilisant l'identité $(\vec{v}.\vec{\nabla})\vec{v} = (\vec{\nabla}\times\vec{v})\times\vec{v} + \vec{\nabla}\frac{\vec{v}^2}{2}$ ce qui donne
+\begin{eqnarray}
+(\vec{\nabla}\times\vec{v})\times\vec{v} + \vec{\nabla}\frac{\vec{v}^2}{2} = \vec{f} - \frac{1}{\rho}\vec{\nabla} P 
+\end{eqnarray}
+on constate alors que si la force découle d'un potentiel $\vec{f} = -\vec{\nabla}\phi$, on obtient lorsqu'on multiplie par la vitesse 
+\begin{eqnarray}
+\vec{v}.\vec{\nabla}\left(\frac{\vec{v}^2}{2} + \frac{P}{\rho} + \phi\right) = 0
+\end{eqnarray}
+où on a considéré que le fluide était incompressible $\vec{\nabla}\rho = \vec{0}$. \\
+
+Cela signifie que la quantité 
+\begin{eqnarray}
+\rho \frac{\vec{v}^2}{2} + P +\rho \phi
+\end{eqnarray}
+est conservée le long d'une ligne de courant (puisque $\vec{v}.\vec{\nabla} = \frac{\partial}{\partial s}$ avec $s$ l'abscisse curviligne le long d'une ligne de courant). Ce n'est en fait que l'expression de la conservation de l'énergie mécanique massique le long d'une ligne de courant : la puissance des forces est nulle, il n'y a pas de dissipation thermique. On comprend ainsi que c'est bien la viscosité qui est à l'origine de la dissipation dans un écoulement. (regarder le \textit{Guyon Petit} p198 pour les questions).
+
+\paragraph{Remarque :} Il existe une version plus générale de ce théorème dans le cas compressible, on a alors 
+\begin{eqnarray}
+\frac{\vec{v}^2}{2} + h + \phi 
+\end{eqnarray}
+qui est conservé le long d'une ligne de courant avec $h = Ts + P/\rho$ l'enthalpie massique. Voir \textit{Rieutord} p70.\\
+
+\subsection{Pour un écoulement potentiel}
+On peut obtenir une autre forme de ce théorème dans le cas où l'écoulement est cette fois potentiel, mais pas stationnaire.\\
+\textbf{Hydrodynamique physique} de \textit{Guyon et petit} p 203.\\
+Insister sur le fait que cette fois la quantité conservée l'est dans tout l'écoulement et non plus seulement le long d'une ligne de courant.
+
+\section{Applications}
+\subsection{Tube de Pitot}
+\textbf{Hydrodynamique physique} de \textit{Guyon et petit} p 205.
+
+Pour les docteurs :\\
+Schéma du montage. Mesure de la vitesse du son avec un anémomètre à fil chaud, et mesure de la différence de pression induite dans le tube de Pitot puis calcul de la vitesse associée.
+
+\subsection{Effet venturi}
+\textbf{Seulement si on a le temps}\\
+Schéma + explications.\\
+citer que cet effet utilisé notamment en chimie pour les filtres Buchner.
+
+\section{Conclusion}
+On a vu que dans la limite de l'écoulement parfait on pouvait réussir à dégager certaines lois faciles à appliquer et on pourrait dans la pratique appliquer ces dernières à des cas plus concrets comme par exemple le calcul de la portance d'une aile d'avion : les écoulements d'air autour d'un avion étant exactement le type de cas où on peut appliquer ce que l'on a vu. Il faudra cependant se pencher plus près sur la notion de couche limite pour traiter correctement ces cas.
+
+
+\section*{Questions}
+Comment expliqueriez vous la notion de couche limite ?\\
+C'est la région où les forces visqueuses dominent, elle sont caractérisée par une épaisseur $\delta \simeq \frac{L}{\sqrt{Re}}$.\\
+
+Quel lien feriez vous entre le théorème de Bernoulli et le premier principe de la thermodynamique ?\\
+
+Le théorème de Kelvin vous dit il quelque chose ?\\
+
+Qu'est ce qu'un écoulement irrotationnel ? Et pourquoi sont ils importants ?\\
+Car la vorticité se conserve si les forces sont conservatives, et que en général à t=0 la vorticité est nulle.\\
+
+Pour le tube de Pitot, les points A et B ne sont pas sur la même ligne de courant... Comment peut on alors appliquer Bernoulli ?\\
+On l'applique entre A et l'$\infty$, puis entre B' et l'$\infty$, l'argument suivant est que la pression ne varie pas lorsqu'on se déplace transversalement aux lignes de courant et donc entre B et B' (en négligeant le poids).\\
+On peut aussi le justifier en disant que l'écoulement est irrotationnel.\\
+
+Comment les avions connaissent ils leur vitesse par rapport au sol ?
+
+\section*{Commentaires}
+Il manque les écoulements irrotationnels.\\
+Il faut présenter l'équation de l'entropie.\\
+On peut parler de la portance et de l'effet Magnus, ou d'autres effets, il y a du choix, donc ne pas parler uniquement de fluides incompressibles.\\
+Démontrer Bernoulli avec un gaz parfait par exemple.
+
+
+\end{document}

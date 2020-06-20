@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}G\IeC {\'e}n\IeC {\'e}ralit\IeC {\'e}s}{2}
+\contentsline {subsection}{\numberline {1.1}Aspect thermodynamique}{2}
+\contentsline {subsection}{\numberline {1.2}Approche statistique}{2}
+\contentsline {section}{\numberline {2}Les gaz parfaits}{2}
+\contentsline {subsection}{\numberline {2.1}Th\IeC {\'e}or\IeC {\`e}me d'\IeC {\'e}quipartition de l'\IeC {\'e}nergie}{2}
+\contentsline {subsection}{\numberline {2.2}Les gaz parfaits monoatomiques}{3}
+\contentsline {subsection}{\numberline {2.3}Les gaz parfaits polyatomiques}{3}
+\contentsline {section}{\numberline {3}Dans les solides}{3}
+\contentsline {subsection}{\numberline {3.1}Exp\IeC {\'e}rimentalement}{3}
+\contentsline {subsection}{\numberline {3.2}Mod\IeC {\`e}le Einstein (1907)}{3}

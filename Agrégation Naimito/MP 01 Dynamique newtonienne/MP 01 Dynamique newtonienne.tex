@@ -1,0 +1,108 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 01 Dynamique newtonienne}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\section{Principe fondamental de la dynamique}
+On utilise le banc pasco.\\
+
+\textbf{Remarque} : La composante tangentielle du frottement solide étant proportionnelle à la masse, on aura intérêt à ne pas charger les oitures pour avoir de meilleurs résultats.
+
+\subsection{Mesure de $g$}
+On incline le banc à l'aide d'un élévateur, et on mesure l'angle d'inclinaison $\alpha$ avec un outils composé d'un rapporteur et d'un niveau à bulle. On place alors la voiturette, déchargée du coté surélevé, et on la laisse descendre sous l'effet de la gravité. On mesure alors une accélération constante depuis l'interface : utiliser l'accélération basée sur la dérivée de la position (elle même mesurée grâce à la rotation des roues), il existe aussi un capteur d'accélération "absolue" qui prend déjà l'accélération de la pesanteur en compte : pas pertinent ici.\\
+
+On connait $\alpha$ et l'accélération selon l'axe du banc $a$ : on en déduit alors 
+\begin{eqnarray}
+g = \frac{a}{\sin\alpha}
+\end{eqnarray}
+On peut estimer l'angle sur l'angle à partir de notre lecture, et on peut regarder si la valeur de l'accélération mesurée fluctue pour y associer une incertitude. On a alors, en notant $g = f(a, \alpha)$
+\begin{eqnarray}
+u(g)^2 =  \sum_i \left(\partial_if\;u(i)\right)^2 = \frac{u(a)^2}{\sin^2\alpha} + \frac{a^2u(\alpha)^2}{\tan^2\alpha\sin^2\alpha}\\
+\Longrightarrow \left(\frac{u(g)}{g}\right)^2 = \left(\frac{u(a)}{a}\right)^2 + \left(\frac{u(\alpha)}{\tan\alpha}\right)^2
+\end{eqnarray}
+
+\subsection{Vérification du PFD}	
+On conserve le banc incliné. On prend une voiturette que l'on charge, que l'on équipe d'un embout avec un crochet permettant de mesurer une force, et que l'on lie à un coté du banc à l'aide d'un ressort (prendre un "long mou" pour avoir des oscillations lentes). On peut alors mesurer la force sur le crochet en fonction du temps $F(t)$ et l'accélération selon l'axe du banc $a$(là encore liée à la position) et alors calculer dans l'onglet "calculatrice" 
+\begin{eqnarray}
+D(t) = ma(t) -F(t) + mg\sin\alpha
+\end{eqnarray}
+où la valeur du terme constant $mg\sin\alpha$ peut être calculée à partir de la valeur de $g$ précédemment déterminée. On a normalement $D(t) = 0\; \forall\, t$, dans la pratique $D$ oscille autour de zéro, on pourra donc regarder la valeur de 
+\begin{eqnarray}
+n =100\,\frac{\max(D)}{\max(F)}
+\end{eqnarray}
+On montre alors qu'on vérifie le PFD à $n$\%.
+	
+\section{Collision élastique}
+On utilise là encore le banc. On installe les "pare-chocs aimantés" sur les voiturettes, on les charges différemment et on les fait entrer en collision. On vérifie alors que la quantité de mouvement totale 
+\begin{eqnarray}
+P = m_1v_1+m_2v_2
+\end{eqnarray}
+est conservée. Là encore la mesure n'est pas absolue, il faut regarder la valeur de
+\begin{eqnarray}
+n = 100\,\frac{\max(P) - \min(P)}{\langle P \rangle}
+\end{eqnarray}	
+et on a ainsi une vérification de la conservation de la quantité de mouvement lors d'une collision élastique à $n$\%.\\
+
+On peut aussi se servir des scratch pour mimer un type de collision différente où les voiturettes vont rester collé après l'impact.
+
+\section{Pendule pesant}
+On a pendule fait d'une tige métallique de longueur $L$ cm et de masse $m$, fixée à l'une de ses extrémités à un potentiomètre. On y ajoute une masselotte $M$ à la distance $l$ du centre de rotation. On applique alors le théorème du moment cinétique 
+\begin{eqnarray}
+\frac{d\vec{L}}{dt} = \vec{M}
+\end{eqnarray}
+ou niveau du centre de rotation, avec comme seul moment celui du poids sur la tige et la masselotte. On a ainsi, en désignant par $\theta$ l'angle que la barre fait avec la verticale, le TMC qui s'écrit 
+\begin{eqnarray}
+(I_b + I_{m} )\dot{\theta} = \left(m\frac{L}{2} + Ml\right)g\sin \theta
+\end{eqnarray}
+si on se place pour de petites oscillations on a alors la pulsation qui s'écrit 
+\begin{eqnarray}
+\omega^2 = \frac{mL/2 + Ml}{ mL^2/3 + Ml^2}g \label{omega}
+\end{eqnarray}
+qui est une expression assez compliquée. On constate cependant que pour $M\gg m$ et $l \geq L/2$ on retrouve le cas du pendule simple 
+\begin{eqnarray}
+\omega^2 \simeq \frac{g}{l}
+\end{eqnarray}
+Donc on sait que lorsqu'on va tracer 
+\begin{eqnarray}
+\frac{\omega^2}{g} = f(l)
+\end{eqnarray}
+on s'attend à avoir une allure en $1/l$ lorsque $L/2 \leq l \leq L$.\\
+
+Il faut, pour que régressi arrive à converger, bien couvrir l'intervalle $l\in [0, L]$, et on pourra alors vérifier la cohérence de la théorie en remontant à une valeur de $M$ en modélisant la courbe obtenue par la fonction (\ref{omega}), que l'on comparera à la valeur obtenue à l'aide d'une balance.
+
+
+\end{document}

@@ -1,0 +1,131 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 26 Corrosion humide des métaux}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+Prépa 2e année MP, PT
+\section{Phénomène de corrosion}
+Différents types de corrosions. Exemple du fer : demies équations dont on déduit l'équation de corrosion.\\
+
+\textbf{Manip qualitative du clou dans l'agar agar avec un peu de phénolphtaléine pour mettre en évidence la corrosion} : \textit{ Cachau Herreillat redox p 166 et 187}\\
+
+$\rightarrow$ cette manip pose différentes questions... On va maintenant y répondre.
+
+\section{Corrosion uniforme : exemple du fer}
+Def corrosion homogène.
+\subsection{Approche thermodynamique / protection cathodique}
+	Diagramme E(PH) du fer. Notion de zone d'immunité, zone de corrosion, zone de passivation (notion cinétique et non thermodynamique).
+	
+\subsection{Étude cinétique}
+	On fait la manip : \textit{ Cachau Herreillat redox p 268}, courbe intensité potentiel établie en direct ( notion de potentiel de flade, estimation à l'aide de régressi)
+	
+	Corrosion du métal plus facile que pour le zinc, car l'oxyde du zinc est imperméable.
+	
+\subsection{Protection physique : revêtements / anodisation, galvanisation}
+	On peut former volontairement un oxyde sur un métal pour le protéger (pylônes, grillage).
+	
+\section{Corrosion différentielle}
+	Définition.
+	
+\subsection{Approche expérimentale}
+\textit{Grésisas p210 ou  Cachau Herreillat redox p167}\\
+Cas Fe/Cu et Fe/Zn, dans le premier cas l'électrode de fer est l'anode tandis que dans le second c'est la cathode.\\
+
+Faire une flèche avec les potentiels pour l'expliquer.\\
+
+On trace les courbes intensité-potentiel expliquer pourquoi dans un cas c'est le fer qui est\\ corrodé tandis que dans l'autre c'est le zinc.
+
+\textbf{Manip de la goutte d'Evans}. Plus il y a d'oxygène moins le fer est corrodé, ce qui semble contre intuitif, on va à nouveau l'expliquer à partir des courbes i-e.
+
+\subsection{Protection contre la corrosion / anode sacrificielle}
+1ère : établir une liaison avec une source de tension pour placer le métal dans son domaine d'immunité : protection cathodique. Canalisations enterrées car on ne peut y changer l'anode sacrificielle.\\
+
+2e : méthode de l'anode sacrificielle (faire ref au cas du clou en fer entouré de zinc, où c'est alors le zinc qui est corrodé). Méthode très utilisée : coque de navire.
+
+3e : Utiliser un métal plus électropositif que le matériau à protéger pour recouvrir sa surface.
+
+\section*{Questions}
+Dans quelle autre filière auriez vous pu proposer cette leçon ?\\
+PSI plutôt car leçon appliquée.\\
+
+Formule du ferricyanure ? Nomenclature ?\\
+$[Fe(CN)_6]^{3-}$\\
+
+Pourquoi la réduction de l'eau rend le milieu basique ?\\
+$2H_2O + 2e^- = H_2 + 2OH^-$\\
+
+Comment se fait le choix de concentration pour les diagrammes potentiel PH ?\\
+En général on se place à $10^{-2}$ ou $10^{-3}$ car c'est le domaine de concentrations usuelles en labo. \\
+
+Pourquoi a t-il les oxydes et non les hydroxydes sur le diagramme présenté ?\\
+Car ils sont thermodynamiquement plus stables.\\
+
+Quelle différence entre oxyde et hydroxyde ?\\
+
+Que se passe t'il si on met du fer dans de l'eau et que l'on attend ?\\
+Le fer va rouiller jusqu'à ce qu'il n'y ait plus du tout de fer.\\
+
+Comment chiffrer la vitesse de corrosion d'un clou dans l'eau (pour la corrosion uniforme) ?\\
+Si on a accès à la courbe d'oxydation c'est l'intensité à tension nulle qui nous donne la vitesse : on trace le ln et on regarde le point d'intersection des droites obtenues.\\
+
+A t-on accès expérimentalement à cette courbe d'oxydation ?\\
+Non on a accès qu'à la somme.\\
+
+Comment s'appelle le potentiel pour lequel l'intensité est nulle ?\\
+
+Existe t-il un moyen électrochimique de réaliser un dépôt ?\\
+Oui comme l'électrozingage par exemple.\\
+
+Pourquoi le zinc recouvrant le fer offre t-il une bonne protection ?\\
+Car son oxydation est très lente car l'oxyde est très imperméable.\\
+
+Une autre méthode ?\\
+L'anodisation de l'aluminium : on dépose de l'alumine.\\
+
+Quand utilise t-on l'électrozingage plutôt que la galvanisation ?\\
+Dépend de la géométrie, dans le cas de l'électrozingage le dépôt est moins homogène (à vérifier)\\
+
+\section*{Remarques}
+Domaine de corrosion : l'espèce stable est une espèce en solution. Zone de passivation : l'espèce stable est solide, si elle protège effectivement le métal alors c'est une zone de passivité.\\
+
+regarder histoire statue de la liberté pour illustrer les phénomènes de corrosion.
+
+
+
+\end{document}

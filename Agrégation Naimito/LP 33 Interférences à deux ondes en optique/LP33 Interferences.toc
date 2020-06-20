@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {0.1}Pr\IeC {\'e}-requis}{2}
+\contentsline {section}{\numberline {0.2}Introduction}{2}
+\contentsline {paragraph}{Illustrer avec fentes d'Young.}{2}
+\contentsline {paragraph}{Remarque :}{2}
+\contentsline {section}{\numberline {0.3}D\IeC {\'e}tecteurs (P\IeC {\'e}rez p246)}{2}
+\contentsline {section}{\numberline {0.4}Superposition de deux ondes monochromatiques (P\IeC {\'e}rez p282)}{3}
+\contentsline {subsection}{\numberline {0.4.1}Cas de deux ondes planes monochromatiques}{3}
+\contentsline {paragraph}{Remarque:}{3}
+\contentsline {paragraph}{Remarque :}{3}
+\contentsline {subsection}{\numberline {0.4.2}Cas de deux OPM isochrones}{3}
+\contentsline {subsection}{\numberline {0.4.3}Cas de deux OS isochrones}{4}
+\contentsline {subsubsection}{Observation dans un plan parall\IeC {\`e}le \IeC {\`a} $S_1S_2$}{4}
+\contentsline {subsubsection}{Observation dans un plan $\bot $ $S_1S_2$}{5}
+\contentsline {section}{\numberline {0.5}notion de coh\IeC {\'e}rence (P\IeC {\'e}rez p299)}{5}
+\contentsline {subsection}{\numberline {0.5.1}Coh\IeC {\'e}rence temporelle}{5}
+\contentsline {paragraph}{Ordres de grandeur}{6}
+\contentsline {subsection}{\numberline {0.5.2}Coh\IeC {\'e}rence spatiale}{6}
+\contentsline {paragraph}{Calcul de $\delta _S$ :}{6}
+\contentsline {subsection}{\numberline {0.5.3}Application \IeC {\`a} la mesure d'un doublet atomique (P\IeC {\'e}rez p304)}{7}
+\contentsline {section}{\numberline {0.6}conclusion}{7}
+\contentsline {section}{\numberline {0.7}Sup: Syst\IeC {\`e}mes interf\IeC {\'e}rentiels ou comment observer des interf\IeC {\'e}rences}{8}
+\contentsline {paragraph}{A division du front d'onde}{8}
+\contentsline {paragraph}{A division d'amplitude}{8}
+\contentsline {section}{\numberline {0.8}Questions}{8}
+\contentsline {section}{\numberline {0.9}Remarques}{9}

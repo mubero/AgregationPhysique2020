@@ -1,0 +1,126 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 40 Confinement d'une particule et quantification de l'énergie}
+		\author{Nabil Lamran}
+		\date{Agrégation 2019}
+		
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+
+\subsection*{Pré-requis}
+Bases de MQ, mouvement en champ central.
+
+\subsection*{Introduction}
+On connaît de nombreux spectres continus déjà, on va maintenant regarder des spectres discrets comme notamment le spectre de l'atome d'hydrogène grâce à Benzène.\\
+On peut observer les raies de Balmer de l'atomes d'hydrogène avec un spectro et une lampe à eau. Cette raie porte le nom de Balmer car c'est le père du premier modèle empirique satisfaisant. Suivent Rydberg et ...\\
+On va tenter dans cette leçon d'apporter des explications quand à la structure de ce spectre.
+
+\section{Approche semi quantique}
+\subsection{Interprétation historique de Bohr}
+Pour Bohr l'atome est similaire à l'tome de Rutherford. On peut donc faire un modèle planétaire, et on a alors un mouvement en potentiel central.\\
+Première hypothèse de Bohr : le moment cinétique est quantifié : $L_n = n\hbar$. Cela amène à une quantification de l'énergie, collant avec l'expérience. La seconde hypothèse est que les transitions entre ces états se fait par l'émission ou absorption de photons d'énergie $\Delta E$. Cela permet de retrouver Balmer et Rydberg, mais il ya tout de même des limitations :
+
+\subsection{Limites}
+L'électron, accéléré, devrait rayonner de l'énergie et s'écraser...\\
+Les transitions doivent se faire instantanément ce qui est impossible.\\
+On voit bien, nous, avec nos bases de MQ, que cette contradiction provient du fait que l'on parle ici de trajectoire alors que cela n'a pas de sens pour une particule comme un électron. On le voit facilement en appliquant le principe d'indétermination de Heisenberg
+$\Delta p \ll p$ et $\Delta x \ll r$ $\Rightarrow  \frac{\Delta x \Delta p }{r p}\ll 1$ : pas compatible avec Heisenberg.\\
+Il faut donc abandonner la notion de trajectoire.
+
+\section{Approche quantique}
+\subsection{Confinement}
+\paragraph{ Mécanique classique :}
+On commence par regarder un potentiel du point de vue classique. On regarde les trois cas : $E>V_0$, $V_0>E>0$ et $E<0$.\\ 
+Toutes les positions sont accessibles dans la limite du domaine accessible au vue de l'énergie de la particule.
+
+\paragraph{MQ :} Cette fois l'inégalité de Heisenberg impose une énergie minimale non nulle, il n'y a donc pas d'état statique possible.
+\subsection{Confinement parfait}
+Pour un potentiel dont la verticalité des parois est suffisante pour que à l'échelle de $\lambda_{dB}$ on la modélise comme parfaitement verticale, et pour des particules d'énergie faible devant la hauteur du potentiel, on peut considérer un puits infini.\\
+On voit que à l'infini la fonction d'onde doit s'annuler car la particule ne peut s'y trouver.\\
+On peut résout le puits de potentiel infini. On constate alors que l'énergie est quantifiée.\\
+Présentation des modes propres.\\
+Analogie avec la corde de Melde : l'imposition de conditions aux limites impose des modes discrets de vibration. Limites de l'analogie : relations de dispersion dispersive, le vide quantique est dispersif.\\
+
+On peut élargir ce problème à 3 dimension.
+
+\subsection{Confinement parfait à 3D}
+On peut décomposer le potentiel en trois termes indépendants.\\
+On résout de manière similaire. On voit alors apparaître un phénomène de dégénérescence.\\
+C'est une représentation du cas réel où on balance des électrons dans des cristaux de NaCl. On se retrouve alors avec une particule confinée dans un cube. Le spectre est donc déterminé par les modes de vibrations imposés par les mailles.
+	
+\subsection{Confinement imparfait}
+On considère cette fois deux marches de potentiel de hauteur finie. On peut le résoudre mathématiquement, et notamment graphiquement en introduisant les bon paramètres. \\
+On constate qu'il y a toujours au moins un état lié. \\
+On constate qu'il y a une probabilité non nulle de trouver la particule dans une des barrière de potentiel.\\
+
+Application : on peut former un puits de potentiel à l'aide de semi conducteurs pour former par exemple un laser.
+
+\section{Confinement d'un électron d'un atome hydrogénoïde}
+On sait exprimer le Hamiltonien dans le cas d'un potentiel central généré par un noyau. On donne les détails de la résolution sur transparent. On retrouve bien la formule empirique pour les énergies.\\
+Les états d'énergie sont dégénérés.\\
+On projette l'allure des orbitales.\\
+La quantification du moment cinétique ne provient pas cette fois de conditions limites.
+
+\section*{Questions}
+La formule simple donnée contient elle toute les informations pour le spectre de l'hydrogène ?\\
+Non il y a aussi une structure fine due au couplage spin orbite : c'est obtenu avec l'équation de Dirac qui prend donc en compte les effets relativistes. La structure hyperfine fait intervenir l'interaction avec le moment magnétique du noyau.\\
+
+Y a t'il une raison plus profonde expliquant l'apparition de dégénérescences en MQ ?\\
+Cela vient des symétries, on le voit bien avec le cas d'un OH 2D : si les deux fréquences propres sont identique alors on a dégénérescence. Pour l'hydrogène c'est l'équivalent quantique du vecteur de Lenz qui commute avec le hamiltonien et traduit donc la symétrie de rotation.\\
+
+D'où vient le mécanismes d'émission spontanée ?\\
+lorsqu'on regarde les équations de Maxwell, il faut les quantifier pour faire apparaître le photon. Les énergies des modes qui apparaissent peuvent êtres interprétés comme un nombre de photon occupant ce mode. Le mode fondamental correspond à une énergie non nulle : c'est le vide quantique. C'est l'interaction entre ce champ du vide quantique et l'électron considéré qui est responsable ce ce processus d'émission.
+
+\section*{Remarques}
+Cette leçon vient après celle sur le photon. Il faut donc la prolonger : les équations de maxwell conduisent à des modes (guide d'ondes etc) et à des ondes évanescentes, ici aussi on a une équation d'onde cela va donc être similaire.\\
+
+Il faut bien préciser que cette fois on a des particules de masse non nulles, et une nouvelle équation : celle de Schrodinger, et on va montrer que les résultats sont similaires : on confine des ondes.\\
+
+On peut refaire le raisonnement de Rutherford et le fait que sont modèle possède deux défauts majeurs : instabilité due au rayonnement et le fait que les différents électrons se repoussent. Bohr va donc chercher un nouveau modèle pour palier ces problèmes.\\
+
+Attention Planck introduit la quantification de l'énergie, et c'est Einstein qui l'interprète en terme de photon et qui lui apporte un sens physique.\\
+
+Il y a un problème de continuité avec la manière dont on utilise et introduit Heisenberg.\\
+
+Il faut souligner que Bohr introduit la notion d'états stationnaires ayant des moments cinétiques discrets, multiple du quantum, cette hypothèse est énorme ! On s'en sert pour justifier le fait que l'on va utiliser Schro indépendant du temps puisqu'on considère des états stationnaires. Le temps apparaît donc simplement comme une phase.\\
+
+Il faut bien expliciter le fait que pour un puits de potentiel il n'y a pas de mode à n=0 et donc d'énergie nulle : c'est du au fait que ce mode ne serait pas normalisable.\\
+
+Ne pas faire la résolution de l'atome d'hydrogène : juste le faire avec les mains pour mettre en application les parties précédentes.\\
+
+Il ne faut pas parler de notion de confinement parfait ici, utiliser un autre terme.
+	
+\end{document}

@@ -1,0 +1,556 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\usepackage{wasysym}
+\usepackage{graphicx}
+
+\author{Mathieu Sarrat}
+\title{LP22/LP11 - Rétroaction et oscillations}
+
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+\begin{document}
+\maketitle
+
+\section*{Pré-requis et objectifs}
+
+\begin{itemize}
+	\item Lois de l'électrocinétique
+	\item Montages avec amplificateur opérationnel
+	\item Moteur à courant continu
+	\item Oscillateurs harmonique et amorti
+	\item Transformation de Laplace
+\end{itemize}
+
+\newpage
+\section*{Introduction}
+
+En physique, lorsqu'on souhaite comprendre un phénomène, on a tendance à découper le monde en deux : d'une part ce que l'on souhaite caractériser (le système), d'autre part ce qui agît sur le système : le milieu extérieur.\\
+
+Un système est un dispositif physique qui fait correspondre une grandeur de sortie à une grandeur d'entrée. Caractériser un système nécessite de comprendre comment ces deux grandeurs sont reliées et de modéliser ce lien. Cette définition extrêmement générale et abstraite s'invite dans tous les domaines de la physique, de la chimie ou encore de la biologie :
+\begin{itemize}
+	\item en électronique, l'amplificateur opérationnel fait correspondre une tension de sortie à une tension d'entrée,
+	\item en optique, une lentille associe une répartition de la lumière dans un plan objet à une autre répartition dans le plan image,
+	\item en biologie, un organisme vivant utilise l'énergie qu'il absorbe via son alimentation pour assurer la bonne marche de ses fonctions vitales : déplacement, respiration, synthèse d'hormones, régulation de sa température interne.\\
+\end{itemize}
+
+Il ne suffit pas de connaître exactement le fonctionnement interne du système pour caractériser totalement sa réponse à une entrée donnée, car cette réponse dépend aussi du milieu extérieur. Ce dernier fournit une contribution qui fluctue sans cesse et qui peut être déterminante :
+\begin{itemize}
+	\item le corps humain doit maintenir sa température interne à 37 degrés environ, quelque soit le climat à l'extérieur : ensoleillé, pluie, neige, vent, canicule...
+	\item la vitesse d'une voiture dépend de la vitesse de rotation du moteur, de l'état et du profil de la route, de la force et de la direction du vent...
+\end{itemize}
+Le milieu extérieur est rarement contrôlable et de surcroît complexe à modéliser : on ne peut pas tout prévoir, et même si c'était le cas, il faudrait d'abord réussir à tout modéliser puis parvenir à résoudre un système d'équations d'une complexité extrême. Par conséquent, et bien souvent, le système doit être capable de s'adapter à son environnement.\\
+
+Exemple : l'hypothalamus (une région du cerveau chargée, entre autres, de la régulation thermique du corps humain) reçoit des informations de tous les thermorécepteurs (structures cutanées ou en profondeur dans l'organisme) ; il analyse la température en permanence, et la compare à une valeur de consigne (environ 37 degrés Celsius). Lorsque la température du corps est supérieure à la valeur de consigne, l'hypothalamus provoque le phénomène de transpiration : l'évaporation de la sueur provoque un abaissement de la température de la peau. Dans le même temps, les vaisseaux sanguins de la peau se dilatent pour favoriser les échanges de chaleur avec l'extérieur. Lorsque la température du corps est inférieure à la valeur de consigne, l'hypothalamus active plusieurs mécanismes de thermogenèse : réduction de la déperdition de chaleur à la surface du corps via la vasoconstriction cutanée (diminution des échanges thermiques entre la peau et le milieu ambiant) et augmentation de la production de chaleur, d'abord par l'activité musculaire (frissons : secousses de la musculature striée ne fournissant aucun travail mécanique, toute l'énergie étant libérée sous forme de chaleur) puis par le métabolisme : production de chaleur grâce à une surconsommation de sucres et de graisses. L'hypothalamus compare la température mesurée par des capteurs à une valeur de consigne et envoie des ordres à divers actionneurs pour ajuster la valeur de la température à la consigne : c'est ce que l'on appelle \textbf{une boucle de rétroaction}.\\
+	
+Un système est qualifié de \textbf{système bouclé} s'il comporte au moins une boucle de rétroaction. On se limitera, dans cette leçon, aux systèmes bouclés linéaires : si la sortie $s_1(t)$ est la réponse à l'entrée $e_1(t)$ et si la sortie $s_2(t)$ est la réponse à l'entrée $e_2(t)$, alors la réponse à $e(t) = \lambda_1 e_1(t) + \lambda_2 e_2(t)$, où $\lambda_2$ et $\lambda_1$ sont deux constantes, sera
+\begin{equation}
+	s(t) = \lambda_1 s_1(t) + \lambda_2 s_2(t).\\
+\end{equation}
+
+\newpage
+\section*{Objectifs}
+
+Cette leçon à trois objectifs, chacun faisant l'objet d'une sous-partie :
+\begin{itemize}
+	\item dans un premier temps, on introduira les éléments de modélisation des systèmes bouclés, dans le but de comprendre, de modéliser et de réaliser l'asservissement d'une grandeur physique. On s'appuiera sur l'exemple du régulateur de vitesse agissant sur un moteur électrique à courant continu,
+	\item on se posera ensuite la question de la stabilité des systèmes bouclés au cours du temps, et nous verrons que celle-ci n'est pas nécessairement recherchée, ce qui nous amènera à discuter des oscillateurs en électronique,
+	\item la dernière partie nous permettra d'évoquer une situation où la rétroaction n'est pas un effet recherché mais plutôt un effet nuisible.
+\end{itemize}
+
+\newpage
+\section{Modélisation des systèmes bouclés.\\ Asservissement d'une grandeur physique.}
+
+\subsection{Structure d'un système bouclé}
+
+\subsubsection{Présentation du régulateur de vitesse}
+
+Prenons un exemple concret : un automobiliste veut rouler à $80 \text{km}/\text{h}$ sur la route : il surveille régulièrement le compteur de vitesse du véhicule et agit sur l'accélérateur ou le frein selon que la voiture va plus ou moins vite que $80 \text{km}/\text{h}$. Connaissant la grandeur de sortie du système (la vitesse de la voiture), l'automobiliste ajuste en permanence la grandeur d'entrée (la pression sur l'accélérateur) de sorte à vérifier une consigne (80 $\text{km}/\text{h}$).\\
+
+On peut automatiser ce processus pour soulager l'automobiliste. C'est le but d'un régulateur de vitesse : celui-ci va asservir (ou réguler) la vitesse du véhicule à une consigne, déterminée par l'automobiliste. On parle de \textbf{régulation} lorsque la consigne est constante dans le temps, et d'\textbf{asservissement} lorsque celle-ci varie.\\
+
+L'idée est la suivante \textcolor{red}{[Diapos]} :
+\begin{itemize}
+	\item un \textbf{moteur électrique à courant continu M} est alimenté par une tension électrique $u_M$,
+	\item le moteur entraîne une \textbf{génératrice tachymétrique} (un petit moteur à courant continu fonctionnant comme générateur) qui produit une tension $r$ proportionnelle à la vitesse angulaire $\Omega$ de l'arbre moteur,
+	\begin{equation}
+		r = \alpha \Omega.
+	\end{equation}
+	\item cette tension $r$ est comparée à la tension de consigne $e$ via un amplificateur opérationnel AO1 monté en soustracteur, de gain unité. La tension en sortie d'AO1 vaut
+	\begin{equation}
+		\epsilon = e - r.
+	\end{equation}
+	\item cette différence de tension $\epsilon$ est amplifiée, d'abord par un A0 monté en amplificateur non-inverseur de gain $1 + R_3/R_2$ :
+	\begin{equation}
+		u = \left(1 + \frac{R_3}{R_2}\right)\epsilon,
+	\end{equation}
+	puis par un amplificateur de puissance de gain $\beta > 0$, pour pouvoir entraîner le moteur. On a donc
+	\begin{equation}
+		u_M = \beta u
+	\end{equation}
+\end{itemize}
+
+Ainsi, si $\Omega$ diminue, $r$ diminue, donc $\epsilon = e - r$ augmente et donc $u$ puis $u_M$ augmentent, ce qui provoque une augmentation de la vitesse angulaire $\Omega$ du moteur. La rétroaction a ainsi compensé la diminution initiale de $\Omega$. Un raisonnement similaire montre que si $\Omega$ augmente, alors la rétroaction provoque une diminution de $\Omega$.\\
+
+\textbf{Remarque :} tous ces sous-systèmes sont supposés fonctionner en régime linéaire.
+
+\subsubsection{Schéma-blocs d'un système bouclé}
+
+On peut représenter de façon schématique le système décrit précédemment : on parle de \textbf{schéma-blocs} ou de \textbf{représentation synoptique}. \textcolor{red}{[Diapos]}
+
+Cette représentation peut s'étendre à tous les systèmes bouclés comprenant une boucle de rétroaction :
+\begin{itemize}
+	\item la \textbf{chaine directe} est l'"organe" qui \textbf{commande la grandeur à asservir}. Sa sortie est la grandeur à asservir $s(t)$. Elle est constituée d'un actionneur (convertisseur d'énergie) et d'une amplification de puissance censée fournir l'énergie nécessaire à l'actionneur. Dans notre exemple, elle est constituée de AO2, du hacheur et du moteur à courant continu;\\
+	\item la \textbf{chaine de retour} est un organe d'observation, qui \textbf{convertit la grandeur à asservir} $s(t)$ en un signal $r(t)$, de même nature que $e(t)$, qui pourra être traité par un comparateur. Il s'agît d'un dispositif comportant un capteur. Dans notre exemple, c'est la génératrice tachymétrique qui assume cette fonction;\\
+	\item le \textbf{comparateur} effectue une \textbf{opération entre le signal de retour $r(t)$ et le signal de consigne $e(t)$} :
+	\begin{itemize}
+		\item cas des asservissements : le comparateur est un soustracteur ($\epsilon = e - r$) et la rétroaction est qualifiée de négative,
+		\item cas d'une rétroaction positive : $\epsilon = e + r$, ce qui est parfois utilisé pour générer un système instable (cf. deuxième et troisième parties).
+	\end{itemize}
+	Le signal délivré par le comparateur, $\epsilon(t)$ est envoyé comme instruction pour la chaîne directe.
+\end{itemize}
+
+
+\subsection{Modélisation d'un système bouclé linéaire}
+
+\subsubsection{Fonction de transfert en boucle fermée}
+
+L'hypothèse de linéarité du système implique que l'équation reliant $s(t)$ et $et)$ soit une équation différentielle linéaire, du type :
+\begin{equation}
+	a_k  \frac{d^ks}{dt^k}   + ... + a_1 \frac{ds}{dt} + a_0 s = b_l \frac{d^l e}{dt^l} + ... + b_1 \frac{d^l e}{dt^l} + b_0 e, 
+\end{equation}
+les coefficients $a_k$ et $b_l$ étant des constantes. Ce type d'équation est assez lourd à résoudre tel quel.
+
+Une astuce consiste à travailler en utilisant le formalisme de Laplace. On définit les notations suivantes :
+\begin{equation}
+ TL(e(t)) \equiv E(p) = \int_0^{\infty} dt e(t) \text{exp}\left(-pt\right),
+\end{equation}
+où $p$ est un nombre complexe.
+\begin{equation}
+TL(s(t)) \equiv S(p)
+\end{equation}
+et 
+\begin{equation}
+TL\left(\frac{d^k f}{dt^k}\right) = p^k F(p)
+\end{equation}
+dans les conditions de Heaviside ($f(t = 0) = 0$, $df/dt (t=0) = 0$).
+
+L'équation différentielle se réécrit alors sous la forme de polynômes de $p$ :
+\begin{equation}
+	\left(a_0 + a_1 p + ... + a_k p^k \right) S(p) = \left(b_0 + b_1 p + ... + b_l p^l \right) E(p),
+\end{equation}
+d'où la \textbf{fonction de transfert en boucle fermée} :
+\begin{equation}
+	 \boxed{H_{BF}(p) \equiv \frac{S(p)}{E(p)} = H(p)}.
+\end{equation}
+
+Ainsi, on prend la transformation de Laplace de $e(t)$, on en déduit grâce à la fonction de transfert $S(p)$ et on effectue la transformation inverse pour trouver $s(t)$, le signal de sortie du système.\\
+
+Remarque : on notera de façon générique $T_X(p)$ la fonction de transfert de tout sous-système $X$ constitutif des chaînes directe et retour, s'il y a lieu de le faire (exemple : l'amplificateur de puissance ou le moteur dans la chaîne directe du régulateur de vitesse)
+
+\subsubsection{Fonction de transfert en boucle ouverte}
+
+La fonction de transfert en boucle fermée peut être difficile à calculer, aussi utilise-t-on parfois la \textbf{fonction de transfert en boucle ouverte}, définie comme
+\begin{equation}
+	H_{BO}(p) \equiv \frac{R(p)}{\epsilon(p)},
+\end{equation}
+où $\epsilon(p)$ et $R(p)$ sont, en forme de Laplace, les expressions de la grandeur d'écart et de la grandeur de retour.\\
+
+D'après le schéma-bloc d'un système bouclé, on a :
+\begin{equation}
+	R(p) = B(p)S(p) \quad \text{et} \quad S(p) = A(p)\epsilon(p),
+\end{equation}
+d'où
+\begin{equation}
+	R(p) = B(p)A(p)\epsilon(p),
+\end{equation}
+d'où 
+\begin{equation}
+	 \boxed{H_{BO}(p) = A(p)B(p)}. 
+\end{equation}
+
+\subsubsection{Lien entre $H_{BO}(p)$ et $H(p)$}
+
+Si la rétroaction est négative (resp. positive), on a 
+\begin{equation}
+	\epsilon(p) = E(p) - R(p) \quad\text{resp.}\quad \epsilon(p) = E(p) + R(p)
+\end{equation}
+d'où
+\begin{equation}
+	\epsilon(p) = E(p) - H_{BO}(p)\epsilon(p) \quad\text{resp.}\quad \epsilon(p) = E(p) + H_{BO}(p)\epsilon(p)
+\end{equation}
+d'où
+\begin{equation}
+	E(p) = \epsilon(p)\left(1 + H_{BO}(p)\right) \quad\text{resp.}\quad  E(p) = \epsilon(p)\left(1 - H_{BO}(p)\right)
+\end{equation}
+d'où
+\begin{equation}
+	E(p) = \frac{S(p)}{A(p)}\left(1 + H_{BO}(p)\right) \quad\text{resp.}\quad  E(p) = \frac{S(p)}{A(p)}\left(1 - H_{BO}(p)\right)
+\end{equation}
+d'où la fonction de transfert en boucle fermée pour une rétroaction négative
+\begin{equation}
+	 \boxed{H(p) = \frac{A(p)}{1+H_{BO}(p)}}
+\end{equation}
+et pour une rétroaction positive
+\begin{equation}
+	 \boxed{H(p) = \frac{A(p)}{1-H_{BO}(p)}}.
+\end{equation}
+
+\subsection{Cas du régulateur de vitesse}
+
+\textcolor{red}{[Diapo : schéma du régulateur et gains]}
+
+\subsubsection{Modélisation de la chaîne directe}
+
+Calcul de $A(p)$ :
+\begin{itemize}
+	\item  cas de AO2 : 
+	\begin{equation}
+		T_{AO2}(p) = \frac{U(p)}{\epsilon(p)} = 1 + \frac{R_3}{R_2}
+	\end{equation}
+	\item cas du hacheur :
+	\begin{equation}
+		T_{\beta}(p) = \frac{U_M(p)}{U(p)} = \beta
+	\end{equation}
+	\item cas du moteur à courant continu (cf. annexe)
+	\begin{equation}
+		T_{M}(p) = \frac{\Omega(p)}{U_M(p)} = \frac{T_0}{1 + \tau p}
+	\end{equation}
+	avec
+	\begin{equation}
+		\tau = \frac{RJ}{K^2 + Rf} \quad \text{et}\quad T_0 = \frac{K}{K^2 + Rf}.
+	\end{equation}
+	Dans ces expressions, $\tau = RJ/(K^2 + Rf)$ est la constante de temps électromécanique du moteur, $J$ le moment d'inertie du rotor, $K$ une constante caractéristique du moteur et 
+	$f\Omega$ le couple de frottements fluide exercé sur le rotor.\\
+\end{itemize}
+
+Ainsi, 
+\begin{equation}
+	A(p) = T_M(p) T_\beta(p) T_{AO2}(p) = \frac{T_0\beta\left(1+\frac{R_3}{R_2}\right)}{1+\tau p}.
+\end{equation}
+
+\subsubsection{Modélisation de la chaîne de retour}
+
+\begin{equation}
+	B(p) = \frac{R(p)}{S(p)} = \alpha.
+\end{equation}
+
+\subsubsection{Fonction de transfert en boucle ouverte}
+
+\begin{equation}
+	 \boxed{H_{BO}(p) = \frac{\alpha T_0\beta\left(1+\frac{R_3}{R_2}\right)}{1+\tau p}}.
+\end{equation}
+
+\subsubsection{Fonction de transfert en boucle fermée}
+
+La rétroaction étant négative, on applique directement 
+\begin{equation}
+	H(p) = \frac{A(p)}{1+H_{BO}(p)},
+\end{equation}
+d'où
+\begin{equation}
+	H(p) = \frac{T_0 \beta\left(1+\frac{R_3}{R_2}\right)}{1 + \tau p + \alpha T_0 \beta\left(1+\frac{R_3}{R_2}\right)}. 
+\end{equation}
+
+On veut une forme du type $H(p) = C_1/(1 + C_2 p)$, donc on factorise par les deux derniers termes du dénominateur :
+\begin{equation}
+	 \boxed{H(p) = \frac{H_0}{1 + \tau_{BF} p}}
+\end{equation}
+avec
+\begin{equation}
+	H_0 =  \frac{T_0 \beta\left(1+\frac{R_3}{R_2}\right)}{1+\alpha T_0 \beta\left(1+\frac{R_3}{R_2}\right)} \quad\text{et}\quad
+	\tau_{BF} = \frac{\tau}{1 + \alpha T_0 \beta \left(1 + \frac{R_3}{R_2}\right)}
+\end{equation}
+
+\subsection{Remarques}
+
+\subsubsection{Cas d'une chaîne directe à grand gain :}
+
+Lorsque $|H_{BO}(p)| = |A(p)B(p)| \gg 1$, 
+\begin{equation}
+	H(p) \longrightarrow \frac{1}{B(p)}.
+\end{equation}
+
+Dans ce cas, les caractéristiques de la chaine de retour déterminer celles du système bouclé, pourvu que le gain de la chaine directe soit suffisant. On peut ainsi s'affranchir des imperfections de la chaine directe et de l'influence du milieu extérieur sur celle-ci : on n'a plus besoin de la modéliser avec précision. De plus, si on doit remplacer un composant de la chaîne directe qui viendrait à être défectueux, son remplacement par une pièce nécessairement différente de la première n'aura pas d'impact sur le fonctionnement global du système bouclé.
+
+On peut évaluer la sensibilité de la fonction de transfert $H$ par rapport aux variations de $A(p)$ et $B(p)$ :
+\begin{equation}
+	\Delta H(p) = \frac{1}{(1 + A(p)B(p))^2}\Delta A(p) + \frac{A(p)^2}{(1+A(p)B(p))^2}\Delta B(p),	
+\end{equation}
+d'où 
+\begin{equation}
+	\frac{\Delta H(p)}{H(p)} = \frac{1}{1+A(p)B(p)}\frac{\Delta A}{A} + \frac{A(p)B(p)}{1+A(p)B(p)}\frac{\Delta B}{B}
+\end{equation}
+
+\subsubsection{Gain infini}
+
+Si $A(p)B(p) = -1$ pour un système bouclé à rétroaction négative, ou si $A(p)B(p) = -1$ dans le cas d'une rétroaction positive, alors $|H(p)|$ tend vers l'infini. En pratique, cela signifie que le système est capable de fournir une réponse non-négligeable, y compris en l'absence d'entrée : de simples fluctuations (comme du bruit) peuvent déclencher cette réponse. Ceci pose la question de la stabilité des systèmes bouclés.
+
+
+\newpage
+\section{Stabilité des systèmes bouclés. Oscillateurs.}
+
+Un système bouclé évoluant en régime libre, $e(t) = 0$ pour tout $t > 0$, est stable si la sortie $s(t)$ tend spontanément vers 0. On a besoin d'un critère nous permettant de déterminer si un système bouclé est stable ou non.
+
+\subsection{Étude de la stabilité}
+
+\subsubsection{Critère de stabilité à partir de $H(p)$}
+
+Pour un système à rétroaction négative, 
+\begin{equation}
+	H(p) = \frac{A(p)}{1 + H_{BO}(p)}.
+\end{equation}
+Nous avons vu que linéarité impliquait que $H(p) = N(p)/D(p)$ où $N$ et $P$ sont deux polynômes. On appelle \textbf{pôles} de la fonction de transfert $H(p)$ les valeurs $\{p_i\}$ telles que $D(p) = 0$. Les pôles sont donc les racines d'une équation polynômiale de degré $k$. Un polynôme étant factorisable par ses racines, on peut écrire
+\begin{equation}
+	H(p) = \frac{N(p)}{(p-p_1)(p-p_2)...(p - p_k)}.
+\end{equation}
+
+On a donc
+\begin{equation}
+	S(p) = \frac{N(p)}{(p-p_1)(p-p_2)...(p - p_k)} E(p) = \left( \frac{N_1}{p-p_1} + \frac{N_2}{p-p_2} + ... + \frac{N_k}{p-p_k}\right) E(p)
+\end{equation}
+en effectuant une décomposition en éléments simples et en l'absence de pôles multiples.\\
+
+Si on envoie une brève impulsion en $t = 0$, modélisée par $e(t) = E_0\delta(t)$ (et donc $e(t) = 0$ pour tout $t > 0$,
+\begin{equation}
+	E(p) = E_0 \quad\text{et}
+\end{equation}
+\begin{equation}
+	S(p) = \frac{N(p)}{(p-p_1)(p-p_2)...(p - p_k)} E_0,
+\end{equation}
+d'où le signal $s(t)$, après transformation de Laplace inverse,
+\begin{equation}
+	\boxed{s(t) = E_0 \left(D_1 \text{e}^{p_1 t} + D_2 \text{e}^{p_2 t} + ... + D_k \text{e}^{p_k t}  \right)}.
+\end{equation}
+
+Rappelons que $p$ est un nombre complexe : il en va de même pour les pôles $\{p_i\}$, que l'on peut écrire
+\begin{equation}
+	p_k = \gamma_k + j \omega_k,
+\end{equation}
+de sorte que
+\begin{equation}
+	\text{exp}\left(p_k t\right) = \text{exp}\left(\gamma_k t\right) \text{exp}\left(j \omega_k t\right)
+\end{equation}
+Les racines d'un polynôme étant conjuguées deux par deux, le terme en $j\omega_k$ décrit une oscillation, alors que le terme en $\gamma_k$ décrit une variation exponentielle de l'amplitude. \textbf{Le signe des $\gamma_k$ détermine le comportement du système bouclé :}
+\begin{itemize}
+\item  si $\gamma_k > 0$ pour un $k$ quelconque, $\text{exp}(p_k t)$ et donc $s(t)$ divergent, le système est instable,
+\item  si $\gamma_k = 0$, on obtient une composante oscillante d'amplitude constante,
+\item  si $\gamma_k < 0$ pour un $k$ quelconque, $\text{exp}(p_k t)$ tend vers 0, le système est donc stable. 
+\end{itemize}
+Dans le premier cas, la rétroaction est incapable de réguler la grandeur de sortie. Dans le second cas, celle-ci ne fera qu'osciller autour de la valeur de consigne. Afin de réaliser un asservissement fiable, le troisième cas de figure doit être vérifié pour tous les pôles de la fonction de transfert.\\
+
+On retiendra qu'\textbf{un système linéaire est stable si les pôles de sa fonction de transfert ont une partie réelle négative}.
+
+\subsubsection{Critère de stabilité à partir de $H_{BO}(p)$}
+
+La fonction de transfert en boucle ouverte est parfois plus accessible que $H(p)$. Comme
+\begin{equation}
+	H(p) = \frac{A(p)}{1 + H_{BO}(p)},
+\end{equation}
+recherche la stabilité du système revient à rechercher les pôles de $1 + H_{BO}(p)$ et donc à résoudre
+\begin{equation}
+	1 + H_{BO}(p) = 0 \Leftrightarrow H_{BO}(p) = - 1.
+\end{equation}
+
+Ainsi, un système linéaire est stable si les parties réelles des solutions de l'équation $1 + H_{BO}(p) = 0$ sont négatives.\\
+
+On peut appliquer ce critère au régulateur de vitesse, dont nous rappelons la fonction de transfert en boucle ouverte :
+\begin{equation}
+	 H_{BO}(p) = \frac{\alpha T_0\beta\left(1+\frac{R_3}{R_2}\right)}{1+\tau p}.
+\end{equation}
+
+Cette fonction de transfert n'admet qu'un pôle, que nous noterons $p_0$ :
+\begin{equation}
+	p_0 = - \frac{1 + \alpha T_0 \beta \left(1 + \frac{R_3}{R_2}\right)}{\tau} < 0
+\end{equation}
+car $T_0 = K/(K^2 + Rf) > 0$, $\alpha, \beta, R_2 et R_3 > 0$. L'asservissement réalisé par le régulateur de vitesse est donc stable.
+
+\subsection{Système bouclé rendu volontairement instable.\\ Oscillateurs quasi-sinusoïdaux.}
+
+Les oscillateurs sont des systèmes capables de produire des signaux temporels alternatifs, de fréquence donnée. Leur rôle est essentiel car ils peuvent être utilisés pour concevoir des horloges (pour mesurer des durées ou cadencer le fonctionnement de systèmes) ou produire des signaux classiques en électronique (GBF analogiques).\\
+
+Il existe plusieurs façons de construire un oscillateur : on s'intéresse ici aux oscillateurs auto-entretenus. Ceux-ci peuvent délivrer un signal périodique en l'absence de signal périodique extérieur. Ils sont alimentés par une source d'énergie continue. Les oscillateurs auto-entretenus dont nous allons parler sont dits quasi-sinusoïdaux :
+\begin{itemize}
+	\item le signal produit comporte un mode fondamental ainsi que des harmoniques secondaires, dont l'impact sur le signal total est faible,
+	\item le principe de fonctionnement de ces oscillateurs utilise l'instabilité générée par une rétroaction,
+	\item la fréquence du signal de sortie est déterminée grâce à un filtre passif de type passe-bande, une fréquence du bruit électronique est amplifiée par la rétroaction,
+	\item la présence d'éléments dissipatifs (résistances) dans le circuit implique la nécessité de recourir à un amplificateur pour maintenir le système en oscillation. L'énergie nécessaire pour compenser les pertes provient de l'alimentation continue de l'oscillateur.
+\end{itemize}
+
+Pour illustrer tout ceci, nous allons encore une fois nous appuyer sur un exemple : l'oscillateur à pont de Wien.
+
+\subsubsection{L'oscillateur à pont de Wien}
+
+\textcolor{red}{[Diapo et présenter manip]}
+
+\begin{itemize}
+	\item La chaine directe est constituée de l'amplificateur opérationnel monté en amplificateur non-inverseur : $R_1 = 10 k\Omega$ et $R_2$ variable ($20 k\Omega$ dans la plage de valeurs possibles)
+	\item La chaine de retour est constituée du filtre de Wien, un passe bande : 2 résistances de 10 $k\Omega$ et 2 capacités de $10 nF$.
+\end{itemize}
+
+On veut établir l'équation différentielle décrivant l'évolution de $r(t)$, la tension aux bornes du circuit RC parallèle du filtre de Wien.
+
+Hypothèses :
+\begin{itemize}
+	\item AO idéal, en régime linéaire : $V_+ = V_- = u$
+\end{itemize}
+
+Par rapport à l'AO :
+\begin{equation}
+	\boxed{r(t) = \frac{R_1}{R_1 + R_2}s(t) = \frac{s(t)}{G} \quad\text{où}\quad G = \frac{R_1 + R_2}{R_1}.}
+	\label{eq:AO_Wien}
+\end{equation}
+
+Par rapport au filtre de Wien :
+\begin{itemize}
+	\item loi des noeuds pour le circuit $(\text{RC})_\parallel$ 
+		\begin{equation}
+			i(t) = \frac{r(t)}{R} + C\frac{dr}{dt}
+		\end{equation}
+	
+	\item loi des mailles pour le filtre de Wien :
+		\begin{equation}
+			s(t) = Ri(t) + u_C(t) + r(t)
+		\end{equation}
+\end{itemize}
+d'où, en combinant :
+\begin{equation}
+	s(t) = 2 r(t) + RC \frac{dr}{dt} + u_C(t)
+\end{equation}
+puis, en dérivant,
+\begin{equation}
+	\frac{ds}{dt} = 2\frac{dr}{dt} + RC\frac{d^2r}{dt^2} + \underbrace{\frac{du_C}{dt}}_{= i(t)/C} 
+\end{equation}
+d'où
+\begin{equation}
+	\boxed{\frac{ds}{dt} = RC\frac{d^2 r}{dt^2} + 3 \frac{dr}{dt} + \frac{r(t)}{RC}}.
+	\label{eq:Wien_Wien}
+\end{equation}
+
+On combine \eqref{eq:AO_Wien} avec \eqref{eq:Wien_Wien}, d'où
+\begin{equation}
+	\boxed{\frac{d^2r}{dt^2} + \frac{3-G}{RC}\frac{dr}{dt} + \frac{r}{(RC)^2} = 0}
+\end{equation}
+
+On reconnaît l'expression d'un oscillateur de pulsation $\omega_0 = {1}/{RC}$ et de taux d'amortissement (au sens large) $RC/(3-G)$.
+
+\textcolor{red}{[Montrer les trois régimes tout en commentant.]}
+\textbf{La valeur de G détermine le comportement du système.} On peut contrôler la valeur de G en faisant varier une des deux résistances du montage non-inverseur (par exemple $R_2$) :
+\begin{itemize}
+	\item $G < 3$, les oscillations sont amorties et donc $r(t) \rightarrow 0$ : on ne récupère que du bruit en sortie
+	\item $G > 3$, il y a instabilité et donc $r(t) \rightarrow +\infty$. En réalité, le signal finit par saturer sous l'effet de phénomènes non-linéaires (qui ne sont évidemment pas pris en compte dans notre modèle linéaire). La saturation est liée à l'amplificateur opérationnel, incapable de délivrer plus que sa tension de saturation (environ 15 V). Plus $G$ est élevé, plus on perd le caractère sinusoïdal du signal.
+	\item $G = 3 \Leftrightarrow R_2 = 2R_1$, le système se comporte comme un oscillateur harmonique de fréquence $f_0 = 1/(2\pi RC)$, entièrement déterminée par le pont de Wien. 
+\end{itemize}
+
+\textcolor{red}{[Mesurer la fréquence (Latis ou oscilloscope avec incertitudes, comparer à la valeur théorique en prenant les valeurs nominales de résistances et capacités avec incertitudes. Pour plus de précision, mesurer les résistances et capacités puis étudier le pont de Wien avec quatre composants différents)]}.
+En pratique, il est impossible d'assurer $G = 3$ : si on veut des oscillations, on doit se placer en régime instable, avec un gain le plus proche possible de $G = 3$ pour avoir le moins d'harmoniques possibles. On évalue la qualité du signal produit par l'oscillateur à pont de Wien en mesurant son taux de distorsion harmonique
+\begin{equation}
+	d = \frac{\sqrt{\sum_{k=2}^{+\infty}(A_k)^2}}{A_1}.
+\end{equation}
+
+\textcolor{red}{[Mesurer avec distorsiomètre et montage suiveur pour éviter l'atténuation du signal car problème d'adaptation en impédance]}
+
+\subsubsection{Généralisation : conditions de Barkhausen}
+
+\textcolor{red}{[Diapo]}
+
+Supposons un signal sinusoïdal généré par l'oscillateur : $p = j \omega$.
+
+En l'absence de signal d'entrée entrée ($e(t) = 0$), on obtient 
+\begin{equation}
+	S(p) = A(p)R(p) \quad\text{et}\quad R(p) = B(p)S(p) 
+\end{equation}
+d'où
+\begin{equation}
+	\boxed{A(p)B(p) = 1}.
+\end{equation}
+En réalité, l'entrée n'est jamais nulle (il y a toujours un peu de bruit électronique). La fonction de transfert d'un système bouclé à rétroaction positive s'écrit
+\begin{equation}
+	H(p) = \frac{A(p)}{1 - A(p)B(p)}.
+\end{equation}
+La condition $A(p)B(p) = 1$ s'interprète comme la possibilité qu'un signal d'amplitude non négligeable soit produit à partir de bruit électronique ($|H(p)| \rightarrow +\infty$)\\
+
+La condition pour obtenir une oscillation à fréquence $f_0$ et d'amplitude stable ($p = j\omega_0$) à partir du bruit, s'écrit donc :
+\begin{equation}
+	A(j\omega)B(j\omega) = 1,
+\end{equation}
+ou encore
+\begin{equation}
+	\boxed{|A(j\omega)B(j\omega)| = 1 \quad\text{et}\quad \text{arg}\left[A(j\omega)B(j\omega)\right] = 0.}
+\end{equation}
+Ces conditions sur la fonction de transfert en boucle ouverte s'appellent \textbf{conditions de Barkhausen}.\\
+
+\'Ecrivons ces conditions pour l'oscillateur à pont de Wien. On calcule d'abord $H_{BO}(j\omega)$
+\begin{equation}
+	A(j\omega) = \frac{\underline{u}_2}{\underline{u}_1} = \frac{R_1 + R_2}{R_1} = G
+\end{equation}
+et 
+\begin{equation}
+	\displaystyle{B(j\omega) = \frac{\underline{u}_3}{\underline{u}_2} = \frac{\frac{R}{1+jRC\omega}}{R + \frac{1}{jC\omega} + \frac{R}{1 + jRC\omega}} = \frac{1}{3 + j\left(\frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)}}.
+\end{equation}
+
+On applique ensuite les conditions de Barkhausen :
+\begin{equation}
+	\text{arg}[A(j\omega)B(j\omega)] = \text{arg}\frac{G}{3 + j\left( \frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)} = \text{arg}\left[3 - j \left(\frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)\right] = 0
+\end{equation}
+conduit à 
+\begin{equation}
+	\text{arctan}\left(\frac{1}{3}\left(\frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)\right) = 0
+\end{equation}
+d'où $\omega = \omega_0$.
+
+La seconde condition
+\begin{equation}
+	|A(j\omega)B(j\omega)| = 1 \quad\text{conduit à}\quad G = 3.
+\end{equation}
+On retrouve bien le résultat que l'on avait déduit à partir de l'équation différentielle. La condition sur la phase fixe la fréquence de l'oscillateur, la condition sur le module fixe le gain.\\
+
+\textbf{Remarques :}
+\begin{itemize}
+	\item une analyse de la fonction de transfert du pont de Wien montre que ce filtre est peu sélectif : le facteur de qualité vaut $Q = \frac{1}{3}$;
+	\item dès que l'on s'éloigne un peu trop de la condition de Barkhausen, les harmoniques prennent beaucoup d'ampleur \textcolor{red}{[Manip éventuelle]};
+	\item cet oscillateur est peu coûteux, mais sa stabilité est médiocre : on lui préfère des oscillateurs à quartz, dont le principe de fonctionnement est similaire mais dont le facteur de qualité est de l'ordre de $Q \simeq 10000$.
+\end{itemize}
+
+\section{Effet Larsen}
+
+L'effet Larsen est un phénomène de \textbf{rétroaction acoustique}, responsable de sifflements désagréables lorsqu'un microphone est mal orienté par rapport à des enceintes audio. Le son émis par l'enceinte peut être capté par le micro. Si l'atténuation du son lors de ce trajet de retour (feedback) n'est pas suffisante, il peut se produire un couplage entre le microphone et l'enceinte : le son émis par l'enceinte est capté par le micro, amplifié, ré-émis par les enceintes, re-capté par le micro et ainsi de suite, jusqu'à atteindre la limite d'amplitude permise par le matériel, voire une dégradation de celui-ci.\\
+
+\textcolor{red}{[Démonstration pratique]} 
+
+On peut modéliser ce phénomène par une boucle de rétroaction positive. La chaîne de retour n'est plus constituée d'un dispositif conçu exprès, mais de la portion du milieu extérieur qui est couplée d'un point de vue acoustique au système micro-amplificateur-haut parleur. L'ensemble matériel audio + air environnant forme un système bouclé, qu'il est possible de modéliser en utilisant les outils présentés précédemment :
+
+\begin{equation}
+	H(p) = \frac{G(p)}{1 - \alpha G(p)},
+\end{equation}
+où $G(p)$ désigne la fonction de transfert de la chaîne directe et où $\alpha$ correspond à la fraction de puissance sonore atténuée mais renvoyée depuis le haut-parleur vers le micro.\\
+
+L'effet Larsen se produit si le gain en boucle ouverte $|\alpha G(p)| > 1$ et si le son entrant et le retour de son sont en phase lorsqu'ils sont captés par le microphone. La première condition s'interprète assez facilement : la chaîne d'amplification doit pouvoir au moins compenser l'atténuation du son lors de sa propagation dans l'air : si cette compensation n'a pas lieu, le son ne peut pas être amplifié et finira par s'éteindre.\\
+
+En général, il est possible d'éviter l'effet Larsen, où d'y mettre fin lorsqu'il se produit :
+\begin{itemize}
+	\item en éloignant le microphone du haut-parleur, ou en l'orientant mieux;
+	\item en diminuant le gain de l'amplificateur.
+\end{itemize}
+
+Il est également possible de filtrer l'effet Larsen en utilisant des filtres réjecteurs de bande, de fréquence de coupure réglable. Si la portion de spectre coupée est suffisamment étroite, le son dans son ensemble n'est pas trop dénaturé et le Larsen est supprimé. Ceci est d'une importance capitale pour la fabrication de prothèses auditives, où la distance entre microphone et haut-parleur est fixe et courte.
+
+\section*{Conclusion}
+
+\begin{itemize}
+	\item Récapitulatif, message d'ensemble : les systèmes bouclés apparaissent dans tous les domaines des sciences.
+	\item Effet Larsen si manque de temps, sinon ouverture vers les plasmas, ou la chimie, par exemple.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,6 @@
+\contentsline {subsection}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {1}Mesure du champ magn\IeC {\'e}tique terrestre $B_H$}{2}
+\contentsline {section}{\numberline {2}Production d'un champ magn\IeC {\'e}tique par une spire plate}{3}
+\contentsline {section}{\numberline {3}Production d'un champ magn\IeC {\'e}tique par un \IeC {\'e}lectroaimant}{3}
+\contentsline {section}{\numberline {4}Mesure de champ avec un fluxm\IeC {\`e}tre}{4}
+\contentsline {section}{\numberline {5}Conclusion}{4}

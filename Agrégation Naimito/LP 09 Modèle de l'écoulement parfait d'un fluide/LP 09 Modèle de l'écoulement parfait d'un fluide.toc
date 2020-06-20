@@ -1,0 +1,13 @@
+\contentsline {subsection}{\numberline {0.1}pr\IeC {\'e}-requis}{2}
+\contentsline {subsection}{\numberline {0.2}Introduction}{2}
+\contentsline {section}{\numberline {1}Mod\IeC {\`e}le de l'\IeC {\'e}coulement parfait}{2}
+\contentsline {subsection}{\numberline {1.1}D\IeC {\'e}finition}{2}
+\contentsline {subsection}{\numberline {1.2}\IeC {\'E}quation d'Euler}{2}
+\contentsline {section}{\numberline {2}Th\IeC {\'e}or\IeC {\`e}mes de Bernoulli}{3}
+\contentsline {subsection}{\numberline {2.1}Pour un \IeC {\'e}coulement stationnaire}{3}
+\contentsline {paragraph}{Remarque :}{3}
+\contentsline {subsection}{\numberline {2.2}Pour un \IeC {\'e}coulement potentiel}{4}
+\contentsline {section}{\numberline {3}Applications}{4}
+\contentsline {subsection}{\numberline {3.1}Tube de Pitot}{4}
+\contentsline {subsection}{\numberline {3.2}Effet venturi}{4}
+\contentsline {section}{\numberline {4}Conclusion}{4}

@@ -1,0 +1,128 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 35 Diffraction de Fraunhofer}
+	\author{Etienne}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsubsection{prérequis}
+Transformée de fourrier\\
+Optique géométrique\\
+interférences
+
+\section{Introduction}
+\paragraph{Définition} Tout ce qui ne relève ni de réfractions ni de réflexions.\\
+\paragraph{Expérience} Diffraction par une fente, inexplicable par une théorie corpusculaire de la matière.
+
+\section{Théorie scalaire de la diffraction}
+\subsection{Principe d'Huygens-Fresnel}
+Introduction historique.\\
+Énoncé du principe d'Huygens, apport de Fresnel, formulation :
+\begin{eqnarray}
+\phi(M) = \alpha \int_{\Sigma} d^2P\;\phi_i(P)\, \frac{e^{ikPM}}{PM}\;\mathrm{avec}\; \alpha = \frac{-iQ}{\lambda}
+\end{eqnarray}
+\subsection{Diffraction en champ proche}
+On va définir le flux incident au point P $\phi(P)$ à partir de la transmittance $\tau$ et du flux incident avant la surface $\phi_0$ : $\phi_i(P)=\tau (P)\phi_0$.\\
+On peut ensuite exprimer la distance PM en fonction de coordonnées judicieusement choisies dans le plan de l'objet diffractant, et dans le plan d'observation : $P(X,Y)$ et $M(x,y)$. En définissant D comme étant la distance entre ces deux plans on obtient 
+\begin{eqnarray}
+PM \simeq D + \frac{(x-X)^2+(y-Y)^2}{2D}
+\end{eqnarray}
+On en déduit 
+\begin{eqnarray}
+\phi(M) \simeq \frac{\alpha}{D} \phi_0 \int_{\mathcal{S}} dXdY\;\tau(X,Y)\, e^{ik (D + \frac{(x-X)^2+(y-Y)^2}{2D}) }
+\end{eqnarray}
+On va chercher à se placer dans des configuration permettant de calculer cette intégrale compliquée, qui nécessite l'utilisation de fonctions spéciales dans le cas général.
+\section{Diffraction en champ lointain}
+\subsection{Approximation de Fraunhofer}
+On se place dans des conditions telles que 
+\begin{eqnarray}
+D \gg \frac{R^2}{\lambda}
+\end{eqnarray}
+On peut utiliser une lentille convergente afin de se placer dans le cas $D \rightarrow \infty$, schéma. On passe alors de $kPM$ à $k_0\delta$, et on montre, en utilisant le principe de retour inverse de la lumière et le fait qu'une lentille cvg conjugue une onde plane avec une onde sphérique que 
+\begin{eqnarray}
+\delta = -\frac{xX+yY}{f_i}
+\end{eqnarray}
+Ainsi on obtient 
+\begin{eqnarray}
+\phi(M) \simeq \frac{\alpha}{D} \phi_0 \int_{\mathcal{S}} dXdY\;\tau(X,Y)\, e^{ik_0 (ux + vy) }
+\end{eqnarray}
+avec $u = \frac{x}{\lambda f_i}$ et $v = \frac{y}{\lambda f_i}$. On remarque donc que $\phi(M)$ est la TF de la transmittance.
+
+\subsection{Calcul de quelques figures de diffraction}
+\subsubsection{Fente rectangulaire}
+\begin{eqnarray}
+\acute{E}(u,v) = \frac{\acute{E}_0}{\lambda^2D^2}(ab)^2\,sinc^2(ua)\,sinc^2(vb)
+\end{eqnarray}
+On a donc les extinctions successives décrites par $U_n =\frac{n}{a}$ Projection d'une image représentant ce résultat.
+\subsubsection{Ouverture circulaire}
+Projection du calcul et de la figure de diffraction obtenue.\\
+
+Question : la diffraction modifie donc elle tout ce qui a été fait en optique géométrique ou ajoute elle seulement quelque chose qui avait été négligé jusque alors ?
+
+\section{Lien entre diffraction et formation des images}
+\subsection{Influence de la rotation de l'éclairage}
+
+Schéma. 
+\begin{eqnarray}
+\delta_{sup} = X\sin(\theta_0)\\
+\delta_{tot} = -X\frac{x-x_0}{f_i}
+\end{eqnarray}
+La figure se forme donc autour de l'image de la source par le système optique objet diffractant + lentille. Cette configuration étant toujours "vérifiée" lorsque l'on conjugue un objet par une lentille, on conjugue donc une tache de diffraction à un point objet.
+
+\section*{Conclusion}
+Limites de résolution de tout instrument d'optique due à la diffraction qui "habille" toute image que l'on fait d'un objet en utilisant un système optique.
+
+\section*{Questions}
+Dans le montage réalisé pour illustrer les phénomènes modélisés, pourquoi utiliser un objectif de microscope ?\\
+Permet de transformer le faisceau laser en un point source. On utilise ensuite une lentille cvg pour éclairer l'objet avec une onde plane, en la plaçant à une distance $f_{lentille}+f_{microscope}$ du microscope.\\
+
+Concernant la diffraction par une fente et un disque : pourquoi parler de fréquence spatiale pour la fente et de rayon (longueur) pour la tache d'airy produite par le trou circulaire ?\\
+
+Pouvez vous justifier la différence entre les figures de diffraction d'un disque ou d'un carré ? Pourquoi celle du cercle est plus étalée ?\\
+
+\section*{Commentaires}
+Attention, dans le cas où l'objet diffractant a une taille caractéristique $a$, la taille de la figure est proportionnelle à $\frac{\lambda D}{a}$ OU $\frac{\lambda f_i}{a}$ selon le montage adopté. Si l'objet n'a pas de taille caractéristique, il n'existe pas de diffraction de Fraunhofer, mais l'objet diffracte bel et bien.\\
+Mieux d'écrire l'intégrale tout en énonçant le principe d'Huygens-Fresnel.\\
+Bien définir la notion de surface d'onde, et ainsi bien définir le domaine d'intégration pour $\phi$.\\
+Facteur d'obliquité $Q$?? permet d'exprimer qu'il n'y a pas de rétro-diffusion, et valable pour de petits angles... regarder dans le Goodman, et ne pas l'évoquer sans être sûr de le maîtriser. sinon donner $\alpha = \frac{-i}{\lambda}$ en justifiant que ça doit être homogène à l'inverse d'une longueur et que $\lambda$ est la longueur caract du problème.\\
+Attention au terme "champ proche" qui a aujourd'hui un sens tout particulier, dire à "distance finie" et à "distance infinie".\\
+Faire figure taille caractéristique de la tache par une fente A en fonction de la taille caractéristique de la fente a : Og $A=\alpha a$ et diffraction de Fraunhoffer : $A = \frac{\beta}{a}$.\\
+Commenter l'analogie fréquence spatiale $\leftrightarrow$ fréquences temporelles.
+
+
+\end{document}

@@ -1,0 +1,127 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 27 Systèmes bouclés}
+		\author{Maria}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+\subsubsection{Introduction}
+Définition d'un système bouclé. Classes de systèmes bouclés :
+
+Stables : asservissements
+
+Instables
+\section{Oscillateur à pont de Wien}
+\paragraph{Schéma de l'oscillateur} : schéma avec composantes, principe de fonctionnement, 
+\subsubsection{Etude du filtre}
+\begin{eqnarray}
+H(j\omega) = \frac{1}{3+j\left(\frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)}=\frac{K_0}{1+jQ\left(\frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)}\\
+Q = \frac{1}{3} \; \& \; K_0=\frac{1}{3}
+\end{eqnarray}
+\subsubsection{Fréquence de coupure et facteur de qualité du philtre}
+On mesure les deux fréquences de coupure et la fréquence de résonance du filtre sur le diagramme de Bode établit en préparation.
+
+\subsubsection{Étude du système bouclé}
+On a une équation différentielle qui régit notre circuit
+\begin{eqnarray}
+\frac{dV_s^2}{dt^2} + \frac{3-G}{RC}\frac{dV_s}{dt} + \frac{V_s}{(RC)^2} = 0
+\end{eqnarray}
+On discute les trois cas :
+
+$G<3$ $V_s$ tend vers 0
+
+$G=3$ on a alors un oscillateur harmonique
+
+$G>3$ $V_s$ tend alors vers l'infini.
+\subsubsection{Pureté des oscillations}
+On mesure ici le taux de distorsion à l'aide d'un distorsiomètre (qui a seulement $10k\Omega$ d'impédance : il faut dont placer un suiveur devant)
+\begin{eqnarray}
+\delta = \frac{\sqrt{\sum_{k=2}^{\infty} A_k^2}}{\sqrt{\sum_{k=1}^{\infty}A_k^2}} = 0.2\%
+\end{eqnarray}
+
+\section{Boucle à verrouillage de phase}
+Schéma du circuit + principe du montage.
+	\subsubsection{Caractérisation de l'OCT}
+	On trace $f_s(V_{OCT}) = f_0-K_{OCT}V_{OCT}$ lorsque le signal est "accroché" afin de déterminer $K_{OCT}$. ($f_0$ est réglée sur l'OCT (2e GBF)).
+	\subsubsection{Plage de verrouillage / plage de capture}
+	Dans cette partie on va tracer $f_s(f_e)$ pour montrer dans quelle plage de fréquence le signal va accrocher, c'est à dire pour quelles valeurs de $f_e$ on va effectivement avoir $f_s=f_e$. On peut ainsi déterminer une plage de fréquence $\Delta f_c$ dans laquelle on commence à accrocher si ce n'était pas le cas avant, et une autre plage $\Delta f_v > \Delta f_c$ dans laquelle on continue à accrochait si on accrochait avant.\\
+	Dans la théorie on attend :
+	
+	$\Delta f_v = K_{OCT}K_m V_e V_s$
+	
+	$\Delta f_c \simeq 2\sqrt{\Delta f_v f_e}$
+	
+	\subsubsection{Déphasage}
+	Ici on trace $V_{OCT}(\Delta\phi)$ afin de déterminer $K_D$.
+	
+	\subsubsection{Stabilité}
+	On discute ici la stabilité du système à partir de son gain en boucle ouverte qui permet d'obtenir "simplement" le gain général du système.
+	
+	\subsubsection{Rapidité}
+	On envoie ici un échelon de fréquence dans la plage d'accroque avec le premier GBF et on mesure le temps que met la PLL pour se caler sur la nouvelle fréquence.
+	
+\section*{Questions}
+Quelles sont les applications possibles du pont de Wien ?\\
+Construire un GBF.\\
+
+Si on utilise un pont de Wien pour un GBF, peut on choisir la fréquence du signal de sortie ? Peut on choisir la forme du signal produit ?\\
+Oui en modifiant la fréquence de résonance du filtre, et non.\\
+
+Pourquoi recherche t-on un signal pur ? Et qu'est ce que la pureté ici ?\\
+On veut obtenir une sinusoïde idéale. Un signal pur est défini ici comme un signal ne possédant qu'une seule fréquence (dans la pratique cela équivaut à ce que l'amplitude des harmoniques soit négligeable devant celle de la fondamentale).\\
+
+Pouvez vous nous montrer en direct si le signal que vous obtenez est bel et bien pur ?\\
+On peut utiliser la fonction FFT de l'oscilloscope ou alors utiliser un logiciel tel que LatisPro après avoir enregistré le signal via une carte d'acquisition(attention dans ce cas à l'adaptation d'impédance : il va falloir modifier un peu R pour observer quelque chose), pour vérifier que les harmoniques sont bel et bien de très faible amplitude comparé à la fondamentale.
+
+Pour la PLL, pourquoi avoir présenté la précision avant la stabilité ? Cela a t-il une importance ?\\
+
+\section*{Remarques}
+Le jury doit pouvoir lire en direct toutes les mesures.\\
+Il faut essayer de faire le plus face possible au jury.\\
+Le Wien sert dans la pratique à avoir un taux de distorsion record, le signal est plus pur que pour le meilleur GBF. Pour les Wien industriel le facteur de qualité est de l'ordre de $10^5$, et le gain est adaptatif afin de ne pas diverger. Ces oscillateurs sont utilisés par exemple pour la génération de porteuse en AM, ou pour tester le matériel hifi.\\
+Il faut parler de la condition de "Barkhausen" : $|A||B|=1$.\\
+On peut montrer la condition de démarrage, et le portrait de phase, qui est distordu si le taux de distorsion est non nul.\\
+Il faut toujours avoir une carte d'acquisition dans le montage.\\
+Si on a un problème d'accord en théorie et résultat exp : erreur de mesure, modèle inadapté, ou erreur de calcul.\\
+Dans la PLL : bien accentuer le fait que l'ajustement entre les fréquences se fait sur la différence de phase.\\
+Expliciter aussi que tous les composants sont ici linéaires, notamment pour la détermination de $K_D$.\\
+On doit présenter la stabilité : si la différence de phase est toujours supérieure à $-\pi$ alors le système est inconditionnellement stable, avant la rapidité.\\
+Précision : on regarde à quel point $f_s$ est similaire à $f_e$ : on visualise pour cela la tension $V_OCT$ qui serait un échelon pour un PLL idéal, et qui oscille dans la pratique : ile existe un régime transitoire. Si on diminue la Capacité C : on diminue la durée de ce régime transitoire mais on filtre moins, il y donc plus de bruit. \\
+OCT = oscillateur contrôlé en tension (VCO en anglais)\\
+Utilité de la PLL : pour reconstituer une porteuse, pour obtenir un signal très haute fréquence : on met en entrée un quartz par exemple, puis on utilise la PLL pour avoir $f_s = nf_e$. 
+	
+
+\end{document}

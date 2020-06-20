@@ -1,0 +1,122 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 13 Évolution et condition d'équilibre d'un système thermodynamique fermé}
+		\author{Naïmo Davier}
+		\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection*{Introduction}
+\paragraph{Pré-requis :}Principes thermodynamiques, notion de pile en chimie.\\
+
+Partir de la notion d'énergie potentielle que l'on généralise là pour tous les systèmes en thermodynamique. Permet ainsi d'anticiper l'évolution du système pour des contraintes données.\\ \textbf{Thermodynamique} de \textit{B.Diu et G, L, R} p171.
+
+\section{Notion de potentiel thermodynamique}
+\subsection{Principe, variables internes et externes}
+Rappeler le premier et le second principe.\\
+Une fois le système défini il est décrit par des variables intensives et extensives : pression, volume, température ect... Certains de ces paramètres sont contraints par l'extérieur tandis que l'autre sont libre de fluctuer et vont se stabiliser à une valeur d'équilibre.\\
+\textit{D.G.L.R} \textbf{thermodynamique} chap 5 I.B p172 \\
+
+Les potentiels thermodynamique sont avant tout une manière pratique de reformuler les principes de la thermodynamique afin notamment d'avoir, comme on va le voir, un protocole général permettant de prévoir l'évolution du système.
+
+\subsection{Cas du système isolé}
+Commençons par traiter le cas le plus simple afin de clarifier le propos.\\
+Dans ce cas le potentiel est simple : on a vu (2nd principe) qu'un système isolé évolue toujours de manière à rendre son entropie maximale. Dans ce cas $-S$ joue le rôle de potentiel thermodynamique.\\
+\textit{D.G.L.R} \textbf{thermodynamique} chap 5 II.A p174\\
+
+On va maintenant voir ce qu'il se passe dans des situations plus générales et utilisables en pratique.
+
+
+\section{Système fermé en contact avec un thermostat}
+\subsection{Construction du potentiel}
+On construit l'énergie libre externe à partir des deux principes de la thermodynamique.\\
+\textit{D.G.L.R} \textbf{thermodynamique} chap 5 III.A.1 p180\\
+
+Insister sur le fait que le potentiel dépendant des paramètres extérieurs et n'est donc pas une fonction d'état. Ce n'est qu'à l'équilibre lorsque les variables prennent les valeurs fixées par les conditions d'équilibre qu'on a égalité entre le potentiel (énergie libre externe ici) et la fonction d'état associée (énergie libre).
+
+\subsection{Conditions d'équilibre}
+On montre que l'état d'équilibre, correspondant à l'état minimisant le potentiel construit conduit à une condition sur la température $T=T_{thermostat}$ et sur les variables conjuguées des variables internes $Y=0$.\\
+\textit{D.G.L.R} \textbf{thermodynamique} chap 5 III.A.2 p181
+
+\subsection{Exemple}
+Cas simple et déjà vu de deux systèmes séparés par une cloison et en contact avec un thermostat.\\
+\textit{D.G.L.R} \textbf{thermodynamique} chap 5 III.A.3 p183
+
+\section{Système fermé en contact avec un thermostat et un barostat}
+\subsection{Construction du potentiel et conditions d'équilibre}
+On construit cette fois l'enthalpie libre externe.\\
+\textit{D.G.L.R} \textbf{thermodynamique} chap 5 III.B.1 p185
+\subsection{Application à la Loi de Laplace}
+On considère le cas d'une bulle de savon en contact avec l'atmosphère faisant alors office de thermostat et de barostat.\\
+\textit{D.G.L.R} \textbf{thermodynamique} chap 5 complément A p210
+
+
+\section{Travail récupérable}
+A partir des potentiel on peut estimer le travail maximal récupérable dans un système thermodynamique.\\
+\textit{D.G.L.R} \textbf{thermodynamique} chap 5 IV.B p192
+
+\subsection{Exemple de la pile Daniel}
+On voit ici comment on peut récupérer du travail de manière concrète avec le cas d'une pile où on peut donc obtenir du travail électrique.\\
+\textit{D.G.L.R} \textbf{thermodynamique} supplément D p581
+
+\subsection*{Conclusion}
+La notion de potentiel ici introduite est puissante et générale et on peut étendre le principe construction à d'autres cas que les deux étudiés ici. 
+
+\section*{Questions}
+Par rapport à quoi minimise t-on les potentiels ?\\
+
+Qu'est ce que la température ?\\
+
+Si un état n'évolue pas, est il à l'équilibre ?\\
+
+Qu'est ce qu'une transformation spontanée ?\\
+
+Qu'est ce qu'un état d'équilibre ?\\
+
+Pour ce qui est du travail récupérable : on a un $\Delta S$, à quelle transformation correspond elle ?\\
+Qu'est ce que le travail dans ce cas ? notamment puisqu'on est volume constant ?
+
+\section*{Remarques}
+Il faut définir à chaque fois quelles sont les variables internes et externes, et quelles sont les grandeurs conservées.\\
+Possibilité d'illustrer la récupération de travail avec l'exemple de la pile Daniel. \\
+Pour les systèmes isolé, prendre deux systèmes de températures différentes et les mettre en contact.\\
+ne pas faire (à priori) thermostat ET thermostat + barostat : redondant.\\
+Possibilité de partir de l'exemple de la pile pour introduire la notion de travail récupérable.\\
+Donner les rapports entre les potentiels thermo et les variables d'état (ex donner le lien entre $F$ et $F^*$).
+
+
+\end{document}

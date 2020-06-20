@@ -1,0 +1,177 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 05 Synthèse inorganique}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+
+
+\section{Prérequis}
+- Réactions acide-base et Red/Ox\\
+-Structures électroniques des espèces\\
+-Dosages
+
+\section{Les complexes inorganiques}
+\subsection{Définition}
+\textbf{Mc Quarrie} \textit{Chimie générale} p997.\\
+\textbf{B.Fosset} \textit{Chimie tout en un PCSI} p813.\\
+
+Complexe = association d'un cation métallique central  ($Ag^+$, $Cu^{2+}$, $Fe^{3+}$...) qui peut donc accepter un ou plusieurs électrons, avec un ligand : espèce qui peut partager un ou plusieurs doublets d'électrons.\\
+Ex de ligands : $Cl^-$, l'ammoniac $NH_3$, $O_2CCO_2^{2-}$ (à donner en représentation de Lewis).
+
+Il est important de voir ici que le cation et ligand ne forment pas une liaison covalente : c'est toujours le ligand qui fournit les deux électrons constituant la liaison. 
+	
+\subsection{Propriétés}
+Définition des termes : ligand "monodentate" : forme une unique liaison avec le centre et "polydentate" : en forme plusieurs, et illustration avec les exemples précédents.\\
+Indice de coordination : nombre de liaisons entre l'atome/ion central et le ligand.\\
+
+On appelle nombre de coordination le nombre de liaison que le cation métallique forme avec le ligand.
+
+Il est possible d'écrire l'équation de complexation d'un composé comme
+\begin{eqnarray}
+M+nL = ML_n\hspace{1cm}  \beta_n = \left(\frac{[ML_n]}{[M][L]^n}\right)_{eq}
+\end{eqnarray}
+où $\beta_n$ est la constante globale de formation du complexe.\\
+
+Le nombre $n$ de ligands attachés au cation détermine la géométrie du complexe : si $n=2$ on aura alors une molécule linéaire, si $n=3$ une molécule plane et notamment un octaèdre si $n=6$ ce qui est assez courant.
+
+\subsection{Utilisation des complexes}
+Séparation des métaux : on mélange de la beauxite (minerai contenant des oxydes du fer et de l'aluminium) avec de la soude, l'aluminium est alors complexé selon 
+\begin{eqnarray}
+Al_2O_{3\,(s)}  + 2OH^{-}_{(aq)} + 3H_2O_{(l)} =  2[Al(OH)_4]^-_{(aq)}
+\end{eqnarray}
+et ainsi solubilisé, contrairement à l'oxyde du fer qui reste solide et peut alors être séparé de l'aluminium par filtrage.\\
+
+Les complexes sont souvent très colorés, et leurs couleurs peuvent ainsi être utilisées pour mettre en évidence la présence d'ions métalliques.
+
+\underline{Manip :} Caractérisation des ions métalliques à partir de la couleur des complexes qu'ils forment, \textbf{Cachau Hereillat} \textit{Des expériences de la famille Red-Ox} p124-126.\\
+
+Leurs couleurs sont aussi utilisées comme pigments, comme par exemple $KFe^{III}[Fe^{II}(CN)_6]$ qui est bleu. Leurs couleurs sont aussi utilisées pour l'analyse chimique.\\
+Les complexes sont aussi notamment utilisés dans la photographie argentique comme par exemple $AgCl$ et $AgBr$, en effet on met ces complexes sur une pellicule où un photon peut alors briser la liaison, le cation métallique ainsi formé peut alors être oxydé $Ag^++e^-\rightarrow Ag_{(s)}$ pour former l'atome associé qui est alors solide et coloré (sombre pour l'argent ce qui fait une photo en noir et blanc) : l'image apparait alors sur la pellicule, on a fait le "négatif"(parce que ce qui a été éclairé apparaît sombre).
+
+\section{Synthèse d'un complexe}
+\subsection{Le trioxalatoferrate(III)}
+
+Formule : $[Fe(C_2O_4)_3]^{3-}$\\
+Représentation de Lewis.\\
+Ici le nombre de coordination est $n=6$.\\
+Ce complexe est notamment utilisé pour le développement des photographies, et dans les Actinomètres : appareils qui servent à mesurer une intensité lumineuse. Ce grâce au fait que ce complexe est photo sensible et réagit donc aux stimulations lumineuses.
+\subsection{Synthèse "en direct" de ce complexe.} Donne une couleur verte intense. Doit être protégé de la lumière (avec un morceau de papier alu par exemple) car photosensible. On le place ensuite dans la glace pour qu'il cristalise (soluble à température ambiante).\\
+Explications de la manip :
+\begin{eqnarray}
+FeCl_{3(s)} = Fe^{3+}_{(aq)} + 3Cl^-_{(aq)}\\
+K_2C_2O_{4(s)} = 2K^+_{(aq)} + C_2O^{2-}_{4(aq)}\\
+Fe^{3+}_{(aq)} + 3C_2O^{2-}_{4(aq)} = [Fe(C_2O_4)_3]^{3-}\;\Rightarrow\beta\gg 1\\
+\left[Fe(C_2O_4)_3\right]^{3-} + 3K^+_{(aq)} = K_3[Fe(C_2O_4)_3]_{s}
+\end{eqnarray}
+
+Quantités introduites : on donne la masse de chacun des éléments mis en jeu. On en déduit 
+\begin{eqnarray}
+n_{C_2O_4^{2-}} \; \mathrm{et} \; n_{Fe^{3+}}
+\end{eqnarray}
+On en conclut quel est le réactif limitant.\\
+
+Retour à la manip : on filtre la solution contenant le complexe avec un filtre Buchner afin de recueillir les cristaux de complexe.\\
+\subsection{Rendement}
+On peut maintenant calculer le rendement en pesant les cristaux obtenus, selon
+\begin{eqnarray}
+\eta = \frac{m_{mesuree}}{n_{Fe^{3+}}M_{comp}} = 60,8\% \; \mathrm{ici}
+\end{eqnarray}
+
+\subsection{Dosage du complexe sec}
+Mélange Ac sulfurique + complexe puis dosage des ions oxalates par le permanganate selon
+\begin{eqnarray}
+2MnO_4^- + 5C_2O_4^{2-} + 16H^+ = 2Mn^{2+} + 10\,CO_2 + 8H_2O
+\end{eqnarray}
+On en déduit 
+\begin{eqnarray}
+n_{comp} = \frac{5}{2}C_0V_{eq} = \frac{5}{2} x 2,0.10^{-2} x 13,25.10^{-3} = 6.625.10^{-4}\;\mathrm{mol}
+\end{eqnarray}
+
+\section{Autre synthèse possible}
+Synthèse d'un complexe du cuivre $[K_xCu(C_2O_4)_y],\,zH_2O$ fait dans le \textbf{Girard} \textit{Chimie inorganique et générale} p3.
+
+\section{Conclusion}
+Citer l'intérêt biologique des complexes : hémoglobine notamment, et possibilité de citer leur utilisation en tant que catalyseurs. Voir pour les deux le poly de \textbf{Pierre Henry Suet}.\\
+Ces procédés de synthèse sont utilisés à plus grande échelle dans l'industrie. Il existe aussi des synthèses organiques qui mettent en jeu des procédés différents.
+
+\section*{Questions}
+Concernant le schéma de $Cl^-$, pouvez vous le dessiner (en représentation de Lewis) ? Idem pour l'ion oxalate ?\\
+Quels sont les bases/Acides associées ?\\
+
+Dans le cadre d'un procédé industriel quel est l'intérêt de l'équation (2) ?\\
+
+$AgCl$ et $AgBr$ sont ils des complexes ?\\
+
+Pour la molécule de trioxalatoferrate(III) $[Fe(C_2O_4)_3]^{3-}$ les liaisons sont elles toutes dans le même plan ?\\
+Ce complexe peut permettre de mesurer l'intensité lumineuse et est dégradé en même temps quand il est exposé à la lumière... pouvez vous l'expliquer ?\\
+
+Lors de la synthèse du complexe : est ce un problème de rajouter de l'eau ?\\
+Oui car le complexe va moins précipiter.\\
+
+Un ion complexe peut il précipiter (seul) ?\\
+Non.\\
+
+Un complexe neutre peut il précipiter (seul) ?\\
+Oui.\\
+
+Pourquoi chauffe t'on lors du dosage du complexe ?\\
+La réaction est plus rapide lorsqu'on apporte de la chaleur.\\
+
+Quel est l'avantage dans le procédé bayer de former de la beauxite ?\\
+Une fois que l'on a obtenu l'aluminium se dissout en milieu basique tandis que le fer reste solide. On peut ainsi les séparer.\\
+
+Actinomètre : Que se passe t'il lorsque $[Fe(C_2O_4^-)_3]^{3-}$ est mis à la lumière ?\\
+Le complexe se dégrade en se transformant en oxalate de fer II lorsqu'il est éclairé.
+
+\section*{Remarques}
+la constante de complexation doit être notée $\beta_n$ pour le complexe $[Fe(C_2O_4)n]^{n-}$.\\
+Toujours mettre les lunettes quand on manipule.\\
+Traiter les déchets en direct.\\
+Mieux préciser les opérations faites pendant la préparation.\\
+Le plan est bon.\\ Cette leçon n'apparait que dans les programmes de terminales STL.\\
+Possibilité de parler de "chimie verte" dans cette leçon. On peut évoquer aussi le bio-mimétisme pour la synthèse de complexes inorganiques.\\
+Utiliser un tableau d'avancement pour expliquer la notion de rendement.\\ 
+On peut gagner du temps en projetant les masses molaires etc... pour le calcul du rendement.\\
+Pour la cristallisation : essayer de faire la synthèse plus tôt pour avoir plus de cristaux.\\
+Concernant les énumérations de propriétés ou utilisations possibles : prescrire et plutôt montrer des complexes colorés par exemple.\\
+Pour les charges totales : ne pas les représenter SUR les molécules, les mentionner à côté.\\
+Mentionner le fait qu'on détruit la majorité des complexes en protonant le liguant.
+ 	
+\end{document}

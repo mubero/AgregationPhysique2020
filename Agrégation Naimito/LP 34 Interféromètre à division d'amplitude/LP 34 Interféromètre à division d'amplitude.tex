@@ -1,0 +1,105 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 34 Interféromètre à division d'amplitude}
+	\author{Clément}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsubsection{prérequis}
+interf a divison du front d'onde\\
+Optique géométrique\\
+interférences
+
+\section{Introduction}
+\subsection{Cohérence spatiale de la source}
+Schéma type fentes d'Young : source primaire $S_0$ qui génère deux sources secondaires cohérentes $A_1$ et $A_2$.\\
+Calcul de 
+\begin{eqnarray}
+\delta (S,M) = (SA_1M)-(SA_2M) = \delta (S_0,M) -S_0A1 + S_0A2 + SA_1 - SA_2\\
+\Delta \delta = [S_0A2-SA_2] - [S_0A_1-SA_0]\\
+S_0A_2 = S_0S + SA_2\\
+... \\
+\mathrm{Finallement}\; \Delta \delta = \vec{S_0S}.(\vec{u}_1-\vec{u}_2)
+\end{eqnarray}
+L'intérêt d'un interféromètre à division d'amplitude va donc être que $\vec{u}_1-\vec{u}_2=\vec{0}$ ce qui va ainsi permettre que l'interférogramme ne souffre pas de l'extension de la source.
+
+\section{Interféromètre de Michelson}
+\subsection{Principe}
+Définition de ce qu'est une lame semi réfléchissante, permettant ici de séparer le faisceau incident en deux faisceaux distinct qui vont suivre des chemins différents avant d'interférer.\\
+Schéma de principe.\\
+La lame séparatrice n'étant pas infiniment mince elle va absorber une partie du rayonnement, et va de plus engendrer des problèmes du fait que cela va dépendre de la longueur d'onde.\\
+
+\subsection{Source ponctuelle}
+Dans le cas d'une source ponctuelle : tracé de rayons sur le schéma.\\
+Analogie avec une lame d'air en considérant le symétrique par rapport à la lame séparatrice du second miroir.\\
+\subsection{Lame d'air}
+Cas où les lames sont parallèles : Schéma avec tracé de rayon, dans l'air, et calcul de la différence de marche entre rayon réfléchi et rayon réfracté 2 fois et réfléchi 1 fois.
+\begin{eqnarray}
+\delta = 2e\cos(r)
+\end{eqnarray}
+Illustration en direct avec les michelson réglé en lame d'air proche du contact optique avec la lampe à sodium.\\
+Cas du doublet du sodium : tracé de la DSP en fonction de $\lambda$ ou $\nu$, puis tracé des éclairements dus à chacune des longueur d'onde, explication de la perte de contraste au point où $\delta$ est tel que les deux éclairements sont en opposition de phase. $\rightarrow$ application possible du michelson réglé en lame d'air pour mesurer la différence de longueur d'onde entre les deux raiens du doublet.
+
+\subsection{Lame d'air}
+Schéma + localisation des interférence. Calcul de la différence de marche  $\delta$ en fonction de l'angle entre les deux lames $\alpha$, $\delta \simeq 2e(x) = 2 \alpha x$ avec x la distance entre le point d'intersection des deux lames et le point d'incidence du rayon.\\
+Illustration avec le Michelson réglé en coin d'air.
+
+\section{Fabry-Pérot}
+
+\section*{Conclusion}
+Intéret de ce type d'interféromètre par rapport à l'extension spatiale des sources.\\
+Intéret pour mesurer précisément des longueurs.\\
+Ouverture sur la détection des ondes gravitationnelles avec Virgo qui un combiné Michelson Frabry-Pérot
+
+\section{Questions}
+Qu'est ce que la localisation des interférences exactement ? Pourquoi sont elles localisée, dans le cas du coin d'air, derrière les séparatrices ?\\
+
+\section{Remarques}
+Utiliser un vocabulaire adapté : pour montrer que la mesure du doublet du sodium est précise : définir le pouvoir de résolution $\frac{\lambda}{\Delta \lambda}$.\\
+En 40 minutes : a t'on le temps de faire un schéma pour une simple différence de chemin optique ??? $\rightarrow$ utiliser un schéma projeté.\\
+Attention à l'accord entre les figures projetées et les schémas construits au tableau.\\
+Rédiger une phrase de construction pour chaque paragraphe et la réécrire encore et encore jusqu'à ce qu'elle soit parfaite.\\
+Enlever les "on pourrait", soit on le fait, soit on ne l'évoque pas.\\
+Tant qu'à manipuler le Michelson : il faut que la figure soit optimale.\\
+Ne pas parler de la séparatrice ou au moins ne pas s'y attarder, puis aller directement à l'analogie Miquelson $\leftrightarrow$ Lames d'air.\\
+Parler du Fabry Pérot en ouverture et énoncer une application moderne possible.
+
+
+
+
+\end{document}

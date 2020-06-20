@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Deux oscillateurs identiques coupl\IeC {\'e}s}{2}
+\contentsline {subsection}{\numberline {1.1}LC coupl\IeC {\'e}s via une capacit\IeC {\'e}}{2}
+\contentsline {subsection}{\numberline {1.2}Deux oscillateurs harmoniques m\IeC {\'e}caniques}{3}
+\contentsline {section}{\numberline {2}Cas de N oscillateurs coupl\IeC {\'e}s}{5}
+\contentsline {section}{\numberline {3}Cas de 2 oscillateurs diff\IeC {\'e}rents}{6}

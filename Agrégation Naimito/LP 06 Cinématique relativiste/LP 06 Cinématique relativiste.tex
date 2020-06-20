@@ -1,0 +1,143 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 06 Cinématique relativiste}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\paragraph{Bibliographie :} 
+\textbf{Pérez, Boratav et le Grossetète}\\
+
+Niveau L3, pré-requis : dynamique newtonienne, électromagnétisme.
+	
+\subsection{Introduction}
+Création historique de la notion de référentiel galiléen (1687), associé à la transformation galiléenne.\\
+Incompatible avec la théorie de l'électromag (1870), puisque la théorie newtonienne stipule que les loi de la physique sont invariantes par changement de ref galiléen, ce qui n'est pas le cas pour l'électromag.
+
+\section{Insuffisance de la cinématique classique}
+\subsection{Transformation de Galilée et électromagnétisme de Maxwell}
+
+On écrit l'expression de la force de Lorentz pour une particule de charge q 
+\begin{eqnarray}
+F = q(E+V\times B)
+\end{eqnarray}
+ puis on regarde comment elle se comporte par changement de référentiel : on fait la transformation de la vitesse : $v' = v+v_e$ et de la charge $q=q$', on trouve alors que pour que cette force soit la même dans les deux référentiels il faut que les champs électriques perçus soient différents : problème.\\
+ On a donc introduit la notion d'éther pour expliquer ce résultat, milieu dans lequel se propage les ondes électromagnétiques à la vitesse c.
+ 
+\subsection{Hypothèse de l'éther : expérience de Michelson et Morley}
+Cette hypothèse a pour principe de déterminer la vitesse de translation du référentiel terrestre par rapport à celui dans lequel l'éther est fixe.\\
+
+On présente l'interféromètre de Michelson à l'aide d'un schéma, puis on explique ce que l'on s'attend à observer avec l'expérience réalisée, dans le cas où l'éther existe bel et bien. On peut donner les résultats des calculs et ainsi dire quels sont les mesures auxquelles on s'attend avec les caractéristique des instruments de l'époque.\\
+
+On a comme résultat, qu'aux incertitudes près on a aucune différence de phase entre les deux bras : pas d'éther.\\
+
+A la découverte des ondes radio on renforce la confiance que l'on avait dans le modèle de MAXWELL et on arrive donc à la conclusion qu'il faut introduire une nouvelle transformation : la transformation de Lorentz (nom donné par Poincaré).\\
+
+On donne la transformation, on peut la comparer à la transformation de Galilée : cette fois ci le temps n'est plus absolu et commun à tous les référentiels : il dépend maintenant du ref choisi.
+
+ \section{Fondements de la cinématique relativiste}
+ \subsection{Postulats}
+ On conserve le postulat de Newton : \textbf{principe de la relativité} : quel que soit le référentiel choisi les équations de la physique sont les mêmes, on passe d'un ref à l'autre via la transformation de Lorentz.\\
+ 
+ 2e postulat : la norme de la vitesse de la lumière est la même dans tous les référentiels.\\
+ 
+ Einstein ajoute à cela le principe qui stipule que le formalisme Newtonien doit être la limite obtenue pour les petites vitesses : "limite classique". Ainsi la relativité apparaît comme un prolongement.
+ 
+ \subsection{Transformée de Lorentz : 1904}
+ Introduire la notion d'évènement. \\
+ On vérifie le principe d'équivalence en regardant le DL de la transformation de Lorentz, qui nous donne la transformation de Galilée à l'ordre un en $v_e/c$.\\
+ 
+ Propriétés de la transformation : réciprocité, impose $c$ comme vitesse limite, on montre que la quantité 
+ \begin{eqnarray}
+ \Delta s^2 = c^2t^2 -x^2-y^2-z^2
+ \end{eqnarray}
+est conservée par transformation de Lorentz. Qu'est ce que cette quantité a de particulier ? C'est ce que l'on va voir maintenant.
+
+\subsection{Intervalle entre deux évènements}
+En cinématique newtonienne l'intervalle de temps, et la distance en deux évènements sont tout deux invariants pas transformation de Lorentz. Ici on a vu que l'intervalle n'était plus conservé, on va donc ici interpréter ce $\Delta s$ comme la mesure d'un intervalle, mais du genre temps-espace cette fois.\\
+
+Cas de deux évènements qui sont liés par un signal lumineux, on peut facilement voir que d'exprimer la vitesse du photon liant ces deux évènements impose 
+\begin{eqnarray}
+c^2 = \frac{x_1-x_2)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}{(t_1-t_2)^2}
+\end{eqnarray}
+que ce nouvel intervalle introduit soit conservé.\\
+
+Notion d'intervalle de genre temps : $\Delta s^2>0$, espace $\Delta s^2<0$ et lumière $\Delta s ^2 = 0$, principe de causalité.
+
+\section{Conséquence}
+\subsection{Dilatation du temps}
+On considère deux référentiels galiléens en translation l'un par rapport à l'autre, et on regarde les temps donné par deux horloge situées chacune dans un référentiel. Introduire la notion de temps propre et montrer que dans tout autre ref le temps est dilaté.\\
+
+Notion de paradoxe des horloges.
+
+\subsection{Vérification expérimentale}
+Donner la date, expérience d'observation de muons, particules ayant un temps de vie trop court pour être détectés au sol selon la cinématique newtonienne.
+
+\section*{Conclusion}
+La théorie de l'électromagnétisme aura conduit à revoir notre perception de l'espace et aura engendré la naissance d'une théorie dont les résultats sont tout aussi saisissants que vérifiés.
+
+\section*{Questions}
+Comment lève t'on ce paradoxe des horloges ?\\
+Ce n'est pas un paradoxe... on regarde juste le symétrique.\\
+
+Qu'est ce que la notion de perte de simultanéité ?\\
+
+Quelles sont les contraintes que chaque transformation doit satisfaire ?\\
+Linéarité, réciprocité, équation d'onde :  $x^2 = ct^2$ conservé.\\
+
+Les postulats : homogénéité et isotropie de l'espace sont ils propres à la relativité restreinte ?\\
+Ce sont les postulats appliqués pour obtenir le principe cosmologique en RG.\\
+
+Exemples d'effets relativistes dans la vie commune ?\\
+GPS. Structure hyperfine des orbitales atomiques. 
+
+
+
+\section*{Remarques}
+Il faut bien insister à chaque fois sur la notion d'évènement.\\
+On peut parler de la composition des vitesses : c'est tout de même la différence majeur entre relat et newton : la compo des vitesses n'est plus vectorielle. Dans ce cas ne faire que ce calcul au tableau pendant la leçon, projeter les autres. La mettre en II.3, et passer le II.3 au III.1. Illustrer avec le cas de deux particules à 0.9c qui vont entrer en collision : calculer alors la vitesse relative.\\
+
+On peut évoquer Doppler relativiste comme conséquence.\\
+
+Partir du fait que la vitesse de la lumière apparaît comme constante : l'introduire avec l'expérience de Michelson, et supprimer la partie 1.1 pour gagner du temps.\\
+
+Attention avec le principe d'équivalence qui est lui en RG : il concerne l'équivalence de la masse grave et de la masse inerte.\\
+
+Redéfinir à l'oral la notion de référentiel galiléen.
+
+\end{document}

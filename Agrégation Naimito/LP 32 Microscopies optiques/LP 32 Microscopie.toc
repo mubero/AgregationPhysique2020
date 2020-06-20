@@ -1,0 +1,23 @@
+\contentsline {subsection}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {1}Lois de l'optique g\IeC {\'e}om\IeC {\'e}triques appliqu\IeC {\'e}es \IeC {\`a} un mod\IeC {\`e}le de microscope}{2}
+\contentsline {subsection}{\numberline {1.1}Constitution}{2}
+\contentsline {subsection}{\numberline {1.2}Applications des lois}{2}
+\contentsline {subsection}{\numberline {1.3}Exp\IeC {\'e}rimentation du mod\IeC {\`e}le}{3}
+\contentsline {subsubsection}{\numberline {1.3.1}Mod\IeC {\`e}le de l'\IeC {\oe }il}{3}
+\contentsline {subsubsection}{\numberline {1.3.2}Mesures}{3}
+\contentsline {subsection}{\numberline {1.4}Objectif r\IeC {\'e}el}{3}
+\contentsline {subsubsection}{\numberline {1.4.1}Diaphragme d'ouverture}{3}
+\contentsline {subsection}{\numberline {1.5}Oculaires r\IeC {\'e}els}{3}
+\contentsline {subsubsection}{\numberline {1.5.1}Achromatisme}{3}
+\contentsline {subsubsection}{\numberline {1.5.2}Verre de champ}{3}
+\contentsline {subsubsection}{\numberline {1.5.3}Cercle oculaire}{3}
+\contentsline {section}{\numberline {2}Limite de r\IeC {\'e}solution}{4}
+\contentsline {subsection}{\numberline {2.1}Diffraction}{4}
+\contentsline {subsection}{\numberline {2.2}Mise en \IeC {\'e}vidence exp\IeC {\'e}rimentale}{4}
+\contentsline {subsection}{\numberline {2.3}Battre la limite de diffraction}{4}
+\contentsline {subsubsection}{\numberline {2.3.1}PALM}{4}
+\contentsline {subsubsection}{\numberline {2.3.2}STED}{4}
+\contentsline {section}{\numberline {3}Conclusion}{4}
+\contentsline {subsection}{\numberline {3.1}Diff\IeC {\'e}rentes m\IeC {\'e}thodes}{4}
+\contentsline {section}{\numberline {4}R\IeC {\'e}f\IeC {\'e}rences}{4}
+\contentsline {section}{\numberline {5}Remarques}{4}

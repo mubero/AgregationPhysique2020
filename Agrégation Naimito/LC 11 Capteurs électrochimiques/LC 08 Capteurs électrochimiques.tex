@@ -1,0 +1,136 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 08 Capteurs électrochimiques}
+		\author{Naïmo Davier}
+		\date{Agrégation 2018}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsubsection{Pré-requis}
+
+ Piles électrochimiques\\
+Notion de base en électrocinétique\\
+Dosages.
+\subsubsection{Intro}
+
+Définition de capteur, puis de capteur électrochimique.\\
+Utilisation.
+
+\section{Piles électrochimiques et potentiel d'électrode}
+\subsection{Pile électrochimique}
+Pile Daniel : schéma, plus principe de fonctionnement, avec illustration en direct : \textbf{Girard} \textit{Chimie inorganique et générale} p64 ou \textbf{Le maréchal} \textit{Chime générale} p190.\\
+Explication concernant la mesure de courant circulant entre l'anode et la cathode (à définir) de la pile.\\
+Que se passe t'il si on place une grosse résistance entre les deux bornes (cf si je place un voltmètre) : notion de courant sortant de l'anode pour aller vers la cathode à illustrer avec un voltmètre.
+\subsection{Electrode et électrode de référence}
+Force électromotrice dépendant de $\Delta E = E_{cathode} - E_{anode} = E_c-E_a$ $\Rightarrow$ nécessite une référence $E_0$ :
+\begin{eqnarray}
+\Delta E = E_c-E_0 - (E_a-E_0) = E_C-E_A
+\end{eqnarray}
+Présentation du concept d'électrode de référence avec l'électrode standard à hydrogène.
+\paragraph{Présentation de l'électrode au calomel saturé} : schéma, fonctionnement, avantages (surtout très stable).
+
+\section{Relation de Nernst}
+\subsection{Mise en évidence expérimentale}
+\textbf{Cachau Herreillat} \textit{Des expériences de la famille Red-OX} p227.\\
+
+Montage : $AgNO_3$ en solution, électrode d'argent et électrode au calomel saturé afin de déterminer le potentiel du couple $Ag^+/Ag_{(s)}$. On trace 
+\begin{eqnarray}
+E = \Delta E_{mes} + E_{ECS} = f(\log_{10}[Ag^+])
+\end{eqnarray}
+Et on obtient ainsi une droite : $\Delta E = \alpha + \beta \log([Ag^+])$ avec $\alpha$ et $\beta$ en V.\\
+On compare ensuite aux valeurs attendues.
+
+\subsection{Enoncé de la loi de Nernst}
+On considère la réaction 
+\begin{eqnarray}
+a\,Ox + b\,B + ne^- = C\,Red + dD
+\end{eqnarray}
+on a alors la loi de Nernst qui s'exprime comme
+\begin{eqnarray}
+\Delta E = E^0(Ox/Red,T) + \frac{RT\ln(10)}{nF}\log\left(\frac{[Ox]^{a}[B]^b}{[Red]^c[D]^d}\right)
+\end{eqnarray}
+On peut illustrer avec quelques exemples : \textit{ne faire que le premier (pas le temps)}\\
+
+ l'électrode d'argent correspondant au couple $Ag^+/Ag_{(s)}$ : $Ag^+ + e^- = Ag_{(s)}$. (remarque : permet de mesurer une concentration en ions chlorure $AgCl_{(s)} + e^- = Ag_{(s)} + Cl^-$).
+ 
+ ESH correspondant au couple $ H^+/H_2{(g)}$ : $2H^+ + 2e^- = H_{2(g)}$.
+ 
+ Électrode au calomel saturé ECS : couple $Hg_2Cl_{2(s)}/Hg_{(l)}$ : $Hg_2Cl_{2(s)} + 2e^- = 2Hg_{(l)} + 2Cl^-$.
+ 
+ \subsection{Polarité et force électromotrice d'une pile}
+ 
+Dans le cas d'une pile (schéma) on peut écrire la relation de Nernst pour les deux électrodes, à la cathode et à l'anode. On regarde ici en direct ce qu'il se passe pour une pile daniel où les couples en jeu sont donc $Cu^+/Cu_{(s)}$ et $Zn^{2+}/Zn_{(s)}$.\\
+Remarque sur la dépendance au PH du potentiel d'électrode en cas de présence d'ions $H_3O^+$.
+
+\section{Capteurs électrochimiques}
+On va commencer par parler de la sélectivité d'un capteur.
+\subsection{Dosage potentiométrique - Sélectivité}
+\subsection{Mesure du PH : électrode de Verre}
+\subsection{Mesure de la teneur en $O_2$ de gaz d'échappement : sonde lambda}
+
+
+\section*{Questions}
+Quelle est la définition d'une électrode ?\\
+
+Pour la relation de Nernst, que met on lorsque l'un des réactifs est solide ou gazeux ?\\
+
+Dans la demie équation de l'ECS : pourquoi fait on apparaître des ions $Cl^-$ ?\\
+Pouvez vous écrire les demies équations Red-Ox en jeu ?\\
+\begin{eqnarray}
+Hg_2Cl_{2(s)} = 2H_g^+ + 2Cl^-\\2e^- + 2Hg^+ = 2Hg_{(l)}\\
+Hg_2Cl_{2(s)} + 2e^- = 2Hg_{(l)} + 2Cl^-
+\end{eqnarray}
+
+La notion de saturation (abordée) est elle connue des élèves de SPCL ?\\
+
+Comment motiver dans la pratique (par un exemple pratique) les étudiants quand aux mesures par étalonnage présentées ici ?\\
+
+Comment auriez vous fait pour déterminer la concentration d'une solution inconnue avec votre droite d'étalonnage ? Pouvez vous le faire ?\\
+
+Existe il des capteurs électrochimiques qui mesurent autre chose qu'une différence de potentiel ?\\
+
+Quel est le couple Red-Ox impliqué dans une électrode verre ?\\
+Il n'y a pas de couple Red-Ox : électrode à membrane.
+
+\section*{Remarques}
+Tout prévoir à portée de main : pipette, propipettes, eau distillée (remplie) etc...\\
+Boucher et secoucer les fioles jaugées pour homogénéiser !!\\
+Sur les schémas attention à la représentation des ponts salins.\\
+Mieux dégager sa paillasse pour que l'on puisse tout voir des manipulations.\\
+Il faut équilibrer en direct et à la main.\\
+Pour la loi de Nernst : introduire la notion d'activité, sans nécessairement formuler explicitement le concept : mais la différence doit être claire entre solide, liquide et gaz.\\
+Essayer de passer plus vite sur la première partie.
+\end{document}

@@ -1,0 +1,13 @@
+\contentsline {subsection}{\numberline {0.1}Pr\IeC {\'e}-requis}{2}
+\contentsline {section}{\numberline {1}Les 12 principes de la chimie verte}{2}
+\contentsline {subsubsection}{\numberline {1.0.1}\IeC {\'E}viter les d\IeC {\'e}chets}{2}
+\contentsline {subsubsection}{\numberline {1.0.2}\IeC {\'E}conomies d'\IeC {\'e}tapes et d'atomes}{2}
+\contentsline {subsubsection}{\numberline {1.0.3}R\IeC {\'e}duire la dangerosit\IeC {\'e}}{2}
+\contentsline {subsubsection}{\numberline {1.0.4}R\IeC {\'e}duire l'utilisation des substances auxiliaires}{2}
+\contentsline {subsubsection}{\numberline {1.0.5}Efficacit\IeC {\'e} \IeC {\'e}nerg\IeC {\'e}tique}{2}
+\contentsline {subsubsection}{\numberline {1.0.6}Ressources renouvelables}{3}
+\contentsline {subsubsection}{\numberline {1.0.7}Privil\IeC {\'e}gier les catalyseurs}{3}
+\contentsline {subsubsection}{\numberline {1.0.8}Penser \IeC {\`a} la d\IeC {\'e}gradation des produits}{3}
+\contentsline {subsubsection}{\numberline {1.0.9}Surveiller les processus en temps r\IeC {\'e}el}{3}
+\contentsline {subsubsection}{\numberline {1.0.10}Pr\IeC {\'e}vention contre les risques}{3}
+\contentsline {section}{\numberline {2}Manipulation illustrative : Synth\IeC {\`e}se de l'\IeC {\'e}thanoate de linalyle}{3}

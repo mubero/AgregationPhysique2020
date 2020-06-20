@@ -1,0 +1,19 @@
+\contentsline {subsection}{\numberline {0.1}Pr\IeC {\'e}-requis}{2}
+\contentsline {subsection}{\numberline {0.2}Introduction}{2}
+\contentsline {section}{\numberline {1}Interactions faibles}{2}
+\contentsline {subsection}{\numberline {1.1}N\IeC {\'e}cessit\IeC {\'e} exp\IeC {\'e}rimentales}{2}
+\contentsline {subsection}{\numberline {1.2}Interactions de Van der Waals}{2}
+\contentsline {subsection}{\numberline {1.3}Liaison hydrog\IeC {\`e}ne}{2}
+\contentsline {section}{\numberline {2}Solvants}{2}
+\contentsline {subsection}{\numberline {2.1}D\IeC {\'e}finition}{2}
+\contentsline {subsection}{\numberline {2.2}Propri\IeC {\'e}t\IeC {\'e}s et classification}{3}
+\contentsline {paragraph}{Polarit\IeC {\'e}}{3}
+\contentsline {paragraph}{Proticit\IeC {\'e}}{3}
+\contentsline {subsection}{\numberline {2.3}Dissolution}{3}
+\contentsline {paragraph}{Ionisation}{3}
+\contentsline {paragraph}{Dispersion}{3}
+\contentsline {paragraph}{Solvatation}{3}
+\contentsline {subsection}{\numberline {2.4}Miscibilit\IeC {\'e}}{3}
+\contentsline {paragraph}{Manip :}{3}
+\contentsline {section}{\numberline {3}Extraction liquide-liquide}{4}
+\contentsline {paragraph}{Manip :}{4}

@@ -1,0 +1,177 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 15 Transitions de phase}
+\author{Maxime}
+
+\maketitle
+
+\tableofcontents
+
+\pagebreak
+
+
+\subsection{Pré-requis}
+Principes de la thermodynamique\\
+-Identités thermodynamiques
+
+\subsection{Introduction}
+Omniprésence des transitions de phase dans la vie courante.\\
+Schéma avec 3 phases : gazeuse, liquide, solide avec les noms des transformations permettant de passer de l'une à l'autre.
+
+\section{Définitions et exemple}
+On définit deux phases par le fait qu'il y a une discontinuité des grandeurs extensives ou de leurs dérivées lors du passage d'une phase à l'autre.\\
+Exemples de transition de phase du premier et second ordre.
+\section{digramme de phase}
+\subsection{Surface caractéristique}
+surface caractéristique : présentation d'un graphe P,T,V\\
+Difficile à interpréter $\rightarrow$ projections 2D possibles, plus simples à visualiser.
+
+\subsection{Diagramme PT}
+\subsection{Diagramme PV ou diagramme de Clapeyron}
+\subsection{Exemple de l'eau}
+Cette fois la ligne séparant solide et liquide dans le diagramme PT est dans ce cas assez particulier décroissante (sa dérivée par rapport à T est négative).\\
+Placement des points d'ébullition et de gelée de l'eau à pression ambiante : 1 atm.
+
+\section{Lien avec la thermodynamique}
+
+\subsection{Condition d'équilibre entre deux phases}
+
+$dG =0$ à l'équilibre.
+\begin{eqnarray}
+G(T,P,N;x_2) = x_2G_2(T,P,N) + (1-x_2)G_1(T,P,N) = (G_2-G_1)x_2 + G_1
+\end{eqnarray}
+On trace donc les trois cas :\\
+
+$G1>G_2$ tout le système va être dans la phase 2\\
+
+$G1=G_2$ le système va pouvoir être dans deux phases simultanément\\
+
+$G1<G_2$ tout le système va être dans la première phase\\
+\begin{eqnarray}
+dG = -SdT + VdP + \mu dN = \mu dN\;\mathrm{a\;T\;etP\;constantes}\\
+Gibs\; :\; \rightarrow \;G_1 = \mu_1N\\
+\rightarrow\; G_2 = \mu_2 N\\
+\mathrm{or}\; G_1=G_2  \Rightarrow \mu_1=\mu_2
+\end{eqnarray}
+\subsection{Chaleur latente}
+Quantité d'énergie à fournir pour porter une môle de liquide à l'état gazeux.
+\begin{eqnarray}
+\mathcal{L} = \Delta H_{1\rightarrow 2} = T\Delta' S_{1\rightarrow 2}
+\end{eqnarray}
+On va ici la mesurer, en chauffant de l'eau dans un bac dont les parois sont adiabatiques et en mesurant en direct la masse d'eau dans le bac. On connait la chaleur apportée par grâce au fait que l'on connait la puissance électrique que l'on envoie à notre résistance :
+\begin{eqnarray}
+Q = P\Delta t = \Delta m \,\mathcal{L}
+\end{eqnarray}
+où $\Delta m$ est la masse d'eau qui s'est transformée en vapeur pendant $\Delta t$. Si on relève m(t) sur un graphe on obtient à priori une droite (à puissance électrique constante) dont on déduit 
+\begin{eqnarray}
+\mathcal{L} = P \left(\frac{dm}{dt}\right)^{-1} = 2257\;kJ/mol
+\end{eqnarray}
+On a donc un écart relatif de $2,4\%$.\\
+Commentaire sur la valeur particulièrement élevée pour $\mathcal{L}$ notamment dans le cas de l'eau.
+\section{Conclusion}
+Ouverture sur les transitions du deuxième ordre.
+
+\section*{Questions}
+Comment lit on le diagramme PTV ?\\
+Il faut bien préciser que l'on est dans un système fermé pour interpréter les diagrammes.\\
+
+Peut on prendre un point n'importe où dans l'espace généré par les variables P,T et V ?\\
+non : c'est une surface : les trois variables ne sont pas indépendantes (liées par une équation d'état (ex : gaz parfait)).\\
+
+Quand vous dites que l'on contourne le point critique, vous parlez de transition de phase continue.. c'est à dire ?\\
+Dans ce cas votre définition de phase ne tient plus, puisqu'il n'y a pas de transition de phase...pourtant on passe de liquide à gaz ?\\
+Du coup vous retirez le terme "transition de phase continue" ?\\
+
+Que se passe t-il si on passe au point critique ?\\
+Transition du 2e ordre.\\
+
+Sur le diagramme PT : 
+
+Si je prend en point M dans la partie L+G du diagramme PV, comment est représenté ce point expérimentalement ?\\
+Pouvez vous dessiner un protocole pour atteindre ce point expérimentalement ?\\
+
+Dans le diagramme PT la ligne triple passe t-elle par le point (0,0) ?\\
+Oui, et à ce point la dérivée doit être nulle.\\
+
+Pouvez vous démontrer que 
+\begin{eqnarray}
+x_{gaz} = \frac{AM}{AB}
+\end{eqnarray}
+où pour une isotherme donnée A est la transition L-> L+G, B la transition L+G -> G et M est entre les deux ?\\
+
+Analogie avec le calcul et les tracés de G ? Y a t'il un lien ?\\
+
+Quelle est la formule de Clapeyron ?\\
+\begin{eqnarray}
+\frac{dP_S(T)}{dT} = \frac{\mathcal{L}_{1\rightarrow2}/n}{T(v_2-v_1)}
+\end{eqnarray}
+
+Comment s'en sert on pour donner la limite de $\mathcal{L}$ au point critique ?\\
+
+Dans l'expérience où l'on mesure $\mathcal{L}_{eau}$, comment prétend on que le système est isolé thermiquement alors que le bac contenant l'eau est ouvert ?\\
+La perte liée au chauffage de l'air par l'ouverture est négligeable. Et on est obligé d'ouvrir pour mesurer une différence de masse : "on ne doit peser que l'eau liquide".\\
+
+Quelle est la différence entre ébullition et vaporisation ?\\
+
+Si je prend un bocal, je le rempli à moitié d'eau puis je le ferme. Où se situe l'eau dans le bocal sur les diagrammes PT et PV ?\\
+à l'équilibre la pression partielle de la vapeur d'eau dans l'air va être égale à la pression saturante $P_S$.
+
+Pouvez vous expliquer le principe de la lyophilisation des aliments ?\\
+On prend un aliment et on le refroidit à pression constante (l'eau gèle), puis on baisse la pression : l'eau passe à l'état gazeux (sublimation) $\rightarrow$ on obtient un produit déshydraté, qui a conservé sa qualité.
+
+Pourquoi souffle t-on sur sa soupe pour la faire refroidir ?
+
+Question cocotte minute.\\
+
+Pourquoi transpire t'on ?\\
+
+\section*{Remarques}
+Il faut être capable de démontrer chaque chose que l'on dit ou écrit.\\
+La manip est bonne pour l'agreg docteur, mais elle prend du temps, donc pas très judicieux pour l'agreg externe, où une manip n'est pas nécessaire, si on tient à faire une manip : faire une courbe de refroidissement.\\
+Il commencer la leçon en définissant le système étudié : ici un corps pur dans un système fermé.\\
+Si on fait la courbe de refroidissement : expliquer en ce concentrant sur une transition et illustrer avec les diagrammes PV et PT.\\
+Enlever la surface caractéristique (et peut être l'exemple de l'eau ou alors le projeter).\\
+Possibilité de parler de la variance.\\
+Il faut introduire la formule de Clapeyron.\\
+Possibilité de tracer les diagrammes dans le cas d'un gaz de Van der Vaals\\
+C'est bien de donner des ordres de grandeurs pour la chaleur latente et la comparer à la capacité calorifique.\\
+On peut aussi illustrer qu'il existe des transitions de phase solide-solide.
+Parler des états méta-stables, de l'évaporation ou des transitions de phase du second ordre (plutôt en ouverture), au choix.\\
+Ouvrir aussi sur les machines thermiques, et sur les transitions de phase autres que pour les corps purs : système binaire, ternaire etc...\\
+
+Regarder l'oiseau buveur.\\
+
+Glaçon-patin à glace :\\
+fil de métal placé sur un glaçon : après un certains temps le fil est dans le glaçon.\\
+
+On peut expliquer pas mal de phénomènes météorologiques grâce aux transitions de phase. Regarder par exemple la condensation de l'air qui forme des nuages lorsque l'air arrive au niveau d'une montagne : l'air monte donc la température (et la pression) diminue, entrainant la condensation de la vapeur d'eau et donc la formation d'un nuage.\\
+Voir aussi l'effet de Fohen
+
+
+\end{document}

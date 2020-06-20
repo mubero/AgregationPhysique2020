@@ -1,0 +1,99 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 31 Résonance}
+	\author{Clément}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\section{Introduction}
+
+\section{Corde de Melde}
+
+Corde excitée par un vibrateur et oscillant donc à une fréquence donnée.\\
+Vibrateur : Imax = 1A et Vmax = ?\\
+On va appliquer un signal sinusoïdal dd'amplitude 3V, avec des masselottes de 200g et 1g.
+Lorsque l'amplitude de la vibration de la corde est max on relève la fréquence su signal d'entrée à l'oscillo, et on note ainsi la fréquence associée à chacun des modes. On peut ensuite modéliser f(n) par une droite (n étant le n° du mode). On en déduit que $f = \alpha n$, ce qui est cohérent puisque l'on peut montrer analytiquement que $\alpha =\frac{c}{2l}$, avec $c$ la célérité de la corde. On a aussi $c=\sqrt{\frac{T}{\mu}}=\sqrt{\frac{m*g}{m_c/l}}$, on peu regarder si les résultats sont cohérents entre eux.\\
+Incertitudes :
+\begin{eqnarray}
+\left(\frac{u_c}{c}\right)^2 &=& \left(\frac{u_{\alpha}}{\alpha}\right)^2+\left(\frac{u_l}{l}\right)^2\\
+&=& \frac{1}{2}\left( \left(\frac{u_{m_c}}{m_c}\right)^2+\left(\frac{u_m}{m}\right)^2+\left(\frac{u_l}{l}\right)^2\right)
+\end{eqnarray}
+
+\section{Circuit RLC en Série}
+schéma\\
+\subsubsection{Mesure en intensité}
+on regarde $U_R(t)$, et on observe quelle est la réponse en intensité selon la fréquence du signal d'entrée, pour quelques valeurs de R données, on remarque que l'intensité max décroît avec R.\\
+\begin{eqnarray}
+Q&=&\frac{L\omega_0}{R} \; \Rightarrow \; \left(\frac{u_Q}{Q}\right)^2 = \left(\frac{u_{\omega_0}}{\omega_0}\right)^2+\left(\frac{u_L}{L}\right)^2+\left(\frac{u_R}{R}\right)^2\\
+&=& \frac{f_0}{f_{c_1}f_{c_2}}
+\end{eqnarray}
+où les $f_{c_i}$ sont les deux fréquences de coupure à -3dB autour du pic de résonance.
+\subsubsection{Mesure en énergie}
+On regarde ici E(f).
+\section{Questions}
+
+$i)$ Pourquoi as tu branché le GBF au vibrateur de cette manière ?\\
+$\rightarrow$ c'est dû à la résist interne du vibrateur, on veut observer une tension précise et on va donc se heurter à la notion d'adaptation d'impédance.\\
+
+$ii)$ Comment fonctionne le trigger ?\\
+$\rightarrow$ balayage selon x, et selon y (en l'occurrence selon t et selon V). Trigger c'est déterminer le temps d'attente entre deux affichages du signal, en fixant la tension à laquelle l'affichage "démarre".\\
+Rq: ne pas appuyer sur "autoscale", il faut régler manuellement pour bien comprendre et être capable d'anticiper.\\
+
+$iii)$ Comment as tu choisit ta méthode de mesure de la fréquence pour la corde de Melde ?\\
+$\rightarrow$ on mesure plusieurs périodes.\\
+
+$iv)$ As tu pris en compte l'incertitude liée à la mesure de la fréquence dans le calcul de c ?\\
+$\rightarrow$ Oui c'est pris en compte dans la modélisation de $f(n)$ et se retrouvera donc sur l'incertitude de $\alpha$.\\
+
+$v)$ Comment régressi calcule lo modèle de la droite ? Quel est le principe de l'algorithme ?\\
+$\rightarrow$ Méthode des moindres carrés : on minimise la somme des carrés de l'écart de chacun des points au modèle.\\
+
+$vi)$ Comment as tu choisi les paramètres d'acquisition sous latis pro pour la caractérisation du RLC ?\\
+$\rightarrow$ On prend 50 points par période pour avoir une bonne résolution sans problèmes liés au quantum + on règle la plage en fonction de l'amplitude max du signal.\\
+
+\paragraph{Montage surprise :} caractérisation d'un RLC aux bornes de R.\\
+On sait, en résolvant les équa diff que le signal $U_R(t)$ va être une sinusoïde de période $\omega_0=\sqrt{\frac{1}{LC}}$ modulée par une exp décroissante de temps caract $\tau = L/R$. On choisit donc la valeur des composants de sorte à observer plusieurs oscillations : R doit être suffisamment petit et C suffisamment grand. On peut ensuite observer à l'oscillo la réponse à une échelon (ou on utilise un interrupteur).\\
+Rq: on aura une intensité nulle si $V_e(t)=0$, mais aussi lorsque $V_e(t)\neq0$ dès que le condensateur est chargé.\\
+
+\section{Remarques générales}
+Possibilité de parler de résonance paramétrique, demande un peu plus de maitrise.\\
+Pour le RLC il faut discuter le lien entre aspect du diagramme de Bode et valeur de la résistance.\\
+Possibilité de montage mécanique(analogie avec elec possible) : masse(L) + ressort(k=1/L) + amortisseur(R).\\
+On peut tracer la puissance au niveau de la résistance en utilisant un multiplieur faisant $V_e x V_R$ (avec une résistance de $1\Omega$ par exemple). On trace ensuite $P(\omega)$.\\
+La notion d'énergie associée à la résonance est pertinente car transposable à pas mal de domaines de la physique : elec, méca, MQ...
+\end{document}

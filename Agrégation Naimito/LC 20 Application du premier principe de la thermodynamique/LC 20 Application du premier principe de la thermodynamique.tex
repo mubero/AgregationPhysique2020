@@ -1,0 +1,125 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 20 Application du premier principe de la thermodynamique à la réaction chimique}
+	\author{Etienne}
+	\date{Agrégation 2019}
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+
+\subsection{Niveau et pré-requis}
+Niveau prépa
+
+\section{Rappels et notations}
+Premier principe 
+\begin{eqnarray}
+\Delta U = W+Q\\
+W = -P_e \Delta V
+\end{eqnarray}
+Dans le cas 
+\begin{eqnarray}
+P_F=P_I = P_e\\
+\rightarrow\Delta H= Q = \Delta (U+PV)
+\end{eqnarray}
+On a  
+\begin{eqnarray}
+\Delta H = \int \Delta _r H d\xi
+\end{eqnarray}
+et 
+\begin{eqnarray}
+\Delta _r H \simeq \Delta _r H^o
+\end{eqnarray}
+Mesures en direct des $\Delta _{sol} H^o$ de deux espèces : $NaOH$ et $NH_4CP$.
+
+\section{Détermination directe : Calorimétrie}
+\subsection{Principe}
+\begin{eqnarray}
+\Delta H_{(var\, T)} = \sum_i m_i c_{p_i}\Delta T_i\\
+\Delta H_{(var\, C)} = \Delta _r H^o \Delta\xi\\
+\Longrightarrow Q = \Delta _r H^o \Delta\xi +  \sum_i m_i c_{p_i}\Delta T_i
+\end{eqnarray}
+\subsection{Enthalpie de changement d'état}
+Détermination de l'enthalpie de fusion de la glace : \textit{Le Maréchal} \textbf{Tome 1 Chimie générale} p262.\\
+
+On mesure T grâce à un calorimètre, on pèse la masse de liquide $m_l$ et on pèse la masse de glace introduite $m_g$. La glace placée dans l'eau va fondre, le tout dans le calorimètre, et on va pouvoir, en mesurant la température de l'eau après que la glace ait fondue $T_t$, remonter à $\Delta _{fus}H^o$ pour l'eau selon 
+\begin{eqnarray}
+0 = \frac{\Delta_{fus} H^o }{M_{eau}}m_g + (m_l+\mu)c_{p_{eau}}(T_t-T_l) + m_g c_{p_{eau}}(T_t-T_{fus})
+\end{eqnarray} 
+On peut expliquer l'écart entre la valeur obtenue et la valeur tabulé par le fait qu el'on a supposé que toute la glace était à exactement $0^oC$ alors que ce n'est pas le cas dans la réalité.
+
+\subsection{Suivi thermométrique}
+\textit{Le Maréchal} \textbf{Tome 1 Chimie générale} p257.\\
+
+Ici on veut utiliser l'enthalpie standard de réaction pour doser de l'acide chlorhydrique avec des ions hydroxyde. On mesure la température en fonction du temps en dosant de l'acide chlorhydrique par les ions hydroxyde. Et on trace ainsi $T(V_{hydr})$, dont on peut prévoir la forme, en effet on peut exprimer le bilan thermique de deux manières différentes 
+\begin{eqnarray}
+Q &=& m_{liquide}\, c_p\, \Delta T = (m_a+\mu + \rho V)\,c_p \,(T-T_0)\\
+&=& -C_b\, V\, \Delta_rH^o
+\end{eqnarray}
+avec $\rho$ la masse volumique de la solution de soude $\simeq $ 1 g.L$^{-1}$, et $\mu$ la masse en eau du calorimètre. En en déduit ainsi une relation entre $T$ la température de la solution à l'intérieur du calorimètre et $V$ le volume de soude ajouté.
+\begin{eqnarray}
+0 = \Delta _r H^o \,C_b\,V + (m_a+\mu + \rho V)c_p (T-T_0)\\
+\Rightarrow T = T_0 - \frac{V}{(m+\mu + \rho V)c_p}C_b\Delta_rH^o 
+\end{eqnarray}
+Une fois l'équivalence passée il n'y a plus de réaction et donc plus de chaleur libérée. On a donc une courbe $T(V)$ décroissante puisqu'on ajoute de la soude à la température $T_0<T$, on s'attend donc à avoir un maximum de température en $V=V_{eq}$.\\
+On peut de plus estimer la valeur de $\Delta_rH^o$ en modélisant la première portion de courbe par la forme attendue.
+
+\section{Déterminations indirectes : Loi de Hess}
+H est une fonction d'état et ne dépend donc pas du chemin suivi, on peut donc déduire l'enthalpie de sublimation de l'eau en passant par la fusion puis la vaporisation.
+\subsection{Enthalpie standard de formation}
+On la note $\Delta_fH^o(X)$, définition.\\
+Exemple de $\Delta_fH^o(C_6H_6, l)$ :
+\begin{eqnarray}
+6C_{(gr)} + 3H_{2(g)} \longrightarrow C_6H_{6(l)}\hspace{1cm}\Delta_r H^o =\Delta_fH^o(C_6H_6, l)
+\end{eqnarray}
+
+\section*{Questions}
+Quelle est la définition de l'enthalpie de réaction ?\\
+
+La relation (9) ne pose t-elle pas de problème si on veut l'appliquer ? que représentent les "i" ?\\
+
+Concernant l'expérience de calorimétrie, comment mesure t-on les masses introduites ?\\
+pesée en tarant le contenant, puis on verse.\\
+
+Y a t'il un moyen de vérifier que la masse introduite est bien la masse pesée ?\\
+Il faut peser avant de verser, puis peser après et faire la soustraction.\\
+
+Concernant l'ouverture du calorimètre pour voir si la glace est fondue.. cela ne pose t-il pas de problème ? Y a t-il moyen de faire sans ouvrir ?\\
+Si, il faudrait dans l'idéal attendre que la température se stabilise, sans ouvrir.\\
+
+L'hypothèse avancée pour le mauvais accord en seconde partie correspond elle au signe de l'écart observé (on avait ici $\Delta_{fus}H^o (mesure)<\Delta_{fus}H^o (tabule)$) ?\\
+
+\section*{Remarques}
+Le programme de PC précise qu'il ne faut pas confondre modélisation de transformation et transformation thermodynamique.\\
+On écrit $c_{p}(H_2O,l)$ plutôt que $c_{p_{eau}}$.\\
+Ce n'est pas $dV$ mais $\rho V$ pour la dernière partie.\\
+La concentration de la soude est en général moins bien connue que la concentration de l'acide chlorhydrique.
+
+\end{document}

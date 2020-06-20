@@ -1,0 +1,287 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 16 Facteur de Boltzmann}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection{Pré-requis}
+Ensemble microcanonique\\
+Thermodynamique.
+
+\subsection{Introduction}
+
+On a construit un ensemble statistique, l'ensemble microcanonique, qui n'est pas très pratique car ne portant que sur des systèmes idéaux. On va aujourd'hui voir comment étendre les concepts introduits de telle sorte à les rendre applicable dans la pratique. 
+Commençons par un exemple introductif, ne nécessitant qu'un peu de thermodynamique pour sa compréhension.
+
+\section{Atmosphère isotherme}
+
+On va commencer par regarder un modèle thermodynamique simple de l'atmosphère, où on la considère isotherme et constituée d'un gaz parfait. On a alors 
+\begin{eqnarray}
+PV = nRT = \frac{m}{M}RT\hspace{0.7cm}\mathrm{et}\hspace{0.7cm}\frac{\partial P}{\partial z} = - \rho g = -\frac{m}{V}g
+\end{eqnarray}
+où on a pris l'axe $Oz$ selon la verticale ascendante. On en déduit 
+\begin{eqnarray}
+\frac{PM}{RT} = -\frac{1}{g}\frac{\partial P}{\partial z}\hspace{0.7cm}\mathrm{ou}\hspace{0.7cm}\ \frac{\partial P}{\partial z} = - \frac{Mg}{RT} P
+\end{eqnarray}
+ce qui mène à 
+\begin{eqnarray}
+P(z) = P_0e^{-\frac{MG}{RT}z}
+\end{eqnarray}
+avec $P_0$ la pression au niveau du sol, correspondant à l'altitude $z=0$.\\
+Si on veut maintenant interpréter le résultat obtenu, on peut regarder le nombre de moles de gaz comprises dans un cylindre possédant une base d'aire S et s'étendant de la hauteur z à la hauteur z+ dz :
+\begin{eqnarray}
+dn = \frac{PS}{RT}dz = \frac{S}{RT} P_0e^{-\frac{Mg}{RT}z} dz
+\end{eqnarray}
+ce qui mène en terme de nombre de particules à 
+\begin{eqnarray}
+dN = \mathcal{N}_A\frac{S}{RT} P_0e^{-\frac{\mu\mathcal{N}_Ag}{RT}z} dz
+\end{eqnarray}
+où on a noté $\mu$ la masse d'une particule de gaz. Si on introduit la constante de Boltzmann 
+\begin{eqnarray}
+k_B = \frac{R}{\mathcal{N}_A} = 1,3806.10^{-23}\,J.K^{-1}
+\end{eqnarray}
+on obtient finalement 
+\begin{eqnarray}
+dN = \frac{\mathcal{N}_ASP_0}{RT} e^{-\frac{\mu g z}{k_BT}} dz.
+\end{eqnarray}
+Cette expression traduit la compétition entre le poids qui tend à accumuler les molécules près du sol et l'agitation thermique qui tend à les disperser. le terme $e^{-\frac{\mu g z}{k_BT}}$ explicite directement cette compétition, en effet dans une tranche d'épaisseur dz de hauteur z, les particules on une énergie potentielle $\mu g z$ et une énergie cinétique $k_BT$, si cette dernière domine alors on pourra "vaincre" la gravité et il y aura des particules à cette altitude. Dans le cas contraire on constate que le terme $e^{-\frac{\mu g z}{k_BT}}$ sera presque nul, ce qui signifie que cette portion d'atmosphère sera vide, car trop haute pour que l'agitation thermique parvienne à y envoyer des particules.\\
+Un intérêt notable de cet exemple est qu'il permet d'expliciter la notion statistique : on vient d'établir la distribution de particules en fonction de l'altitude.\\
+Le facteur $e^{-\frac{\varepsilon}{k_BT}}$ appelé facteur de Boltzmann, est en fait, comme nous allons le voir, plus général. Il exprime en effet la probabilité qu'une particule occupe un état  d'énergie $\varepsilon$ dans un système en équilibre à la température T. Nous allons maintenant établir ce résultat de manière formelle et générale, en introduisant l'ensemble canonique.
+
+\section{Ensemble canonique}
+\subsection{Contexte}
+ On va considérer ici un système $\mathcal{S}$ en contact thermique avec un autre système $\mathcal{T}$ beaucoup plus gros que $\mathcal{S}$. Le système global $\mathcal{S} \cup \mathcal{T}$ est considéré comme isolé et obéit donc aux lois établies dans le cas de l'ensemble microcanonique. On aura alors que les échanges de chaleur peuvent modifier notablement l'énergie E et l'état du système $\mathcal{S}$ tout en affectant que de manière négligeable $\mathcal{T}$ qui est alors qualifié de thermostat. Lorsque le système $\mathcal{S}$ est à l'équilibre thermodynamique on dit alors qu'il est dans la situation canonique.
+ 
+ \paragraph{Remarque :} Si on veut préciser les choses on peut, exprimer que $\mathcal{T}=$ thermostat signifie que sa température varie peu, ce qui se traduit par
+ \begin{eqnarray}
+ \frac{1}{T_{\mathcal{T}}} = \frac{\partial S_{\mathcal{T}}}{\partial E_{\mathcal{T}}}(E_{tot}-E) \simeq \frac{\partial S_{\mathcal{T}}}{\partial E_{\mathcal{T}}}(E_{tot})\;
+ \Leftrightarrow\; E\frac{\partial^2 S_{\mathcal{T}}}{\partial E_{\mathcal{T}}^2}(E_{tot}) \ll \frac{\partial S_{\mathcal{T}}}{\partial E_{\mathcal{T}}}(E_{tot}) \label{thermostat}
+ \end{eqnarray} 
+or $S_{\mathcal{T}}$ et $E_{\mathcal{T}}$ étant extensifs, ils croissent comme $N_{\mathcal{T}}$, on voit donc bien que lorsque $N_{\mathcal{T}}$ devient très grand devant $N$ la condition (\ref{thermostat}) est bien remplie. On voit cependant bien que la notion de thermostat est alors relative : il faut $N_{\mathcal{T}} \gg N$, la taille requise pour $\mathcal{T}$ dépend donc de celle de $\mathcal{S}$\,$_{\square}$\\
+
+Le système $\mathcal{S}$ que nous considérons est donc, si il est à l'équilibre thermique avec un thermostat $\mathcal{T}$ de température constante $T_{\mathcal{T}}$, lui même à la température canonique
+\begin{eqnarray}
+T = T_{\mathcal{T}},
+\end{eqnarray}
+ce paramètre $T$ caractérisant l'influence du thermostat sur le système considéré.\\
+Il est important de noter que contrairement au cas microcanonique où l'énergie était un paramètre extérieur fixée, c'est ici la température canonique qui joue ce rôle, et l'énergie est alors autorisée à fluctuer autour de sa valeur d'équilibre, c'est cette fois un paramètre intérieur.
+
+\subsection{Distribution canonique des états microscopiques}
+Le système total $\mathcal{S} \cup \mathcal{T}$ peut être décrit à partir de ces états microscopiques d'énergies 
+\begin{eqnarray}
+E_{\nu,\alpha} = E_{\nu} + E_{\alpha}
+\end{eqnarray}
+Ce système étant isolé on peut y appliquer le postulat fondamental de la physique statistique : "tout les états accessibles sont équiprobables à l'équilibre". On va pouvoir en déduire la probabilité que le système $\mathcal{S}$ soit dans un état $|\nu\rangle$ donné, en comptant le nombre d'états. Si $\mathcal{S}$ est dans l'état $|\nu\rangle$ fixé, alors le nombre d'états accessibles pour le système total est $1\times \Omega_{\mathcal{T}}(E_{tot}-E_{\nu})$ (où $E_{tot}$ est l'énergie du système total, et est donc fixée). De même le nombre total d'états accessible est 
+\begin{eqnarray}
+\Omega_{\mathcal{T}\cup\mathcal{S}}(E_{tot}) = \sum_{\nu} \Omega_{\mathcal{T}}(E_{tot}-E_{\nu})
+\end{eqnarray}
+on en déduit donc que la probabilité que $\mathcal{S}$ soit dans l'état $|\nu\rangle$ est 
+\begin{eqnarray}
+P_{\nu} = \frac{\Omega_{\mathcal{T}}(E_{tot}-E_{\nu})}{\sum_{\eta} \Omega_{\mathcal{T}}(E_{tot}-E_{\eta})}
+\end{eqnarray}
+Or le thermostat étant très grand on a $E_{\nu}\ll E_{tot}$, on en déduit 
+\begin{eqnarray}
+\ln (\Omega_{\mathcal{T}}(E_{tot}-E_{\nu})) &\simeq& \ln (\Omega_{\mathcal{T}}(E_{tot})) - E_{\nu} \frac{\partial \ln (\Omega_{\mathcal{T}}(E_{tot}))}{\partial E_{tot}}\\
+&\simeq& \ln (\Omega_{\mathcal{T}}(E_{tot})) - \frac{E_{\nu}}{k_BT}\\
+\Longrightarrow \Omega_{\mathcal{T}}(E_{tot}-E_{\nu}) &\simeq& \Omega_{\mathcal{T}}(E_{tot}) e^{- \frac{E_{\nu}}{k_BT}}
+\end{eqnarray}
+ce qui mène finalement à 
+\begin{eqnarray}
+P_{\nu} = \frac{e^{-\frac{E_{\nu}}{k_BT}}}{\mathcal{Z}}\hspace{0.6cm} \mathrm{avec}\hspace{0.6cm} \mathcal{Z}(N,V,T) = \sum_{\eta}e^{-\frac{E_{\eta}}{k_BT}}
+\end{eqnarray}
+la fonction de partition de l'ensemble canonique.
+On voit ici apparaître le facteur de Boltzmann introduit précédemment, qui est ici explicitement interprétable : la probabilité pour que le système $\mathcal{S}$ soit dans l'état $|\nu\rangle$ est proportionnelle à un facteur de Boltzmann $e^{-\frac{E_{\nu}}{k_BT}}$ dépendant de la température fixée par le thermostat. Et on voit que plus l'énergie d'un état est grande par rapport à l'énergie d'agitation thermique, plus la probabilité qu'il soit occupé sera faible.\\
+Cette probabilité caractérise la distribution canonique, associée à l'ensemble statistique appelé ensemble canonique.\\
+On va maintenant voir qu'à partir de la donnée de la fonction de partition caractérisant le système on va pouvoir déterminer la valeur des fonctions thermodynamiques usuelles.
+
+\subsection{Distribution statistique des variables internes}
+
+Regardons comment caractériser l'énergie du système, la valeur observable macroscopiquement et donc expérimentalement est ici la valeur moyenne de l'énergie, cette dernière étant devenue ici une variable interne et donc libre de fluctuer. On va évaluer cette énergie moyenne comme l'énergie de chacun des états multipliée par la probabilité que le système soit dans cette état. Cela correspond à une moyenne d'ensemble
+\begin{eqnarray}
+\bar{E} &=& \sum_{\nu} P_{\nu}E_{\nu} = \sum_{\nu}\frac{1}{\mathcal{Z}} E_{\nu} e^{-\frac{E_{\nu}}{k_BT}}\\ 
+&=& \sum_i P(E_i) E_i = \frac{1}{\mathcal{Z}}  \sum_i g(E_i)E_ie^{-\frac{E_{i}}{k_BT}}
+\end{eqnarray}
+où $g(E_i)$ est le degré de dégénérescence du niveau d'énergie $E_i$.\\
+
+Dans le cas où l'écart d'énergie entre deux niveaux successifs est très petit devant $k_BT$ on peut faire l'approximation continue dans laquelle on passe des sommes à des intégrales, et où la probabilité $P(E)$ d'avoir une énergie E à dE près devient
+\begin{eqnarray}
+P(E) = \mathrm{w}(E)dE = \frac{1}{\mathcal{Z}}\rho(E)e^{-E/k_BT}dE\hspace{0.6cm} \mathrm{ou}\hspace{0.6cm} \mathcal{Z} = \int_{E_0}^{\infty} \rho(E)e^{-E/k_BT}dE
+\end{eqnarray}
+où $\rho(E)$ est la densité d'état et w($E$) la densité de probabilité associée au système. La valeur moyenne de E s'exprime alors comme
+\begin{eqnarray}
+\bar{E} = \int_{E_0}^{\infty} E \mathrm{w}(E)dE
+\end{eqnarray} 
+
+On voit qu'il va apparaître une compétition entre le degré de dégénérescence qui est une fonction croissante de l'énergie et le facteur de Boltzmann qui est lui une fonction décroissante de E. Il va en résulter que la fonction w(E) va avoir un maximum, ce maximum étant tel que 
+\begin{eqnarray}
+\ln \mathrm{w}(E) = \ln \rho(E) - \frac{E}{k_BT} - \ln \mathcal{Z} = \frac{1}{k_B}S^m(E) - \frac{E}{k_BT} - \ln \mathcal{Z}
+\end{eqnarray}
+soit maximum, où $S^m$ est l'entropie microcanonique ou l'entropie qu'aurait le système $\mathcal{S}$ si il était isolé. Cela revient à la condition 
+\begin{eqnarray}
+\frac{\partial S}{\partial E}(E_m) - \frac{1}{T} = 0
+\end{eqnarray}
+pour l'énergie la plus probable $E_m$. Cela revient à $T^m(E_m) = T$, ce qui signifie que l'énergie la plus probable est celle telle que le système ait la température T si il était isolé. Dans la pratique seules les valeurs E autour de $E_m$ ont une valeur non négligeable, de telle sorte que l'on peut approximer w(E) par une gaussienne centrée autour de $E_m$ en développant l'argument de l'exponentielle au second ordre 
+\begin{eqnarray}
+\mathrm{w}(E) \simeq \mathrm{w}(E_m)e^{-\frac{(E-E_m)^2}{2\Delta E^2}}
+\end{eqnarray}
+avec $\frac{\Delta E}{E_m}$ qui varie comme $\frac{1}{\sqrt{N}}$, on voit donc que pour $N\simeq \mathcal{N}_A$ cette gaussienne sera extrêmement piquée et que l'on aura alors toujours $E\simeq E_m$.\\
+On va maintenant regarder comment évaluer l'expression de ces valeurs moyennes à partir de la fonction de partition qui caractérise entièrement le système.
+
+\subsection{Fonction de partition et énergie libre}
+
+Si on regarde la valeur de l'entropie dans l'ensemble canonique on a 
+\begin{eqnarray}
+S = -k_B \sum_{\nu}P_{\nu}\ln P_{\nu} = k_B \sum_{\nu}P_{\nu} \left(\ln\mathcal{Z}+\frac{E_{\nu}}{k_BT}\right) = \frac{\bar{E}}{T} + k_B \ln \mathcal{Z}
+\end{eqnarray}
+On définit donc la fonction thermodynamique pertinente pour le canonique, l'énergie libre, comme 
+\begin{eqnarray}
+F = -k_B T \ln \mathcal{Z} = \bar{E} - TS
+\end{eqnarray}
+on voit alors que l'on peut caractériser notre système par F ou $\mathcal{Z}$ de manière équivalente.\\
+
+On peut maintenant revenir au calcul de l'énergie moyenne 
+\begin{eqnarray}
+\bar{E} &=& \sum_{\nu} P_{\nu}E_{\nu} = \sum_{\nu}\frac{1}{\mathcal{Z}} E_{\nu} e^{-\beta E_{\nu}} = -\frac{1}{\mathcal{Z}}\frac{\partial \mathcal{Z}}{\partial \beta} = -\frac{\partial \ln \mathcal{Z}}{\partial \beta}
+\end{eqnarray}
+où l'on a introduit $\beta =\frac{1}{k_BT}$. On voit de plus que si on dérive une nouvelle fois par $\beta$ 
+\begin{eqnarray}
+\frac{\partial^2 \ln \mathcal{Z}}{\partial \beta^2} &=& \frac{\partial}{\partial \beta}\left(-\frac{1}{\mathcal{Z}}\sum_{\nu}E_{\nu}e^{-\beta E_{\nu}}\right) = \frac{1}{\mathcal{Z}} \frac{\partial \mathcal{Z}}{\partial \beta}\frac{1}{\mathcal{Z}}\sum_{\nu}E_{\nu}e^{-\beta E_{\nu}} + \frac{1}{\mathcal{Z}} \sum_{\nu}E_{\nu}^2e^{-\beta E_{\nu}}\\
+&=& \bar{E^2} - \bar{E}^2
+\end{eqnarray}
+on obtient l'écart quadratique moyen $\Delta E^2$, que l'on peut donc lier à la capacité calorifique à volume constant 
+\begin{eqnarray}
+ C_V = \frac{\partial \bar{E}}{\partial T} \Longrightarrow \Delta E = - \frac{\partial \bar{E}}{\partial T}\frac{\partial T}{\partial \beta} = k_BT^2 C_V
+\end{eqnarray}
+
+En utilisant la relation de thermodynamique bien connue 
+\begin{eqnarray}
+dF = -SdT - PdV + \mu dN
+\end{eqnarray}
+on peut de même établir 
+\begin{eqnarray}
+P &=& -\frac{\partial F}{\partial V} = -\langle\frac{\partial E}{\partial V}\rangle\\
+\mu &=& \frac{\partial F}{\partial N} = \langle\frac{\partial E}{\partial N}\rangle
+\end{eqnarray}
+et idem pour les autres grandeurs selon le problème.
+
+\section{Application : Modèle d'Einstein}
+
+On se propose maintenant de mettre en œuvre les outils et méthodes développées de manière assez abstraite dans la partie précédente. On va ici tenter de modéliser le comportement d'un solide cristallin, constitué d'un arrangement régulier, périodique, d'atomes identique (on ne considère donc ici que le cas d'une maille monoatomique). On connais expérimentalement l'allure de la capacité calorifique en fonction de la température, ce qui va permettre de tester notre modèle.\\
+
+On considère que chacun des atomes qui constituent le cristal interagissent avec les N-1 autres au moyen d'un potentiel moyen dépendant uniquement de la position. Cela revient à dire que chaque atome oscille autour de sa position d'équilibre indépendamment de la position des atomes environnants. Cette approximation assez violente permet de traiter chaque atome indépendamment et ainsi d'avoir des équations découplées, d'où la simplicité de ce modèle.\\
+
+Un atome donné verra donc un potentiel $u(r)$ si on suppose le milieu isotrope, r=0 correspondant à la position d'équilibre. On peut alors faire l'hypothèse harmonique qui consiste à développer le potentiel à l'ordre 2 autour de la position d'équilibre 
+\begin{eqnarray}
+u(r) \simeq -u_0 + r^2\frac{1}{2}\frac{\partial^2 u}{\partial r^2}(r=0) \simeq u_0 + \frac{K}{2} r^2
+\end{eqnarray}
+où $u_0$ est une énergie de liaison par atome, et K représente une constante de raideur. On a alors que chaque atome correspond à un oscillateur harmonique tridimensionnel, de pulsation $\omega =\sqrt{K/m}$ où m est la masse d'un atome.\\
+
+Sachant que tous les atomes possèdent des spectres d'énergies identiques, on peut factoriser la fonction de partition totale du système. On a en effet l'énergie totale du système dans l'état $|\nu\rangle$ qui s'écrit comme 
+\begin{eqnarray}
+E_{\nu} = \sum_{i=1}^{N} \varepsilon_{\nu,i}
+\end{eqnarray} 
+où $\varepsilon_{\nu,i}$ est l'énergie de l'atome $i$. La fonction de partition du système s'écrit donc 
+\begin{eqnarray}
+\mathcal{Z} = \sum_{\nu} e^{-\beta E_{\nu}} = \sum_{\nu} \Pi_{i=1}^Ne^{-\beta \varepsilon_{\nu,i}} = \Pi_{i=1}^N \sum_{\nu}e^{-\beta \varepsilon_{\nu,i}} = z^N
+\end{eqnarray}
+en notant $z=\sum_{\nu}e^{-\beta \varepsilon_{\nu}}$ la fonction de partition d'un oscillateur harmonique, puisque tous les atomes/oscillateurs sont identiques.\\
+
+ Il suffit donc ici de calculer la fonction de partition d'un oscillateur harmonique tridimensionnel, or on sait que le spectre d'énergies d'un tel système est 
+ \begin{eqnarray}
+ \varepsilon_{n_x,n_y,n_z} = -u_0 + \left[n_x +\frac{1}{2} +n_y +\frac{1}{2} + n_z +\frac{1}{2}\right]\hbar \omega
+ \end{eqnarray}
+on en déduit donc 
+\begin{eqnarray}
+z = \sum_{n_i=0}^{\infty} e^{\beta (u_0 - (n_x+n_y+n_z+3/2)\hbar\omega)} = e^{\beta u_0} \left( \sum_{n=0}^{\infty} e^{-\beta(n+1/2)\hbar \omega}\right)^3
+\end{eqnarray}
+le terme au cube est une suite géométrique de premier terme $e^{-\beta\hbar\omega/2}$ et de raison $e^{-\beta \hbar \omega}$ et on a donc finalement
+\begin{eqnarray}
+z = e^{\beta u_0}\left(\frac{e^{-\beta \hbar \omega /2}}{1- e^{-\beta \hbar \omega}}\right)^3 = e^{\beta u_0}\left(\frac{1}{2\,\mathrm{sh} (\beta \hbar \omega /2)}\right)^3
+\end{eqnarray}
+On peut alors en déduire la fonction de partition du cristal 
+\begin{eqnarray}
+\mathcal{Z} = z^N = e^{\beta u_0 N}\left(\frac{1}{2\,\mathrm{sh} (\beta \hbar \omega /2)}\right)^{3N}
+\end{eqnarray}
+Cette dernière va nous permettre de dériver les différentes propriétés du système, notamment l'énergie moyenne 
+\begin{eqnarray}
+\bar{E}= -\frac{\partial \ln \mathcal{Z}}{\partial \beta} = -N\frac{\partial \ln z}{\partial \beta} = N\left(-u_0 + \frac{3}{2} \hbar \omega \coth \frac{\hbar \omega}{2k_B T}\right)
+\end{eqnarray}
+et ensuite la capacité calorifique
+\begin{eqnarray}
+C_V = \frac{\partial \bar{E}}{\partial T} = 3Nk_B\left(\frac{\hbar \omega}{2k_B T}\right)^2 \frac{1}{\mathrm{sh}^2\, \frac{\hbar \omega}{2k_BT}}
+\end{eqnarray}
+où on peut définir la chaleur d'Einstein du matériau 
+\begin{eqnarray}
+kT_E = \hbar \omega
+\end{eqnarray}
+qui tout comme $\omega$ dépend du matériau utilisé, pour reformuler la capacité calorifique comme 
+\begin{eqnarray}
+C_V = 3N k_B \left(\frac{T_E}{2T}\right)^2 \frac{1}{\mathrm{sh}^2\,\frac{T_E}{2T}}
+\end{eqnarray}
+Or lorsque l'on est à haute température on a 
+\begin{eqnarray}
+\mathrm{sh}\,\frac{T_E}{2T} \;\longrightarrow \; \frac{T_E}{2T}
+\end{eqnarray}
+et donc  
+\begin{eqnarray}
+C_V \;\longrightarrow \; 3N k_B
+\end{eqnarray}
+on retrouve alors bien la loi de Dulong et Petit. Ce résultat est donc conforme à nos attentes, cependant on obtient en réalité le même résultat en appliquant le théorème de l'équipartition de l'énergie qui stipule que pour un système macroscopique que l'on peut traiter avec la mécanique classique, chaque particule possède une énergie 
+\begin{eqnarray}
+\varepsilon = \frac{nDDL}{2} k_B T
+\end{eqnarray}
+Ici on a trois degrés de vibration et trois de translation ce qui amène à $\varepsilon = 3k_BT$ et on a bien ainsi la loi de Dulong et Petit. Cependant, ce que la théorie classique ne permet pas d'expliquer c'est le fait que $C_V$ décroisse à basse température, ce qui est cette fois partiellement décrit par le modèle d'Einstein. En effet il prédit une décroissance exponentielle vers 0 lorsque la température tend de même vers 0, ce qui est différent du comportement en $T^3$ attendu, mais est tout de même une avancée. En fait cette décroissance exprime le fait que lorsque l'on est à basse température, l'énergie d'agitation thermique $k_BT$ est comparable aux énergies de transitions entre les niveaux d'énergie quantique. La statistique canonique nous dit alors que ces niveaux d'énergie ont une probabilité d'occupation très faible, seul les niveaux de très basse énergie ont une probabilité non nulle d'être occupée et ainsi l'énergie moyenne tend vers 0. On voit bien ici que la description quantique est nécessaire et parvient à nous donner une certaine compréhension de la physique sous-jacente avec un modèle très simple.\\
+
+Si on veut retrouver le bon comportement à basse température il faut prendre en compte l'interaction entre premiers voisins dans le cristal. Cela conduit à l'établissement de différents modes de vibration : il n'y a donc plus une unique pulsation pour chacun des atomes mais N pulsations différentes. En quantifiant ces modes normaux on peut alors suivre le type de raisonnements pour arriver à un résultat reproduisant l'allure expérimentale de $C_V$.
+
+\section{Conclusion}
+
+On a pu étendre les concepts formels et peu pratique de l'ensemble microcanonique à un ensemble utilisable dans la pratique, comme nous avons pu le voir dans la dernière partie. Il n'en reste pas moins que l'on ne peut traiter d'échanges de particules avec l'ensemble introduit ici, pour ce faire il faudra construire un nouvel ensemble, le grand canonique.
+
+\section*{Questions}
+
+\section*{Remarques}
+Enlever 2.3\\
+Traiter le système à deux niveaux : au moins on est sûr de faire un exemple complètement.\\
+Pour l'atmosphère isotherme il faut bien avoir conscience que cela ne marche que pour le GP car il n'y a pas d'interaction entre les particules (correspond à des niveaux d'énergie bien séparés).\\
+Sauter les calculs un peu longs du genre lien entre $C_v$ et la variance, mais passer plus de temps à les commenter. Appuyer vraiment sur la discussion.\\
+Utiliser toujours la même convention pour la notation de la moyenne d'ensemble, $\langle \rangle$ peut plus clair.\\
+Utiliser la courbe originale de $C_v$ du diamant de la publication originale de Einstein pour la dernière partie.
+
+\end{document}

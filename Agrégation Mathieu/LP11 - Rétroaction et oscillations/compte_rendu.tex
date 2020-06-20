@@ -1,0 +1,145 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\usepackage{wasysym}
+\usepackage{graphicx}
+
+\author{Mathieu Sarrat}
+\title{Compte rendu : LP22/LP11 - Rétroaction et oscillations}
+
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+\begin{document}
+\maketitle
+
+\section*{Remarques générales :}
+
+Leçon un peu longue (dépasse les 40 minutes), mais bons retours.\\
+
+\textbf{Matériel requis :}
+\begin{itemize}
+	\item tableau et vidéoprojecteur (diapos évolutives pour les schémas électriques, schémas blocs et certains calculs : gain de temps fou, rend la présentation plus dynamique et les explications plus claires)
+	\item manip de l'oscillateur à pont de Wien : oscilloscope numérique, amplificateur opérationnel et son alimentation, 2 condensateurs de 10 nF, 3 résistances de 10 k, une résistance variable (boîte à décades pour ajuster le gain du montage AO)
+	\item manip de l'effet Larsen : micro, amplificateur et haut-parleur\\
+\end{itemize}
+
+\textbf{Pré-requis :}
+\begin{itemize}
+	\item Lois de l'électrocinétique
+	\item Montages avec amplificateur opérationnel
+	\item Moteur à courant continu
+	\item Oscillateurs harmonique et amorti
+	\item Transformation de Laplace\\
+\end{itemize}
+
+\textbf{Objectifs de la leçon :}
+\begin{itemize}
+ 	\item \textbf{Introduire les éléments de modélisation d'un système bouclé} : vocabulaire spécifique, fonctions de transfert en formalisme de Laplace, schéma-blocs, critère de stabilité, conditions de Barkhausen.
+ 	\item \textbf{Application à des cas concrets, pluri-disciplinaires} : régulation de température dans le corps humain, régulateur de vitesse pour un moteur électrique à courant continu, oscillateur à pont de Wien pour la production de signaux sinusoïdaux stables, effet Larsen en acoustique.
+ 	\item \textbf{Caractère universel des notions de système bouclé, de rétroaction et de système oscillant} : ces notions sont très générales et on les rencontre en physique (appliquée ou théorique), en chimie et en biologie (et probablement aussi en sciences humaines, mais je n'en parle pas). La modélisation présentée dans cette leçon ne se limite donc pas à des applications en ingénierie électrique : un objectif de cette leçon est de souligner ceci. Il est possible d'aborder les plasmas ou la mécanique des fluides en conclusion, mais je ne l'ai pas fait, faute de temps.
+\end{itemize}
+
+\newpage
+\section*{Plan}
+
+\textbf{Introduction.}\\
+\textit{Fil rouge :} la connaissance du système seul ne suffit pas à déterminer son comportement, puisqu'il n'est pas isolé : le milieu extérieur a une action déterminante. Comme il n'est pas souvent contrôlable, un système chargé de réaliser une fonction précise doit être capable de s'adapter aux variations du milieu extérieur, de façon automatique de préférence. Nécessité de mesurer le changement induit dans le système par ces variations, d'analyser cette mesure et d'agir en conséquence.\\
+\textit{Contenu :} définitions de système, de milieu extérieur, de boucle de rétroaction, de système bouclé. Exemples concrets de système. Exemple concret de système bouclé : régulation de température dans le corps humain (hypothalamus, neurones thermorécepteurs, réponses musculaire et métabolique à un réchauffement et à un refroidissement.). Hypothèse de linéarité des systèmes étudiés. 
+
+\textbf{I $-$ Modélisation des systèmes bouclés. Asservissement d'une grandeur physique.}
+\textit{Fil rouge :} le régulateur de vitesse d'un moteur à courant continu. On s'appuie sur cet exemple pour introduire la modélisation générale d'un système bouclé.
+\begin{itemize}
+		\item \textbf{I.1 $-$ Structure d'un système bouclé.}\\
+		Diapos évolutives, on construit le schéma au fur et à mesure qu'on explique comment le système fonctionne.\\ 
+		Chaîne directe, chaîne de retour, comparateur (rétroactions positive ou négative).\\
+		Oral et diapos (schémas et vocabulaire) seulement.
+		\item \textbf{I.2 $-$ Modélisation d'un système bouclé linéaire.}\\
+		Formalisme de Laplace : comment, pourquoi, à quoi ça sert. Fonctions de transfert. Boucle fermée, boucle ouverte.\\
+		Calculs et notions importantes au tableau.
+		\item \textbf{I.3 $-$ Application au régulateur de vitesse.}\\
+		Application du formalisme au régulateur de vitesse. On établit les fonctions de transfert.\\
+		Oral et diapos (schémas et calcul) seulement.
+		\item \textbf{I.4 $-$ Utilité de la rétroaction.}\\
+		Chaîne à grand gain. Pourquoi est-ce intéressant ? (élément qui casse dans la chaîne directe... impact ?). Au tableau.\\
+		Le milieu extérieur amplifie la vitesse de rotation du moteur : comment le système bouclé réagit-il ? Oral et diapos.\\
+		Cas limite : gain infini. Un bruit peut provoquer une réponse significative. En quoi cela peut-il poser problème ? Besoin d'étudier la stabilité. 
+		Au tableau.\\
+\end{itemize}
+
+\textbf{II $-$ Stabilité des systèmes bouclés. Systèmes rendus volontairement instables : les oscillateurs.}\\
+\textit{Fil rouge :} l'asservissement précédent est-il stable et sous quelles conditions ? 
+L'instabilité est-elle indésirable, est-elle utilisable ? 
+Un gain infini est-il réellement possible ?
+\begin{itemize}
+		\item \textbf{II.1 $-$ \'Etude de la stabilité.}\\
+		Critère algébrique : raisonnement sur les pôles de la fonction de transfert. Instabilité si partie réelle positive. Stabilité si partie réelle négative.\\
+		Application du critère au régulateur de vitesse. Conclusion sur sa stabilité. Tout au tableau.
+		\item \textbf{II.2 $-$ Oscillateur auto-entretenu.}
+		Les oscillateurs auto-entretenus : définition, applications.\\
+		Principe de fonctionnement (bruit, ampli, filtrage) et structure en blocs (oral et diapos), on s'appuie sur l'oscillateur à pont de Wien (Manip : présentation du montage).\\
+		Théorie de l'oscillateur à pont de Wien : établir l'équation différentielle, analyse du taux d'amortissement (amortissement, oscillations, instabilité) (tableau et manip, on montre les différents régimes à l'oscilloscope).
+		Mesure de la fréquence de l'oscillateur. Commentaire sur la forme des oscillations (harmoniques liées à la saturation de l'amplificateur opérationnel). Facteur de qualité médiocre (oscillateur à quartz bien meilleur).\\
+		Généralisation : rôle des effets non-linéaires sur le gain infini mentionné précédemment. Conditions de Barkhausen sur la fonction de transfert, retrouver la condition sur le gain et sur la phase. Nécessité de se placer en régime instable pour avoir des oscillations (impossible de satisfaire strictement la condition d'équilibre, pourquoi), compter sur la non-linéarité pour "stabiliser" le système.\\ 			
+\end{itemize}
+		
+\textbf{III $-$ Généralisation de la notion de système bouclé. Effet Larsen.}\\
+\textcolor{red}{Je n'ai pas eu le temps de faire cette partie. Je l'ai présentée durant la correction, après les questions.}
+\begin{itemize}
+		\item \textbf{III.1} $-$ Démonstration
+		Manip : présenter le dispositif et déclencher le Larsen. Influence du gain de l'amplificateur, de la distance entre le micro et le haut-parleur, 
+		de l'orientation relative des deux composants.
+		\item \textbf{III.2} $-$ Principe et modélisation
+		On explique comment ça fonctionne. Parallèle avec l'oscillateur à pont de Wien. L'air joue le rôle de la chaîne de retour, ce qui est conceptuellement différent des exemples abordés jusqu'alors. Calcul des fonctions de transfert. Illustration de la condition de Barkhausen. Prothèses auditives, comment supprimer l'effet Larsen ?\\
+\end{itemize}
+
+\textbf{Conclusion}\\
+- Résumé des idées fortes de la leçon : utilité de la rétroaction, omniprésence des systèmes bouclés, étude de la stabilité, utilisation pour des asservissements ou pour réaliser des oscillateurs, parfois la rétroaction est néfaste (comme l'effet Larsen).\\
+- Insister sur le rôle des effets non-linéaires, qui jouent un rôle important dès qu'un système est instable (au sens large).\\
+- Ouverture : insister sur le caractère universel de la modélisation proposée : la question de la stabilité d'un système n'est pas qu'une affaire d'automatique ou d'électronique. Possibilité de parler des plasmas chauds (système auto-consistant constitué des particules et des champs, dans lequel de nombreuses ondes peuvent se propager, s'atténuer ou au contraire donner naissance à des instabilités), de mécanique des fluides (même combat), de chimie (réaction auto-catalysées : destruction de la couche d'ozone, peste de l'étain, réaction du permanganate de potassium avec l'eau oxygénée), de physique nucléaire (arme atomique ou emballement d'une réaction en chaîne de fission nucléaire dans un réacteur, selon que l'instabilité est voulue ou non).
+
+\newpage
+\section*{Questions posées}
+\begin{itemize}
+	\item Définition de contre-réaction ?
+	\item A quoi sert la rétroaction ?
+	\item Pourquoi prend-on en compte la chaîne de retour dans la fonction de transfert en boucle ouverte ?
+	\item Modéliser mathématiquement l'effet d'un bruit dans la chaîne directe sur la fonction de transfert en boucle fermée.
+	\item Est-il possible d'avoir exactement $G = 3$ dans l'oscillateur à pont de Wien ?
+\end{itemize}
+
+\section*{Améliorations possibles}
+\begin{itemize}
+	\item Il faut redécouper le plan (sans changer la logique de progression de la leçon) : l'étude des oscillateurs quasi-sinusoïdaux et de l'oscillateur à pont de Wien 
+	peut servir de 	\textbf{III}. Auquel cas, le plan deviendrait :\\
+ 	\textbf{II $-$ Stabilité des systèmes bouclés.}\\
+	\textbf{III $-$ Oscillateurs quasi-sinusoïdaux}, avec une structure similaire à celle du I.\\
+	L'effet Larsen irait dans la conclusion, en ouverture.\\
+
+	\item Mettre en diapo la démonstration de l'équation différentielle pour la tension de sortie de l'oscillateur à pont de Wien. Il y a déjà plusieurs calculs menés intégralement au tableau dans la première partie.\\
+
+	\item Parler éventuellement du critère de Nyquist, ce qui implique de rogner sur d'autres parties.\\
+	
+	\item Les manips ne sont pas indispensables pour l'agrégation externe, il les faut pour la voie "docteurs".
+\end{itemize}
+
+\section*{Sources}
+\begin{itemize}
+	\item Précis d'électronique. Bréal (excellent pour l'ossature de la leçon, exemples parlants, simples, traités en détail).\\
+	\item Cours de l'ENS Cachan sur les systèmes bouclés (Jean-Baptiste Desmoulins, notions plus avancées, notamment sur la stabilité. Nombreux exemples.).\\
+	\item Modélisation du moteur à courant continu. Lycée Gustave Eiffel de Dijon (PTSI)\\
+	\item Électronique. Pérez (en complément, surtout pour la distinction entre rétroaction positive et rétroaction négative et pour l'ouverture à d'autres domaines que l'électronique).\\
+	\item https://biologiedelapeau.fr : une mine d'or pour l'exemple sur la régulation thermique.
+\end{itemize}
+
+\end{document}

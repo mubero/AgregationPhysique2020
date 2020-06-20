@@ -1,0 +1,130 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 42 Fusion, fission}
+	\author{Hugo}
+	\date{Agrégation 2019}
+
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+
+Regarder le \textbf{Badevant : Énergie nucléaire}
+
+\subsection{Introduction}
+Historique : découvert de la radiactivité en 1896 par Becquerel.\\
+électron par thomson en 1897\\
+noyau par rutherford en 1911.\\
+
+Schéma montrant quels sont les atomes stables.
+	
+\section{Stabilité de l'atome}
+\subsection{Interaction forte}
+Il existe une interaction qui maintient les charges qui composent le noyau ensemble. On rappelle la taille du noyau et donc l'ordre de grandeur de la répulsion électrostatique. On donne l'ordre de grandeur de la gravité : ça ne peut pas être ça. Interaction forte : schéma et allure du potentiel associé.
+
+\subsection{Énergie de liaison}
+C'est l'énergie qu'il faut pour faire passer un noyau de son état fondamental à celui où tous les nucléons sont séparés et au repos.
+\begin{eqnarray}
+E_l(A, Z) = [(A-Z)m_A c^2 + Zm_p c^2] - m_X c^2
+\end{eqnarray}
+Cette énergie aussi appelée défaut de masse est colossale. Cela explique qu'on veuille la récupérer. N'explique pas la stabilité ou non d'un élément.
+
+\subsection{Courbe d'Aston}
+Prix nobel 1922. On projette la courbe.\\
+
+Notion de réaction nucléaire. Équation de réaction associée. L'énergie libérée correspond à la différence entre les énergies de masse initiales et finales.\\
+
+On voit alors qu'on va avoir de la fusion dans la première partie de la courbe et de la fusion dans l'autre.
+
+\section{Fission}
+\subsection{Radioactivité $\alpha$}
+Découverte	: Becquerel, P et M Curie : Nobel 1903.\\
+Observé pour les grands nombre de masse A > 210 .
+Principe.\\
+Origine quantique explicable par le mécanisme de Gamov : On modélise le potentiel vu par les particules $\alpha$. Puis on regarde la fréquence à laquelle des particules vont s'échapper du potentiel. On regarde l'AN pour deux cas.
+
+\subsection{Fission spontanée}
+ On dit qu'il y a fission spontanée lorsqu'un atome se sépare en plusieurs produits. Exemple dans le cas de deux produits. Exemple de la décomposition de l'uranium 236. Si on regarde la fréquence du phénomène elle est très faible. Pour expliquer ce que l'on observe il faut considérer le phénomène de l'effet tunnel.
+ 
+ \subsection{Fission induite}
+ On regarde ici le cas où un neutron incident sur notre atome d'uranium va provoquer une réaction de fission. On augmente alors la probabilité et on constate que la réaction produit 3 neutrons : on va donc produire une réaction en chaine.
+ 
+ \subsection{Réaction en chaine}
+ Schéma de la réaction. Schéma d'un réacteur nucléaire. Principe.
+ 
+ \section{Fusion}
+ \subsection{Principe}
+ On donne le principe. On donner des ordres de grandeurs pour les probabilités associées au phénomène en fonction de l'énergie des particules qui entrent en interaction.
+ 
+ \subsection{Nucléosynthèse stellaire}
+ On regarde le cas du soleil. On connaît sa luminosité, et on se demande ainsi le nombre de réaction par seconde nécessaire pour produire cette luminosité. On trouve 9.10$^{37}$ réactions / s. Le soleil consomme donc en masse 4.10$^{11}$ kg/s de protons, en sachant qu'il a une masse totale de $10^{30}$ kg.\\
+ 
+ On compare à la fission : la fusion libère bcp plus d'énergie.
+ 
+ \subsection{Vers la fusion industrielle}
+ Critère de Lawson. \\
+ On veut récupérer plus d'énergie qu'on en consomme pour induire la réaction. Cela revient à estimer 
+ \begin{eqnarray}
+ 3 n k_B T < fQ_f \tau \eta
+ \end{eqnarray}
+avec f le taux de réaction volumique et n la densité volumique. Il existe différentes situations où ces conditions vont être respectées (on donne pour chaque la valeur des paramètres) : Une étoile (confinement gravitationnel), un laser (confinement inertiel), Iter (confinement magnétique).\\
+
+Intérêts de la fusion. \\
+Ce que l'on a décrit pour une étoile peut être appliqué aux premiers instants de l'univers.
+
+\section*{Questions}
+Qu'est ce que le confinement inertiel ?\\
+On met des laser en regard pour piéger des particules aux points de rencontre des faisceaux.\\
+Il faut parler d'Iter (cf rapport du jury).
+
+Le projet de fusion industrielle a t'il des résultats pour l'instant ?\\
+
+
+La fusion nucléaire est elle un moyen de production propre ?\\
+On a moins de déchets, et le combustible : l'hydrogène, est abondant.\\
+
+Pourquoi y a t'il plusieurs circuits d'eau dans une centrale ?\\
+parce que l'eau rejetée ne doit pas être irradiée.\\
+
+Quel est le rôle des barres de carbone à part absorber des neutrons ?\\
+Elles ralentissent la réaction en ralentissant les neutrons qui ne sont pas réactifs si ils sont trop rapide (leur section efficace diminue).\\
+
+Pourquoi dans le cas des gros atomes voit on apparaitre une dissymétrie entre nombre de protons et de neutrons (+ de neutrons) ?\\
+Car les neutrons, non chargés, stabilisent le noyau.\\
+
+Qu'est ce que la radioactivité $\beta$ ?
+
+\section*{Remarques}
+Mentionner que les atomes fissibles ne le sont pas tous autant.\\
+On peut calculer la durée de vie du soleil au passage.
+	
+	
+	
+\end{document}

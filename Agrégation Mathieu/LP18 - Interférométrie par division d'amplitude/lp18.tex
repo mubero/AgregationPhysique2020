@@ -1,0 +1,107 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\usepackage{wasysym}
+\usepackage{graphicx}
+
+\author{Mathieu Sarrat}
+\title{LP17 - Interférométrie à division d'amplitude}
+
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+\begin{document}
+\maketitle
+
+\section*{Pré-requis}
+\begin{itemize}
+	\item Interférences à deux ondes
+	\item Cohérence temporelle et cohérence spatiale
+	\item Interférométrie à division du front d'onde
+\end{itemize}
+
+\newpage
+\section*{Introduction}
+
+Dans la leçon précédente nous avons mis en évidence et étudié le phénomène d'interférences, en nous limitant au cas de deux ondes. Nous avions pour cela utilisé le dispositif des fentes d'Young, et avions remarqué que l'utilisation d'une source étendue réduisait la visibilité du phénomène. C'est le problème de la cohérence spatiale. On doit alors gérer un compromis, entre l'obtention des interférences (liée aux propriétés de cohérence temporelle de la source et de cohérence spatiale de l'ensemble source/interféromètre) et la luminosité du phénomène.\\
+
+Pourtant, tout le monde a remarqué une fois dans sa vie les irisations, bien visibles, d'une bulle de savon et observées sans qu'aucune précaution particulière ne soit prise. Ces phénomènes optiques résultent de phénomènes d'interférences et prouvent qu'il est possible d'observer des interférences avec des sources étendues. Le mécanisme d'obtention est cependant différent de celui que nous avons pu illustrer avec les fentes d'Young.\\
+
+Dans cette leçon, nous allons montrer comment et introduire la notion d'interférométrie à division d'amplitude. Nous nous appuierons pour cela sur un dispositif expérimental, l'interféromètre de Michelson, dont nous détaillerons le fonctionnement et quelques applications.
+
+\section{Interférences par division d'amplitude}
+
+\subsection{Théorème de localisation}
+
+Soit un interféromètre quelconque éclairé par une source ponctuelle S \textcolor{red}{[Schéma 1]}. Les rayons dont les directions d'entrée sont $\bold{u}_1$ et $\bold{u}_2$ interfèrent au point M. La différence de chemin optique entre ces deux rayons s'écrit
+\begin{equation}
+	\boxed{\delta = (SM)_1 - (SM)_2},
+\end{equation}
+où les indices 1 et 2 correspondent au trajet suivi par le rayon.\\
+
+On veut déterminer un critère de non brouillage des franges d'interférences sous l'effet d'un élargissement de la source. Cela revient à déterminer l'ensemble des positions M pour lesquelles $\delta$ ne dépend pas (ou peu) de la position du point S. Ainsi, en ces points M, toutes les sources $S_i$ incohérentes constituant la source étendue donnent lieu à des figures d'interférences se superposant parfaitement (ou presque) et donc à un bon contraste pour la figure résultante.\\
+
+Quelque part dans l'espace se trouvent les deux sources secondaires qui interfèrent, $S_1$ et $S_2$. Soient S et S' deux points de la source étendue et
+\begin{equation}
+	\delta = (SM)_1 - (SM)_2 \quad\text{et}\quad \delta' = (S'M)_1 - (S'M)_2
+\end{equation}
+la différence de marche entre deux rayons issus de la même source primaire passant par $S_1$ et $S_2$.\\
+
+On cherche $\Delta\delta = \delta' - \delta$ la différence de marche introduite par le fait que la source soit étendue. Ainsi,
+\begin{equation}
+	\Delta \delta = (S'S_1 - SS_1) - (S'S_2 - SS_2).
+\end{equation}
+Calculons $\bold{S'S_1}$ et $\bold{S'S_2}$. Méthode : $\bold{S'S_1} = \bold{S'S} + \bold{SS_1}$ avec $S'S \ll SS_1$, d'où
+\begin{equation}
+	S'S_1^2 = S'S^2 + SS_1^2 + 2\bold{S'S}\cdot\bold{SS}_1
+\end{equation}
+d'où
+\begin{equation}
+	S'S_1 = SS_1 \sqrt{1 + 2\frac{\bold{S'S}\cdot\bold{SS}_1}{SS_1^2} + \frac{S'S^2}{SS_1^2}}
+	\simeq SS_1\left(1 + \frac{\bold{S'S}}{SS_1}\cdot\bold{u}_1\right)
+\end{equation}
+à l'ordre 1 en $\epsilon = S'S/SS_1$,
+d'où
+\begin{equation}
+	\Delta\delta = \bold{S'S}\cdot(\bold{u}_1 - \bold{u_2}).
+\end{equation}
+Ce résultat est général et vaut pour tout interféromètre. Il repose toutefois sur un développement limité à l'ordre 1 : les sources étendues utilisées ne doivent pas être trop étendues en regard de la façon dont l'interféromètre les perçoit.\\
+
+Pour une source étendue monochromatique, les interférences ne seront pas brouillées au point M tel que
+\begin{equation}
+	\boxed{\bold{S'S}\cdot(\bold{u}_1 - \bold{u_2}) = 0}, \text{c'est à dire si}
+\end{equation}
+\begin{itemize}
+	\item soit $\bold{S'S} \perp \bold{u}_1 - \bold{u}_2$, ce que l'on fait en utilisant comme source 			primaire une fente source, parallèle aux fentes d'Young. Ce critère est contraignant pour la 			source, qu'on ne choisit pas toujours;
+	\item soit $\bold{u}_1 = \bold{u}_2$ : les deux ondes interférant ensemble proviennent d'un même 			rayon incident entrant dans l'interféromètre. Ce critère est contraignant pour 							l'interféromètre. Il est impossible à réaliser en utilisant le principe de la division du front 		d'onde et correspond à une nouvelle catégorie d'interféromètres : les interféromètres à 				division d'amplitude.
+\end{itemize}
+
+D'où le \textbf{théorème de localisation :} seul un interféromètre à division d'amplitude peut donner lieu à l'observation d'interférences contrastées produites par une source arbitrairement large. Ces interférences sont localisées au voisinage des points pour lesquels les rayons qui interfèrent sont issus du même rayon entrant dans l'interféromètre.\\
+
+Avec un interféromètre à division du front d'onde, les interférences ne sont pas localisées. Avec un interféromètre à division d'amplitude, il existe quelque part une surface de localisation sur laquelle les interférences sont bien contrastées.
+
+\newpage
+\section{Franges d'égale inclinaison}
+\subsection{Réglage en lame d'air}
+\subsection{Anneaux d'Haidinger}
+\subsection{Application à la spectrométrie}
+
+\newpage
+\section{Franges d'égale épaisseur}
+\subsection{Réglage en coin d'air}
+\subsection{Irisations d'une bulle de savon}
+
+
+\newpage
+\section*{Conclusion}
+\end{document}

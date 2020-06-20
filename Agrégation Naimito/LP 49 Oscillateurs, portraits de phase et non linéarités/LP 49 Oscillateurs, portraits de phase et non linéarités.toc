@@ -1,0 +1,9 @@
+\contentsline {subsection}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {1}Pendule pesant}{2}
+\contentsline {subsection}{\numberline {1.1}Aspects \IeC {\'e}nerg\IeC {\'e}tique}{2}
+\contentsline {subsection}{\numberline {1.2}\IeC {\'E}tude dans l'espace des phases}{2}
+\contentsline {subsection}{\numberline {1.3}Du lin\IeC {\'e}aire au non lin\IeC {\'e}aire}{2}
+\contentsline {section}{\numberline {2}Oscillateur \IeC {\`a} double puits}{3}
+\contentsline {subsection}{\numberline {2.1}Cas sans dissipation, bifurcation}{3}
+\contentsline {subsection}{\numberline {2.2}Introduction de la dissipation}{3}
+\contentsline {section}{\numberline {3}Comportement chaotique}{3}

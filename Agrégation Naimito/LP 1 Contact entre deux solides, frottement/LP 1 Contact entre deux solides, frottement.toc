@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {0.1}Avant le glissement}{2}
+\contentsline {subsection}{\numberline {0.1.1}Param\IeC {\`e}tres influant sur le frottement statique : approche empirique}{2}
+\contentsline {subsection}{\numberline {0.1.2}Mod\IeC {\`e}le}{2}
+\contentsline {subsection}{\numberline {0.1.3}Description du contact}{2}
+\contentsline {subsection}{\numberline {0.1.4}Comment mod\IeC {\'e}liser les actions de contact}{2}
+\contentsline {subsection}{\numberline {0.1.5}Mod\IeC {\'e}lisation du plan inclin\IeC {\'e}}{2}
+\contentsline {subsection}{\numberline {0.1.6}Mod\IeC {\'e}lisation du cas du plan horizontal}{2}
+\contentsline {section}{\numberline {0.2}Frottement dynamique}{2}
+\contentsline {subsection}{\numberline {0.2.1}Condition de glissement}{2}
+\contentsline {subsection}{\numberline {0.2.2}Lois de Coulomb}{3}
+\contentsline {subsection}{\numberline {0.2.3}Exp\IeC {\'e}rience de Timochenko}{3}
+\contentsline {section}{\numberline {0.3}Exemples}{3}
+\contentsline {section}{\numberline {0.4}Conclusion}{3}
+\contentsline {section}{\numberline {0.5}Questions}{3}
+\contentsline {section}{\numberline {0.6}Commentaires}{3}

@@ -1,0 +1,28 @@
+\contentsline {subsection}{\numberline {0.0.1}Pr\IeC {\'e}-requis et niveau}{2}
+\contentsline {section}{\numberline {0.1}Introduction}{2}
+\contentsline {subsection}{\numberline {0.1.1}Synth\IeC {\`e}se du m\IeC {\'e}thanoate d'\IeC {\'e}thyle}{2}
+\contentsline {section}{\numberline {0.2}Variance et \IeC {\'e}quilibre}{2}
+\contentsline {subsection}{\numberline {0.2.1}Variance}{2}
+\contentsline {paragraph}{Variance :}{2}
+\contentsline {paragraph}{Exemple : corps pur au point triple :}{3}
+\contentsline {subsection}{\numberline {0.2.2}\IeC {\'E}quilibre et quotient r\IeC {\'e}actionnel}{3}
+\contentsline {subsubsection}{Loi d'action de masse}{3}
+\contentsline {paragraph}{Exemple}{3}
+\contentsline {subsubsection}{Quotient r\IeC {\'e}actionnel}{4}
+\contentsline {subsection}{\numberline {0.2.3}Principe de mod\IeC {\'e}ration}{4}
+\contentsline {subsubsection}{Loi de Van't Hoff}{4}
+\contentsline {subsubsection}{Illustration : thermochromie : Fosset p 207}{4}
+\contentsline {subsubsection}{Loi de dilution d'Oswald}{5}
+\contentsline {section}{\numberline {0.3}Cin\IeC {\'e}tique}{5}
+\contentsline {subsection}{\numberline {0.3.1}Vitesse de r\IeC {\'e}action}{5}
+\contentsline {subsubsection}{Lois de vitesse}{6}
+\contentsline {subsection}{\numberline {0.3.2}R\IeC {\'e}action bimol\IeC {\'e}culaire}{6}
+\contentsline {subsection}{\numberline {0.3.3}Catalyse homog\IeC {\`e}ne}{7}
+\contentsline {section}{\numberline {0.4}Application industrielle}{7}
+\contentsline {subsection}{\numberline {0.4.1}Proc\IeC {\'e}d\IeC {\'e} Haber-Bosch}{7}
+\contentsline {subsubsection}{Variance}{8}
+\contentsline {subsubsection}{Influence de la temp\IeC {\'e}rature}{8}
+\contentsline {subsubsection}{Influence de la pression}{8}
+\contentsline {subsubsection}{Proportion initiales des r\IeC {\'e}actifs}{8}
+\contentsline {section}{\numberline {0.5}Conclusion}{9}
+\contentsline {section}{\numberline {0.6}Plan rectifi\IeC {\'e} :}{9}

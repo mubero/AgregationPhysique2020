@@ -1,0 +1,137 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 15 Liaisons chimiques}
+	\author{Hugo}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection{Introduction}
+pré-requis : thermo, interaction coulombienne, électromagnétisme, couches électroniques, formules développées...\\
+Niveau première.\\
+Notion de liaison chimique : définition "interactions attractives entre les atomes",\\ Q : quelle sont ces interactions ? et quelles sont leur impact sur les propriétés des molécules ?
+
+\section{Liaison covalente}
+\subsection{Nature de la liaison}
+	Structure de l'atome : électrons autour d'un noyau positif, les atomes vont tenter de compléter leurs couches en formant des liaisons (schéma et exemple du dihydrogène). Exemple du dichlore.\\
+	Ces liaisons sont d'origine quantique, et leur énergie (énergie nécessaire pour briser la liaison) est de l'ordre de quelque centaines de $KJ.mol^{-1}$.
+	
+\subsection{Représentation de Lewis et géométrie}
+	Représentation de Lewis : définition et principe, schémas et exemple du dihydrogène et du méthane.\\
+	Géométrie : on va pouvoir prévoir la géométrie des molécules simples grâce à Lewis, en se rappellent que deux charges de même signe se repoussent, les doublets non liants et les liaisons vont donc se repousser. Exemples du méthane et de l'eau.\\
+	Cas de la double liaison : introduction avec $O_2$. Ces doubles liaisons ont certaines propriétés comme on va le voir maintenant.
+	
+\subsection{Liaison double}
+\subsubsection{Liaison conjuguée}
+	Définition de liaison conjuguée : deux liaisons sont conjuguées si elles alternent avec une liaison simple.\\
+	Longueur d'onde absorbée fonction du nombre de liaisons doubles conjuguées : cas de l'éthylène, du butadiène, du hexadiène et enfin du betacarotène. La couleur dépend donc du nombre de liaisons conjuguées. Absorption dans le visible pour 7 doubles liaisons conjuguées ou plus .
+	
+\subsubsection{Isomérie Z ou E}
+	Définition à l'aide de deux schémas types, les lettres viennent de l'Allemand.\\
+	Passage de l'un à l'autre dans l'expérience  de photo-isomérisation de l'acide maléïque en acide fumarique : \textit{Blanchard} \textbf{chimie organique} p 99. Test caractéristique des isomères par chomatographie.\\
+	
+	Cas des batonnets dans la rétine où un photon provoque la transformation d'un isomère à l'autre.	
+	
+\section{Cohésion dans la matière}
+
+\subsection{Électronégativité et polarisation}
+	Électronégativité $\chi$ : capacité d'un atome à attirer des électrons.\\
+	Exemples des liaisons C-C et O-H pour illustrer la polarisation d'une liaison.\\
+	Que se passe t-il lorsque la différence d'Électronégativité entre les deux atomes de la liaison est grande ?
+	
+\subsection{Solide ionique}
+	Cas de Na-Cl, dans lequel Cl arrache l'électron de Na car il est beaucoup plus électronégatif que ce dernier.\\
+	Laison ionique : attraction attractive électrique. $E_l \simeq qq\, 100\,KJ.mol^{-1}$.\\
+	Schéma de la dissolution du sel dans l'eau : interaction entre le solide ionique et le solvant polaire.
+	
+\subsection{Solide moléculaire}
+\textbf{Manip} : On regarde la différence entre les températures de fusion de deux diastéréoisomères : l'acide fumarique et l'acide maléïque, voir PDF joint au dossier. On a une plaque chauffante sur la quelle se trouvent deux erlenmeyer fermés, dont le bouchon accueille un tube à essais avec de la glace. Au fond des erlen se trouvent l'un des acides sous forme solide.\\
+
+Schéma expliquant les différences de stabilité des deux acides (température de fusion) à partir des liaisons intra et inter-moléculaires.\\
+
+Les propriétés vues permettent des applications telles que la formation de phospholipides.\\
+
+Notion de liaison hydrogène et Van der Waals.
+
+\section{Exemple de réaction : combustion}
+\textit{Le maréchal} \textbf{Tome 1 Chimie générale} p254.\\
+
+On fait chauffer une canette remplie d'eau avec une bougie. On mesure la différence de température de l'eau, et la différence de masse de la bougie, et on en déduit l'énergie libérée par la rupture des liaisons de l'acide stéarique qui compose la bougie, en considérant que toute l'énergie libérée a servie à chauffer l'eau.
+	\begin{eqnarray}
+	\Delta_rH \xi = mc_p \Delta T
+	\end{eqnarray}
+	
+\section*{Questions}
+Une liaison est elle toujours représentée par un trait ?\\
+
+Feriez vous la représentation planétaire de l'atome en tant qu'enseignant ?\\
+
+Comment expliquer aux élèves que seuls les électrons de valence interagissent ?\\
+
+En première, qu'en est il du programme quand à la géométrie des molécules ? \\
+Ils doivent être capables de justifier une géométrie donnée ?\\
+
+Quelle règle générale donneriez vous pour la géométrie ?\\
+
+Que pouvez vous dire de la quantité d'eau ajoutée dans la première manip ? Est elle importante ?\\
+On a pas besoin d'être précis mais il faut qu'il y en ai assez pour qu'un l'un soit soluble et l'autre non.\\
+
+Sécurité relative à l'eau de brome ??\\
+Il faut mettre des gants en caoutchouc. \\
+
+Comment l'élimine t-on ?\\
+On le réduit avec du thiosulfate.\\
+
+Si on fait une chromato avec les acides maléïque et fumarique, lequel monte le plus haut et pourquoi ?\\
+C'est le fumarique, on a un support de silice...\\
+
+Pourquoi voit on des marques sombre sur la plaque lorsqu'on l'éclaire avec des UV ?\\
+La plaque est imprégnée d'un dépot qui absorbe dans l'UV et réémet dans le visible, et alors seuls les endroits où il y a les espèces étudiées apparaissent sombres.
+
+\section*{Remarques}
+Il faut placer les électrons et les paires en faisant les liaisons et non avant car on ne peut pas justifier pourquoi certains forment des doublets non liants et d'autres non...\\
+Attention il faut donner les nomenclatures officielles pour les molécules données.\\
+Au niveau première pas de représentation topologiques.\\
+Introduire la notion de rotation d'une liaison avec de parler d'isomérie. On peut illustrer la non possibilité de rotation pour les doubles liaisons avec la première expérience.\\
+Il faut prendre des exemples concrets pour les liaisons (ex : pour O-H illustrer avec $H_2O$).\\
+Ne pas parler d'enthalpie mais de "chaleur massique de combustion" en première.\\
+Mettre la dernière manip plus tôt, c'est la seule qui est quantitative. La mettre par exemple dans la partie "liaison double".\\
+Bien préciser que NACl représente un atome de chlore pour un atome de sodium, mais on ne peut isoler l'entité, elle n'existe que sous forme de cristal.\\
+
+Possibilité de regarder le logiciel Avogadro pour la géométrie des molécules.
+
+\end{document}

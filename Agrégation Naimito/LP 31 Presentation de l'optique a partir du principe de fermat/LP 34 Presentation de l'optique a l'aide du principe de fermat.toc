@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {0.1}introduction}{2}
+\contentsline {section}{\numberline {0.2}Principe de Fermat}{2}
+\contentsline {subsection}{\numberline {0.2.1}Enonc\IeC {\'e}}{2}
+\contentsline {paragraph}{Chemin optique}{2}
+\contentsline {subsection}{\numberline {0.2.2}Premi\IeC {\`e}res cons\IeC {\'e}quences}{2}
+\contentsline {paragraph}{Cas d'un milieu homog\IeC {\`e}ne}{2}
+\contentsline {paragraph}{Retour inverse}{2}
+\contentsline {section}{\numberline {0.3}Lois de Snell-Descartes}{3}
+\contentsline {subsection}{\numberline {0.3.1}Lois de r\IeC {\'e}fraction}{3}
+\contentsline {subsection}{\numberline {0.3.2}Lois de r\IeC {\'e}flection}{3}
+\contentsline {section}{\numberline {0.4}Equations du rayon dans un milieu non homog\IeC {\`e}ne}{4}
+\contentsline {subsection}{\numberline {0.4.1}Application au ph\IeC {\'e}nom\IeC {\`e}ne su mirage}{4}
+\contentsline {section}{\numberline {0.5}Conclusion}{4}
+\contentsline {section}{\numberline {0.6}Questions}{4}
+\contentsline {section}{\numberline {0.7}Commentaires et r\IeC {\'e}ponses aux questions}{5}

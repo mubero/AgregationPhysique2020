@@ -1,0 +1,134 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 17 Métaux}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection{Introduction}
+
+\section{Conductivité électrique}
+\begin{eqnarray}
+\vec{j} = \gamma \vec{E}
+\end{eqnarray}
+On a une tablette comprenant des fils (de cuivre) de différentes sections dont on va se servir pour expliciter la dépendance de la résistance en la section et la longueur.
+On impose un courant $I$ sur un fil à l'aide d'un générateur de courant (on mesure I en mettant un ampèremètre en série) et on mesure la tension $U$ (au voltmètre) entre deux points séparés de la longueur L, puis on trace 
+\begin{eqnarray}
+R = \frac{U}{I} = \frac{L}{\gamma S}
+\end{eqnarray}
+en modélisant on montre ainsi que R dépend linéairement de L.\\
+
+On peut ensuite, pour une longueur donnée, mesurer U avec différentes sections pour montrer que la résistance dépend de l'inverse de la section.\\
+
+On peut ainsi finalement en déduire (on peut aussi directement utiliser la valeur de la section donnée sur la maquette) une estimation de la conductivité $\gamma$ pour le cuivre.
+
+\section{Conductivité thermique}
+Voir \textit{BUP n°108441 de Renaud Mathevet}
+\begin{eqnarray}
+\vec{j}_{th} = -\lambda \vec{\nabla}T
+\end{eqnarray}
+On a une maquette constituée de deux tiges métalliques, l'une en cuivre et l'autre en dural, liées par un cellule à effet Peltier qui génère un courant thermique. On va mesurer les différences de température à différents points régulièrement espacés sur les tiges, à l'aide d'un thermocouple. On peut ensuite tracer $\Delta T = T_{L}-T_{centre}$ en fonction de la distance L entre le point de mesure et le centre, après avoir regardé dans le handbook le lien entre tension et température pour le thermocouple utilisé. \\
+Dans la pratique, le thermocouple n'étant pas nécessairement étalonné, on peut tracer $\Delta U(L)$ avec $\Delta U$ la différence de tension lue avec le thermocouple.\\
+On obtient alors une droite pour chaque matériau, dont on peut déterminer les coefficients directeurs $a_{Cu}$ et $a_{dural}$. Comme on a 
+\begin{eqnarray}
+J = \lambda_i \frac{\Delta T}{\Delta x}
+\end{eqnarray} 
+avec le même courant $J$ imposé par le dispositif à effet Peltier pour les deux, on en déduit alors 
+\begin{eqnarray}
+\frac{\lambda_{Cu}}{\lambda_{D}} = \frac{a_D}{a_{Cu}}
+\end{eqnarray}
+que l'on peut comparer au rapport des conductivités tabulées : $\frac{\lambda_{Cu}}{\lambda_D} = 2,6$\\
+
+Explications quand à l'écart potentiel du résultat avec celui attendu : mauvais contact thermique, et étalement temporel des mesures (J n'est alors pas exactement constant).
+
+\section{Mesures d'un module d'Young}
+\paragraph{Module d'Young :}
+Le module de Young ou module d’élasticité (longitudinale) ou encore module de traction est la constante qui relie la contrainte de traction (ou de compression) et le début de la déformation d'un matériau élastique isotrope.\\
+Le rapport entre la contrainte de traction appliquée à un matériau et la déformation qui en résulte (un allongement relatif) est constant, tant que cette déformation reste petite et que la limite d'élasticité du matériau n'est pas atteinte. La loi d'élasticité est la loi de Hooke, c'est-à-dire
+\begin{equation}
+\sigma = E\, \varepsilon
+\end{equation}
+avec $E$ le module d'Young (pression), $\sigma$ la contrainte (pression) et $\varepsilon$ l'allongement relatif ou déformation $\varepsilon = \frac{l-l_0}{l_0}$.\\
+
+\paragraph{Manipulation :}
+
+On a une tige de laiton de longueur $L$, fixée en son centre, que l'on excite en la frottant avec un chiffon imbibé d'éthanol. On sait, comme la barre est fixée en son centre, que la longueur d'onde du mode fondamental qui va être celui le plus excité, sera égale à $2L$. En mesurant la fréquence du signal émis avec un capteur (un micro relié à un ampli) et un oscilloscope/carte d'acquisition on pourra ainsi remonter à la vitesse du son dans le laiton : $c_s=\lambda f$.\\ On peut ensuite remonter au module d'Young du laiton , qui s'exprime comme 
+\begin{eqnarray}
+E = c_s^2\rho
+\end{eqnarray}
+après avoir calculé $\rho$ à partir de la masse de la barre que l'on a pesée (on connaît son diamètre et sa longueur). On pourra finalement comparer ce module d'young à ceux tabulés pour différentes compositions de laiton.\\ 
+
+Ici on trouve : \\
+L = 60,0 $\pm$ 0,1 cm\\
+m = 250,80 $\pm$ 0,01 g\\
+D= 8,0 mm\\
+$\Rightarrow \; \rho = 8,29\pm 0,03 \;g.m^{-3}$\\
+f = 2842 $\pm$ 1 Hz\\
+$\Rightarrow \; c_s = 2Lf = 3,41.10^3$ m.s$^{-1}$\\
+
+$\Rightarrow \; E = 96,4$ GPa  à comparer à $E_{tab}$ qui varie entre 90 (laiton rouge) et 100 GPa (laiton jaune) selon la composition.
+
+\section*{Questions}
+Comment fonctionne une cellule Peltier ?\\
+On impose un courant à l'interface entre les deux métaux, ce qui engendre un flux de chaleur.\\
+
+Le flux thermique est il le même dans le dural et dans le cuivre ?\\
+Non dans la pratique il y a le courant thermique dû à l'effet joule qui engendre une légère différence.\\
+
+Principe et intérêt d'un montage 4 fils ?\\
+
+Qu'est ce que une courte et longue dérivation ?\\
+Dépend des positions du voltmètre et de l'ampèremètre : si le voltmètre prend la tension aux bornes du dipôle, et l'ampèremètre est en série : courte dérivation, si le voltmètre prend la tension au borne du dipôle + ampèremètre : longue dérivation.\\
+
+Temps nécessaire à l'établissement du régime permanent pour la seconde manip ?\\
+Coeff de diffusion :$D = \lambda/\rho c$ $\;\longrightarrow\; \tau = L^2/D$.
+
+Pourquoi les métaux ont ils une bonne conductivité électrique ? Une bonne conductivité thermique ?\\
+
+Y a t-il un rapport entre les deux ?\\
+
+Pourquoi le module d'Young des métaux est il élevé ?\\
+C'est lié à la liaison métallique : les liaisons covalentes sont renforcées par les liaisons dues aux électrons de conduction, qui sont délocalisés à l'échelle du métal.\\
+
+Connaissez une autre manière de mesurer le module d'Young ?\\
+On fixe un réglet de laiton par l'une de ses extrémités (avec un étau ou une pince), et on accroche une masse à l'autre extrémité : on mesure alors la déflection par rapport à la position initiale. On a alors un lien entre la déflection, la masse et le module d'Young : on trace l'amplitude de la déflection en fonction de la masse, on modélise et on en déduit le module d'Young.
+
+
+\section{Remarques}
+Il existe un modèle : loi de Widmann Franz, qui lie conductivité thermique et électrique, fait dans le Couture et Zitoun, et dans le Quéré de physique des matériaux.
+
+
+
+
+\end{document}

@@ -1,0 +1,114 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 13 Biréfringence - Pouvoir rotatoire}
+	\author{Laurent}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+
+\section{Introduction}
+Définition de biréfringence/polarisation circulaire.\\
+Mise en œuvre expérimentale.
+	
+\section{Biréfringence linéaire}
+\subsection{Expérience qualitative}
+Petite expérience avec un cristal de spath qui dédouble une image.\\
+Schéma explicatif.
+
+\subsection{Mesure de la biréfringence $\Delta n$}
+Schéma caractéristique de la manip.\\
+v par exemple Pérez p 481 : 32.III\\
+Manip imprécise si on repère les extinctions à l'œil et qu'on détermine leurs position sur un écran $\Rightarrow$ on utilise un spectromètre.
+\subsubsection{Étalonnage du spectre}
+On étalonne le spectro avec des laser de longueurs d'onde connue, ou bien avec des filtres (il faut avoir des filtres suffisamment sélectifs).
+\subsubsection{Mesure}
+On mesure le nombre d'extinctions.... voir poly et on en déduit $\Delta n$ selon
+\begin{eqnarray}
+\Delta n = \frac{m-1}{e}\frac{\lambda_r \lambda_b}{\lambda_r-\lambda_b}
+\end{eqnarray}
+
+\section{Biréfringence circulaire}
+Intro chap 33 pérez.\\
+Principe :
+On génère une source émettant des ondes planes (point source +lentille cvg) puis on la polarise rectilignement avec un polariseur, on fait passer l'onde dans un filtre pour former une onde plane quasi monochromatique polarisée rectilignement. On la fait passer par un quartz $\perp$ et on regarde l'angle de déviation (avec un analyseur) fonction de l'épaisseur du quartz, dont on déduit le pouvoir rotatoir $P=\alpha/l$. On répète l'opération avec différents filtres et on trace $P(\lambda)$ qui doit être de la forme 
+\begin{eqnarray}
+P = \frac{A}{\lambda^2}
+\end{eqnarray}
+
+\section*{Questions}
+Pour l'expérience avec le cristal de spath, pouvez vous faire le tracé des rayons ?\\
+pérez p479.\\
+
+Comment le condenseur est il placé dans le second montage ?\\
+Il doit être de telle sorte à former l'image du filament de la lampe au centre de le première lentille, pour avoir un maximum de lumière et être dans les conditions de Gauss.\\
+
+Quel est le rôle de la fente ?\\
+
+Pourquoi lorsque l'on éteint le faisceau en réglant Polariseur et analyseur : pourquoi reste il toujours un fond violacé ?\\
+
+Quel est le rôle du prisme ? Pourquoi prend on un bi-prisme ?\\
+
+Qu'est ce qu'un spectromètre ? Quel est son fonctionnement ?\\
+V pérez p 361\\
+Ici c'est un Cerni-Sterdner.
+
+Pouvez vous redémontrer la relation (1) ?\\
+
+Comment le quartz parallèle est il placé ? quel angle fait il avec le polariseur ?\\
+
+Quelle est la différence entre polarisation linéaire et la polarisation circulaire ?\\
+
+Les matériaux possédant l'une possèdent ils nécessairement l'autre ?\\
+Non ces deux aspects ne sont pas liés à priori, ils dépendant cependant tout deux de l'arrangement moléculaire du matériau.\\
+
+Quel est le protocole exacte pour la seconde manipulation ?\\
+
+Comment sont fabriqués les filtres ?\\
+
+Comment mesure t-on l'angle ?\\
+
+Comment identifie t-on une loi de puissance ?\\
+
+Comment savoir si le quartz est droit ou gauche ?
+
+\section*{Remarques}
+Possibilité d'ajouter l'effet Faraday, mais en tout cas il faut au moins ces deux manipulations.\\
+Mettre en valeur que le $\Delta n_c$ est en $1/\lambda$ ce qui explique que $\alpha$ soit en $1/\lambda^2$.\\
+Pour la première partie on peut tracer aussi 
+\begin{eqnarray}
+\frac{1}{\lambda} = \frac{m}{e\Delta n}
+\end{eqnarray}
+Il faut dire pour la dernière partie si le quartz utilisé est dextrogyre ou levogyre.\\
+La manip surprise pourrait être d'analyser la polarisation en sortie du quartz $//$ de la première manip.\\
+
+
+\end{document}

@@ -1,0 +1,17 @@
+\contentsline {subsection}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {1}Principe d'une description macroscopique}{2}
+\contentsline {subsection}{\numberline {1.1}\IeC {\'E}quilibre thermodynamique local}{2}
+\contentsline {subsection}{\numberline {1.2}Bilan d'une grandeur extensive}{2}
+\contentsline {subsection}{\numberline {1.3}Quelques grandeurs transport\IeC {\'e}es}{2}
+\contentsline {section}{\numberline {2}Transport de la chaleur}{3}
+\contentsline {subsection}{\numberline {2.1}Modes de transport de la chaleur}{3}
+\contentsline {paragraph}{Conduction}{3}
+\contentsline {paragraph}{Convection}{3}
+\contentsline {paragraph}{Rayonnement}{3}
+\contentsline {subsection}{\numberline {2.2}Bilan d'\IeC {\'e}nergie interne}{3}
+\contentsline {subsection}{\numberline {2.3}\IeC {\'E}quation de diffusion thermique}{3}
+\contentsline {section}{\numberline {3}R\IeC {\'e}solution de l'\IeC {\'e}quation de diffusion}{3}
+\contentsline {subsection}{\numberline {3.1}En r\IeC {\'e}gime stationnaire}{3}
+\contentsline {paragraph}{Notion de r\IeC {\'e}sistance (thermique)}{3}
+\contentsline {subsection}{\numberline {3.2}R\IeC {\'e}gime non stationnaire}{3}
+\contentsline {section}{\numberline {4}Conclusion}{3}

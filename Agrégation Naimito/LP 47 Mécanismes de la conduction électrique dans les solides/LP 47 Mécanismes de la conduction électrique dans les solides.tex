@@ -1,0 +1,109 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 47 Mécanismes de la conduction électrique dans les solides}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+	
+\subsection{Pré-requis}
+Dynamique du point, Loi d'Ohm
+
+\subsection{Introduction}
+Loi d'Ohm locale et générale. Interprétation.\\
+Tous les matériaux décrits par cette loi mais elle n'explique pas les raisons qui font que certains sont conducteurs et d'autres isolants.
+
+\section{Modèle de Drude}
+On va commencer par explorer un modèle très simple, mais qui permet tout de même d'obtenir certains résultats, et de développer une certaine intuition de la physique sous-jacente de la physique de la conduction dans les métaux. C'est Drude qui a eu l'idée d'appliquer le modèle cinétique des gaz aux électrons dans un conducteur, pour essayer de voir si cela pouvait décrire le mécanisme de la conduction électrique dans les métaux.\\
+
+Suivre le premier chapitre du \textbf{Physique du solide} de \textit{W. Ashcroft}
+
+\subsection{Hypothèses}
+\subsection{Modélisation}
+\subsection{Loi d'Ohm}
+\subsection{Conductivité thermique}
+\subsection{Limitations}
+
+
+\section{Au delà du modèle classique}
+\subsection{Modèle de Sommerfeld}
+On regarde ici un modèle semi-classique : Les hypothèses sont les mêmes que pour le modèle de Drude, mais on considère le principe d'exclusion de Pauli, qui vient de la MQ.
+\subsubsection{Distribution de Fermi}
+On établit le principe sans rentrer trop dans les détails analytiques. \\
+Comparer les distributions de Maxwell-Boltzmann et de Fermi. Insister sur la vitesse moyenne des électrons qui est alors beaucoup plus grande, en particulier à basse température.
+\subsubsection{Résultats}
+Expliciter le fait que le libre parcours moyen est nettement plus long que ce précisait Drude.\\
+Donner les améliorations par rapport à Drude : pour le pouvoir thermoélectrique , et coefficient de Hall + magnétorésistance notamment.\\
+
+\subsubsection{Limitations}
+Regarder le chap 3 du Ashcroft p65.
+\subsection{Théorie des bandes}
+Regarder le chap 9. Seulement ouvrir brièvement au modèle.
+
+\section*{Questions}
+Pouvez vous justifier le plan choisi ?\\
+La première partie est au programme de prépa, et est une bonne introduction à la physique des solides, la seconde partie met en relief les hypothèses et permet d'avoir une vision plus concrète et physique du sujet, tandis que l'on conclut en introduisant l'intérêt de la mécanique quantique.\\
+
+Drude a t'il originellement évalué $\tau$ avec la conductivité ?\\
+Non il a voulu la lier à l'agitation thermique, ce qui mène à la bonne valeur pour$\tau$ car l'erreur sur la vitesse compense celle sur la longueur de parcours moyen.\\
+
+Le modèle de Drude rend il compte de l'évolution de la résistivité avec la température ?\\
+Il permet de faire un lien entre les deux mais ce dernier n'est pas correct.\\
+
+Que vaut la température de Fermi ?\\
+
+Le modèle de Drude ne traite t-il que la conductivité électrique ?\\
+Non il permet d'établir la loi de Wiedemann-Franz :
+\begin{eqnarray}
+\frac{\lambda}{\sigma T} = \alpha \left(\frac{k_B}{e}\right)^2
+\end{eqnarray}
+
+D'où vient l'énergie dissipée par effet Joule ?\\
+C'est le travail du champ électrique qui est "dissipé" par les collisions.\\
+
+Dans un câble électrique, si ce ne sont pas les électrons qui se déplacent à grande vitesse, pourquoi la lumière s'allume t-elle instantanément quand on appuie sur l'interrupteur ?\\
+
+Existe t-il un modèle phénoménologique classique basé sur les équations de Maxwell qui rende compte du phénomène de supraconductivité ?\\
+Landeau : il faut prendre un modèle où $\vec{J} = \alpha \vec{A}$.
+
+
+
+
+
+\end{document}

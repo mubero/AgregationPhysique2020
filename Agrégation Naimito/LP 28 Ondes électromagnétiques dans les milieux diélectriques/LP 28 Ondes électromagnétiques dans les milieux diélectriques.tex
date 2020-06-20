@@ -1,0 +1,292 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 28 Ondes électromagnétiques dans les milieux diélectriques}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Pré-requis et niveau}
+Leçon niveau L2\\
+Électromagnétisme dans le vide.\\
+Notion de moment dipolaire et de moment magnétique.\\
+Optique géométrique.
+	
+\section{Modèle de Drude-Lorrentz}
+
+\subsection{Équations de Maxwell dans les milieux matériels}
+Les équations de structure du champ sont les mêmes que dans le vide
+\begin{eqnarray}
+\vec{rot} \vec{E} =- \frac{\partial \vec{B}}{\partial t}\hspace{0.5cm}\mathrm{et}\hspace{0.5cm} div \vec{B} = \vec{0}.
+\end{eqnarray}
+Il est possible de prendre en compte les charges liées aux atomes qui composent le milieu en considérant les champs $\vec{P}$ et $\vec{M}$.\\
+
+La polarisation volumique $\vec{P}$ peut être définie, à partir du moment dipolaire d'une distribution continue de charge $\vec{\mathcal{P}}$ comme 
+\begin{eqnarray}
+\vec{\mathcal{P}} = \int_{\mathcal{V}} \rho_{in}\; \vec{r}\; d\mathcal{V} = \int_{\mathcal{V}} \vec{P}\; d\mathcal{V},
+\end{eqnarray}
+où $\rho_{in}$ décrit la distribution de charge internes au milieu. On a donc $\vec{P} = \vec{0}$ hors de la distribution, ce qui permet d'établir 
+\begin{eqnarray}
+\int_{\mathcal{V}} div(x_i.\vec{P}) d\mathcal{V} = \int_{\partial\mathcal{V}} x_i\vec{P}.\vec{n} dS = 0
+\end{eqnarray}
+or $div(x_i\vec{P}) = x_i\, div\vec{P} + \vec{P}.\vec{grad}\,x_i = x_i\, div\vec{P} + \vec{P}.\vec{e}_i$ d'où 
+\begin{eqnarray}
+\int_{\mathcal{V}} (x_i\, div\vec{P} + \vec{P}.\vec{e}_i) d\mathcal{V} = \mathcal{P}_i + \int_{\mathcal{V}} x_i\, div\vec{P} d\mathcal{V} = 0
+\end{eqnarray}
+On arrive donc à 
+\begin{eqnarray}
+ \mathcal{P}_i = -  \int_{\mathcal{V}} x_i\, div\vec{P} d\mathcal{V} \stackrel{aussi}{=} \int_{\mathcal{V}} x_i\, \rho_{in}\, d\mathcal{V} 
+\end{eqnarray}
+d'où 
+\begin{eqnarray}
+-\mathrm{div} \vec{P} = \rho_{in}
+\end{eqnarray}
+dans la distribution de charges.\\
+
+L'aimantation $\vec{M}$ est définie comme le moment magnétique volumique de la distribution de charge considérée, on peut donc exprimer le moment magnétique de la distribution de charges $\vec{\mathcal{M}}$ comme
+\begin{eqnarray}
+\vec{\mathcal{M}} = \frac{1}{2} \int_{\mathcal{V}} (\vec{r} \times \vec{J}_{in} ) d\mathcal{V} = \int_{\mathcal{V}} \vec{M} d\mathcal{V}.
+\end{eqnarray}
+On peut notamment monter que $\vec{M}$ est caractérisé par les relations 
+\begin{eqnarray}
+\vec{M} = \vec{\mathrm{rot}}\,\vec{J}_{in}\;\mathrm{dans}\;\mathcal{V} \hspace{0.5cm}\mathrm{et}\hspace{0.5cm} \vec{M} = \vec{0}\; \mathrm{a\;l'exterieur\;de}\; \mathcal{V}.
+\end{eqnarray}
+\\
+On peut finalement définir les champs $\vec{D} = \varepsilon_0 \vec{E} + \vec{P}$ et $\vec{H} = \frac{\vec{B}}{\mu_0} - \vec{M}$ pour obtenir les équations caractéristiques des milieux matériels 
+\begin{eqnarray}
+\mathrm{div}\,\vec{D} = \vec{0} \hspace{0.5cm} \mathrm{et} \hspace{0.5cm} \vec{\mathrm{rot}}\,\vec{H} - \frac{\partial \vec{D}}{\partial t } = \vec{0}
+\end{eqnarray} 
+%\subsection{Modèle de Drude-Lorrentz}
+\subsection{Hypothèses et équation du mouvement}
+On se place dans le cas d'un milieu dit parfait, à savoir homogène, linéaire et isotrope. Dans la pratique l'établissement d'un état de polarisation ou d'aimantation se fait en un temps non nul, ce qui implique un retard de $\vec{D}$ et $\vec{H}$ par rapport à $\vec{E}$ et $\vec{B}$. Si on suppose cependant que les variations de ces derniers sont suffisamment lentes pour que l'on puisse négliger ce retard, alors on aura une réponse linéaire du milieu à l'excitation se traduisant par 
+\begin{eqnarray}
+\vec{D} =  \varepsilon_0 [\varepsilon_r] \vec{E}.
+\end{eqnarray}
+Si on suppose de plus que le milieu est homogène et isotrope, à savoir que les équations sont invariantes par translation (dans le milieu) et que la réponse du milieu est indépendante de la direction choisie alors on aura 
+\begin{eqnarray}
+\vec{D} =  \varepsilon_0 \varepsilon_r \vec{E}.
+\end{eqnarray}
+Si on se place dans un tel milieu, on peut établir les équations du mouvement attachée à un électron composant le milieu diélectrique.
+Pérez II.1 p 538 .\\
+Attention la force de frottement introduite $-K\vec{u}$ n'est pas due aux collisions des électrons avec les noyaux des atomes comme dans le modèle de Drude, puisqu'ils demeurent liés à leur atome (d'où la force de rappel), mais aux fait que les électrons accélérés rayonnent de l'énergie, ce qui peut se traduire par cette force de frottement dans un modèle classique.
+\subsection{Solutions dans le cas d'une excitation sinusoïdale}
+Pérez II.2 + II.3 p 539 
+
+\section{Propagation d'une onde électromagnétique}
+\subsection{Équation de propagation}
+On peut établir l'équation de propagation dans un milieu diélectrique linéaire, homogène, isotrope et non aimanté en partant de
+\begin{eqnarray}
+\mathrm{div}\,\vec{D} = \varepsilon_0\varepsilon_r\mathrm{div}\,\vec{E} = \vec{0} \hspace{0.5cm} &,& \hspace{0.5cm} \vec{\mathrm{rot}}\,\vec{H} - \frac{\partial \vec{D}}{\partial t } = \frac{1}{\mu_0}\vec{\mathrm{rot}}\,\vec{B} - \varepsilon_0\varepsilon_r\frac{\partial \vec{E}}{\partial t } = \vec{0}\\
+\mathrm{div}\,\vec{B} =  0 \hspace{0.5cm} &\mathrm{et}& \hspace{0.5cm} \vec{\mathrm{rot}}\,\vec{E} = - \frac{\partial\vec{B}}{\partial t}
+\end{eqnarray}
+et en utilisant que 
+\begin{eqnarray}
+\vec{\mathrm{rot}}\,\vec{\mathrm{rot}} () = \vec{\mathrm{grad}} \,\mathrm{div} () - \Delta ()
+\end{eqnarray} 
+ce qui permet d'obtenir l'équation de d'Alembert pour les champs électrique et magnétique
+\begin{eqnarray}
+\Delta \vec{E} - \varepsilon_r \frac{1}{c^2} \frac{\partial ^2 \vec{E}}{\partial t ^2} \hspace{0.5cm} \mathrm{et} \hspace{0.5cm}
+\Delta \vec{B} - \varepsilon_r \frac{1}{c^2} \frac{\partial ^2 \vec{B}}{\partial t ^2}
+\end{eqnarray}
+
+\subsection{Dispersion pour les milieux transparents}
+Pérez p547-548 : IV.2 et IV.3, évoquer pourquoi les ondes sont alors des TEM : IV.4.
+\subsection{Absorption}
+Pérez p 554
+\section{Lien avec l'optique : équation de Eikonale}
+Pérez p 551-552 : on retrouve le lien entre n et $\lambda$.\\
+
+Si le milieu est toujours isotrope et linéaire, mais inhomogène, les ondes planes solutions de l'équation de propagation sont alors de la forme 
+\begin{eqnarray}
+\vec{E}(\vec{r},t) = \vec{E}_0(\vec{r}) e^{-i(\omega t - k_0 S(\vec{r}))}
+\end{eqnarray}
+On a ainsi
+\begin{eqnarray}
+\partial_i \vec{E}(\vec{r},t) &=& (\partial_i \vec{E}_0 +i \vec{E}_0 k_0\partial_i S)e^{-i(\omega t - k_0 S(\vec{r}))}\\
+\partial_i^2 \vec{E}(\vec{r},t) &=& (\partial_i^2 \vec{E}_0 + 2i\partial_i\vec{E}_0 k_0\partial_i S +i \vec{E}_0 k_0\partial_i^2 S - \vec{E}_0 k_0^2(\partial_i S)^2)e^{-i(\omega t - k_0 S(\vec{r}))}\\
+\partial_t^2 \vec{E}(\vec{r},t) &=& -\omega^2 \vec{E}_0(\vec{r}) e^{-i(\omega t - k_0 S(\vec{r}))}
+\end{eqnarray}
+d'où 
+\begin{eqnarray}
+\Delta \vec{E}_0 + 2i k_0 (\vec{\nabla}S.\vec{\nabla})\vec{E}_0 +i \vec{E}_0 k_0 \Delta S - \vec{E}_0 k_0^2(\vec{\nabla} S)^2  + \frac{\varepsilon_r}{c^2} \omega^2 \vec{E}_0(\vec{r}) = \vec{0}
+\end{eqnarray}
+or $k_0 = \frac{2\pi}{\lambda} = \frac {\omega}{c}$, d'où
+\begin{eqnarray}
+\lambda^2 \Delta \vec{E}_0 - \vec{E}_0 (\vec{\nabla} S)^2  + \varepsilon_r\vec{E}_0(\vec{r}) = \vec{0}\\
+2 (\vec{\nabla}S.\vec{\nabla})\vec{E}_0 + \vec{E}_0 k_0 \Delta S = \vec{0}
+\end{eqnarray}
+où l'on a séparé les parties réelles et imaginaires.\\
+L'approximation de l'optique consiste à supposer que les variations du milieu sont faibles à l'échelle d'une longueur d'onde, et donc que les variations de l'amplitude du champ le sont aussi, on peut donc négliger les termes de la forme $\lambda \partial_i X$ et $\lambda^2 \partial_i^2 X$, ce qui mène à 
+\begin{eqnarray}
+(\vec{\nabla} S)^2 = \varepsilon_r = n^2
+\end{eqnarray}
+qui est l'équation Eikonale. Les surfaces $S(\vec{r}) = cste$ correspondent aux surfaces d'onde, et ainsi on en déduit que le vecteur $\vec{u}$ portant la direction de l'onde est colinéaire au vecteur $\vec{\nabla}S$, on a ainsi 
+\begin{eqnarray}
+\vec{\nabla}S = n\vec{u}
+\end{eqnarray} 
+dont on peut déduire la célèbre équation de l'optique géométrique 
+\begin{eqnarray}
+\frac{dn\vec{u}}{ds} = \vec{\nabla}n
+\end{eqnarray}
+décrivant la trajectoire d'un rayon lumineux dans un milieu transparent inhomogène.
+\subsubsection{Calcul :}
+\begin{eqnarray}
+\frac{dn\vec{u}}{ds} = \frac{d\vec{\nabla}S}{ds} \; \; or \;\; d\partial_xS = \vec{\nabla}(\partial_xS).\vec{dl}
+\end{eqnarray}
+d'où
+\begin{eqnarray}
+\frac{d\partial_xS}{ds} = \vec{\nabla}(\partial_xS).\vec{u} = \vec{\nabla}(\partial_xS).\frac{\vec{\nabla}S}{n} = \frac{1}{n}\partial_x(\vec{\nabla}S)^2 = \partial_xn
+\end{eqnarray}
+on en déduit 
+\begin{eqnarray}
+\frac{dn\vec{u}}{ds} = \vec{\nabla}n
+\end{eqnarray}
+
+\section{Conclusion}
+
+\chapter{Leçon de Sébastien}
+	
+\subsection*{Pré-requis}
+	EM dans le vide et les conducteurs.
+	
+\subsection{Introduction}
+
+\section{Polarisation dans un milieu diélectrique}
+\subsection{Vecteurs polarisation}
+Pour les conducteurs il y a des électrons "libres" délocalisés à l'échelle du conducteur. Pour les diélectrique il n'existe pas ou très peu de telles charges (il n'y en a pas dans un diélectrique parfait), il existe cependant des charges liées aux atomes. On peut donc donner un moment dipolaire à chaque atome, et on peut définir la polarisation $\vec{p}_i = q_i\vec{r}_i$ $\rightarrow\; \vec{P} = \sum n_iq_i\vec{r}_i$. On va donc avoir une densité de charge $\rho^+$ pour les cations et $\rho^-$ pour les anions avec $\rho^+=-\rho^-=\rho_0$.
+
+\subsection{Densité volumique de charges liées} On peut maintenant expliquer le cas vu en introduction où l'on introduit un diélectrique entre les bornes d'un condensateur. En introduisant les polarisabilités $\epsilon^+$ et $\epsilon^-$ on peut exprimer le vecteur polarisation comme 
+\begin{eqnarray}
+\vec{P} = (\rho^+\epsilon^+ - \rho^-\epsilon^-)\vec{e}_x = \rho_0(\epsilon^++\epsilon^-)\vec{e}_x
+\end{eqnarray}
+On en déduit 
+\begin{eqnarray}
+dQ = SP(x) - SP(x+dx)
+\end{eqnarray}
+et en déduire à 3 dimensions 
+\begin{eqnarray}
+-\mathrm{div}\vec{P} = \rho_p
+\end{eqnarray}
+
+\subsection{Densité volumique de courants liés}
+\begin{eqnarray}
+\vec{j}_p = \frac{\partial\vec{P}}{\partial t}
+\end{eqnarray}
+
+\section{Réponse d'un mleu diélectrique à un champ $\vec{E}$ sinusoïdal}
+\subsection{Milieu linéaire, homogène et isotrope}
+$\rightarrow\; \vec{P}$ et $\vec{E}$ ont la même direction.\\
+$\rightarrow$ Relation linéaire entre $\vec{P}$ et $\vec{E}$.\\
+$\rightarrow$ Pas de dépendance spatiale.\\
+
+$\Rightarrow$ $\vec{P} = \epsilon_0 X \vec{E}$ avec X la susceptibilité électrique.\\
+
+\subsection{Modèle de Drude-Lorentz (ou de l'électron électriquement lié)}
+
+On considère ici des électrons de masse $m_e$ et de charge $q$ se déplaçant à la vitesse $\vec{v}$. On suppose qu'ils sont soumis à une force de rappel les liant aux atomes, une force de frottement, et la force de Lorentz où l'on négligera le terme magnétique pour des vitesses non relativistes.\\
+On applique ensuite le PFD 
+\begin{eqnarray}
+m_e\vec{a}_e = q\vec{E} - \alpha \vec{v} - k\vec{r}
+\end{eqnarray}
+on a donc une équation différentielle sur $\vec{r}$, où apparaît une pulsation propre $\omega_0$, que l'on résout  en posant $E = E_0e^{i\omega t}$ et donc $\vec{r} = \vec{r}_0 e^{i\omega t}$. On en déduit $\vec{p}=q\vec{r}$ et $\vec{P} = n\vec{p} = nq\vec{r}$. A partir de cette expression on établit $X(\omega)$.
+
+\subsection{Cas particulier où $\omega = \omega_0$}
+on traite les trois cas $\omega \ll \omega_0$, $\omega = \omega_0$ et $\omega\gg\omega_0$.
+
+\section{Propagation d'une onde plane dans les diélectriques}
+\subsection{Equation de Maxwell }
+\begin{eqnarray}
+\vec{\nabla}\vec{E} = \frac{\rho_p}{\epsilon_0} = \frac{-\vec{\nabla}\vec{P}}{\epsilon_0} \rightarrow\; \vec{\nabla}(\epsilon_0\vec{E}+\vec{P}) = 0
+\end{eqnarray}
+On def ainsi $\vec{D}$. puis on passe à rotB
+
+\subsection{Propagation dans un diélectrique}
+
+\begin{eqnarray}
+rot(rotE)=grad(divE)-\Delta E = \Delta E \Rightarrow\; \Delta E - \mu_0\epsilon\frac{\partial^2E}{\partial t^2} = 0
+\end{eqnarray}
+On regarde pour une onde plane et on obtient une nouvelle relation de dispersion 
+\begin{eqnarray}
+k^2 = \frac{\omega^2}{c^2}(1+X)
+\end{eqnarray}
+\subsection{Condensateur}
+
+\subsection{Application à l'optique}
+
+ici on a $\omega_0 \gg \frac{1}{\tau}$, si on considère que le milieu est peu dense et donc $X\ll1$ on a $n^2 = 1+X$ qui devient $n=1+X/2$. Avec l'expression de $X$ on en déduit la loi de Cauchy.
+
+\section*{Questions}
+
+Quelle est la valeur de $\omega_0$ typique dans un diélectrique ?\\
+$\omega_0 \simeq 10^{15}$ rad Hz.\\
+
+Quelle est l'impacte du diélectrique sur le déphasage déjà imposé par le condensateur ?\\
+l'ensemble condo+dié va être équivalent à un condo en parallèle avec une résistance.\\
+
+en quoi le terme en $e^{-k"x}$ dans le $\vec{E}$ traduit une dissipation ?\\
+Il ne faut pas, pour l'absorption, regarder $k"$ mais $\epsilon"$ : un milieu absorbe ssi $\epsilon" > 0$, il ne faut pas confondre absorption et atténuation.\\
+
+Pourquoi la force de rappel est en -kr ?\\
+Car au voisinage de l'équilibre on peut approximer le potentiel dû à l'atome que voit l'électron comme un potentiel harmonique.\\
+
+Ordre de grandeur de v/c pour une électron orbitant autour de son noyau ?\\
+on utilise les grandeurs en jeu pour avoir un ordre de grandeur : $\hbar$, e et $\varepsilon_0$. $\hbar$ est homogène à $ML^2T^{-1}$, $\varepsilon_0$ à des $M^{-1}L^{-3}T^4I^2$ et $e$ à $IT$, on peut donc construire une vitesse comme étant 
+\begin{eqnarray}
+v_e \simeq \frac{e^2}{\hbar \varepsilon_0} \simeq \frac{c}{35}
+\end{eqnarray}
+Rq : le modèle de Bohr donne $v_e \simeq \frac{\hbar}{m_er}\simeq \frac{c}{330}$.\\
+
+Pour un matériau non isotrope on a $E = \epsilon_0 \chi P$, si ce n'est plus le cas quels comportement observe t-on ?\\
+$\rightarrow$ Biréfringence : la polarisation change au cours du temps.\\
+
+As t'on une densité surfacique de charge dans le cas où ... ? Si oui quelle est son expression en fonction de $\vec{P}$ ?\\
+
+Les polarisations microscopiques $\vec{p}_i$ proviennent d'où physiquement ? \\
+Elles viennent des dipôles permanent, qui sont contraints par les atomes et le champ E extérieur.\\
+
+Comment se comporte le diélectrique lorsque $\omega \gg \omega_0$ ?\\
+Le diélectrique se comporte alors comme le vide puisque les électrons n'ont plus le temps de suivre.
+
+
+
+\section*{Remarque}
+la force de frottement dans le modèle de drude-lorentz est due au faut qu'un électron accéléré rayonne et perd donc de l'énergie.\\
+Dans l'expression $ \vec{P}=\epsilon_0X\vec{E}$ les grandeurs sont complexes. la relation fondamentale est un produit de convolution.\\
+Attention l'introduction avec le condensateur est plutôt hors sujet : on traite dans cette leçon d'ondes électromagnétiques. Plutôt parler directement de propagation de lumière dans le verre par exemple.\\
+Questions possibles sur les réflexions et réfraction, et la modification de la polarisation qui leurs sont dues (voir notamment angle de Brewster).
+
+
+\end{document}

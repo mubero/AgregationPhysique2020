@@ -1,0 +1,93 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 40 Confinement d'une particule et quantification de l'énergie}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Introduction, pré-requis}
+Pré-requis : 
+\begin{itemize}
+	\item Équation de Schrodinger indépendante du temps.
+	\item Moment cinétique en mécanique quantique.
+	\item Notion de dualité onde corpuscule.
+	\item Physique de l'onde.
+\end{itemize}
+
+Le nom physique quantique fait aujourd'hui beaucoup fantasmer, employé à tord et à travers... Mais pourquoi physique \textbf{quantique} et non pas physique microscopique par exemple ? Parce que l'on a constaté qu'aux échelles atomiques et moléculaires de nombreuses quantités telle que l'énergie par exemple pouvaient se révéler discrétisées et non plus continues comme elles nous apparaissent aux échelles macroscopique. On va voir aujourd'hui dans cette leçon comment les postulats et le formalisme quantique permettent de conduire à cette quantification au travers d'exemples simple, en terminant par le cas concret de l'atome d'hydrogène.
+
+\section{Puits de potentiel infini}
+\textbf{Paragraphe 8.3.3 p262 Le Bellac tome I}\\
+Mettre en évidence l'analogie avec la corde de Melde, et la cavité optique. Ce phénomène n'est donc pas intrinsèquement quantique mais ondulatoire. C'est le fait que du point de vue quantique une particule puisse être vue comme une onde qui engendre cette quantification de l'énergie, analogue aux modes propres de vibrations d'une corde. Ainsi, c'est le cas onde avec conditions limites qui engendre la quantification.\\
+
+Le cas introductif présenté est modèle et peu concret, on va maintenant voir ce qu'il se passe dans le cas d'un potentiel plus réaliste, comme celui généré par un proton par exemple.
+
+\section{Atome d'hydrogène}
+\subsection{Modèle de Borh}
+On observe que le spectre d'émission et d'absorption, notamment celui de l'hydrogène, est un spectre de raie et non pas continu comme on s'y attendrait avec un modèle du type Rutherford. On peut cependant établir un modèle classique permettant d'obtenir le bon résultat : \textbf{modèle de Bohr p36 Le Bellac Tome I}. Permet de fixer les grandeurs caractéristique : mais l'interprétation reste floue, et l'impossibilité de généraliser le modèle aux plus gros atomes rend le modèle très peu satisfaisant. Il faut donc aller, sans surprise puisque ce sont ces questions qui menée à l'élaboration de cette théorie, voir vers la mécanique quantique.
+
+\subsection{Modèle quantique}	
+On va utiliser les différents postulats de la mécanique quantique et des considérations géométriques pour essayer d'apporter une modélisation plus satisfaisante de l'atome d'hydrogène.
+	
+\subsubsection{Moment cinétique et harmoniques sphériques}
+On prendra pour acquis les différentes propriétés suivantes pour le moment cinétique en MQ, il existe une base d'états propres à $\hat{L}^2$ et $\hat{L}_z$, repérée à l'aide de trois nombre quantiques que l'on note $|k,j,m\rangle$ telle que 
+\begin{eqnarray}
+\hat{L}^2 |k,j,m\rangle = j(j+1)\hbar|k,j,m\rangle\\
+\hat{L}_z|k,j,m\rangle = m\hbar|k,j,m\rangle
+\end{eqnarray}
+On a alors, dans le cas du moment cinétique orbital $\hat{\vec{L}} = \hat{\vec{x}}\times{\hat{\vec{p}}}$
+\begin{eqnarray}
+L_{\mu} = \frac{\hbar}{i} \varepsilon_{\mu\nu\eta} \left(x_{\nu}\frac{\partial}{\partial x_{\eta}} + x_{\eta}\frac{\partial}{\partial x_{\nu}}\right)
+\end{eqnarray}
+	où on a utilisé la convention d'Einstein et avec $\varepsilon_{\mu\nu\eta}$ le tenseur de Levi-Civita. On peut alors faire un changement de variable afin d'obtenir son expression en coordonnées sphériques. On en déduit alors 
+\begin{eqnarray}
+\hat{L}^2 &=& -\hbar^2 \left( \frac{\partial^2}{\partial \theta^2} +\frac{1}{\tan \theta}\frac{\partial}{\partial \theta} + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial \phi ^2}\right)\\
+\hat{L}_z &=& \frac{\hbar}{i}\frac{\partial}{\partial \theta}
+\end{eqnarray}
+	on voit ici que l'un comme l'autre des deux opérateurs n'agit que sur les coordonnées. On en déduit qu'il existe des fonctions propres communes aux deux opérateurs qui ne sont fonction que de $\theta$ et $\phi$, on les notera $Y_l^m(\theta,\phi)$, elles sont appelées harmoniques sphériques. Il est possible dans la pratique de calculer leur expression, mais ce n'est pas l'objet de cette leçon, on va tout de même se servir de ces quelques rappels par la suite.
+	
+\subsubsection{Définition du problème}
+\textbf{Partie B-2 chap VII p822 tome I du Cohen Tannoudji}, passer directement aux opérateur tout en précisant les considération mécanique de la partie B-1 p820 pour mettre en évidence l'aspect concret de se que représentent $\hat{\vec{x}}$ et $\hat{\vec{p}}$.
+
+\subsubsection{Équation aux valeurs propres}
+\textbf{Parties A-1.b et A-2 chap VII p812 du Tome I du Cohen-Tannoudji}
+
+\subsubsection{Solutions et discussion}
+\textbf{Partie 9.4 p311 du Le Bellac Tome I} pour la résolution.\\
+\textbf{Partie C-4 chap VII p831 du CohenTannoudji tome I} pour la discussion des résultats.
+	
+\end{document}

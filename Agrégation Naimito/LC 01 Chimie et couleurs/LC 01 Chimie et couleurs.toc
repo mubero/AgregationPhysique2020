@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Pourquoi voit-on de la couleur?}{2}
+\contentsline {section}{\numberline {2}Origines chimiques des couleurs}{3}
+\contentsline {subsection}{\numberline {2.1}Pigments et colorants}{3}
+\contentsline {subsection}{\numberline {2.2}Synth\IeC {\`e}se et extraction}{4}
+\contentsline {subsection}{\numberline {2.3}Structure des mol\IeC {\'e}cules color\IeC {\'e}es}{4}
+\contentsline {subsubsection}{\numberline {2.3.1}Les mol\IeC {\'e}cules organiques}{4}
+\contentsline {subsubsection}{\numberline {2.3.2}La repr\IeC {\'e}sentation topologique des mol\IeC {\'e}cules}{5}
+\contentsline {subsubsection}{\numberline {2.3.3}D'o\IeC {\`u} vient la couleur?}{5}
+\contentsline {section}{\numberline {3}Influence des param\IeC {\`e}tres externes}{6}
+\contentsline {subsection}{\numberline {3.1}Influence du pH du milieu}{6}
+\contentsline {subsection}{\numberline {3.2}Influence du solvant}{7}
+\contentsline {subsection}{\numberline {3.3}Influence d'autres facteurs}{7}
+\contentsline {section}{\numberline {4}Caract\IeC {\'e}risation de la couleur d'une solution}{8}
+\contentsline {subsection}{\numberline {4.1}Absorbance}{8}
+\contentsline {subsection}{\numberline {4.2}Loi de Beer Lambert}{9}
+\contentsline {subsection}{\numberline {4.3}Application \IeC {\`a} un dosage}{9}
+\contentsline {section}{\numberline {5}Conclusion}{10}

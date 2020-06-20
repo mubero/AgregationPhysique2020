@@ -1,0 +1,147 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 07 Dynamique relativiste}
+	\author{Nabil Lamrani}
+	\date{Agrégation 2019}
+
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+
+\subsection*{Pré-requis}
+référentiel galiléen, cinématique relativiste : transformation de Lorentz, notion de temps propre et de longueur propre, quadrivecteurs.
+
+
+\subsection{introduction}
+Un petit peu d'historique + motivations : étendre la cinématique pour décrire des objets soumis à des forces etc...\\
+Q  :  que devient le PFD en relativité ?
+
+\section{Fondements de la dynamique relativiste}
+
+\subsection{Quadrivecteur quantité de mouvement-énergie}
+On définit un nouveau quadrivecteur : le quadrivecteur quantité de mouvement : produit de la masse par le quadrivecteur vitesse, de manière analogue à la mécanique classique.\\
+On a pour la partie spatiale $\vec{p} = \gamma m \vec{v}$, on retrouve bien la quantité de mouvement usuelle dans la limite classique.\\
+
+Pour la partie temporelle on peut faire le développement 
+\begin{eqnarray}
+\gamma m c \simeq \frac{1}{c}\left(mc^2+ \frac{1}{2}mv^2\right)
+\end{eqnarray}
+$\rightarrow$ analogue à une énergie cinétique + un terme constant : l'énergie de masse.\\
+On réécrit donc $(4-p) = (\frac{\varepsilon}{c}, \vec{p})$.
+
+On voit de plus que la norme de ce quadrivecteur est un invariant relativiste : $m^2c^2$.
+
+\subsection{Principe fondamentale de la dynamique}
+On opère de manière analogue au raisonnement fait dans la leçon précédente : on dérive le quadrivecteur quantité de mouvement par le temps propre.\\
+
+on établit le lien entre force et accélération en partant du PFD.\\
+
+On constate que l'on a plus nécessairement une accélération colinéaire à la force.\\
+
+Caractère étonnant de l'expression $\gamma^3 m \vec{a} = \vec{F}$ pour un mvt rect unif.
+
+\subsection{Énergie cinétique, énergie de masse}
+On dérive le carré de la pseudo norme du vecteur $(4-p)$, et on en déduit une expression de l'énergie cinétique. Notion d'énergie de masse, donner un ordre de grandeur (511 keV pour un électron, de l'ordre du GeV pour le proton).\\
+
+Théorème de l'énergie cinétique, théorème de l'énergie : on retrouve que si les forces sont conservatives on a conservation de l'énergie totale, avec simplement un terme supplémentaire : l'énergie de masse.\\
+
+On établit ensuite la relation $\varepsilon^2 = m^2c^4 + p^2c^2$ qui découle simplement de la norme du quadrivecteur quantité de mouvement.\\
+
+On constate que si une particule n'a pas de masse (photon) elle a tout de même de l'énergie. Validés par l'effet photoélectrique et l'effet Compton.\\
+
+On a bâti un formalisme auto-cohérent décrivant la dynamique relativiste d'objets mécaniques quelconques. On va maintenant l'illustrer avec quelques exemples.
+
+\section{Applications aux accélérateurs de particules et aux collisionneurs}
+\subsection{Accélérateur linéaire}
+Exemple de l'accélérateur californien. Caractéristiques et principes.\\
+
+On utilise la conservation de l'énergie : on a un potentiel électrique (généré par une anode et une cathode) dans lequel est plongée une particule. On l'écrit avec le formalisme développé : on obtient alors 
+\begin{eqnarray}
+v = c\left(1-\frac{1}{1-\frac{qV}{mc^2}}\right)
+\end{eqnarray}
+on va donc pouvoir atteindre des vitesses proches de celle de la lumière pour peu que l'on soit capable de générer une différence de potentiel suffisamment conséquente.\\
+
+Il faut de la longueur pour accumuler de l'énergie $\rightarrow$ accélérateur linéaire en projet : 30km !
+
+Solution : on change de géométrie.
+
+\subsection{Accélérateur circulaire}
+Schéma et principe.\\
+Permet d'atteindre des vitesses énormes. Limitation : générer un champ homogène.\\
+On se tourne donc vers les accélérateurs cyclotrons.\\
+
+Le but est de faire entrer le particules accélérées en collision.
+
+\subsection{Collisions}
+On revoit la notion de collision avec le formalisme relativiste : on a toujours la conservation de la quantité de mouvement, notion nouvelle de défaut de masse.\\
+
+Découverte de l'antiproton lors d'une collision proton-proton, prix Nobel de 1955.
+
+\section{Conclusion}
+Notion de dualité masse - énergie qui introduit la notion de dualité onde corpuscule.
+
+\section*{Questions}
+Comment définit on la notion de quadrivecteur ?\\
+Vecteur définit dans l'espace quadridimensionnel de Minkowsky. Il ya donc une partie temporelle. Leur pseudo norme est invariante par changement de ref. On les transforme avec la transformation de Lorentz.\\
+
+Pourquoi ne dévive t-on plus par rapport au temps ?\\
+Il faut prendre un invariant pour que le vecteur obtenu par dérivation ait aussi une norme invariante.\\
+
+Dans le cadre des collisions : quelles sont les quantités conservées ? Et pourquoi ?\\
+Quantité de mouvement : car le système est isolé (invariance par translation en mécanique analytique). Énergie : système isolé, ou homogénéité du temps (au choix).\\
+
+Dans quelles conditions le défaut de masse correspond à une énergie physique ? Dans le cas de l'effet Compton : récupère t-on de l'énergie de masse.\\
+Dans le cas des collisions inélastique : apparition ou disparition de particule. Ce n'est pas le cas pour Compton où la collision est élastique.\\
+
+Comment définir une collision inélastique ?\\
+Le nombre de particules n'est pas conservée.\\
+
+Pouvez vous nous expliquer le principe de l'effet Compton ? Qu'a t-il démontré ?\\
+Collision photon-électron (au repos) engendrant une perte d'énergie pour le photon. S'observe par une différence entre la longueur d'onde attendue en MC et celle effectivement observée pour un faisceau lumineux traversant du graphite.
+
+\section*{Remarques}
+Ne pas énumérer les rappels : ne pas perdre de temps. Donner simplement le principe de relativité restreinte.\\
+Peut être comprimer un peu la première partie.\\
+Introduire la relation $\varepsilon^2 = m^2c^4 + p^2c^2$ dès qu'on introduit le quadrivecteur quantité de mouvement en calculant sa pseudo norme.\\
+Ne pas perdre trop de temps concernant l'énergie de masse : dans le ref où la particule il demeure une énergie liée à la masse : on la nomme donc énergie de masse.\\
+Ne pas hésiter à sabrer les calculs pour avoir le temps de traiter correctement les applications.\\
+
+Rappeler si possible l'expression de la force de Lorentz en relativiste.\\
+
+Appuyer sur les collisions inélastiques : l'énergie est conservée, mais plus nécessairement la nature, la masse et le nombre de particules.\\
+
+Tant qu'à parler d'accélérateur circulaire il faut parler du LHC.
+
+
+
+
+
+\end{document}

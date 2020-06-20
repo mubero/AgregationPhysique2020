@@ -1,0 +1,235 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 5 Quantités conservées en dynamique}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+
+\section{Pré-requis}
+	- Formulation Lagrangienne\\
+	- Notion de Vecteur et d'analyse différentielle\\
+	
+\section{Introduction}
+\section{Dynamique classique}
+\subsection{Référentiel galiléen}
+Pour tout problème de mécanique on se doit de choisir un repère afin de pouvoir associer des coordonnées à chaque point matériel de notre problème. En mécanique newtonienne on introduit de plus la notion de repère galiléen, ce dernier étant un référentiel dans le quel on peut appliquer le principe d'inertie, à savoir que le centre de gravité d'un système isolé effectue une translation rectiligne uniforme par rapport à tout référentiel dit galiléen.
+\subsection{PFD}
+\begin{eqnarray}
+m\frac{d\vec{v}}{dt} = \frac{d\vec{P}}{dt} = \sum\vec{F}
+\end{eqnarray}
+On voit donc bien que si le système est isolé, c'est à dire soumis à aucune force extérieure, alors sa quantité de mouvement $\vec{P}=ù\vec{v}$ est conservée.
+\subsection{Force conservative et énergie}
+\subsubsection{Travail et puissance}
+La puissance instantanée d'une force $\vec{F}$ s'exerçant en un point matériel $A$ d'un système est définie comme $P=\vec{F}.\vec{v}$. On peut ainsi définir le travail élémentaire de cette même force sur le corpuscule $A$ comme étant 
+\begin{eqnarray}
+\delta W = Pdt = \vec{F}.\vec{v}dt = \vec{F}.\vec{dr}.
+\end{eqnarray} 
+On en déduit le travail $W$ de cette force pour un déplacement fini le long d'une trajectoire $\gamma(t)$ 
+\begin{eqnarray}
+W = \int_{\gamma}\vec{F}.\vec{dr}.
+\end{eqnarray} 
+\subsubsection{Énergie}
+On peut ainsi introduire le concept d'énergie cinétique en remarquant que la puissance totale s'écrit comme la dérivée de la quantité $E_c$ :
+\begin{eqnarray}
+\sum\vec{F}.\vec{v} = \frac{d}{dt}\left(\frac{1}{2}mv^2\right)=\frac{dE_c}{dt}
+\end{eqnarray}
+où on définit l'énergie cinétique $E_c=\frac{1}{2}mv^2$ à une constante près, que l'on prend généralement égale à 0 en choisissant judicieusement l'origine des énergies. On en déduit ainsi le théorème de l'énergie cinétique
+\begin{eqnarray}
+\frac{dE_c}{dt} = P \hspace{0.5cm} \mathrm{soit}\hspace{0.5cm} \Delta E_c= W
+\end{eqnarray}
+
+\paragraph{Définition :} Une force conservative $\vec{F}$ est une force dont le travail ne dépend pas du chemin suivi, ce qui équivaut à $W=E_p(r_i)-E_p(r_f)$ où $E_p$ est une fonction de la position appelée énergie potentielle.\\ Cette définition implique que $\delta W = \vec{F}.\vec{dr} = -dE_p(r)$, on en déduit que si on force est conservative elle peut s'écrire comme $\vec{F}=-\vec{\nabla}E_p$.\\
+
+Si on définit l'énergie mécanique $E_M$ comme étant la somme des énergies potentielles et cinétique, on voit alors qu'elle peut être interprétée comme l'énergie totale du système si toute les forces dérivent d'un potentiel. On remarque de plus que si le système n'est soumis qu'à des forces conservatives alors l'énergie mécanique est conservée :
+\begin{eqnarray}
+\frac{dE_M}{dt} &=& \frac{d}{dt}\left(E_c+\sum E_p\right) = m\frac{d\vec{v}}{dt}.\vec{v} + \sum\vec{v}.\vec{\nabla}E_p\\ 
+&=& \left(\frac{d\vec{P}}{dt} + \sum\vec{\nabla}E_p\right).\vec{v} = \left(\frac{d\vec{P}}{dt} - \sum \vec{F} \right).\vec{v} = 0
+\end{eqnarray}
+\section{exemple}
+Possibilités :\\
+	- collisions (traitées dan Pérez p365)\\
+	- particule ponctuelle dans un potentiel central\\
+	- toupie\\
+	
+\section{formulation Lagrangienne (Taylor p265)}
+Il est possible de reformuler les lois de la dynamique selon un principe variationnel, comme l'a montré Lagrange. On définit l'action S d'un système comme étant 
+\begin{eqnarray}
+S = \int_{t_i}^{t_f} \mathcal{L}(\vec{q},\dot{\vec{q}}, t) dt
+\end{eqnarray}
+avec $\mathcal{L} = E_c-E_p$ le lagrangien du système et où $\vec{q} = \sum q_i\vec{e}_i$ représente des variables généralisées (quelconques) associées à notre système, alors le principe de moindre action ou principe de Maupertuis stipule que $\delta S =0$ pour les équations du mouvement. Autrement dit l'action est extrémale pour la trajectoire effectivement suivie par le système. On en déduit les équations de Lagrange 
+\begin{eqnarray}
+\delta S &=& \int_{t_i}^{t_f}\left(\frac{\partial \mathcal{L}}{\partial q_i} \delta q_i + \frac{\partial \mathcal{L}}{\partial \dot{q}_i}\delta \dot{q}_i\right)dt \\
+&=& \int_{t_i}^{t_f}\frac{\partial \mathcal{L}}{\partial q_i} \delta q_i dt + \left[\frac{\partial\mathcal{L}}{\partial \dot{q}_i}\delta q_i\right]_{t_i}^{t_f} -\int_{t_i}^{t_f} \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial  \dot{q}_i}\right)\delta q_i\,dt\\
+&=& \int_{t_i}^{t_f} \left(\frac{\partial \mathcal{L}}{\partial q_i}-\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial  \dot{q}_i}\right)\right)\delta q_i \,dt = 0 \hspace{0.3cm} \mathrm{ou}\hspace{0.3cm} \delta q_i\hspace{0.3cm} \mathrm{est}\;\mathrm{quelconque}\\
+&\Rightarrow& \frac{\partial \mathcal{L}}{\partial q_i}-\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial  \dot{q}_i}\right) = 0.
+\end{eqnarray}
+
+\section{Symétrie et conservation}
+
+Il est courant de constater qu'un système physique possède certaines symétries, qui imposent alors des conditions sur l'évolution de ce dernier. En effet ces symétries vont déterminer le nombre réel de degrés de libertés et imposer des contraintes sur la dynamique. Il est notamment possible de montrer que lorsque un système possède une symétrie il existe alors une quantité conservée qui y est associée, c'est que formalise le théorème de Noether.
+\subsection{Théorème de Noether}
+\subsubsection{Énoncé et démonstration}
+Le théorème de Noether stipule que pour toute transformation infinitésimale (symétrie) laissant le lagrangien d'un système invariant à une différentielle totale temporelle près il existe une quantité conservée associée. En effet si on a $\delta \mathcal{L} = \alpha\,\frac{d\Omega(q_i,t)}{dt}$ pour une transformation $q_i\rightarrow q_i'=q_i+\alpha \delta q_i$ alors
+\begin{eqnarray}
+\delta \mathcal{L} &=& \frac{\partial\mathcal{L}}{\partial q_i}\alpha \,\delta q_i + \frac{\partial\mathcal{L}}{\partial \dot{q}_i}\alpha\, \delta \dot{q}_i\\
+&=& \alpha\, \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial  \dot{q}_i} \,\delta q_i\right) \stackrel{aussi}{=} \alpha\,\frac{d\Omega(q_i,t)}{dt}
+\end{eqnarray}
+pour les solutions des équations du mouvement. On en déduit que la quantité
+\begin{eqnarray}
+C(q_i,t) = \frac{\partial \mathcal{L}}{\partial  \dot{q}_i} \,\delta q_i - \Omega(q_i,t)
+\end{eqnarray}
+est conservée.
+
+\subsection{Illustration à l'aide d'une particule ponctuelle}
+Si on considère l'exemple d'une particule ponctuelle isolée et de masse m on a
+\begin{eqnarray}
+\mathcal{L} = E_c-E_p = \frac{1}{2}m\dot{q}_i^2 \hspace{0.8cm}i=1,2,3
+\end{eqnarray}
+où $\dot{q}_i\vec{e}_i=\vec{v}$ ici. Le système étant invariant par translation spatiale, le lagrangien le sera aussi, c'est à dire $\delta \mathcal{L} = 0$ pour la transformation $q_i\rightarrow q_i'=q_i +\delta q_i$. On a ainsi 
+\begin{eqnarray}
+\frac{\partial \mathcal{L}}{\partial  \dot{q}_i} = m \dot{q}_i = \mathrm{cste}
+\end{eqnarray}
+(car les $\delta q_i$ sont des constantes), ce qui correspond à la conservation de la quantité de mouvement. \\
+
+De plus le système est invariant dans le temps, ce qui correspond à $\mathcal{L}(t) = \mathcal{L}(t+dt)$ et donc $\partial_t\mathcal{L}=0$. Cela correspond à $\delta \mathcal{L} = \frac{d\mathcal{L}}{dt}$ pour la transformation $q_i\rightarrow q_i'=q_i +dt\, \dot{q}_i$, on a ainsi que 
+\begin{eqnarray}
+\frac{\partial \mathcal{L}}{\partial  \dot{q}_i}\dot{q}_i - \mathcal{L} = \mathcal{H}= \mathrm{cste}
+\end{eqnarray}
+cette quantité est appellée Hamiltonien du système et s'apparente, dans le cas où la relation entre coordonnées cartésiennes et coordonnées généralisées ne dépende pas du temps, à l'énergie totale du système. On retrouve donc que si le système n'est soumis à aucune force dépendant du temps (forces conservtives), et est donc invariant par translation dans le temps alors l'énergie est conservée.\\
+
+Prenons le cas d'un système possédant une symétrie centrale, le système est donc invariant par rotation, ce qui correspond à $\delta \mathcal{L} = 0$ pour la transformation $(r,\theta,\phi) \rightarrow (r',\theta',\phi')= (r,\theta+\delta\theta,\phi+\delta\phi)$. On a donc, avec 
+\begin{eqnarray}
+\mathcal{L} = \frac{1}{2} mv^2 - \Phi(r) = \frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\mathrm{sin}^2\theta \dot{\phi}^2) - \Phi(r),
+\end{eqnarray}
+la quantité
+\begin{eqnarray}
+\frac{\partial \mathcal{L}}{\partial  \dot{q}_i} \,\delta q_i =  mr^2\dot{\theta}\delta\theta + mr^2\mathrm{sin}^2\theta \dot{\phi}\delta\phi
+\end{eqnarray}
+qui est conservée. Les variations $\delta\theta$ et $\delta\phi$ étant indépendantes, cela signifie que les quantités $mr^2\dot{\theta}$ et $mr^2\mathrm{sin}^2\theta \dot{\phi}$ sont toute deux conservée.  Cela correspond à la conservation des composantes (au signe près) du moment cinétique $\vec{l} = \vec{r}\times m\vec{v} = \vec{cste}$. On retrouve donc bien la planéité du mouvement et la conservation du moment cinétique dans le cas d'une particule dans un potentiel central.
+\section{Conclusion}
+$\Rightarrow$ Élargissement à la théorie des champs.
+
+
+
+
+\chapter{Présentation Maria}
+\section{prérequis}
+Mécanique  du point.\\
+Mécanique du solide.
+
+\section{Introduction}
+Définition grandeur conservées et lois de conservations.
+\section{Quantité de mouvement}
+\paragraph{Définition} On considère un système composé de $N$ corps ponctuels $A_i$ de masse $m_i$ et on se place dans un repère galiléen. On définit alors la quantité de mouvement comme $\vec{P}=\sum \vec{p}_i = \sum m_i\vec{v}_i$.\\
+On introduit la notion de centre de masse G tq $\vec{OG} = \frac{1}{M}\sum m_i\vec{OA}_i$, la quantité de mvt du syst est alos $\vec{P} = M\vec{v}_G$.\\
+\paragraph{Théorème de la Quantité de mouvement}
+\begin{eqnarray}
+\frac{d\vec{P}}{dt}=\sum\vec{F}_{ext}
+\end{eqnarray}
+\subsection{Exemple de la fusée}
+Système isolé\\
+Calcul de la quantité de mouvement.\\
+
+\section{Moment cinétique}
+\subsection{Définitions}
+\begin{eqnarray}
+\vec{L}_O = \sum_i \vec{OA}_i \times m_i\frac{d\vec{OA}_i}{dt}\\
+\vec{L}_O = \vec{L}_G + \vec{OC} \times \vec{P}
+\end{eqnarray}
+Théorème de Koenig 
+\begin{eqnarray}
+\vec{L}_O = \vec{OG}\times M\vec{v}_G + \vec{L}^*
+\end{eqnarray}
+Théorème du moment cinétique
+\begin{eqnarray}
+\frac{d\vec{L}_O}{dt}  = \sum\vec{M}_{ext}
+\end{eqnarray}
+\subsection{Exemple}
+
+Personne tournant sur elle même et dépliant/pliant les bras.
+Résolution rapide avec descriptions des forces en jeu, mise en valeur de l'intérêt du concept de moment cinétique.
+
+\section{Énergie mécanique}
+\section{Definition et théorème}
+$E_M = E_c + E_p$
+\begin{eqnarray}
+\frac{dE_M}{dt} = P_{ext}^{(nc)} + P_{int}^{(nc)}
+\end{eqnarray}
+\section{Corps ponctuel soumis à une force centrale conservative}
+schéma.\\
+Moment cinétique constant :
+\begin{eqnarray}
+\vec{L}_O &=& \vec{OA}\times m \vec{v}_A = \vec{cste} \Rightarrow Mouvement\;plan\\
+&=& (r\vec{e}_r)\times m(\dot{r}\vec{e}_r+r\dot{\theta}\vec{e}_{\theta}) = mr^2\dot{\theta}\vec{e}_z
+\end{eqnarray}
+Calcul de $E_M$ :
+\begin{eqnarray}
+E_{p_{eff}} &=&\frac{1}{2}mr^2\dot{\theta}^2 + E_p(r) = \frac{L^2}{2mr^2} + E_p(r)\\
+&=& \frac{L^2}{2mr^2} + \frac{K}{r}
+\end{eqnarray}
+Tracé des cas $K>0$ et $K<0$.\\
+Pour $K<0$ : détail des trois cas :\\
+	- Mouvement circulaire uniforme si $E_M$ minimale. \\
+	- Orbite elliptique si $E_M<0$.\\
+	- Branche d'hyperbole si $E_M>0$.\\
+
+\section{Questions}
+Définir une force centrale conservative.\\
+$\rightarrow$ force "pointant" vers le centre du repère et ne dépendant que de la distance au centre : $\vec{F}= F(r) \vec{e}_r$. Conservative : dont le travail ne dépend pas du chemin suivi, et dérive donc d'un potentiel : $\vec{F} = -\vec{\nabla}\Phi$   .\\
+
+Citer les trois lois de Kepler et comment les démontrer simplement ?\\
+$\rightarrow$  $\frac{T^2}{a^3} = cste$, les trajectoires sont des ellipses et loi des aires.\\
+
+Comment montre on, dans le cas du pb à 2 corps que les trajectoires sont elliptiques ?\\
+Binet.\\
+
+Qu'est ce qu'un référentiel galiléen ?\\
+$\rightarrow$ Référentiel dans lequel le principe d'inertie est vérifié.\\
+
+Dans l'exemple de la fusée, comment définit on le système ?\\
+Système = fusée + gaz d'échappement libérées pendant la poussée.\\
+
+Qu'est ce que le référentiel du centre de masse ?\\
+Quel est l'intéret de ce repère ? \\
+$L_O=L_{O'}$ car $\vec{P}^*=\vec{0}$\\
+
+Qu'est ce qu'une liaison pivot idéale ?
+
+\section{Remarques}
+Passer moins de temps sur les fondamentaux, introduire le lien symétrie : quantité conservée.\\
+Exemple possible pour le moment cinétique : système Terre Lune.
+\end{document}

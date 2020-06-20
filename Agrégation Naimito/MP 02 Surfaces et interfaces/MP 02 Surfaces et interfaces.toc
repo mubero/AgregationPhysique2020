@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Frottements solides}{2}
+\contentsline {section}{\numberline {2}Tension superficielle}{2}
+\contentsline {subsection}{\numberline {2.1}Loi de Jurin}{2}
+\contentsline {subsection}{\numberline {2.2}Mouillage}{2}
+\contentsline {paragraph}{Remarque :}{2}
+\contentsline {paragraph}{Remarque :}{2}

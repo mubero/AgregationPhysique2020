@@ -1,0 +1,138 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 41 Effet tunnel}
+		\author{Etienne}
+		\date{Agrégation 2019}
+		
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Introduction}
+On a un émetteur d'onde centimétriques (associé à un récepteur) qui émet vers un bloc de parafine taillé de sorte à ce que la face de sortie face un angle de réfraction limite (réflection totale). On ne reçoit donc rien au niveau du récepteur. Si maintenant on place un deuxième bloc derrière le premier on retrouve un signal au niveau du récepteur... Pourquoi ???\\
+
+Applications de l'effet tunnel.
+	
+\section{Modèle de l'effet tunnel}	
+
+
+\subsection{Rappel : puits potentiel 1D fini}
+Permet d'introduire la notion d'onde évanescente, et ainsi d'épaisseur de peau. $\rightarrow $ effet tunnel : possibilité de passer à travers une barrière de potentiel de largeur inférieur à l'épaisseur de peau.
+
+\subsection{Barrière de potentiel}
+On considère le cas d'une barrière de longueur finie, qui correspondrait en pratique à une variation très brutale de potentiel que l'on modélise ici par un créneau.\\
+
+Cas classique : si $E-E_0 < 0$ alors il n'existe pas d'état de diffusion : la particule ne peut traverser la barrière.
+
+\subsection{Analyse quantique}
+On a un potentiel stationnaire, on résout donc Schrödinger indépendant du temps 
+\begin{eqnarray}
+-\frac{\hbar^2}{2m}\frac{d^2 \phi(x)}{d x^2} + V(x)\phi(x) = E\phi(x)
+\end{eqnarray}
+que l'on va observer dans le cas $E<E_0$ avec $E_0$ la hauteur de la barrière. On a trois zones et donc trois cas : dans les zones I et III on on a une solution oscillante correspondant à une onde propagative, tandis que dans la zone II on a un vecteur d'onde imaginaire $k_{II} = iq$ menant à une solution de type exponentielle décroissante.\\
+On peut déterminer les constantes d'intégration grâce aux conditions initiales et aux conditions de raccordement.
+
+\subsection{Probabilité de transmission}
+La probabilité de transmission s'exprime comme
+\begin{eqnarray}
+T = \frac{||\vec{j}_t||}{||\vec{j}_i||}
+\end{eqnarray}
+On peut ici le calculer à partie des solutions déterminées dans la partie précédente, on obtient 
+\begin{eqnarray}
+T = \frac{1}{1 + \frac{E_0^2}{4E(E_0-E)}\sinh^2qL}
+\end{eqnarray}
+On constate alors qu'il varie continument avec $E_0$, $m$ et $L$ (l'épaisseur de la barrière) entre 0 et 1.\\
+
+Si on note $\delta = 1/q$ l'épaisseur de peau, on a alors dans le cas  $L\gg \delta$ $\longrightarrow$ $T=T_0 e^{-2L/\delta}$ (donner les valeurs de T pour différentes combinaisons de $m, E_0, L$).
+
+\section{Radioactivité $\alpha$}
+\subsection{Description}
+Exemple de la décomposition de l'uranium 236.\\
+Un tout petit peu d'historique sur la découverte de la radiactivité.\\
+Notion de temps de demie vie, il a été montré empiriquement que l'on avait 
+\begin{eqnarray}
+\ln T_{1/2} = A + \frac{B}{\sqrt{E}} \label{t}
+\end{eqnarray}
+
+\subsection{Modèle de Gamow, Gurney et Condon (1936)}
+Projeter l'allure du potentiel de Gamow.\\
+Description du potentiel el expliquant ce que cela représente : partie centrale : puits (potentiel égal à $-V_0$)correspondant au potentiel attractif du noyau, et les deux barrières (en $V(x) \propto \frac{1}{x}$) correspondent au nuage électronique qui est répulsif pour un électron.
+
+On en déduit le temps caractéristique au bout duquel une particule radioactive peut sortir en calculant la probabilité de transmission.... on retrouve alors l'expression empirique (\ref{t}).\\
+
+Cela permet notamment de dater un objet.
+
+\section{Microscope à effet tunnel}
+
+
+\section{Conclusion}
+Il existe d'autres effets quantiques exotiques comme la réflexion sur une marche de potentiel par exemple.\\
+Cela à donné lieu à beaucoup d'autres applications et de prix nobel.
+
+\section*{Questions}
+Pouvez vous citer les applications et les prix Nobel évoqués dans l'ouverture ?
+
+
+\section*{Remarques}
+\textbf{Il faut écrire les dates, les noms, les conditions d'un modèle et les limites de ce modèle.}\\
+
+Pour la manip il faut être plus explicite : on obtient cette notion d'angle de réflexion totale avec l'optique géométrique, et cette discipline est donc mise en défaut ici, il faut aller chercher un modèle ondulatoire qui va permettre d'expliquer cet effet. On fait ensuite la transition sur le fait qu'ici on va regarder des ondes de matières régies par non pas par les équations de Maxwell mais de Schrodinger.\\
+
+Concernant la première partie sur le puits de potentiel : c'est là que l'on doit introduire Schrodinger. \\
+
+Les solutions sont bornées car Schrodinger est une équation linéaire du second degré.\\
+
+Concernant la probabilité de transmission : il faut expliciter le fait qu'on ne fait pas le rapport des fonctions d'onde. Il faut décrire clairement ce que l'on fait.\\
+
+Il faut dire que l'effet tunnel est un ingrédient intervenant dans de nombreux modèles.\\
+
+Pour la radioactivité il faut structurer plus :\\
+o Observations expérimentales.\\
+o Formulation empirique.\\
+o Modèle quantique.\\
+il faut que le $\frac{dN}{dt} + \frac{N}{\tau} = 0$ arrive au début de la modélisation.\\
+
+Il faut dire (à défaut de montrer) que le résultat de l'intégrale (le pré-facteur) varie plus molement avec $E$ que $1/\sqrt{E}$.\\
+Il faut montrer la courbe empirique pour la radioactivité, puis y superposer le modèle pour montrer qu'il est satisfaisant.\\
+
+Il faut parler de la datation en évoquant le mécanisme de production continu et régulière (pouvant varier légèrement selon l'époque) de carbone 14, que l'on respire. On donne ensuite le temps de demie vie du $C_{14}$, et on dit que lorsqu'un corps ne respire plus on peut alors dater le corps à partir du taux de $C_{14}$ toujours présent dans le corps. Bien pour les première centaines de millier d'années (jusqu'à 10 durées de vie), mais ne permet pas de dater des éléments de plusieurs millions d'années.\\
+
+Concernant l'effet tunnel : on maintient le flux d'électrons constant à travers l'échantillon, et on regarde de combien on a dû déplacer (avancer ou reculer) la pointe pour ce faire. On a alors accès à la topologie d'une des faces du matériau.
+
+
+
+	
+\end{document}
+	
+		

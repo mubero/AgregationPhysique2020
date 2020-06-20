@@ -1,0 +1,16 @@
+\contentsline {subsection}{\numberline {0.1}Pr\IeC {\'e}-requis}{2}
+\contentsline {subsection}{\numberline {0.2}Introduction}{2}
+\contentsline {section}{\numberline {1}Cristal}{2}
+\contentsline {section}{\numberline {2}Solide m\IeC {\'e}tallique et alliage}{2}
+\contentsline {subsection}{\numberline {2.1}Manipulations}{2}
+\contentsline {section}{\numberline {3}Plan possible}{2}
+\contentsline {subsection}{\numberline {3.1}Diff\IeC {\'e}rents \IeC {\'e}tats solides (5 min)}{2}
+\contentsline {subsubsection}{\numberline {3.1.1}Cristal / amorphe}{2}
+\contentsline {subsubsection}{\numberline {3.1.2}Vari\IeC {\'e}t\IeC {\'e}s allotropiques}{3}
+\contentsline {subsection}{\numberline {3.2}Mod\IeC {\`e}le du cristal parfait (10 min)}{3}
+\contentsline {subsubsection}{\numberline {3.2.1}Description}{3}
+\contentsline {subsubsection}{\numberline {3.2.2}Caract\IeC {\'e}ristique}{3}
+\contentsline {subsection}{\numberline {3.3}Cristaux m\IeC {\'e}talliques (15 min)}{3}
+\contentsline {subsubsection}{\numberline {3.3.1}Sph\IeC {\`e}res dures}{3}
+\contentsline {subsubsection}{\numberline {3.3.2}CFC du Fer}{3}
+\contentsline {subsubsection}{\numberline {3.3.3}Alliages}{3}

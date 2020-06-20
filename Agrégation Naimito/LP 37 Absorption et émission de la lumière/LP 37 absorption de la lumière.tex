@@ -1,0 +1,105 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 37 absorption de la lumière}
+		\author{Matthieu}
+		\date{Agrégation 2019}
+		
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+
+\section*{Introduction}
+Problème du corps noir à la fin du 19e. Motive le modèle de Planck interprété par Einstein en terme de quanta de lumière, nommé plus tard photon.
+
+\section{Modèle des probabilités de transition}
+\subsection{Processus d'interaction lumière matière}
+On développe le modèle d'Einstein avec ses célèbres coefficients.
+\paragraph{Absorption}
+\paragraph{Émission stimulée}
+\paragraph{Émission spontanée}
+\subsubsection{Profil de raie}
+On a pas de raie monochromatique à cause : du fait que le temps d'émission $\Delta T_{emission}$ soit non nul, et de l'effet Doppler.
+
+\subsection{Équilibre rayonnement/atomes}
+
+\section{Bilan de puissance}
+\subsection{Bilan}
+\subsection{Loi de Beer Lambert}
+On donne la lois puis on fait la manip pour les docteurs.
+
+\section{Conclusion}
+Applications : laser, formation d'un plasma et génération d'une réaction de fusion à l'aide de lasers.
+
+\section*{Questions}
+Quelles sont les limites de ce modèle phénoménologique d'Einstein ?\\ 
+Il ne rend pas compte des phénomènes de phase puisqu'on ne résonne jamais en terme de champ mais seulement en intensité.\\
+
+La loi de Beer Lambert par exemple est elle toujours valable ?\\
+Il y a des phénomènes de saturations : au delà d'une certaine intensité on a plus de réaction linéaire de l'atome.\\
+
+Existe t-il un cas pour la manip où on peut être moins atténué que ce que prédit Beer Lambert ?\\
+oui lorsqu'on est à saturation les atomes n'absorbent plus et la solution absorbe alors nettement moins que ce que prédit Beer Lambert.\\
+
+Peut on voir les largeurs spectrales d'un atome sans pollution (doppler + collisions) ?\\
+On peut faire de la spectroscopie sur objet unique qui permet d'obtenir le spectre de l'atome seul et donc de mesurer la largeur de la bande spectrale inhérente à l'atome.
+
+
+\section*{Remarques}
+Parler de "modèle phénoménologique d'Einstein".\\
+
+Il faut plus motiver la leçon, elle doit plus s'articuler.\\
+
+Lorsqu'on compare les processus d'émission : la température que l'on trouve pour que stimulée soit plus importante que spontanée est telle qu'on a un plasma : le système décrit n'existe plus.\\
+
+Il faut bien parler de la loi de variation en $\omega ^3$ (ou $\lambda^{-3}$) : c'est super important.\\
+
+Attention quand on trace $g(\nu)$ : ce n'est pas pointu mais arrondi.\\
+
+Il faut bien justifier chaque approximation, chaque simplification.\\
+
+Il y a trois étages pour cette leçon :
+\begin{itemize}
+	\item soit on fait le modèle semi classique de l'électron élastiquement lié : Drude Lorrentz. Il ne rend pas compte du rayonnement de corps noir.
+	\item Soit on parle de populations avec le modèle phénoménologique d'Einstein. Rend compte de certains phénomènes tels que les phénomènes de saturation.
+	\item Électrodynamique quantique : hors programme.
+\end{itemize}
+
+Il faut bien distinguer les processus élémentaires qui concernent chacun des atomes indépendamment, et les processus thermodynamiques globaux.\\
+
+Il faut bien dire que si l'on omet un des deux processus d'émission alors cela ne fonctionne pas.\\
+
+Il faut être conscient que le processus d'émission spontané dépend du couplage avec le champ quantique extérieur, qui peut être façonné en modifiant la géométrie autour de l'atome. Si on met un atome excité entre deux plaques métalliques séparées d'une longueur $\lambda/2$ bien choisies on constate qu'il ne se désexcite pas.
+
+	
+\end{document}

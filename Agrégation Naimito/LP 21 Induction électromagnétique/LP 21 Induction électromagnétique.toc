@@ -1,0 +1,13 @@
+\contentsline {subsection}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {1}Force \IeC {\'e}lectromagn\IeC {\'e}tique (f.e.m)}{2}
+\contentsline {subsection}{\numberline {1.1}Cadre de l'\IeC {\'e}tude}{2}
+\contentsline {subsection}{\numberline {1.2}Champ \IeC {\'e}lectromoteur}{2}
+\contentsline {section}{\numberline {2}Induction de Lorentz}{2}
+\contentsline {subsection}{\numberline {2.1}f.e.m}{2}
+\contentsline {subsection}{\numberline {2.2}Couplage \IeC {\'e}lectromagn\IeC {\'e}tique - rail de Laplace}{3}
+\contentsline {section}{\numberline {3}Induction de Neumann}{3}
+\contentsline {subsection}{\numberline {3.1}f.e.m}{3}
+\contentsline {subsection}{\numberline {3.2}Courants de Foucault}{3}
+\contentsline {section}{\numberline {4}Coefficients d'inductance}{3}
+\contentsline {subsection}{\numberline {4.1}Auto-induction}{3}
+\contentsline {subsection}{\numberline {4.2}Inductance mutuelle}{3}

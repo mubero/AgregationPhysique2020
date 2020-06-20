@@ -1,0 +1,165 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 02 Gravitation}
+	\author{Maxime}
+	\date{Agrégation 2019}
+
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Pré-requis}
+Mécanique, électromagnétisme, propriétés des coniques.
+
+\subsection{Introduction}
+L'attraction gravitationnelle régit la dynamique de l'univers aux grandes échelles. Aujourd'hui on va caractériser et modéliser cette force.
+
+\section{Attraction gravitationnelle}
+\subsection{Force, champ, potentiel}
+Si on regarde deux points matériels de masses $m_1$ et $m_2$ on a en dynamique newtonienne, de manière empirique, qu'une force d'attraction existe entre les deux cors qui est 
+\begin{eqnarray}
+\vec{F}_{i\rightarrow j} = -\frac{Gm_1m_2}{r^2} \vec{u}_{i\rightarrow j}
+\end{eqnarray}
+On définit et donne la valeur de la constante gravitationnelle. Notion de champ de gravitation, notamment dans le cas d'un corps "léger" dans le champ d'un corps "lourd". Exemple d'un objet sur terre.
+
+Dans le cas général on ne considère par des corps ponctuels mais des distributions de masse continues, dans ce cas le champ gravitationnel s'écrira comme 
+\begin{eqnarray}
+\vec{\mathcal{G}} (M) = -G\int \rho \frac{\vec{PM}}{PM^3} \; d^3P
+\end{eqnarray}
+
+La gravité étant une force conservative, on peut l'associer à un potentiel, qui s'exprimera alors comme
+\begin{eqnarray}
+\Phi = -G \sum \frac{m_i}{r_i}\\
+\Phi = -G \int \frac{\rho}{PM} dV
+\end{eqnarray}
+selon si on a des masse discrète ou une distribution continue.\\
+
+Cette forme possède une force qui peut nous pousser à faire l'analogie avec l'électromagnétisme.
+
+\subsection{Analogie électrostatique}
+Dans le cas de deux charges ponctuelles on a une force d'interaction
+\begin{eqnarray}
+\vec{F}_{i\rightarrow j} = -\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2} \vec{u}_{i\rightarrow j}
+\end{eqnarray}
+Donner les termes analogues : m et q etc...\\
+
+On voit qu'on peut alors appliquer le théorème de Gauss au champ gravitationnel 
+\begin{eqnarray}
+\iint \mathcal{G}.n \;dS = -4\pi G M_{int}\\
+\nabla \mathcal{G} = -4\pi \rho G\\
+\vec{\nabla}\times\vec{\mathcal{G}} = \vec{0}
+\end{eqnarray}
+
+Il n'existe cependant pas de masse négative : différence majeure avec l'électromag.
+
+
+\subsection{Application du théorème de Gauss}
+On considère le cas d'une planète : sphère de rayon $R$, la symétrie de révolution impose un champ radial. On a donc 
+\begin{eqnarray}
+\iint \mathcal{G} .n dS = 4\pi r^2 \mathcal{G}(r) = -4\pi GM\\
+\Rightarrow \mathcal{G}(r) = -G\frac{M}{r^2}
+\end{eqnarray}
+différentier les cas $r>R$ et $r<R$.
+
+\section{Lois de Kepler}
+Ces lois ont été observées avant d'êtres démontrées. \\
+1ere loi : les trajectoires des planètes sont des ellipses avec la position du soleil étant un foyer.\\
+2e et 3e.
+
+\subsection{Deuxième Loi}
+On a le moment cinétique au centre du soleil qui est 
+\begin{eqnarray}
+L_o = OP\times m_p V
+\end{eqnarray}
+On applique le TMC 
+\begin{eqnarray}
+\frac{dL}{dt} = \sum M = OP\times F_{S\rightarrow P} = 0
+\end{eqnarray}
+On en déduit que le moment cinétique est constant, on a donc un mouvement plan.
+On a 
+\begin{eqnarray}
+L = re_r \times m_p (re_r+r\dot{\theta}e_{\theta}) = m_pr^2 \dot{\theta}e_z = cste\\
+\Longrightarrow r^2\dot{\theta} = cste = \frac{L}{m_p} = C
+\end{eqnarray}
+On vient de démontrer la loi des aires.
+
+\subsection{Première loi}
+On utilise les formules de Binet et la conservation de l'énergie pour obtenir que 
+\begin{eqnarray}
+r = \frac{1}{\frac{Gm_S}{c^2}+A\cos(\theta-\theta_0)}
+\end{eqnarray}
+où on reconnait, en faisant quelques changements de variables qu'on al'équation d'une conique. Notamment si $e =\frac{Ac^2}{Gm_S} < 1$ on a une ellipse. On exprimera ensuite $e$ en fonction de l'énergie, nous permettant d'interpréter cette relation en terme d'énergie potentielle effective. Projeter $E_{eff}(r)$ et interpréter les trajectoires liées ou libre en fonction de l'énergie.
+
+\subsection{Troisième loi}
+
+\subsection{Application de ces lois à l'orbite de Venus}
+Cela fait office de manip pour les docteurs.\\
+On vérifie, à partir des données de la Nasa sur la position de Venus en fonction du temps, que l'aire balayée est une constante à l'aide d'un programme.
+
+\section{Vitesse de libération}
+
+\section{Conclusion}
+Ouverture à la RG pour les cas limites que la physique newtonienne ne peut traiter.
+
+
+\section*{Questions}
+Sur quoi se fonde la RG ? Principe de relativité générale ?\\
+Principe d'équivalence : masse grave = masse inertielle. La gravité apparaît comme une déformation de l'espace temps.\\
+
+Intrinsèquement quelle est la propriété qui fait que le th de Gauss s'applique aux deux cas ?\\
+C'est dû au fait qu'on a une loi radiale en $1/r^2$.\\
+
+Comment on peut caractériser l'interaction gravitationnelle localement ?\\
+Avec l'équation de Poisson.\\
+
+Avez vous en tête un exemple ne correspondant pas à un cas sphérique ?\\
+Le cas des marrées.\\
+
+Pourquoi y a t'il deux marrées par jour ?\\
+
+
+
+
+\section*{Remarques}
+La démo de la première loi prend beaucoup de temps. La discussion sur l'énergie potentielle est indépendante : sauter le calcul mais discuter le résultat.\\
+
+Donner l'équation de poisson. On peut comparer la différence de l'amplitude des champs électrostatique et gravitationnels.\\
+
+Déplacer le calcul de g et le mettre avoir évalué le potentiel gravitationnel.\\
+
+On peut présenter le potentiel, et l'équation de Poisson avant de faire l'analogie.
+
+
+
+	
+	
+	
+\end{document}

@@ -1,0 +1,146 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 49 Oscillateurs, portraits de phase et non linéarités}
+	\author{Matthieu}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Introduction}
+	Systèmes linéaires usuels en physique mais rares dans la pratique.\\
+	Notion de linéarisation, car systèmes linéaires solubles.\\
+	Résolution numérique pour les systèmes non linéaires.
+	
+\section{Pendule pesant}
+\subsection{Aspects énergétique}
+\begin{eqnarray}
+\varepsilon_k = \frac{1}{2}ml^2\dot{\theta}^2 + \frac{1}{2}I\dot{\theta}^2\\
+\varepsilon_p = \left(m+\frac{M}{2}\right)gl\cos\theta
+\end{eqnarray}
+	On peut tracer l'énergie mécanique, et ainsi regarder le comportement du système selon la valeur de cette dernière.
+	
+On regarde l'équation $\frac{dE}{dt}=0$ pour obtenir l'équation du mouvement : 
+\begin{eqnarray}
+\ddot{\theta} = \omega_0^2\sin\theta
+\end{eqnarray}
+
+On peut regarder cette équation à l'aide d'un portrait de phase $(\theta,\dot{\theta}/\omega_0)$.
+
+\subsection{Étude dans l'espace des phases}
+	
+	On peut tracer numériquement le portrait de phase du pendule en prenant différentes conditions initiales.\\
+	
+	On obtient 3 types de figures : des cercles (ou presque), des "yeux", et des "vagues".\\
+	Le cercle correspond aux petites oscillations pour lesquelles on a $\theta$ de la forme $\theta = \cos(\omega_0 t)$. Analogie avec tous les développements harmoniques des potentiels possédant des minimum.\\
+	
+\subsection{Du linéaire au non linéaire}
+	Cas du développement du potentiel à l'ordre 4 où on a alors une équation non linéaire.\\
+	Formule de Borda :
+	\begin{eqnarray}
+	T = T_0\left(1 + \frac{\theta_{max}^2}{18}\right)
+	\end{eqnarray}
+	
+	Expérience avec pendule pesant type Montage non linéaire pour les docteurs, où l'on trace $T(\theta_{max})$, que l'on compare avec le formule de Borda.\\
+	
+	On se propose maintenant de redémontrer la formule de Borda :\\
+	On développe le sinus à l'ordre 3 en $\theta$. On va ensuite chercher $\theta$ sous la forme $\theta = \sin\omega t$, en utilisant alors que 
+	\begin{eqnarray}
+	4\sin^3\omega t = 3\sin \omega t - \sin 3\omega t
+	\end{eqnarray}
+	On cherche alors $\theta$ sous la forme
+	\begin{eqnarray}
+	\theta = \theta_m(\sin\omega t + \varepsilon\sin 3\omega t)\hspace{0.5cm}\varepsilon, \theta_m \ll 1
+	\end{eqnarray}
+	On en déduit la formule de Borda.
+	
+\section{Oscillateur à double puits}
+\subsection{Cas sans dissipation, bifurcation}
+Oscillateur de Duffing : passage du puits simple et donc une position d'équilibre à double puits et donc 3 positions d'équilibre. On appelle ça une bifurcation, donner la définition générale.\\
+
+Illustration numérique.
+
+\subsection{Introduction de la dissipation}
+
+\section{Comportement chaotique}
+Définition.\\
+Illustration numérique du chaos.\\
+Horizon de prédictibilité. \\
+Exemple du système solaire.
+
+\section*{Questions}
+Existe t-il un cas réel où on ait un potentiel de Duffing avec $\alpha$ positif et $\beta$ négatif ?\\
+Non, c'est nécessairement une approximation locale car on ne peut avoir $E\rightarrow \infty$.\\
+
+Comment définit-on le fait qu'un système soit chaotique ?\\
+Sensibilité aux conditions initiales : coefficients de Lyapunov positifs, c'est à dire que la différence entre deux solution croît exponentiellement avec le temps.\\
+
+L'une de ces conditions seule suffit elle à définir le système comme chaotique ?\\
+Non.\\
+
+Quelle est la différence entre instable et chaotique ? Des exemples ?\\
+L'instabilité peut apparaître avec des systèmes linéaires.\\
+
+Pourquoi considérer un pendule pesant et non un pendule simple ?\\
+Pour la manipulation qui utilise un pendule pesant.\\
+
+Quelle est la condition pour que l'énergie se conserve ?\\
+Il faut que les forces qui travaillent soient conservatives.\\
+
+Dans le cas du pendule, quelles sont les actions mécaniques, et les quelles travaillent ?\\
+Les actions au niveau des liaisons ne travaillent pas, le poids travaille.\\
+
+Comment définit on une action mécanique ?\\
+
+Comment détermine t-on le nombre de degrés de liberté d'un système ?\\
+Nombre de paramètre dont on a besoin pour décrire le mouvement, c'est la variance.\\
+
+Pouvez vous expliquer votre programme (partie numérique) ?\\
+
+\section*{Remarques}
+Il faut montrer les sens de parcours sur les diagrammes de phase.\\
+
+Ce qui a été correspond à toujours traiter un potentiel avec un terme quadratique et un terme d'ordre 4.\\
+
+On aurait pu le faire avec un terme d'ordre 3 plutôt que d'ordre 4.\\
+
+Possibilité de regarder le Queré de physique des matériaux (livre jaune) pour une interprétation statistique de la position moyenne dans un potentiel. On peut aussi regarder le Landeau si on a du courage...\\
+
+Possibilité de regarder l'effet du forçage sur la résonance dans le cas non linéaire, regarder le Landeau, l'effet Kerr optique dans le Garing ou le livre de Paul Maneville.\\
+
+
+	
+\end{document}

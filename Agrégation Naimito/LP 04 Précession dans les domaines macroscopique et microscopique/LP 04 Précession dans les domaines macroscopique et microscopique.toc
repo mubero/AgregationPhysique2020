@@ -1,0 +1,9 @@
+\contentsline {subsection}{\numberline {0.1}Pr\IeC {\'e}-requis}{2}
+\contentsline {subsection}{\numberline {0.2}Introduction}{2}
+\contentsline {section}{\numberline {1}Le gyroscope}{2}
+\contentsline {subsubsection}{\numberline {1.0.1}Quelques applications}{4}
+\contentsline {section}{\numberline {2}Approximation gyroscopique et toupie}{4}
+\contentsline {section}{\numberline {3}Application au cas microscopique d'un moment magn\IeC {\'e}tique - RMN}{6}
+\contentsline {subsection}{\numberline {3.1}Traitement classique}{6}
+\contentsline {subsection}{\numberline {3.2}Aspect quantique}{8}
+\contentsline {section}{\numberline {4}Conclusion}{8}

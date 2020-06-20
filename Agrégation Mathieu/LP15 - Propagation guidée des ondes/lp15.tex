@@ -1,0 +1,50 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\usepackage{wasysym}
+\usepackage{graphicx}
+
+\author{Mathieu Sarrat}
+\title{LP15 - Propagation guidée des ondes}
+
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+\begin{document}
+\maketitle
+
+\section{Pré-requis}
+\begin{itemize}
+	\item toute la propagation libre (y compris d'Alembert)
+\end{itemize}
+
+\section{Questions à adresser}
+\begin{itemize}
+	\item pourquoi guider les ondes ? Médecine. Si on fait une propagation libre, on doit inonder tout l'espace : gaspillage d'énergie, espionnage ... La propagation guidée permet de canaliser l'énergie.
+	\item la solution des équations de d'Alembert dépend des conditions aux limites (on a vu les ondes stationnaires dans une corde tendue) : on s'attend à ce que le guidage fasse apparaître une quantification du vecteur d'onde, et donc l'apparition de modes dans la direction transverse à la propagation. Apparition d'ondes stationnaires, les solutions exponentielles réelles ne peuvent pas satisfaire toutes les conditions aux limites, ce qui implique des solutions trigonométriques. On fait apparaître la quantification, la fréquence de coupure.
+	\item ondes électromagnétiques et ondes acoustiques aussi (beaucoup moins lourd à traiter : champ scalaire, conditions aux limites faciles à écrire)
+	\item conséquences du guidage : i) introduction d'une dispersion, ii) apparition d'une fréquence de coupure (coeur de la leçon)
+	\item dans le domaine sonore, la propagation guidée concerne surtout les ultrasons : applications médicales (calculs rénaux, échographie ... vérifier). Seul le mode fondamental est vraiment audible et sert dans les flûtes.
+	\item pour le guidage des ondes électromagnétiques : réintroduire les relations de passage qui sont les conditions aux limites (sans démo) en considérant un conducteur parfait pour le guide. Traiter éventuellement le cas de deux plans parallèles infinis pour simplifier les calculs.
+\end{itemize}
+
+\section{Ne pas faire}
+\begin{itemize}
+	\item redémontrer l'équation de propagation	
+\end{itemize}
+
+
+\section{Conclusion}
+
+
+\end{document}

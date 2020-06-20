@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {0.2}Mod\IeC {\`e}le de microscope}{2}
+\contentsline {subsection}{\numberline {0.2.1}Puissance du microscope}{3}
+\contentsline {subsection}{\numberline {0.2.2}Diagramme de champ/ouverture}{3}
+\contentsline {paragraph}{Diaphragme d'ouverture}{3}
+\contentsline {paragraph}{Diaphragme de champ}{3}
+\contentsline {section}{\numberline {0.3}Objet r\IeC {\'e}el}{3}
+\contentsline {subsection}{\numberline {0.3.1}Grossissement normalis\IeC {\'e}}{3}
+\contentsline {paragraph}{Distance focale}{3}
+\contentsline {paragraph}{Position du foyer image}{3}
+\contentsline {subsection}{\numberline {0.3.2}Ouverture num\IeC {\'e}rique}{3}
+\contentsline {subsection}{\numberline {0.3.3}Crit\IeC {\`e}re de Rayleigh - pouvoir de r\IeC {\'e}solution}{4}
+\contentsline {section}{\numberline {0.4}Questions}{4}
+\contentsline {paragraph}{Montage surprise}{5}
+\contentsline {section}{\numberline {0.5}Remarques}{5}

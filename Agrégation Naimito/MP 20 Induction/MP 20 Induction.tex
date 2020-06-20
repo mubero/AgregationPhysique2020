@@ -1,0 +1,193 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 20 Induction}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+
+\section{Loi de Lenz}
+\begin{eqnarray}
+e = -\frac{d\Phi}{dt}
+\end{eqnarray}
+On génère un champ magnétique à l'aide d'une bobine alimentée par un générateur de courant continu, et on le guide et le renforce à l'aide d'un entrefer. On va ensuite approcher/éloigner une petite bobine plate de l'entrefer et relever la tension $e(t)$ à ses bornes. On obtient ainsi des pics de tension. En intégrant cette tension on obtient
+\begin{eqnarray}
+Int(t) = \int_0^te(s)ds
+\end{eqnarray}
+qui se comporte alors comme sur la figure : $Int=0$ lorsque la bobine est immobile et loin, augmente lorsqu'on se rapproche, reste constant et égal au flux $\Phi$ lorsqu'on reste collé à l'entrefer, et diminue vers zéro lorsqu'on éloigne la bobine. On peut alors constater en traçant $e(t)$ et $Int(t)$ sur latispro que le max de $Int(t)$, qui est égal au flux du champ à travers la bobine plate, ne dépend pas de la vitesse à laquelle on s'approche et s'éloigne de l'entrefer, contrairement à l'amplitude de $e(t)$, comme attendu.\\
+
+On peut alors, pour s'assurer que ce que l'on regarde est bien un flux, relever le max de $Int(t)$ pour différents courants parcourant la bobine qui génère le champ. A chaque fois on mesure le champ magnétique $B$ au niveau de l'entrefer avec un Teslamètre (sonde à effet Hall), et on trace ainsi 
+\begin{eqnarray}
+\max\{Int(t)\}(B) = \Phi(B)
+\end{eqnarray}
+On peut ensuite modéliser par une droite et le coefficient directeur obtenu est alors égal à la surface $S$ de la bobine plate, on a bien 
+\begin{eqnarray}
+\Phi = \vec{B}.\vec{n}S
+\end{eqnarray}
+
+\textbf{Remarque} : Pour obtenir des plateaux nets pour $Int(t)$ et ainsi avoir un résultat plus visuel et une bonne mesure pour le flux il faut rester un petit peu collé à l'entrefer.\\
+
+\textbf{Remarque} : Il peut y avoir une dérive pour $Int(t)$, on peut donc faire une mesure "à vide" (sans s'approcher de l'entrefer) pour vérifier que $Int(t)$ reste nul, si ce n'est pas le cas on modélise par une droite et on retranche cette droite à $Int(t)$ dans la feuille de calcul.
+
+\section{Induction mutuelle}
+\textit{Quaranta tome IV "électricité et applications" p277}\\
+
+On regarde cette foi le problème sous un autre angle : ce n'est pas le circuit qui bouge dans le champ mais le champ qui varie dans le temps. On va ici mesurer le coefficient d'inductance mutuelle qui lie la force électromotrice induite au courant qui induit le champ.\\
+Pour l'étudier on prend deux bobines ayant le même axe (lignes de champs générées par la première passant par la seconde), on injecte un courant $i_1(t)$ triangulaire avec un GBF dans la première (que l'on mesure via la tension aux bornes d'une résistance $R$) et on regarde le potentiel induit dans la seconde : 
+\begin{eqnarray}
+e_2(t) = -M\frac{di_1}{dt}
+\end{eqnarray}
+Si on note alors $\Delta t$ la durée sur la quelle $\frac{di_1}{dt}$ est constante (c'est à dire $\Delta t =\frac{1}{2f}$), $\Delta u_1$ l'amplitude de la tension mesurée aux bornes de la résistance on a alors 
+\begin{eqnarray}
+\frac{\Delta i}{\Delta t} = \frac{1}{R}\frac{\Delta u_i}{\Delta t}
+\end{eqnarray}
+et ainsi en notant $E_2$ l'amplitude du signal carré obtenu aux bornes de la seconde bobine on a alors 
+\begin{eqnarray}
+E_2 = M\frac{1}{R}\frac{\Delta u_i}{\Delta t}
+\end{eqnarray}
+On peut ainsi tracer $E_2$ en fonction de $\frac{\Delta u_i}{\Delta t}$ pour différentes fréquences (différents $\Delta t$), et le coefficient directeur de la droite obtenue sera alors l'inductance mutuelle.\\
+
+\textbf{Remarque}: Il faut tout de même prendre quelques précautions quand au choix de la résistance :\\
+
+Le RL est un basse bas de pulsation de coupure $\frac{R}{L}$, donc si on prend une résistance trop faible on va couper les hautes fréquences. Dans un même temps on veut avoir un gros courant en entrée car on regarde des phénomènes inductifs. Ici on a choisit $R \simeq 10\, \Omega$ et on a $L \simeq 1,7$ mH ce qui donne 
+\begin{eqnarray}
+f_c = \frac{R}{2\pi L} \simeq 936 \,Hz
+\end{eqnarray}
+on aura donc, pour une plage de fréquences inférieures à 100 Hz au moins une dizaine d'harmoniques, ce qui garantie que notre intensité demeure (en bonne approximation) triangulaire. On aura de plus, pour $20V$ d'amplitude en entrée une intensité max de l'ordre de 2A ce qui est correct.\\
+ 
+Pour commenter la valeur de $M$ obtenue on a que l'énergie magnétique des deux bobines est 
+\begin{eqnarray}
+E = \frac{1}{2}L_1i_1^2 + \frac{1}{2}L_2i_2^2 +Mi_1i_2\\
+= \frac{1}{2}\begin{pmatrix}
+i_1 & i_2
+\end{pmatrix}
+\begin{pmatrix}
+L_1 & M\\
+M & L_2
+\end{pmatrix}
+\begin{pmatrix}
+i_1\\
+i_2
+\end{pmatrix}
+\end{eqnarray}
+or l'énergie est par définition positive ici, puisqu'on a 
+\begin{eqnarray}
+E= \iiint_{\mathcal{V}} \frac{B^2}{\mu_0} \geq 0
+\end{eqnarray} 
+on a donc que 
+\begin{eqnarray}
+\begin{pmatrix}
+L_1 & M\\
+M & L_2
+\end{pmatrix}
+\end{eqnarray}
+doit être définie positive (de déterminant positif) et donc 
+\begin{eqnarray}
+M \leq \sqrt{L_1L_2}
+\end{eqnarray}
+On s'attend ainsi à avoir $M = \sqrt{L_1L_2}$ si toutes les lignes de champ générées par la première bobine passent par la secondes, et donc dans la pratique si on colle bien les bobines on aura M un peu plus faible que $\sqrt{L_1L_2}$. 
+
+\section{Auto-induction}
+\textit{R.Duffait Expériences d'électronique p145}
+\subsection{Un peu de théorie}
+On définit l'induction propre par le fait qu'un circuit parcouru par un courant variable $i$ génère un champ magnétique $\vec{B}$ proportionnel à ce courant, et que ce champ génère lui même une force électromotrice (c'est à dire une différence de potentiel)
+\begin{eqnarray}
+e = -\frac{d\Phi}{dt} 
+\end{eqnarray}
+sur ce même circuit : on a un phénomène d'induction propre. Cette expression peut être obtenue directement à partir de Maxwell-Faraday 
+\begin{eqnarray}
+\vec{\nabla}\times \vec{E} = -\frac{\partial\vec{B}}{\partial t} \;\;\Rightarrow \iint_S \vec{\nabla}\times \vec{E}. \vec{dS} = \int_{\partial S} \vec{E}.\vec{dl} = \frac{\partial}{\partial t} \iint_S \vec{B}.\vec{dS} = -\frac{d\Phi}{dt}
+\end{eqnarray}
+ou à partir du champ électromoteur 
+\begin{eqnarray}
+\vec{E}_m &=& \vec{v}_e\times \vec{B} - \frac{\partial\vec{A}}{\partial t}\\
+\oint_{\mathcal{C}}\vec{E}_m.\vec{dl} &=& \oint_{\mathcal{C}}(\vec{v}_e\times \vec{B}).\vec{dl} -  \oint_{\mathcal{C}}\frac{\partial\vec{A}}{\partial t}.\vec{dl}\\
+&=& \oint_{\mathcal{C}}(\vec{v}_e\times \vec{B}).\vec{dl} -  \frac{\partial}{\partial t}\iint_{\mathcal{S}}\vec{B}.\vec{dS}
+\end{eqnarray}
+ce qui donne si le contour d'intégration (la spire) est fixe 
+\begin{eqnarray}
+e = \oint_{\mathcal{C}}\vec{E}_m.\vec{dl} = - \frac{d\Phi}{dt}
+\end{eqnarray}
+puisque $\vec{v}_e \propto \vec{dl}$.\\
+
+On a donc finalement, dans le cas d'une bobine seule, que la tension aux borne de la bobine est proportionnelle à la dérivée du courant, puisque le champ induit est lui même proportionnel au courant (cf Biot et Savart), le coefficient de proportionnalité est alors noté $L$ et appelé inductance propre 
+\begin{eqnarray}
+u = L\frac{di}{dt}
+\end{eqnarray}
+
+\subsection{Manipulations : RLC}
+On fait un circuit RLC, on prend la tension $u_S(t)$ aux bornes de la résistance et on se place à la fréquence de résonance à partir de trois critères : lorsque qu'on est à la résonance alors
+\begin{itemize}
+	\item L'amplitude de la tension de sortie $U_S$ est maximale.
+	\item Si on passe en mode XY avec $u_e(t)$ et $u_S(t)$ on obtient une droite.
+	\item Le déphasage entre avec $u_e(t)$ et $u_S(t)$ est nul.
+\end{itemize}	
+On en déduit une mesure du coefficient d'auto induction ou inductance propre $L$ à partir de
+\begin{eqnarray}
+f_0 = \frac{\omega_0}{2\pi} = \frac{1}{2\pi\sqrt{LC}}
+\end{eqnarray}
+On aura un meilleur facteur de qualité et ainsi une meilleure précision de mesure si on augmente la résistance car on a 
+\begin{eqnarray}
+Q = \frac{L\omega_0}{R_{tot}} = \frac{\sqrt{L}}{\sqrt{C}R_{tot}}
+\end{eqnarray}
+
+
+
+\section{Énergie stockée dans une bobine}
+On a 
+\begin{eqnarray}
+P = IU = IL\frac{dI}{dt} = \frac{1}{2}L\frac{dI^2}{dt}\\
+\Longrightarrow E = \frac{1}{2}LI^2
+\end{eqnarray}
+On va mesurer cette énergie en réalisant le circuit suivant :
+
+
+Lorsque l'interrupteur est fermé, la bobine est parcourue par le courant I, et est donc chargée d'une énergie $LI^2/2$. Lorsqu'on ferme l'interrupteur, on ferme la boucle et la bobine va alors se décharger sur un temps caractéristique $L/R_{Tot}$ puisqu'on a, une fois l'interrupteur fermé 
+\begin{eqnarray}
+U = L\frac{di}{dt} + (R+r)i = 0\;\;\Longrightarrow\;\; i(t) = Ie^{-\frac{R+r}{L}t}
+\end{eqnarray}
+avec r la résistance de la bobine. On fait une acquisition de la tension $u_R(t)$ aux bornes de la résistance, et on en déduit alors l'intensité dans le circuit et ainsi la puissance 
+\begin{eqnarray}
+i = \frac{u_R}{R} \;\;\Longrightarrow\;\; P = ui = (R+r)i^2
+\end{eqnarray}
+En intégrant la puissance entre l'instant où on ferme l'interrupteur et un instant suffisamment grand pour qu'elle soit nulle, on obtient ainsi l'énergie libérée par la bobine, que l'on peut comparer avec le $LI^2/2$.\\
+
+On peut aussi, après avoir évalué l'énergie, prendre le logarithme de la courbe obtenue, modéliser par une droite et ainsi en déduire une mesure de l'inductance propre $L$ à partir de la connaissance de $R+r$.\\
+
+\textbf{Attention :} Si on prend un voltage et une intensité trop forte avec notre générateur courant tension on aura une tension non nulle aux bornes de notre circuit une fois l'interrupteur fermé (et ainsi notre intégrale donnant l'énergie sera fausse). L'idéal est que l'intensité délivrée par le générateur ($\simeq 0.2$ A) soit la même avant et après avoir fermé l'interrupteur : générateur régulé en intensité (ainsi une fois l'interrupteur fermé on a $R_{fil+interrupteur} \simeq 0.2\,\Omega\;\Rightarrow\; U\simeq 0,2\times0,2 = 0,04$ V : tension très faible.
+
+\end{document}

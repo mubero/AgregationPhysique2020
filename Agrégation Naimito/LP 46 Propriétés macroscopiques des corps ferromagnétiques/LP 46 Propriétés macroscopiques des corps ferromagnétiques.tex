@@ -1,0 +1,150 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 46 Propriétés macroscopiques des corps ferromagnétiques}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+		
+\subsection{Introduction}
+Propriétés des ferros. Existence de nombreuses applications.
+
+\section{Rappels}
+\textbf{Electromagnétisme tome 4 : milieux diélectriques et milieux aimantés} de \textit{Bertin, Faroux et Renault} p 124.\\
+
+Il faut être rapide.
+\subsection{Vecteur aimantation}
+Définition :
+\begin{eqnarray}
+\vec{M} = \frac{\sum\vec{m}_i}{dV},
+\end{eqnarray}
+unités : A.M$^{-1}$. On peut définir une densité volumique de courant d'aimantation : 
+\begin{eqnarray}
+\vec{j}_m = \vec{rot}\times \vec{M},
+\end{eqnarray} 
+Expérience bobine et aimant : en faisant passer un courant dans la bobine on génère un champ magnétique qui perturbe la boussole.\\
+On va maintenant chercher à établir le lien entre aimantation et champ magnétique.
+
+\subsection{Relation aimantation-champ $\vec{B}$}
+\begin{eqnarray}
+rotB = \mu_0(j_m+j_a) = \mu_0(rotM+j_a)
+\end{eqnarray}
+On définit alors 
+\begin{eqnarray}
+H = \frac{B}{\mu_0}-M
+\end{eqnarray}
+tel que 
+\begin{eqnarray}
+\vec{rot}\vec{H} = \mu_0\vec{j}_a
+\end{eqnarray}
+ On a donc une relation cyclique entre champ et aimantation : l'un agit sur l'autre et inversement.
+ 
+ \subsection{Susceptibilité du champ magnétique}
+def : $M=\chi_m H$\\
+$H = B/\mu_0 - M = B/\mu_0 - \chi_m H$ $\Rightarrow$ $B = \mu_0(1+\chi_m)H = \mu_0\mu_r H$ et de même $M = (\frac{1}{\mu_0}-\frac{1}{\mu_0\mu_r})B$\\
+Ordres de grandeurs : ferro cas du fer $\mu_r \simeq 5.10^5$, mimetal $\mu_r \simeq 3.10^4$ 
+
+\section{Etude expérimentale d'un ferromagnétique}
+\textbf{Electromagnétisme tome 4 : milieux diélectriques et milieux aimantés} de \textit{Bertin, Faroux et Renault} p 136.
+
+\subsection{Modèle du tore magnétique}
+Présenter le modèle, conclure en explicitant l'aspect pratique du dispositif : on a accès à H et B. On va l'appliquer en direct.
+
+\subsection{Réalisation pratique}
+\textbf{Manip : Courbe de première aimantation + cycle d'hystérésis}\\
+Présentée dans le \textbf{Quaranta} \textit{tome IV Électricité et applications} à la partie transformateurs p582. Voir montage 16 milieux magnétiques.
+
+\subsection{Perte fer}
+\textbf{Electromagnétisme tome 4 : milieux diélectriques et milieux aimantés} de \textit{Bertin, Faroux et Renault} p 181 et 240.\\
+\textbf{Magnétisme I-Fondements} de \textit{E du Trémolet} p226.\\
+
+Notion de coercitivité. Calcul de la puissance
+\begin{eqnarray}
+P = RI^2 + V\int HdB
+\end{eqnarray}
+avec $V$ le volume du ferro.\\
+
+En déduire si le ferro étudié est dur ou doux après avoir défini les deux catégories.
+
+\subsection{Interprétation}
+\textbf{Magnétisme I-Fondements} de \textit{E du Trémolet} et \textbf{Electromagnétisme tome 4 : milieux diélectriques et milieux aimantés} de \textit{Bertin, Faroux et Renault} chap 8.\\
+
+Domaines de Weiss, dont l'existence a été vérifiée au microscope, taille des domaines, notion de parois de Block.\\
+Interprétation de la courbe d'hystérésis avec des schémas illustrant les domaines de Weiss.
+
+\section{Applications}
+\subsection{Disque dur magnétique}
+\textbf{Magnétisme I-Fondements} de \textit{E du Trémolet} pour la théorie,
+Regarder aussi le \textbf{tome II-Applications}.\\
+Pour la pratique regarder sur internet :\\
+http://tpe.kyvandoan.free.fr/?page\_id=24\\
+https://www.futura-sciences.com/tech/dossiers/informatique-stockage-donnees-informatiques-105/page/3/\\
+
+Ou encore regarder le problème de 2019 de l'agrégation externe.
+
+\subsection{Magnétorésistance}
+\textbf{Magnétisme I-Fondements} de \textit{E du Trémolet} p 442.\\
+
+On peut aussi parler du transformateur, ou du paléomagnétisme (Voir \textbf{Magnétisme II-Applications} de \textit{E du Trémolet} (attention c'est le tome 2 cette fois))
+
+\section{Conclusion}
+Énorme intérêt pratique de ces matériaux.
+
+\section*{Questions}
+Au vu du titre de la leçon, pourquoi commencer par parler des relations constitutives ? \\
+
+Que se passe t-il si on met un diamagnétique ou un paramagnétique pour l'expérience de la boussole, qu'aurait on observé ?\\
+Rien.\\
+
+Pourquoi utiliser le modèle du tore magnétique ?\\
+Parce qu'il permet de contrôler H. \\
+
+Pourquoi le ferro canalise t-il les lignes de champs dans la manip ?\\
+Condition de passage du champ : B est nul à l'extérieur au départ, et $B_{\perp}$ étant continu, le champ va s'aligner selon la direction du barreau.\\
+
+Comment faut il feuilleter les matériaux pour la manip ?\\
+Dans la longueur pour éviter les courants de Foucault qui se font dans les plans orthogonaux au champ qui est guidé.
+
+\section*{Remarques}
+Il faut enlever la première partie. Laisser la def de la susceptibilité en intro, et introduire en montrant qu'il existe des ferro durs et doux.\\
+Montrer expérimentalement en intro la différence entre ferro et ferro dur en collant un trombone.\\
+Il faut parler de l'existence de ferro fluides, fait de colloïdes.\\
+C'est bien de faire la courbe de première aimantation, il faut donc faire les explications pour le tore. Il faut alors bien montrer que l'asymptote est oblique dans le cas $B(H)$ (contrairement au cas $M(B)$ où elle est horizontale).\\
+Mettre la section interprétation plus tôt : permet d'introduire la notion de perte fer : une fois les spins alignés, il va falloir dépenser de l'énergie pour les retourner.\\
+Regarder la magnétorésistance.
+
+\end{document}

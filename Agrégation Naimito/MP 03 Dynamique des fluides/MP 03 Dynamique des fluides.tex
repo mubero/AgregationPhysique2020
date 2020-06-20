@@ -1,0 +1,143 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 03 Dynamique des fluides}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+
+\section{Viscosimètre à chute de bille : Force de Stokes}
+On a la force de Stokes, résultant des contraintes de pression et de frottement visqueux sur la bille, qui est opposée au mouvement :
+\begin{eqnarray}
+\vec{F}_{Stokes} = \iint_{\partial S}[\sigma]\vec{e}_rdS  = 6\pi\eta RV \vec{e}_z
+\end{eqnarray}
+si z est orienté selon la normale ascendante, et que l'on note V la norme de la vitesse de la bille en régime stationnaire.\\
+Elle est opposée au poids ajusté, c'est à dire le poids de la bille moins la poussée d'Archimède
+\begin{eqnarray}
+\vec{P}_{aj} = -(m_{bille} - \rho_{glycerol} \frac{4}{3}\pi R^3)g\vec{e}_z
+\end{eqnarray}
+On se place ici dans le cas stationnaire, où ces deux forces se compensent donc. On mesure la vitesse en chronométrant le temps de parcours de la bille entre deux marques sur le tube et on en déduit la valeur de la viscosité
+\begin{eqnarray}
+\eta_{gly} = \frac{m_{bille} - \rho_{glycerol} \frac{4}{3}\pi R^3}{6\pi RV}g
+\end{eqnarray}
+
+On mesure $\tau = 4.2 \pm 0.1\, s$ pour une longueur de chute $L=25\pm0,2\,cm$, on en déduit 
+\begin{eqnarray}
+V = \frac{25.10^{-2}}{15,2}=1,64.10^{-2}\, m.s^{-1}\\
+\left(\frac{\Delta V}{V}\right)^2 = \left(\frac{\Delta L}{L}\right)^2 + \left(\frac{\Delta \tau}{\tau}\right)^2 = \left(\frac{0,2}{25}\right)^2 + \left(\frac{ 0,1}{15,2}\right)^2 \simeq 1.10^{-4}\\
+\Delta V = \sqrt{10^{-4}}\,1,6.10^{-2} \simeq 2.10^{-4}\, m.s^{-1}\\
+\Longrightarrow \; V = (1,64 \pm 0,02\,).10^{-2}\, m.s^{-1}
+\end{eqnarray}
+On a mesuré $m_{bille} = 0,054\pm 0,002\,g$ et $d = 2,37\pm0,01\,mm$ avec un Palmer. Le laboratoire ayant produit le glycérol donne $\rho = 1,256\pm0,1\,g.mL^{-1}$, on en déduit 
+\begin{eqnarray}
+\eta_{gly} = \frac{m_{bille} - \rho_{glycerol} \frac{4}{3}\pi R^3}{6\pi RV}g = \frac{0,054 - 1,256\,\frac{4}{3}\pi\, 0,1185^3}{6\pi\,1,185\mathrm{x}0.0164}9,81 = 1,212\,Pa.s\\
+a = \frac{mg}{6\pi RV} \simeq 1,45\;Pa.s\\
+\longrightarrow \left(\frac{\Delta a}{a}\right)^2 =\left(\frac{\Delta m}{m}\right)^2 + \left(\frac{\Delta R}{R}\right)^2+\left(\frac{\Delta V}{V}\right)^2 \simeq 5,7.10^{-3}\longrightarrow \Delta a = 8,2.10^{-3}Pa.s\\
+b = \frac{2\rho R^2}{9 V}g\simeq 0.23\:Pa.s\\
+\longrightarrow \left(\frac{\Delta b}{b}\right)^2 =4\left(\frac{\Delta R}{R}\right)^2+\left(\frac{\Delta V}{V}\right)^2 \simeq 1,7.10^{-4} \longrightarrow \Delta b = 3.10^{-3}\;Pa.s\;\; \\
+\Delta \eta = \sqrt{\Delta a ^2 + \Delta b ^2} \simeq 8,7.10^{-3} \simeq 0,9\%\;\;\\
+\Longrightarrow \eta = 1,212\pm 0.009\,Pa.s\;\;
+\end{eqnarray}
+Remarque : on a 
+\begin{eqnarray}
+Re = \frac{VR\rho}{\eta} \simeq \frac{0,016\mathrm{x}10^{-3}\mathrm{x}1,26.10^3}{1,49} \simeq 10^{-2}
+\end{eqnarray}
+On est bien dans le cas $Re\ll1$ où l'on peut négliger le terme non linéaire et ainsi considérer l'équation de Stokes
+\begin{eqnarray}
+-\vec{\nabla}P' + \Delta \vec{u} = \vec{0}
+\end{eqnarray}
+\\
+On peut calculer le temps caractéristique d'amortissement, ou durée du régime transitoire, en effet avec d'atteindre le régime stationnaire on a, selon z
+\begin{eqnarray}
+m\partial_t v = P_a - \alpha v
+\end{eqnarray}
+ce qui correspond à une équation différentielle du premier ordre sur v avec un temps caractéristique de relaxation 
+\begin{eqnarray}
+\tau = \frac{m}{\alpha} = \frac{m}{6\pi\eta R} \simeq 2.10^{-3}s
+\end{eqnarray}
+\\
+On peut prendre en compte les effets de paroi (v Physique expérimentale de Fruchart, Lidon...) en considérant une force de Stokes ajustée 
+\begin{eqnarray}
+F_{s,aj} = 6\pi \eta V \frac{R}{1-2,1\frac{R}{R_{tube}}}
+\end{eqnarray}
+mais ici on a $\frac{R}{R_tube} \simeq 3\%$, cette correction va donc être petite. \\
+
+On a pour le glycérol $\eta = 1,46$ Pa.s à 20°C, et $\nu = 0,934$ Pa.s à 25°C, on peut donc faire une interpolation linéaire 
+\begin{eqnarray}
+\eta(T) \simeq \frac{0,934-1,46}{5}T +  3.564 \simeq -0.526T + 3.564 
+\end{eqnarray}
+en Pa.s, et en déduire la viscosité approximative attendue après une mesure de la température dans las salle. Mais attention le glycérol s'hydrate au contacte de l'air ce qui entraine une baisse de la viscosité.
+\section{Mesure de la viscosité de l'eau : vase de Mariotte}
+On mesure 5 débit pour 5 hauteurs différentes en pesant la différence de masse d'eau en sortie pendant un intervalle de temps $\Delta t = 100$s. On obtient une courbe $Q(h) = \alpha h + \beta$ d'où on tire
+\begin{eqnarray}
+\alpha = 1,29\pm 0.06\;10^{-6}\;m^2.s^{-1}\\
+\beta = -4\pm 9 \;10^{-9} \;m^3.s^{-1}
+\end{eqnarray}
+or on a, en modélisant l'écoulement dans le tube par un écoulement de poiseuille
+\begin{eqnarray}
+Q = \frac{\rho g\pi R^4}{8\eta L}h
+\end{eqnarray}
+on peut donc en déduire une mesure de la viscosité, en connaissant $D = 1,5 \pm 0,05$ mm, $L=900\pm1$ mm, $\rho = 1000$ kg/m$^3$ et $g= 9,81$ m.s$^2$.
+\begin{eqnarray}
+\eta = \frac{\rho g\pi R^4}{8\alpha L} = 1,05.10^{-3}\;\mathrm{Pa.s}\\
+\left(\frac{\Delta \eta}{\eta}\right)^2 = \left(\frac{\Delta \alpha}{\alpha}\right)^2 + 16\left(\frac{\Delta R}{R}\right)^2 = 0,02\\
+\Longrightarrow \eta = 1,1 \pm 0,1 \; .10^{-3}\;\mathrm{Pa.s}
+\end{eqnarray}
+\\
+Remarque : la parfaite horizontalité du tuyau n'est pas nécessaire tant que le $\Delta h$ est faible devant h.\\
+
+\begin{eqnarray}
+Re = \frac{QR\rho}{S\eta} = \frac{Q\rho}{R\eta} = \frac{5.10^{-8}\mathrm{x}1000}{10^{-3}\mathrm{x}10^{-3}} = 50
+\end{eqnarray}
+Pour un écoulement de poiseuille, le terme non linéaire est nul car v est unidirectionnelle, et que donc $\vec{nabla}.\vec{v} = 0$ impose $\partial_z v=0$. On a donc à priori pas de contrainte sur le nombre de Reynolds, si ce n'est que l'écoulement ne doit pas être turbulent, c'est à dire $Re < 1000$, ce qui est vérifié ici.\\
+
+On est sensé trouver un $\beta$ non nul à cause de la tension superficielle, qui correspond en théorie à un $h(Q=0) = \frac{2\gamma}{R\rho g}\simeq 2$ cm.
+
+\section{Tube de Pitot}
+On a, si on modélise l'écoulement d'air à la sortie de notre tube par un écoulement de fluide parfait, on peut mesurer la vitesse moyenne au centre du jet grâce à un tube de pitot qui fonctionne selon la relation
+\begin{eqnarray}
+v = \sqrt{\frac{2\rho_{eau}g\Delta h}{\rho_{air}}} \label{pito}
+\end{eqnarray}
+On se propose ici de mesurer v avec un anémomètre à fil chaud, et $\Delta h$. On trace ensuite v(h) afin de vérifier que le tube de pitot permet bel et bien une mesure de selon la relation \ref{pito}\\
+
+Calcul du nombre de Reynolds 
+\begin{eqnarray}
+Re =\frac{\rho V L}{\eta}\simeq \frac{1\mathrm{x}10\mathrm{x}10^{-2}}{20.10^{-6}} \simeq 5.10^3
+\end{eqnarray}
+
+
+
+\end{document}

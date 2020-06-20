@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {0.2}Bir\IeC {\'e}fringence lin\IeC {\'e}aire}{2}
+\contentsline {subsection}{\numberline {0.2.1}Exp\IeC {\'e}rience qualitative}{2}
+\contentsline {subsection}{\numberline {0.2.2}Mesure de la bir\IeC {\'e}fringence $\Delta n$}{2}
+\contentsline {subsubsection}{\IeC {\'E}talonnage du spectre}{2}
+\contentsline {subsubsection}{Mesure}{2}
+\contentsline {section}{\numberline {0.3}Bir\IeC {\'e}fringence circulaire}{2}

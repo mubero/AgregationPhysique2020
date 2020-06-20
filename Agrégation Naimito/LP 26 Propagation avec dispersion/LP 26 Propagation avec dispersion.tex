@@ -1,0 +1,144 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 26 Propagation avec dispersion}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsubsection{Pré requis}
+2e année de licence\\
+Relation de dispersion.
+
+\subsubsection{Introduction}
+Intérêt dans les communications notamment.
+
+\section{Propagation d'une onde dans un plasma}
+Suivre le \textbf{Physique tout en un PC de M-N. Sanz} et regarder le \textit{Garing} \textbf{Ondes électromagnétiques dans le vide et les milieux conducteurs} pour les détails.
+
+\subsection{Modélisation}
+On pose les hypothèses.
+On applique le PFD et on résout.
+
+\subsection{Relation de dispersion}
+Discuter le fait qu'on est dans le cas d'un milieu dispersif mais non dissipatif. Traiter rapidement les cas basse et haute fréquence. Citer le cas de la ionosphère.\\
+
+Bien définir et expliquer la notion de dispersion, illustrer éventuellement avec les cas du prisme ou ce n'est pas la vitesse de propagation mais l'angle de réfraction qui nous apparait comme dépendant de la fréquence.
+
+\section{Paquet d'onde}
+\subsection{Définition}
+Une OPPM n'a pas de réalité physique : elle n'a ni début, ni fin et possède une énergie infinie. Dans la pratique les ondes réelles prennent une valeur non nulle sur un intervalle de temps fini, mais on va tout de même pouvoir décomposer cette fonction sur la base de Fourrier, qui est une base propre de tout opérateur différentiel linéaire. Cette décomposition est appelée transformée de Fourrier, or ici notre fonction d'onde dépend de deux paramètres : $z$ et $t$, on serait donc tentés de faire une double transformée avec les variables conjuguées $\omega$ et $k$, mais ces dernières sont reliées par la relation de dispersion, on intègre donc seulement sur l'une des deux 
+\begin{eqnarray}
+\psi (z, t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty} \underline{\Psi} (\omega) e^{i(\omega t - k(\omega)z)}\;d\omega 
+\end{eqnarray}
+où $\underline{\Psi} (\omega)$ est la TF temporelle de $\psi$
+\begin{eqnarray}
+\underline{\Psi} (\omega) = \int_{-\infty}^{+\infty} \psi(0,t) e^{-i\omega t} \;dt
+\end{eqnarray}
+On somme sur des pulsations négatives ce qui n'est pas très physique, mais, par définition la fonction d'onde $\psi$ est réelle on a donc $\underline{\Psi}^{*} (\omega) = \underline{\Psi} (-\omega)$ donc la connaissance de $\underline{\Psi} (\omega)$ pour $\omega$ positif suffit. On peut ainsi définir la représentation complexe de $\psi$ comme 
+\begin{eqnarray}
+\underline{\psi} (z, t) = \frac{1}{2\pi}\int_{0}^{+\infty} 2 \underline{\Psi} (\omega) e^{i(\omega t - k(\omega)z)}\;d\omega 
+\end{eqnarray}
+où l'on ne somme que les pulsations positives et qui est telle que 
+\begin{eqnarray}
+\psi = \Re e \{\underline{\psi} \} = \frac{1}{2}\left(\underline{\psi}^{*} + \underline{\psi}\right)
+\end{eqnarray}
+(on fait un changement de variable $\omega \rightarrow - \omega$ dans l'intégrale du conjugué complexe pour s'en convaincre)
+
+\subsection{Vitesses de groupe et de phase}
+Suivre le \textbf{Physique tout en un PC de M-N. Sanz} p 1016.
+\subsubsection{Vitesse de phase}
+\subsubsection{Vitesse de groupe}
+Montrer la différence entre les deux concepts à l'aide d'une animation sur le site de l'université de Le mans.
+
+\subsubsection{Étalement du paquet d'onde}
+La forme du paquet se détériore dans les milieux dispersifs : cela peut engendrer une perte d'information. Cet aspect est donc très important dans le domaine de la communication (cf guide d'onde).
+
+\subsection{Interprétation de la vitesse de groupe}
+On montre que dans le cas du plasma la vitesse de groupe s'assimile à la vitesse de l'énergie (voir le PC).
+
+\section{Exemples}
+\subsection{Plasma}
+On revient sur la première partie et on montre que la vitesse de groupe est bien inférieure à $c$.\\
+
+Limite du modèle : il faut une faible dispersion pour appliquer les modèles précédents. Applications pour les études des milieux dispersifs, où la dispersion donne des informations sur les propriétés intrinsèques du matériau.
+
+\subsection{Câble coaxial}
+\textit{Garing} \textbf{Ondes électromagnétiques dans le vide et les milieux conducteurs}\\ 
+ou \textit{Pérez} \textbf{Electromagnétisme}.\\
+
+Ne par rentrer dans les détails calculatoires : poser le modèle et discuter le fait que l'ajout de dissipation (modélisée par deux résistances) rend le milieu dispersif.\\ 
+Montrer la figure montrant l'allure du signal transmis après 100m du livre de PC.
+
+
+\section*{Questions}
+Pour les plasmas vous parlez de réflexion à l'interface .. quelle interface ?\\
+Pourquoi y a t-il réflexion ?\\
+La fréquence plasma est elle la même partout dans la ionosphère ? Sinon comment varie t-elle ?\\
+Qu'est ce qui détermine donc l'endroit de la réflection ?\\
+
+L'expression de $s_e$ donnée est elle correcte ?\\
+non il manque un x : 
+\begin{eqnarray}
+s(x,t) = s_e(t-\frac{dk}{d\omega}(\omega_0)x)e^{i(\phi(\omega_0) + k(\omega_0)x-\omega_0t)}
+\end{eqnarray}
+
+Comment mesure t'on la vitesse d'un paquet d'onde ?\\
+
+Peut on satisfaire la condition de heaviside ?\\
+
+Quelles sont les raisons de la dispersion dans un câble coaxial ?\\
+
+Un milieu dispersif est il nécessairement absorbant ?\\
+Oui, mais pas nécessairement aux même fréquences.\\
+
+A quoi est liée, physiquement, la dispersion ?\\
+La réponse du milieu dépend de la pulsation, car la réponse du milieu n'est pas instantanée.\\
+
+Quelle est la vitesse d'un signal ? \\
+L'avant du paquet d'onde.\\
+
+Qu'est ce que l'avant du paquet d'onde ?
+
+\section*{Commentaires}
+Attention à bien différencier dispersion et dissipation.\\
+Le problème de la modélisation du câble coax c'est qu'on ne voit plus le milieu...et qu'on ne peux donc pas perler de dispersion normale et anomale.\\
+Questions possibles : comment justifier la modélisation des effets dispersifs avec une capacitance et une résistance ?
+
+
+
+
+
+
+
+\end{document}

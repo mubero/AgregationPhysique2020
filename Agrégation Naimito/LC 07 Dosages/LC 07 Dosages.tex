@@ -1,0 +1,101 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 07 Dosages}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+
+
+\section{Prérequis et Introduction}
+Dosage : permet de déterminer la concentration d'un soluté.\\
+Il existe différents types de dosages, utilisés dans différents domaines (contrôles de qualité).
+
+\section{Dosage par étalonnage}
+\textbf{Cachau Hereillat} \textit{Des expériences de la famille Réd-Ox} p395\\
+
+On va ici réaliser un étalonnage grâce à des solutions de concentrations connues afin de pouvoir ensuite déterminer une concentration inconnue.
+
+\subsection{Spectrocolorimétrie : dosage d'une eau de Dakin}
+
+On va ici doser les ions permanganate $MnO_4^-$ dans une eau de Dakin. On prend différents volumes de permanganate avec des pipettes jaugées, puis on utilise des fioles jaugées pour faire des solutions témoins de concentrations connues.
+
+ On trace ensuite l'absorbance $\mathcal{A} = \varepsilon_0 l C$ en fonction de la concentration en permanganate des différentes solutions témoin réalisée à partir de la solution mère. A partir de cette courbe on peut, en connaissant l'absorbance de l'eau de Dakin, remonter à la concentration en permanganate de cette eau de Dakin. Il est finalement possible de comparer le résultat obtenu avec le résultat donné par le fabriquant, commenter.
+ 
+ \subsection{Conductimétrie : dosage d'un sérum physiologique}
+ \textbf{Mesplède Randon} \textit{Chimie générale et analytique}.\\
+ 
+ Détermination de la concentration en chlorure de sodium d'un sérum physiologique. On attend 0,9\,\% de chlorure de sodium. $M_{NaCl} = 58,5$g.mol$^{-1}$.
+ 
+ \section{Dosage d'un par titrage}
+ Définition de ce qu'est un dosage par titrage, et donner les différents types : direct, indirect et en retour : regarder poly de Pierre Henry Suet.
+ 
+ \subsubsection{Dosage direct d'un vinaigre}
+ \textbf{Cachau Herreillat} \textit{Des expériences de la famille Acide Base} p259\\
+ 
+ On dose l'acide acétique $CH_3COOH$ contenu dans un vinaigre par de l'hydroxyde de sodium $NaOH$ selon
+ \begin{eqnarray}
+ CH_3COOH_{(aq)} + OH^-_{(aq)} \rightarrow CH_3COO^-_{(aq)} + H_2O_{(l)} \\
+ EI \hspace{1.5cm}n_1\hspace{2.1cm}0\hspace{2.5cm}0\hspace{1.7cm}exces\\
+ E_{eq}\hspace{1.0cm}n_1-x\hspace{1.8cm}x\hspace{2.4cm}x\hspace{1.7cm}exces
+ \end{eqnarray}
+ A l'équivalence on a consommé tout l'acide acétique : $n_1=x_{eq}$.\\
+ On peut utiliser différentes méthodes pour ce type d'étalonnage :
+ 
+ la colorimétrie en utilisant un indicateur coloré : la phénolphtaléïne,
+ 
+ La conductimétrie : avant équivalence on ajoute l'ion $Na^+$ et on forme $CH_3COO^-$, après équivalence on ajoute $Na^+$ et $HO^-$ : légère rupture de pente. 
+ 
+ PHmétrie : on s'attend à observer une marche de PH.\\
+ On a 
+ \begin{eqnarray}
+ C_0 = \frac{C_{b}V_{eq}}{V_0}
+ \end{eqnarray}
+ Notion de saut de PH, explication et illustration en direct. Méthode de la dérivée pour identifier le volume équivalent.\\
+ On explicite $V_{eq}$ et on en déduit $C_0$.\\
+ Applications et intérêts réels.
+ 
+ \section*{Questions/Remarques}
+ Il faut expliciter le protocole, le but de chaque manip, la verrerie utilisée...\\
+ C'est la leçon type où faire un calcul d'incertitudes, notamment sur la détermination du volume équivalent.\\
+ Conserver les notations.\\
+ réaction quantitative = totale, rapide et unique.\\
+ Pour ajouter un point en direct sur une courbe faite en préparation, le faire sur une courbe de PH dans la zone tampon pour qu'il y ait peu d'écart avec la courbe précédente.
+ 
+ 
+\end{document}

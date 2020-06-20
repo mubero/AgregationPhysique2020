@@ -1,0 +1,161 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\usepackage{wasysym}
+\usepackage{graphicx}
+
+\author{Mathieu Sarrat}
+\title{LP14 - Ondes acoustiques}
+
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+\begin{document}
+\maketitle
+
+\section*{Introduction} 
+
+Dans un premier temps on s'intéressera à la nature des ondes acoustiques, dont on proposera un modèle en utilisant la mécanique des fluides et la thermodynamique. On s'intéressera ensuite à une catégorie bien 
+
+\section{Modélisation}\label{sec:1}
+Nécessité d'un milieu matériel. Onde longitudinale (ébranlement parallèle à la direction de propagation). Couplage entre pression et déplacement des particules fluides. On adopte un modèle fluide (échelle mésoscopique, équilibre thermodynamique local de sorte que les grandeurs fluides soient bien définies).
+
+\subsection{Approximation acoustique}
+\textcolor{red}{[1 seule diapo pour toute la partie]}\\
+Définition claire et propre. Définir la surpression (pression acoustique).
+
+\subsection{Équation de propagation}
+\begin{itemize}
+	\item Modélisation eulérienne : équation de continuité, équation d'Euler (fluide parfait, donc pas d'effets dissipatifs), nécessité d'une relation de fermeture reliant masse volumique et pression : loi de comportement thermodynamique (développement limité de $\rho(P)$)
+	\item Linéarisation des équations, identifier la surpression à $dP$ dans le DL de la loi de comportement et introduire $\chi_0$ (notation, pas coeff. de compressibilité). Faire apparaître les relations de couplage entre pression et vitesse.
+	\item Équation de d'Alembert pour la vitesse. Parachuter celle pour la surpression (solution générale connue, en pré-requis).
+\end{itemize}
+
+\subsection{Célérité du son}
+\textcolor{red}{[1 diapo pour le schéma de la manip, 1 diapo pour le calcul de l'hypothèse isotherme, 1 diapo avec les ordres de grandeur]}\\
+\begin{itemize}
+	\item Discuter la loi de comportement : hypothèses isotherme et adiabatique. Démontrer l'expression de $c$ dans les deux cas.
+	
+	\item Deux modèles sont possibles : c'est l'expérience qui permet de trancher. Expérience de mesure de la vitesse du son dans l'air : comparaison avec handbook. Conclusion et choix de l'hypothèse isentropique.
+	
+	\item Interprétation de l'hypothèse adiabatique : temps de diffusion thermique $T_\text{diff}$, temps de variation des grandeurs perturbées par l'onde $T^*$.
+	\begin{equation}
+		T_\text{diff} = \frac{L^2}{D_\text{th}} \quad\text{et}\quad T^* = \frac{L}{c} \quad\text{et}\quad L \simeq \lambda,
+	\end{equation}
+	d'où
+	\begin{equation}
+		\frac{T^*}{T_\text{diff}} = \frac{D_\text{th}}{c\lambda} = \frac{f D_\text{th}}{c^2}.
+	\end{equation}
+	Dans l'air $D_\text{th} \sim 2\times 10^{-5} \text{m}^2.\text{s}^{-1}$ et on a vu $c \sim 340 \text{m}.\text{s}^{-1}$. Pour $f \simeq 40$ kHz, on trouve
+	\begin{equation}
+		\frac{T^*}{T_\text{diff}} \simeq 7\times 10^{-6}.
+	\end{equation}
+	La durée caractéristique de la diffusion thermique est beaucoup plus grande que la durée typique liée à la propagation de l'onde : l’évolution du fluide est donc considérée comme 				adiabatique lors du passage de l’onde sonore : la température locale augmente au passage de l'onde et la particule fluide perturbée n'a pas le temps de se thermaliser avec le reste du 		fluide. Les échanges thermiques n'ont donc pas le temps de se faire puisque l'onde se propage trop vite.\\
+	
+	Le fluide étant parfait, la transformation subie lors du passage de l'onde est bien entendue réversible, d'où son caractère isentropique puisque adiabatique réversible. Le coefficient
+	$\chi_0$ utilisé est donc $\chi_s$, le coefficient de compressibilité isentropique
+	\begin{equation}
+		\chi_s = \frac{1}{\rho_0}\left(\frac{\partial \rho}{\partial P}\right)_S.
+	\end{equation}	 
+
+	\item Ordres de grandeur dans les liquides et les solides (dans ces derniers $c = \sqrt{E/\rho}$):\\
+	\begin{center}
+		\begin{tabular}{|c|c|}
+ 		\hline
+  			Milieu & $c$ (m.$\text{s}^{-1}$)\\
+ 		\hline
+  			Air & 346,3 (à 298 K)\\
+  		\hline
+  			Eau & 1480 \\
+  		\hline
+  			Tissus mous & $\sim$ 1500 \\
+  		\hline
+  			Os & 3500 \\
+  		\hline
+  			Bois & 3300 \\
+  		\hline 
+  			Béton & 3100\\
+  		\hline
+  		  	Acier & 5300\\
+  		\hline
+		\end{tabular}
+	\end{center}
+\end{itemize}
+
+\section{Ondes acoustiques planes progressives}\label{sec:2}
+\subsection{Impédance acoustique}
+\begin{itemize}
+	\item Solution en ondes planes pour la surpression. OPPM et linéarité et complexes (pré-requis, donc aller vite). 
+	\item Impédance acoustique pour une OPPM, ordres de grandeur (gaz, liquide, solide). Écrire la solution générale en vitesse à partir de celle pour la surpression. 
+		\begin{center}
+		\begin{tabular}{|c|c|}
+ 		\hline
+  			Milieu & $c$ (kg.$\text{m}^{-2}\text{s}^{-1}$)\\
+ 		\hline
+  			Air & 410 \\
+  		\hline
+  			Eau & $1.52\times 10^{6}$ \\
+  		\hline
+  			Sang & $1.62\times 10^{6}$ \\
+  		\hline
+  			Os & de $3.7$ à $7.4\times 10^{6}$ \\
+  		\hline
+  		  	Acier & $45\times 10^{6}$\\
+  		\hline
+		\end{tabular}
+	\end{center}
+	
+	\item Remarque, si le temps : caractère général de la notion d'impédance (lien rapide avec la corde tendue et l'électrocinétique.)
+\end{itemize}
+
+\subsection{Aspects énergétiques}
+Une bonne partie des calculs doivent être projetés et commentés pour gagner du temps.
+\begin{itemize}
+	\item Bilan énergétique, vecteur de Poynting, notion d'intensité sonore et d'intensité en dB.
+	\item Seuil d'audibilité, seuil de douleur, ordres de grandeur.
+\end{itemize}
+
+\subsection{Validité de l'approximation acoustique}
+\begin{itemize}
+	\item Validité de l'approximation acoustique : justifier que l'on néglige le terme convectif (comparer au terme instationnaire), justifier la linéarisation (calcul de la surpression, de la vitesse et de la perturbation de masse volumique), justifier que l'on néglige la pesanteur (comparer le terme d'ordre 1 de la pesanteur au gradient de surpression).
+	\item Remarques sur l'atténuation (nécessité de prendre en compte les effets de seconde viscosité).
+\end{itemize}
+
+\newpage
+\section{Application à l'effet Doppler}\label{sec:3}
+\textcolor{red}{[1 diapo pour le schéma Doppler et éventuellement celui de la manip].}\\
+
+On entend un son de fréquence plus élevée lorsqu’une sirène vient vers nous et de fréquence plus basse lorsqu’elle s’en éloigne. Quand un émetteur d’ondes sinusoïdales est en mouvement par rapport à un récepteur, celui-ci attribue aux vibrations qu’il reçoit une fréquence différente de la fréquence émise. C’est l’effet Doppler, décrit pour la première fois en 1842 par le physicien autrichien Christian Doppler. Cet effet concerne toutes les ondes et on se propose de l'illustrer expérimentalement et théoriquement à travers les ondes sonores.\\
+
+\begin{itemize}
+	\item Calcul du décalage en fréquence, signal émis périodique, récepteur mobile à vitesse $v$ : cas de l'effet Doppler longitudinal.\\
+	Instant $t_1$ : de la source S part un ébranlement qui atteint le récepteur R en $t_1'$. Récepteur en $x_1 = x(t_1')$.\\
+	Instant $t_2 = t_1 + T$ : de la source S part le même ébranlement (périodicité) qui atteint le récepteur en $t_2' = t_1' + T'$. Récepteur en $x_2 = x(t_2')$.\\
+	\begin{equation}
+		x_2 - x_1 = v T' \quad\text{et}\quad c = \frac{x_1}{t_1' - t_1} = \frac{x_2}{t_2' - t_2},
+	\end{equation}
+	d'où
+	\begin{equation}
+		T' = \frac{c}{c-v}T \quad\text{et}\quad f' = f\left(1 - \frac{v}{c}\right).
+	\end{equation}
+	\item Mesure de la vitesse d'un objet (récepteur mobile) par détection synchrone : émetteur, récepteur mobile, multiplieur, Latis Pro, oscilloscope. En effet, le décalage de fréquence attendu est de l'ordre du hertz, alors que la fréquence de l'émetteur est de 40 kHz. On multiplie le signal reçu par le signal émis, on applique un filtre passe-bas pour flinguer la composante haute fréquence et on récupère un signal sinusoïdal de fréquence égale au décalage Doppler. Le passe-bas doit également flinguer le 50 Hz d'EDF (un bête circuit RC suffit).\\
+\end{itemize}
+
+Les applications de l'effet Doppler sont nombreuses : on peut citer par exemple le sonar, ou encore l'échographie Doppler : un faisceau d'ultrasons traverse les cavités cardiaques ou les vaisseaux sanguins et est partiellement réfléchi par les éléments figurés du sang (globules rouges, par exemple). La mesure de leur vitesse permet de mesurer le flux sanguin. 
+
+\section*{Conclusion}
+
+Radars routiers : ondes électromagnétiques. Ouverture sur l'effet Doppler en astrophysique...
+Approximation acoustique violée : bang des avions, ondes de choc, autre modèle nécessaire.
+
+\end{document}

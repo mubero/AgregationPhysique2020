@@ -1,0 +1,104 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 25 Mesure de fréquences temporelles}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\section{Fréquencemètre}
+On réalise le montage suivant :
+
+
+qui a pour objectif de faire une porte de longueur 1s, dont l'ouverture est déclenchée par une référence qui sera ici la sortie TTL d'un GBF envoyant un créneau de 1 Hz et de 5 Vpp, qui va "couper" (multiplication) le signal dont on souhaite mesurer la fréquence. On pourra alors envoyer le signal obtenu vers un compteur comptant le nombre d'oscillations dans cette période de 1 s, ce nombre sera alors égal à la fréquence en Hz.\\
+
+On envoie tout d'abord un signal à analyser d'une dizaine de Hertz, prenons $f=5$ Hz par exemple, notre fréquencemètre va alors compter un nombre d'oscillations égal à 14, 15 ou 16, ce que l'on peut vérifier en faisant plusieurs essais successifs. Entre chaque essai on actionnera l'interrupteur 0 / 1 pour reset le système, tout en remettant le compteur à zéro.\\ 
+On en déduit donc que notre mesure de fréquence donne le résultat 
+\begin{eqnarray}
+f = 15 \pm 1 Hz
+\end{eqnarray}
+ce qui correspond à une incertitude relative de près de 7\% ce qui est énorme !\\
+Cependant on voit que si on prend maintenant un signal à analyser dont la fréquence est de l'ordre du kHz on aura toujours une incertitude à $\pm 1$ Hz, mais cela correspondra cette fois à une incertitude relative de moins de 0,1 \% ce qui est bien mieux. On comprend ainsi que le prototype de fréquencemètre construit ici donnera un résultat d'autant plus précis que la fréquence à analyser sera grande, dans la limite accessible par le compteur, qui possède un temps de réaction fini.
+
+\section{Deux diapasons}
+\subsection{Analyse spectrale : la transformée de fourrier}	
+On dispose pour cette manipulations de deux diapasons identiques. On va commencer par en exciter un, et par acquérir le son produit à l'aide d'un micro relié à un ampli et une carte d'acquisition. Une fois ce signal acquis on pourra réaliser une transformée de fourrier afin d'en déterminer la fréquence. C'est l'occasion de commenter Shannon et le fait que le temps d'acquisition total est inversement proportionnel à la résolution fréquentielle dans le cadre de l'utilisation de l'algorithme FFT.\\ 
+On obtient ainsi une mesure très précise de la fréquence du son émis par ce diapason, avec une incertitude de l'ordre du dixième de pour-cent.
+
+\subsection{Notion de battement}
+Maintenant que l'on connait précisément la fréquence de ce premier diapason, on muni le second d'une bague pour modifier sa fréquence propre, et s'intéresse à déterminer cette fréquence propre à partir de la connaissance de celle du premier. Pour cela on excite les deux diapasons simultanément avant de faire une acquisition similaire à la première. On observe alors un battement, en effet on a une somme du type 
+\begin{eqnarray}
+\cos(\omega_1 t) + \cos (\omega_2 t) = 2\cos\left(\frac{\omega_1+\omega_2}{2}t\right) \cos\left(\frac{\omega_1-\omega_2}{2}t\right)
+\end{eqnarray}
+et on observera ainsi un signal de fréquence $\frac{f_1+f_2}{2}$ modulé par signal de faible fréquence $\frac{f_1 - f_2}{2}$ (le résultat est similaire dans l'idée si on prend en compte un déphasage et une différence d'amplitude : voir page wikipedia "battement (physique)"). On peut ainsi mesurer les périodes du battement et du signal modulé pour remonter à $f_2$ connaissant $f_1$. Discuter les incertitudes.
+
+\subsection{Portée de la notion de battement}
+On acquiert cette fois les sons produits par les deux diapasons séparément (sur la même plage, en changeant d'entrée lorsqu'on change de diapason). On peut alors faire le produit des deux signaux acquis : on obtient alors un signal de fréquence $\frac{f_1 - f_2}{2}$ qui est "bruité" par un signal de fréquence $\frac{f_1 + f_2}{2}$, en effet on a 
+\begin{eqnarray}
+2\cos(\omega_1 t) \cos (\omega_2 t) = \cos\left((\omega_1+\omega_2)t\right) +  \cos\left((\omega_1-\omega_2)t\right)
+\end{eqnarray}
+On peut alors appliquer un passe bas, dans la pratique analogique, ici on utilisera la fonction "PB(X, f)" de latis pro (qui applique un passe bas de fréquence f à la fonction X) au signal et ensuite faire sa TF. A partir de là on détermine $f_1-f_2$ et ainsi, si $f_1$ est connue précisément on connait par la même occasion $f_2$.\\ 
+
+Cela illustre le fait que si, pour des signaux très haute fréquence auxquels on ne peux appliquer les méthodes usuelles, on dispose d'un "règle graduée" de fréquences encadrant la fréquence étudiée, on va pouvoir se ramener grâce à cette notion de battement, à la mesure de l'écart entre $f$ et la graduation en fréquence la plus proche. Ainsi si notre graduation est assez fine on pourra ramener des mesures de hautes fréquences à des mesures de basse fréquence, que notre instrumentation peut effectuer.
+
+\section*{Questions}
+principe de la 1ere maquette ?\\
+
+incertitude énorme ?? 3/100 c'est beaucoup sur une frequence ?\\
+
+pk pas utiliser un ttl à 0.5Hz directement : pour rendre la lecture plus simple avec l'interrupteur ?\\
+
+incertitude excellente sur la mesure haute fréquence ?\\
+exactitude ?\\
+précision ?\\
+justesse ?\\
+
+qu'est ce qui fixe l'exactitude au niveau du compteur ?\\
+
+bit fixe le quantum en amplitude. pas l'échantillonnage en fréquence.\\
+
+incertitude sur la position du pic à l'oscillo inférieure à fe ... étrange ?\\
+
+pic large du au fenêtrage de Hanning -> patate amortie, pic élargi\\
+
+quantum = $PE/2^q$\\
+
+refaire le calcul d'incertitude, 
+attention à ne pas enregistrer le bruit, qui est factuellement mois intéressant.
+
+
+\end{document}

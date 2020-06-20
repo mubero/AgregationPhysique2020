@@ -1,0 +1,82 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 02 Surfaces et interfaces}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\section{Frottements solides}
+On utilise le dispositif suivant (tribomètre) pour mesurer un coefficient de frottement solide.
+
+
+On place un repère autour du solide que l'on veut étudier, puis on lève le plateau jusqu'à ce que le solide décroche. On le ramène et maintient alors à sa position initiale puis on relève la force $T$ qui lui est appliquée. On peut alors changer la masse du solide et tracer $T= f(mg)$ supposé mener à droite de coefficient directeur $\mu_s$.\\
+
+Cette manipulation est assez faible : c'est l'occasion de discuter les incertitudes statistiques : on peut faire $N=20$ fois la mesure de $T$ pour chaque masse, puis tracer $n(T_i) = f(T_i)$ avec $n(T_i)$ le nombre de fois où on a mesuré la valeur $T_i$. On modélisera alors cette courbe par une gaussienne, qui nous donnera ainsi la valeur moyenne $\langle T \rangle$ et l'écart type $\sigma$ de la distribution des valeurs mesurées. On aura alors une incertitude de type B liée à l'appareil de mesure, caractérisée par l'écart type $u(B)$ et une incertitude de type A (statistique) caractérisée par l'écart type $u(A) = \sigma/\sqrt{N}$. On aura alors une mesure de la force seuil 
+\begin{eqnarray}
+\langle T \rangle \pm \sqrt {u(A)^2 + u(B)^2}
+\end{eqnarray}
+pour chaque masse, on pourra alors tracer $T(mg)$ avec les incertitudes calculées ici.
+
+\section{Tension superficielle}
+Regarder le Quaranta de mécanique.
+
+\subsection{Loi de Jurin}
+On dispose de quatre tubes de diamètres différents, pour lesquels on va mesurer la hauteur (relative) à laquelle monte de l'éthanol (absolu). On connaît la loi de Jurin 
+\begin{eqnarray}
+h = \frac{2 \gamma \cos \theta}{\rho g r}
+\end{eqnarray}
+avec $\gamma$ la tension superficielle, $r$ le rayon du tube et $\theta$ l'angle de mouillage qui est proche de 0° pour l'éthanol. On tracera donc $h$ en fonction de $1/r$ pour en déduire une mesure de $\gamma$ en prenant $\cos \theta \simeq 1$, $\rho = 770 \pm 13$ kg.m$^{-3}$. On pourra comparer à la valeur tabulé pour l'éthanol qui est 21,97 mN.m$^{-2}$.
+
+\subsection{Mouillage}
+On mesure l'angle de mouillage de l'eau sur du téflon, en utilisant une projection optique. On tracera alors les deux tangentes de l'angle sur une feuille placée sur l'écran de projection, puis on fera une mesure de l'angle avec un rapporteur ou une règle (et un peu de trigo).
+
+\paragraph{Remarque :} On mesure ici un angle, qui ne dépend pas du grandissement, on aura donc pas à mesurer précisément le grandissement de notre montage optique.
+
+\paragraph{Remarque :} Prévoir une cale pour l'écran pour qu'il ne bouge pas au cas où on tremblerait lors de notre présentation.
+
+\section*{Questions}
+L'angle de mouillage dépend t-il de la taille de la goutte ?\\
+Non.\\
+
+Auriez vous pu mesurer le rayon des tubes ?\\
+Oui en prenant une photo avec un étalon.\\
+
+La tension superficielle dépend elle de la température ?\\
+Oui, il faut donc préciser la température à laquelle la valeur tabulé est donnée.\\
+
+
+
+	
+\end{document}

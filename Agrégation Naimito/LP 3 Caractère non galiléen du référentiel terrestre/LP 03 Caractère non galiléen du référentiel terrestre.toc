@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {0.2}R\IeC {\'e}f\IeC {\'e}rentiels galil\IeC {\'e}ens et non galil\IeC {\'e}ens}{2}
+\contentsline {subsection}{\numberline {0.2.1}D\IeC {\'e}finitions}{2}
+\contentsline {paragraph}{R\IeC {\'e}f\IeC {\'e}rentiel galil\IeC {\'e}en}{2}
+\contentsline {paragraph}{R\IeC {\'e}f\IeC {\'e}rentiel non galil\IeC {\'e}en}{2}
+\contentsline {subsection}{\numberline {0.2.2}R\IeC {\'e}f\IeC {\'e}rentiels usuels}{2}
+\contentsline {subsection}{\numberline {0.2.3}Lois de la dynamique}{2}
+\contentsline {subsection}{\numberline {0.2.4}Exemples simples}{2}
+\contentsline {paragraph}{Translation rectiligne uniforme}{2}
+\contentsline {section}{\numberline {0.3}Observation du caract\IeC {\`e}re non galil\IeC {\'e}en du r\IeC {\'e}f\IeC {\'e}rentiel terrestre}{3}
+\contentsline {subsection}{\numberline {0.3.1}Mar\IeC {\'e}e oc\IeC {\'e}aniques}{3}
+\contentsline {subsection}{\numberline {0.3.2}Pendule de Foucault}{3}
+\contentsline {subsection}{\numberline {0.3.3}D\IeC {\'e}viation vers l'Est}{4}
+\contentsline {paragraph}{Or}{4}

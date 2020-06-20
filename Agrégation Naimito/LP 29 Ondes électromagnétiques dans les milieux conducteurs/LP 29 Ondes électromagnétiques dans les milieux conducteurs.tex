@@ -1,0 +1,141 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 29 Ondes électromagnétiques dans les milieux conducteurs}
+	\author{Maria}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+	
+\subsection{Biblio}
+Suivre le \textbf{Physique tout en un PC de M-N. Sanz} et regarder le \textit{Garing} \textbf{Ondes électromagnétiques dans le vide et les milieux conducteurs} pour les détails.
+
+\subsection{Pré-requis}
+Équations de Maxwell, OEM dans le vide.
+	
+\subsection{Introduction et application}
+On a pu voir différents cas de propagations non dispersives comme une onde de déformation sur une corde, les ondes acoustiques ou les OEM dans le vide. On va voir ici que la situation se complique un peu lorsque qu'une onde, ici électromagnétique, se propage dans un milieu plus complexe.
+
+\section{Cas simple du plasma}
+\subsection{Équation du mouvement}
+On applique simplement le PFD et on résout.
+\subsection{Relation de dispersion}
+Discuter le fait qu'on est dans le cas d'un milieu dispersif mais non dissipatif. Traiter rapidement les cas basse et haute fréquence. Citer le cas de la ionosphère.
+
+\section{Modèle du métal}
+Passer vite sur cette partie : on pose les hypothèse et on précise les conditions mais le modèle de Drude n'est pas l'objet de cette leçon.\\
+Un conducteur possède des électrons de valences susceptibles de se déplacer, on va décrire ce mouvement avec le modèle de Drude.
+\subsection{Modèle de Drude}
+Présentation des hypothèses.\\
+On applique le PFD aux électrons
+\begin{eqnarray}
+m d_tv = q (E+v\times B) - \frac{m}{\tau}v
+\end{eqnarray}
+Les électrons sont non relativistes, le terme magnétique est donc négligeable.
+
+\subsection{Condition d'électroneutralité}
+Garing p 124.\\
+On se place à une échelle de temps longue devant $\tau$ ce qui impose $\omega < \omega_{en}$ : ainsi le système est toujours à l'équilibre.
+
+\subsection{Approximation des régimes quasi-stationnaires ARQS}
+On regarde à partir de Maxwell-Ampère quelle est la fréquence max à laquelle cette approximation demeure valable, en regardant à quelle condition la relation $\mu_0 J \ll \mu_0\epsilon_0\partial_tE$ reste vérifiée.On trouve $\omega \ll \sqrt{\gamma_0/\epsilon_0\tau}$.
+
+\section{Propriétés à basse fréquence}
+\subsection{Equation de diffusion}
+Cette fois on a le terme en J qui domine dans maxwell ampère, on obtient donc l'équation de diffusion et non de d'Alembert.
+\begin{eqnarray}
+\Delta E = \mu_0 \gamma_0 \partial_t E
+\end{eqnarray}
+\subsection{Effet de peau}
+On résout l'équation de diffusion pour une onde plane monochromatique, afin d'obtenir la relation de dispersion. On en déduit la notion d'effet de peau : pénétration de l'onde sur une longueur caractéristique $\delta$.
+\subsection{Limite du conducteur parfait}
+Correspond au cas $\gamma_0 \rightarrow \infty$ et donc $\delta \rightarrow 0$.
+
+\section{Propriétés à haute fréquence}
+\subsection{Equation de propagation}
+
+On traite le cas général avec les deux termes E et J dans l'équation de Maxwell Ampère et trouve ainsi la relation de dispersion ( en se plaçant avec une OPM) 
+\begin{eqnarray}
+K = \epsilon \mu_0 \omega ^2 = \frac{\omega^2 }{c^2}(1 + \frac{\gamma}{i\omega \epsilon_0})
+\end{eqnarray}
+On regarde ensuite ce qu'il se passe à différentes pulsations en les situant par rapport à la pulsation plasma.\\
+Raccrocher à la première partie.
+
+\section{Conclusion}
+
+\section*{Questions}
+Quelle est le lien entre la pulsation plasma et la densité de porteurs de charge ?\\
+
+Fabrique t'on les meilleurs miroirs en utilisant les effets décrits dans cette leçon ?\\
+Non on utilise des phénomènes d'interférence avec des couches de diélectrique placées sur le métal réfléchissant.\\
+
+Quelle est la structure de l'onde dans le cas où elle traverse un conducteur ?\\
+La structure est similaire à celle d'une OPM dans le vide : on a un trièdre E, B, K?\\
+
+Dans quelle situation on a plus de trièdre E, B k ?\\
+
+Pouvez vous nous dessiner un schéma de câble coaxial et nous expliquer pourquoi un câble coaxial est il plus performant qu'un fil à haute fréquence ?\\
+Un fil va avoir une résistance $R= L/\gamma S$ , l'effet de peau va engendrer une diminution de la surface efficace et augmenter la résistance. On évite cet effet avec un câble coaxial.\\
+
+Quelle hypothèse fait on pour obtenir la relation de dispersion dans la troisième partie ? Pourrait on ne pas la faire ?\\
+On aurait pu décomposer notre onde sur une autre base que celle des ondes planes.\\ 
+
+Pourquoi l'or est il le seul métal qui est "jaune" ?\\
+Il existe des transitions inter-bandes dans les métaux, qui sont majoritairement dans l'UV, sauf pour l'or où il existe une fréquence de transition appartenant au visible. C'est dû à un effet relativiste concernant l'électron orbitant autour du noyau, cette orbite étant particulièrement proche pour l'or.\\
+
+Que nous apprend l'équation de diffusion dérivée en seconde partie ?\\
+
+Comment se diffusent les électrons (comment r varie avec t) ?\\
+
+De quand date le modèle de Drude ? Arrive t-il avant ou après la théorie quantique ?\\
+
+Quelles sont ses limitations ? Quels phénomènes demeurent inexpliqués ?\\
+
+Quel est l'ordre de grandeur de la vitesse des électrons ? (quelle est la valeur de la vitesse limite dérivée) ?\\
+$v_{lim} = \frac{q\tau \vec{E}}{m} \simeq m/s \gg c$ : bien non relativiste. Il y a aussi la vitesse, plus grande, due à l'agitation thermique : $\frac{1}{2}v^2 \simeq \frac{3}{2}k_BT$
+
+\section*{Remarques}
+Passer plus de temps sur l'énergie et le régime dissipatif.\\
+Mettre bien en valeur qu'il existe deux temps caractéristiques : $1/\tau$ et $1/\omega_p$.\\
+Il ne faut pas oublier de mentionner à chaque partie quel est le comportement de $\vec{B}$, même si il est similaire à celui du champ électrique.\\
+Pour la dernière relation de dispersion, il faudrait peut être tracer les parties réelles et imaginaire de k sur un slide.\\
+Rappeler que $\omega_p$ dépend de n la densité de porteurs de charges.\\
+Il faut avoir la dépendance des coefficients de réflexion et de transmission en fonction de l'angle, de la fréquence et de la polarisation pour les questions.\\
+C'est bien de faire le cas d'un conducteur qui ne soit pas un métal comme les plasmas : ionosphère en l'occurrence.
+
+\end{document}

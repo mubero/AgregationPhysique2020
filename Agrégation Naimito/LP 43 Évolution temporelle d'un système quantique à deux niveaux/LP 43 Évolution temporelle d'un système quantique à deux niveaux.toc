@@ -1,0 +1,7 @@
+\contentsline {subsection}{\numberline {0.0.1}Introduction}{2}
+\contentsline {section}{\numberline {0.1}$NH_3$ en tant que syst\IeC {\`e}me \IeC {\`a} deux niveaux, \IeC {\'e}volution naturelle}{2}
+\contentsline {subsection}{\numberline {0.1.1}Description mod\IeC {\`e}le}{2}
+\contentsline {subsection}{\numberline {0.1.2}\IeC {\'E}tats sym\IeC {\'e}triques et antisym\IeC {\'e}triques}{2}
+\contentsline {subsection}{\numberline {0.1.3}\IeC {\'E}volution temporelle, fr\IeC {\'e}quence d'inversion}{2}
+\contentsline {section}{\numberline {0.2}Mol\IeC {\'e}cule d'ammoniac dans un champ \IeC {\'e}lectrique}{3}
+\contentsline {subsection}{\numberline {0.2.1}Champ statique, inversion de population}{3}

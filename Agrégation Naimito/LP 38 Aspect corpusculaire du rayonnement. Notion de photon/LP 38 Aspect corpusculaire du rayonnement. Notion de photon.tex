@@ -1,0 +1,206 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 38 Aspect corpusculaire du rayonnement. Notion de photon}
+		\author{D. G. Odelin}
+		\date{Agrégation 2019}
+		
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+\subsubsection{Biblio}
+Regarder le Cohen Tannoudji tome 1 chap 1 pour l'intro, et le tome 3 et le Aslangul MQ tome 1 pour les développements.
+
+\subsection{Intro}
+On a décrit jusque là la matière de deux manières différentes :
+\begin{itemize}
+	\item Optique géométrique : notion de rayon 
+	\item Cadre plus général des ondes électromagnétiques donc l'OG est une limite. Représenté via les équation de Maxwell qui décrivent une évolution couplée des champs électrique et magnétique.
+\end{itemize}
+Faire une parenthèse sur le fait qu'en optique on ne perçoit en réalité que l'intensité lumineuse.\\
+
+La description ondulatoire permet d'expliquer des effets tels que la diffraction ou les phénomènes d'interférence, phénomènes inexplicable par l'OG. Les succès de l'électromagnétisme semblent considérables, on est donc en droit de se demander (d'espérer) si la description de Maxwell est complète.\\
+
+Expérience : on diminue petit à petit le flux lumineux dans le cadre d'une expérience de fentes d'Young et on observe qu'on observe des impacts, ponctuels, sur l'écran. Cela ne correspond donc pas à la description continue de la lumière que fait l'électromagnétisme. Notre théorie est donc incomplète, et il semble que l'on puisse décrire la lumière d'un point de vue corpusculaire.\\
+
+Il faut alors déterminer les grandeurs associées à un corpuscule, mais pour la lumière : énergie, quantité de mouvement, masse et même moment cinétique.
+
+\section{Énergie du photon} 
+C'est une grandeur à laquelle on peut accéder via l'effet photoélectrique, phénomène étudié au 19e s notamment par Berquerel.\\
+\textbf{schéma type}.\\
+
+Contexte historique :\\
+1935 : Einstein propose l'interprétation corpusculaire de l'expérience, ce qui lui vaudra le prix Nobel en 1921.\\
+
+Phénomène : si on éclaire une cathode on arrache plus facilement des électrons. Si on regarde ça du point de vue de l'énergie cinétique il existe une énergie seuil à partir de laquelle les électrons peuvent être arrachés.\\
+
+Observation expérimentales :
+\begin{itemize}
+	\item  Les électrons émis ont une énergie $\nu>\nu_s$
+	\item L'énergie seuil $\nu_s$ dépend du matériau
+	\item Le nombre d'électrons émis par unité de temps est proportionnel à l'intensité lumineuse
+	\item La vitesse est électrons est indépendante de l'intensité lumineuse
+	\item l'énergie cinétique limite la fréquence
+	\item Le phénomène est quasi instantané
+\end{itemize}
+
+Une cellule photoélectrique permet de mesurer l'intensité lumineuse car le courant débité sera proportionnel au flux incident (si on travaille dans la bonne gamme).\\
+
+On a $V_0(\nu)$ qui est une fonction croissante de $\nu$.
+\begin{eqnarray}
+\frac{1}{2}mV^2 = E_{ph} - W_s\\
+e|V_0| = \frac{1}{2}mV^2 = E_{ph} - W_s = h(\nu - \nu_s)
+\end{eqnarray}
+
+\section{Quantité de mouvement}
+\subsection{Relativité restreinte}
+Si je considère une particule de masse finie $m$ on a alors l'énergie associée $E = \gamma mc^2$ et la quantité de mouvement $\vec{p} = \gamma m \vec{v}$ liées par la relation
+\begin{eqnarray}
+\vec{p} = \frac{E\vec{v}}{c^2}\\E^2 = p^2c^2 - m^2c^4
+\end{eqnarray}
+or la vitesse de la lumière et donc d'un photon est $c$ et on pose ainsi 
+\begin{eqnarray}
+p = \frac{E}{c}\hspace{1cm} m =0
+\end{eqnarray}
+
+\subsection{Pression de radiation}
+On va décrire ce phénomène de deux manières : ondulatoire et corpusculaire.\\
+
+On considère une onde plane 
+\begin{eqnarray}
+\vec{E}_i = E_0 e^{i(kx-\omega t)}\vec{u}_y\\
+\vec{B}_i = B_0 e^{i(kx-\omega t)}\vec{u}_z
+\end{eqnarray}
+incidente sur un conducteur parfait. On a alors les conditions de passage 
+\begin{eqnarray}
+\vec{E}_2 - \vec{E}_1 = \frac{\sigma}{\varepsilon_0}\vec{n}\\
+\vec{B}_2 - \vec{B}_1 = \mu_0\vec{j}\times\vec{n}
+\end{eqnarray}
+or on a $E_1= 0 $ dans un conducteur. Donc 
+\begin{eqnarray}
+\vec{E}_r = E_{r\,0}e^{-i(kx + \omega t)}\vec{u}_y\\
+\vec{E}_i(x=0) + \vec{E}_r(x=0) - 0 = \frac{\sigma}{\varepsilon_0}(-u_x)
+\end{eqnarray}
+$\sigma = 0$ et ... on trouve finalement 
+\begin{eqnarray}
+\vec{j}_s = \frac{2B_0}{\mu_0}e^{-i\omega t}\vec{u}_y
+\end{eqnarray}
+
+On est intéressé ici par l'action mécanique de l'onde sur le conducteur. On calcule donc la force de Laplace induite 
+\begin{eqnarray}
+\vec{F}_L = \vec{j}_s dS \times \vec{B}_i(x=0) = \frac{B^2_0}{\mu_0}\,dS\,\vec{e}_x = \varepsilon_0 E_0^2 \,dS\,\vec{e}_x
+\end{eqnarray}
+ et on trouve ainsi finalement 
+\begin{eqnarray}
+P_{rad} = \varepsilon_0 E_0^2
+\end{eqnarray}
+
+\subsection{Pression de radiation corpusculaire}
+On attribue cette fois les grandeurs corpusculaires au photon et on regarde alors les collisions élastiques qu'il effectue sur le conducteur.
+\begin{eqnarray}
+\vec{p} = \frac{h\nu}{c}\vec{u}_x\\
+\Delta \vec{p} = \vec{p}\,' - \vec{p} = -\frac{2h\nu}{c}\vec{u}_x
+\end{eqnarray}
+car le photon rebondi sur la surface.\\
+On compte le nombre de choc pendant dt sur une surface infinitésimale dS :
+\begin{eqnarray}
+N = n\,c\,dt\,dS\\
+\delta \vec{F} = N \frac{\Delta \vec{p}}{dt} = \Delta \vec{p}\, n\, c\, dS\\
+\left|\frac{\delta \vec{F}}{dS}\right| = 2 n h \nu
+\end{eqnarray}
+la notion de pression de radiation apparaît rapidement dans c e paradigme corpusculaire.
+
+\subsection{Application}
+Refroidissement de atomes :\\
+Années 80 jusqu'à 1997 : Nobel pour Phillips, Chu et Cohen Tannoudji.\\
+Description du principe.\\
+
+\textbf{Ralentisseur Zeemen} : permet de ralentir les atomes.\\
+
+Ralentir signifie t-il refroidir ?\\
+La température est, en plus d'être liée à la vitesse moyenne, directement liée à la dispersion des vitesses. Il faut donc s'occuper de ce paramètre.
+
+\section{Le moment cinétique}
+\subsection{Maxwell}
+Moment cinétique du rayonnement 
+\begin{eqnarray}
+\vec{J} &=& \int \vec{r}\times\vec{\Pi} d^3r = \varepsilon_0 \int \vec{r}\times (\vec{E}\times\vec{B})d^3r\\
+&=& \vec{L} + \vec{S}
+\end{eqnarray}
+somme des moments orbital et intrinsèque.\\
+Onde plane $\vec{L} = \vec{0}$.
+
+\subsection{Transformation du moment cinétique}
+1936 : R. Beth Princeton.\\
+On peut faire la cas d'une molécule ou d'un milieu anisotrope, ce qui suppose que l'on ai vu l'optique anisotrope auparavant.\\
+
+Cas d'une molécule :\\
+le champ polarisé linéairement
+\begin{eqnarray}
+\vec{E} = \frac{E_0}{\sqrt{2}} (\cos(\omega t)\vec{u}_x + \sin(\omega t) \vec{u}_y)
+\end{eqnarray}
+induit un déplacement des charges .\\
+z est l'axe de symétrie de la molécule, si on note z // et $(x,y) \perp$ on a 
+\begin{eqnarray}
+\vec{p} = \alpha_{//} E_{//} \vec{u}_{//} + \alpha_{\perp} E_{\perp} \vec{u}_{\perp}
+\end{eqnarray}
+p et E ne sont pas parallèles. Il existe donc un angle. 
+\begin{eqnarray}
+\vec{p} = \alpha_{//}\frac{E_0}{\sqrt{2}} \cos \phi \vec{u}_{//} + \alpha_{\perp} \frac{E_0}{\sqrt{2}} \cos \phi \vec{u}_{\perp}
+\end{eqnarray}
+\begin{eqnarray}
+\vec{\Gamma} &=& \vec{p}\times \vec{E}\\
+&=& (\alpha_{//} - \alpha_{\perp}) \frac{E_0^2}{2} \cos \phi \sin \phi \vec{u}_z
+\end{eqnarray}
+
+On arrive à 
+\begin{eqnarray}
+\frac{d W}{dt} = \vec{\Gamma}.\vec{\omega}
+\end{eqnarray}
+On a
+\begin{eqnarray}
+\Delta E = h\nu\\\frac{\Delta E}{\omega} = \frac{h\nu}{\omega} = \hbar
+\end{eqnarray}
+
+\textbf{Vision alternative du problème dans le Cagnac}.
+
+\paragraph{Utilisation} : pompage optique (Kastler 1966)
+
+\section{Conclusion}
+On a dressé le portrait robot du corpuscule de la lumière. On peut symétriser cette problématique avec les particules de matière pour lesquelles on va faire le chemin inverse, où cette fois on décrira les ondes de matière avec l'équation de Schrödinger. Le nouvel outils sera alors la fonction d'onde associée à une densité de probabilité de présence.\\
+
+Question : comment faire ressortir cet aspect corpusculaire des équations de Maxwell ? Il faut quantifier ces équation : "seconde quantification". On peut alors montrer qu'il existe des états de la lumière qui ne peuvent être décrit par les équations de Maxwell continues.\\
+
+Notion de processus élémentaire d'absorption, on pourra évoquer le fait que cela amène à un nouveau processus élémentaire : l'émission stimulée.
+
+\end{document}

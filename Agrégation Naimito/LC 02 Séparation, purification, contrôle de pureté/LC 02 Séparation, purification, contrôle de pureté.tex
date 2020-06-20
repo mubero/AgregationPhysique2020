@@ -1,0 +1,124 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 02 Séparation, purification, contrôle de pureté}
+		\author{Hugo}
+		\date{Agrégation 2019}
+		
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+Niveau Terminale S.
+
+\section{Extraction de l'eugénol}
+\subsection{Extraction solide liquide}
+On souhaite extraire l'huile essentielle de clou de girofle : l'eugénol qui possède des propriétés antalgiques et antiseptiques.\\
+Schéma type d'une distillation : ballon, chauffe ballon, réfrigérant avec un bécher au bout pour recueillir le distillat.\\
+Décoction : on chauffe un solide dans un solvant puis on laisse refroidir. $\rightarrow$ repose sur le fait que la solubilité augment quand la température augmente.\\
+Avantages : dissolution efficace et rapide.\\
+Désavantages : dégradation des espèces fragiles, espèces volatiles éliminées, et énergétiquement couteux.\\
+
+
+Il existe deux autres méthodes d'extraction :\\
+L'infusion : principe.\\
+Macération : principe.\\
+
+Ici on veut récupérer le plus possible d'eugénol, on va pour cela exploiter ses propriétés.
+
+\subsection{Extraction liquide-liquide}
+On décrit le procédé et discute les propriétés des solvants qui vont êtres utilisés. On va donc choisir ici un solvant qui possède les propriétés voulues : l'éther.\\
+Notre problème semble toujours entier : l'eugenol est passé de l'eau à l'éther : il est donc toujours impur.
+
+\subsection{Purification : évaporateur rotatif}
+L'éther est très volatil : il possède une température d'ébullition de 40°C, supérieure à celle de l'eugenol qui est de 250°C, on va donc pouvoir évaporer le solvant, notamment dans un evaporateur rotatif. Donner le schéma et expliquer le fonctionnement.\\
+\textit{On a pas cet outils ici, on va donc essayer d'en imiter le principe avec un buchner : on met notre produit dans l'erlen avec un bouchon, puis on agite tout en aspirant, l'erlen étant placé dans un bain d'eau chaude. Le solvant s'évapore alors et est aspiré dans l'évier, ce qui n'est pas optimal}. \textbf{Ne pas le faire le jour J si on a pas d'évaporateur, faire directement la CCM avec la phase étherée.}\\
+
+Une fois cette étape réalisée il faut s'assurer de la pureté du produit finalement obtenu.
+
+\subsection{Contrôle de qualité}
+\subsubsection{Chromatographie sur couche mince (CCM)}
+On réalise tout d'abord une CCM avec des colorants de stylo (on met du bleu et du rouge) pour montrer le principe, on voit alors en direct les colorants se séparer au fur et à mesure que les espèces remontent.\\
+On réalise la préparation de la CCM en direct.\\
+Notion de rapport frontal, dire qu'on les trouve dans les tables.
+
+Il existe d'autres méthodes d'identification.
+
+\subsubsection{Réfractomètre}
+Principe et utilisation. On donne $n_{eau} = 1,33$, $n_{ether} = 1,3495$ et $n_{eugenol} = 1,5439$.
+
+\section{Synthèse de l'aspirine}
+\textit{Le maréchal} \textbf{Tome 2 Chimie organique et minérale} p 149.\\
+
+Schéma de la réaction. La synthèse a été réalisée en préparation. On va proposer une autre manière d'identification.
+
+\subsection{Contrôle de pureté : température de fusion}
+On constate que le produit obtenu n'est pas très pur. Il va donc falloir le purifier.
+
+\subsection{Purification : recristallisation}
+Principe : on mélange notre solide avec une quantité minimale de solvant, juste assez pour dissoudre tout le solide à haute température. En laissant ensuite refroidir seul l'acide acétylsalicylique va précipiter : il sera alors pur, une fois qu'on l'aura récupéré en filtrant sur Buchner.\\
+Inconvénient : on perd un petit peu de produit.
+
+\subsection{Second contrôle de pureté}
+CCM sur couche mince, éluant : éthanoate d'éthyle ($CH_3COOCH_2CH_3$) / cyclohexane / $HCOOH$ (remplaçable par de l'acide éthanoïque) en proportion 6/4/1.
+
+\subsection*{Conclusion}
+On verra dans une autre leçon comment identifier les composés en fin de synthèse à l'aide de spectres IR.
+
+\section*{Questions}
+Comment fait on une CCM avec un solide ?\\
+On le met dans un solvant.\\
+
+Comment ce solvant doit il être ?\\
+Il doit être très volatil. On peut même parfois utiliser l'éluant comme solvant.\\
+
+Quelle différence y at'il entre hydrodistillation et entrainement à la vapeur ?\\
+Pour l'entrainement à la vapeur on génère de la vapeur à coté et on la fait passer dans notre solution. Le montage n'est donc pas le même bien que le principe lui soit similaire : dans les deux cas on casse le solide pour récupérer la molécule d'intérêt.\\
+
+Pourquoi ne chauffe t-on pas simplement du clou de girofle ? Quel est l'avantage de l'hydrodistillation ?\\
+La température d'ébullition de l'eugénol est de 250°C ce qui est très conséquent, alors qu'avec l'hydrodistillation on a un mélange de deux liquides non miscibles, au départ on a plein d'eau donc la température d'ébullition du mélange est donc nettement plus basse que 250°C, et la phase vapeur a une plus grande proportion d'eugenol que la phase liquide, car c'est celle de l'eutectique (voir diagramme binaire).\\
+
+Qu'est ce que l'enfleurage ?\\
+On prend de la graisse, on l'étale et on pose dessus des pétales de fleur, on laisse agir : les huiles essentielles des pétales vont passer dans le corps gras.\\
+
+Pourquoi met on du chlorure de sodium parfois ?\\
+Pour augmenter la différence de densité entre les deux phases (si la phase organique est moins dense que la phase aqueuse) et ainsi mieux les séparer. Diminue aussi la solubilité des autres espèces.
+
+\section*{Remarque}
+L'hydrodistillation n'est peut être pas la plus pertinente ici. Il faut faire des choix, et parler surtout de ce qu'il y a dans le protocole choisi. Si on fait l'extraction de l'eugenol on se concentre sur les manip.\\
+
+Possibilité de faire l'aspirine/paracétamol : un solide (séparation solide liq, pt de fusion et recristallisation), un colorant alimentaire où on fait donc la chromato d'un mélange de deux colorants et on on regarde la différence entre les deux colorants. On peut aussi faire la spectro des colorants. On peut enfin faire la synthèse d'un ester avec l'ampoule à décanter et l'indice de réfraction à la fin.\\
+Possibilité aussi de faire la vanilline : similaire à l'aspirine en terme de manips.
+
+
+\end{document}

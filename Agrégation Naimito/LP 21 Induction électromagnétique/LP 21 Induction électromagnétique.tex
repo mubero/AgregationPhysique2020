@@ -1,0 +1,175 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 21 Induction électromagnétique}
+	\author{Hugo}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection*{Prérequis}
+Equations de Maxwell\\
+Magnéto et électro-statique
+
+\subsection{Introduction}
+petite intro historique plus expérience : création d'un courant induit avec une bobine et un aimant.\\
+Énoncé de la loi de Faraday + illustration avec expérience similaire.\\
+Ce cours est notamment l'occasion de donner des applications de l'électrostatique.
+	
+\section{Force électromagnétique (f.e.m)}
+
+\subsection{Cadre de l'étude}
+On se place dans l'ARQS. 
+\begin{eqnarray}
+\vec{\nabla}\vec{E} = \vec{0}\\
+\vec{\nabla}\times\vec{E} = -\frac{\vec{\partial\vec{B}}}{\partial t}\\
+\vec{\nabla}\vec{B} = \vec{0}\\
+\vec{\nabla}\times\vec{B} = \mu_0\vec{j}
+\end{eqnarray}
+Expression des champs en fonction des potentiels.\\
+On établit la puissance P qui communique la vitesse $v_q$ à la particule q.
+\begin{eqnarray}
+P = \int_{\mathcal{C}} \frac{\vec{F}.\vec{dl}}{q}I\\
+e = \frac{P}{q}
+\end{eqnarray}
+\subsection{Champ électromoteur}
+On peut exprimer e en fonction de deux termes 
+\begin{eqnarray}
+e &=& \int_{\mathcal{C}} \vec{E}.\vec{dl} + \int_{\mathcal{C}} \vec{v}_q\times\vec{B}.\vec{dl} = - \int_{\mathcal{C}} \frac{\partial\vec{A}}{\partial t}.\vec{dl} + \int_{\mathcal{C}} \vec{v}_q\times\vec{B}.\vec{dl} \\
+&=& \int_{\mathcal{C}} \vec{E}_m.\vec{dl}
+\end{eqnarray}
+
+\section{Induction de Lorentz}
+\subsection{f.e.m}
+On considèrera ici uniquement des circuits filiformes.\\
+$\vec{B}$ uniforme donc la dérivée de $\vec{A}$ par rapport au temps est nulle. On en déduit 
+\begin{eqnarray}
+e = - \frac{d\Phi}{dt}
+\end{eqnarray}
+
+\subsection{Couplage électromagnétique - rail de Laplace}
+
+Présentation de l'expérience du rail de Laplace et illustration par une manip en direct.\\
+Calcul de $\vec{E}_m$ et ensuite de e. On peut aussi calculer $\Phi$ et en déduire à nouveau $e=-Blv$.\\
+Explications et analogie avec le moteur à courant continu.
+
+\section{Induction de Neumann}
+
+\subsection{f.e.m}
+on a ici $v\times B = 0$. On en déduit :
+\begin{eqnarray}
+e = \int_{\mathcal{C}} \frac{-\partial\vec{A}}{\partial t}.\vec{dl} = ... = -\frac{d\Phi}{dt}
+\end{eqnarray}
+avec $\Phi$ le flux de B à travers la surface associée à $\mathcal{C}$.
+
+\subsection{Courants de Foucault}
+$\Phi = BS = B_0\cos(\omega t)\pi r^2$ $\Rightarrow\; e = \frac{-d\Phi}{dt} = B_0\pi r^2 \omega \sin(\omega t)$.\\
+Pour une spire on trouve après calcul l'expression de j : $j=\frac{B_0}{2}\gamma r \omega  \sin(\omega t)$.\\
+Ordre de grandeur pour le cuivre $\frac{dT}{dt} \simeq 10K.s^{-1}$.\\
+Analogie avce les plaques à induction.
+
+\section{Coefficients d'inductance}
+\subsection{Auto-induction}
+
+Explication du phénomène et petit schéma de principe.\\
+Cas d'un circuit isolé : $\vec{B} = 0$ et existence d'un courant I. On a 
+\begin{eqnarray}
+\Phi_p = \int\int_{S} \vec{B}_p.\vec{dS} = LI
+\end{eqnarray}
+Où L est l'inductance propre.
+\subsection{Inductance mutuelle}
+Cas où l'on a deux circuits :\\
+$\Phi_p{12} = M_{12}I_1$\\
+$\Phi_p{21} = M_{21}I_2$\\
+$M_{21} = M{12} = M$ : coefficient d'induction mutuelle.\\
+$e_1 = -\frac{d\Phi_{tot}}{dt}$ et $\Phi_{tot} = \Phi_p{p_1} + \Phi_p{p_2}$\\
+On en déduit $e_1$ et $e_2$ puis $V_1$ et $V_2$, et ainsi, sachant que $L_i=L_0N_i^2$ et considérant un couplage idéal à savoir $M=\sqrt{L_1L_2}$ on peut calculer le rapport 
+\begin{eqnarray}
+\frac{V_1}{V_2} = \frac{N_2}{N_1}
+\end{eqnarray}
+
+\section*{Questions}
+
+Pourquoi a t-on $M=\sqrt{L_1L_2}$ dans al dernière partie ?\\
+
+Pourquoi a t-on $L_i=L_0N_i^2$ ?\\
+
+Que se passe t-il lorsque l'on ajoute deux inductances en série ?\\
+dépend du couplage magnétique : $L_{tot} = L_1 + L_2 + M$.\\
+
+Quelle est l'énergie stockée dans une bobine ?\\
+
+Y a t'il d'autres exemples d'application que ceux cités ?\\
+Freinage par induction (ex : tramway).\\
+
+Quelles sont les limites de ce freinage ? Peut il arrêter un véhicule seul ?\\
+Très efficace à grande vitesse mais va devenir inefficace lorsque la vitesse va diminuer.\\
+
+Pour les plaques à induction : quelle est la fréquence utilisée ?\\
+Comment modifie t-on les 50 Hz du secteur pour utiliser les plaques du coup ?\\
+En utilisant des composants non linéaires : ex AO en multiplieur, on multiplie le signal par lui même $\Rightarrow$ f $\rightarrow\;2f$.\\
+
+
+Qu'est ce qui lie les inductions de Lorentz et de Neumann ?\\
+Un changement de référentiel, qui va modifier les équations de $\vec{E}$ et $\vec{B}$.\\
+
+Les potentiels des champs énoncés ici sont ils uniques ?\\
+$\rightarrow$ transformation de jauge.\\
+
+Qu'est ce que l'ARQS ? les équations établies ici sont elles alors toujours valables en dehors de ce régime ? \\
+
+Quelle est l'orientation du $\vec{dS}$ pour une boucle donnée selon $\vec{dl}$ ? Et donc si e est négatif comment est i ?\\
+
+Pour un contour donné, peut on prendre ensuite n'importe quelle autre surface ? Et si oui pourquoi ?\\
+Car $\mathrm{div}\vec{B} = 0$ : B est à flux conservatif.\\
+
+Lorsqu'on a un effet joule : quelle est la puissance volumique donnée aux charges ?\\
+$P = \vec{j}.\vec{E}$.\\
+
+Densité volumique des forces de Laplace ?
+
+\section*{Remarques}
+Attention on ne voit pas ici le lien avec Maxwell-Faraday :$\vec{\nabla}\times\vec{E} = - \frac{\partial\vec{B}}{\partial t}$.\\
+Modifier le début : on arrive pas à bien voir la manip, introduction trop sophistiquée. ne pas donner les équations de maxwell en pré-requis car $\vec{\nabla}\times\vec{E} = - \frac{\partial\vec{B}}{\partial t}$ est le centre de la leçon : doit être commenté.\\
+Il faut mettre la notion de flux $\phi$ plus en valeur, notamment pour la petite expérience.\\
+On peut aussi partir de l'expérience pour établir $\vec{\nabla}\times\vec{E} = - \frac{\partial\vec{B}}{\partial t}$.\\
+Discuter plus la physique.\\
+
+Message essentiel de la leçon : l'induction c'est $\vec{\nabla}\times\vec{E} = - \frac{\partial\vec{B}}{\partial t}$ (ou $e=-\frac{d\Phi}{dt}$).\\
+
+Il faut être capable d'expliquer en quelques phrases le choix de plan effectué.
+
+\end{document}

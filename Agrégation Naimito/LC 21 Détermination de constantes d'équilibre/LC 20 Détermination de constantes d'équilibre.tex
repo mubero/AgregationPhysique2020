@@ -1,0 +1,152 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 20 Détermination de constantes d'équilibre}
+		\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Introduction et Pré-requis}
+Réactions acido basiques\\
+Réactions de dissolution\\
+PH-métrie\\
+Conductimétrie.
+
+\section{Constante d'équilibre}
+\textit{Chimie générale} de \textbf{McQuarrie} p685.
+
+\subsection{Définitions}
+Pour une réaction donnée
+\begin{eqnarray}
+n_A A + n_BB = n_CC + n_DD
+\end{eqnarray}
+Guldberg et Waage ont remarqué que la quantité 
+\begin{eqnarray}
+K = \frac{[C]^{n_C}_{eq}[D]^{n_D}_{eq}}{[A]^{n_A}_{eq}[B]_{eq}^{n_B}}
+\end{eqnarray} 
+était une constante dépendant de la température mais pas des conditions initiales. On nomme cette grandeur constante d'équilibre de la réaction. On rencontre fréquemment le log décimal de la constante d'équilibre noté $pK = - \log K$.\\
+
+\textbf{Manips :} \\
+
+On montre que le $Ka$ du couple $HCOOH/HCOO^-$ ne dépend pas de la concentration initiale. \textbf{Term S Hachette edition 2012} p328. Se servir de la manip pour illustrer en posant clairement la réaction et la constante associée.\\
+
+Cas de l'acide acétique : \textbf{Term S Bordas ed 2012} p329.\\
+\begin{eqnarray}
+CH_3COOH &+& H_2O = CH_3COO^- + H_3O^+\\ 
+Ka &=& \frac{[H_3O^+][CH_3COO^-]}{[CH_3COOH]}\\ 
+\Rightarrow PKa &=& -\log Ka =  PH - \log\frac{[CH_3COO^-]}{[CH3COO^-]}
+\end{eqnarray}
+On prépare plusieurs solutions de concentrations différentes et de même volume, puis on trace le PH en fonction du logarithme du rapport des concentrations Base/Acide. L'ordonnée à l'origine nous donnera ainsi la valeur du PKa $\square$\\
+
+Lorsqu'on est hors équilibre on définit par analogie le quotient réactionnel comme $Q_r = \Pi_{i}a_i^{n_i}$ où $a_i$ est l'activité, on retiendra notamment que pour une espèce en solution $a_i=\frac{[a_i]}{C^o}$ et $a_i=1$ pour le solvant, pour un solide $a_i =1$ et que pour un gaz $a_i = \frac{P_i}{p^o}$ ou $P_i$ est la pression partielle définie comme $P_i = x_iP$. 
+\subsection{Utilité des constantes d'équilibre}
+La constante d'équilibre va notamment permettre de prévoir le sens d'évolution de la réaction en question :
+
+Si $Q_r=K$ : la réaction est à l'équilibre.
+
+Si $Q_r<K$ le système évolue de façon à diminuer la quantité de réactifs et augmenter la quantité de produit : "sens 1" : $\rightarrow$.
+
+Si $Q_r>K$ : sens 2 : $\leftarrow$.\\
+Lorsque $K>10^4$ on aura en général une réaction quantitative, mais on ne doit pas oublier que l'avancement dépend des concentrations initiales.
+
+\subsection{Quelques constantes d'équilibre usuelles}
+Produit ionique de l'eau, liée à la réaction d'autoprotolyse de l'eau
+\begin{eqnarray}
+2H_2O = H_3O^+ + HO^-\hspace{1cm}\rightarrow\hspace{1cm} K = [H_3O^+]_{eq}[HO^-]_{eq} = 10^{-14} \;\mathrm{a\; 25^{o}C}
+\end{eqnarray}
+puisqu'elle définit l'échelle de PH.\\
+
+Constante de dissociation d'un acide faible $K_a = \frac{[H_3O^+][A^-]}{[AH]}$ et de même la constante de protonation d'une base faible $K_b$.\\
+
+Produit de solubilité d'un solide ionique
+\begin{eqnarray}
+A_mBn_{(e)} = mA^{n-} + nB^{m-} \; \rightarrow \; K_s = [B^{m+}]^n[A^{n-}]^m
+\end{eqnarray}
+
+\section{Détermination d'un $PKa$ par spectrocolorimétrie}
+Détermination du pKi d'un indicateur coloré :\\
+
+\textbf{Daumarie} \textit{Florilège de chimie pratique} p103.
+
+\section{Détermination d'un produit de solubilité par conductimétrie}
+\textbf{Le maréchal} \textit{Tome 1 Chimie générale} p160.\\
+
+On se propose cette fois de dissoudre du sulfate de sodium
+\begin{eqnarray}
+CaSO_{4(s)} = Ca^{2+}_{(aq)} + SO_{4(aq)}^{2-}
+\end{eqnarray}
+On prend une solution saturée, telle que les concentrations soit égales au produit de solubilité $s$, et on détermine la concentration de ces ions par conductimétrie en mesurant la conductance de la solution $\chi$ et en utilisant 
+\begin{eqnarray}
+\chi = (\lambda^{o}_{Ca^{2+}} + \lambda^{o}_{SO_4^{2-}})s\\
+\Rightarrow s = \frac{\chi}{\lambda^{o}_{Ca^{2+}} + \lambda^{o}_{SO_4^{2-}}}\\
+\Rightarrow PKs = s^2
+\end{eqnarray}
+
+\section*{Questions}
+Leçon placée à quel niveau ?\\
+1ere année classe prépa\\
+
+Concernant l'expression du quotient réactionnel, quel doit être la propriété des coefficients stœchiométriques ?\\
+Ils doivent être algébrisés.\\
+
+Qu'est ce qu'une espèce en solution ? Pourquoi dans le cas de l'acide acétique pourquoi ne met on pas l'activité de l'eau ?\\
+
+Concernant l'utilisation de la constante d'équilibre pour prévoir le sens de réaction ? Un exemple avec la dissolution de $CaSO_{4(s)}$ : sous quelle condition y a t-il précipitation ?
+\begin{eqnarray}
+CaSO_{4(s)} = Ca^{2+} + SO_4^{2-}
+\end{eqnarray}
+évolution dans le sens 2 si $Q_r>K_s$.\\
+
+Concernant l'équilibre quand $10^{-4}<K<10^4$, n'y a t'il pas d'état d'équilibre en dehors de cet intervalle ?\\
+
+Qu'est ce qu'un état d'équilibre ?\\
+
+Pour la détermination du PKa : comment garantir que les concentrations "mises en contact" vont êtres les concentrations à l'équilibre ?\\
+A l'état initial on met $CH_3COOH$ et $CH_3COO^-$ : quelle est la réaction prépondérante : base la plus forte sur acide le plus fort 
+\begin{eqnarray}
+CH_3COOH + CH_3COO^- = CH_3COO^- + CH_3COOH
+\end{eqnarray}
+Le problème peut donc venir de la réaction de $CH_3COOH$ ou $CH_3COO^-$ sur l'eau, que l'on juge négligeable puisque acides faibles.\\
+Rq : ici si le PKa mesuré n'est pas le PKa tabulé c'est parce que on est pas en dilution idéale, et qu'il y a donc trop d'ions en solution.\\
+
+Questions sur des conversions d'unités....\\
+
+\section*{Remarques}
+Un peu court, manque un peu de contenu.\\
+Conductimétrie facile niveau manipulations : il faut donc être irréprochable.\\
+Possibilité d'utiliser la méthode de Gran pour enrichir le débat.\\
+C'est une leçon "détermination" de constantes : il faut qu'il y ait détermination expérimentale et à l'aide des tables (thermodynamique). Il faut qu'il y ait plus de contenu : parler de thermodynamique si on se place en 2e année de prépa.
+
+\end{document}

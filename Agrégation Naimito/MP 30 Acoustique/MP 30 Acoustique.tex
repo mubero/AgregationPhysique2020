@@ -1,0 +1,119 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 30 Acoustique}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsubsection{Introduction}
+Définition d'onde acoustique. Sensibilité de l'oreille humaine et tympan.
+
+\section{Mesures de célérités}
+\subsection{Dans l'air : tube de Koundt}
+On a ici un tube de verre cylindrique de longueur connue, on envoie un signal sonore de fréquence connue $f$ au moyen d'une enceinte. Les ondes vont se propager dans le tube, et après réflexion il va y avoir établissement d'une onde stationnaire, dont la longueur d'onde sera liée aux dimensions du tube. On mesure la longueur d'onde $\lambda$ de l'onde stationnaire grace à un détecteur pouvant se déplacer le long du tube, et on en déduit la vitesse du son 
+\begin{eqnarray}
+c =  \lambda\,f
+\end{eqnarray}
+L'incertitude dominante sur la mesure de $\lambda$ est due à l'erreur de lecture possible lorsque l'on se place aux minimum de l'intensité mesurée par le détecteur. On mesure la fréquence à l'aide d'un fréquencemètre afin de pouvoir établir une incertitude sur la fréquence envoyée.
+On a, comme incertitude relative, puisque celle liée à la fréquence est négligeable comparée à celle concernant la longueur d'onde,
+\begin{eqnarray}
+\frac{\Delta c}{c} = \frac{\Delta \lambda}{\lambda}
+\end{eqnarray}
+
+\subsection{Dans un solide : le laiton}
+\paragraph{Module d'Young :}
+Le module de Young ou module d’élasticité (longitudinale) ou encore module de traction est la constante qui relie la contrainte de traction (ou de compression) et le début de la déformation d'un matériau élastique isotrope.\\
+Le rapport entre la contrainte de traction appliquée à un matériau et la déformation qui en résulte (un allongement relatif) est constant, tant que cette déformation reste petite et que la limite d'élasticité du matériau n'est pas atteinte. La loi d'élasticité est la loi de Hooke, c'est-à-dire
+\begin{equation}
+\sigma = E\, \varepsilon
+\end{equation}
+avec $E$ le module d'Young (pression), $\sigma$ la contrainte (pression) et $\varepsilon$ l'allongement relatif ou déformation $\varepsilon = \frac{l-l_0}{l_0}$.\\
+
+\paragraph{Manipulation :}
+
+On a une tige de laiton de longueur $L$, fixée en son centre, que l'on excite en la frottant avec un chiffon imbibé d'éthanol. On sait, comme la barre est fixée en son centre, que la longueur d'onde du mode fondamental qui va être celui le plus excité, sera égale à $2L$. En mesurant la fréquence du signal émis avec un capteur (un micro relié à un ampli) et un oscilloscope/carte d'acquisition on pourra ainsi remonter à la vitesse du son dans le laiton : $c_s=\lambda f$.\\ On peut ensuite remonter au module d'Young du laiton , qui s'exprime comme 
+\begin{eqnarray}
+E = c_s^2\rho
+\end{eqnarray}
+après avoir calculé $\rho$ à partir de la masse de la barre que l'on a pesée (on connaît son diamètre et sa longueur). On pourra finalement comparer ce module d'young à ceux tabulés pour différentes compositions de laiton.\\ 
+
+Ici on trouve : \\
+L = 60,0 $\pm$ 0,1 cm\\
+m = 250,80 $\pm$ 0,01 g\\
+D= 8,0 mm\\
+$\Rightarrow \; \rho = 8,29\pm 0,03 \;g.m^{-3}$\\
+f = 2842 $\pm$ 1 Hz\\
+$\Rightarrow \; c_s = 2Lf = 3,41.10^3$ m.s$^{-1}$\\
+
+$\Rightarrow \; E = 96,4$ GPa  à comparer à $E_{tab}$ qui varie entre 90 (laiton rouge) et 100 GPa (laiton jaune) selon la composition.
+
+\section{Application : effet Doppler}
+Pour cette partie, on a un banc sur lequel sont placés un émetteur et un détecteur, l'un étant motorisé et pouvant ainsi se déplacer par rapport à l'autre à la vitesse constante $v$. On émet un signal de fréquence $f_0$, et on regarde quelle est la fréquence $f'=f_0+\delta f$ du signal reçut. A priori une simple analyse nous donne, qu'en théorie on devrait avoir 
+\begin{eqnarray}
+\delta f = \frac{v}{c_s}f_0
+\end{eqnarray}	
+Dans la pratique, on multiplie le signal d'entrée de l'émetteur par le signal de sortie du récepteur, puis on fait passer le produit des deux dans un filtre passe bas de fréquence de coupure $\delta f < f_c < 2f_0$. On analyse ensuite le signal résultant en faisant une transformée de fourrier.
+
+\section*{Questions}
+Qu'est ce qu'une onde stationnaire ? \\
+C'est une onde non propagative, somme d'une OPPH incidente et d'une OPPH réfléchie de même amplitude.\\
+
+Qu'est ce qu'une onde progressive, pouvez en écrire l'expression ?\\
+$A \cos(\omega t - kx)$\\
+
+Vous parlez d'onde réfléchie, comment forme t-on une onde stationnaire à partir d'ondes progressives ?\\
+Onde réfléchie de même amplitude : $A\cos(\omega t + kx)$, onde stationnaire\\ $\psi = A \cos(\omega t - kx) + A \cos(\omega t + kx) = 2A \cos(kx)\cos(\omega t)$.\\
+
+Différence entre onde transverse ou longitudinale ?\\
+
+Concernant la tige de laiton, pourquoi a t'on $\lambda = 2L$ ?\\
+Car le centre de la tige est fixé : nœud imposé, et les bords de la tige vont êtres des ventres de vibration.\\
+
+Qu'est ce que le module d'Young (physiquement) ?\\
+Déformation longitudinale divisée par la contrainte $E = \frac{\Delta L}{\sigma}$.\\
+
+Concernant l'effet Doppler : comment choisit t-on la fréquence $f_0$ ?\\
+L'émetteur piezo se comporte comme un RLC : il existe une fréquence de résonance à laquelle l'intensité du signal sonore émis fonction du signal d'entrée sera optimale.\\
+
+Qu'est ce que l'effet piézoélectrique ?\\
+	
+Qu'est ce que la résolution en fréquence ? Comment fixe t-on $T_{acq}$ du coup ?\\
+
+Comment fixe t-on $T_e$ ? Qu'est ce que ça détermine dans l'espace des fréquence ? A quoi cela correspond il physiquement ?
+
+\section*{Remarques}
+Possibilité de regarder des interférences sonores, dans ce cas là il vaut mieux enlever la manip du tube de Koundt.\\
+Pour la manip de l'effet Doppler il faut "fixer à haute voix" les paramètres d'acquisition, en justifiant chaque point grâce aux grandeurs connues du système.\\
+
+\end{document}

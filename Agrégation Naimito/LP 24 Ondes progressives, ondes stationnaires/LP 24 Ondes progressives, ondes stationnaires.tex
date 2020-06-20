@@ -1,0 +1,139 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 24 Ondes progressives, ondes stationnaires}
+	\author{Matthieu}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\section{Introduction}
+Illustration avec des vagues. Utilité dans les télécommunications, ondes sonores..etc.\\
+\paragraph{Définition} On observe qu'il y a une propagation, un motif se propage dans l'espace lorsque le temps varie. On va donc décrire mathématiquement une onde comme 
+\begin{eqnarray}
+\psi(x_1,t) = \psi (x_0, t -\frac{x}{v})
+\end{eqnarray}
+v. diapo.
+
+\section{Équation de propagation}
+\subsection{Propagation dans une corde tendue}
+On définit les données du problème : masse linéique $\mu=\rho S$, longueur L. On néglige la pesanteur. On a 
+\begin{eqnarray}
+\sqrt{(dx^2+dy^2)}-dx \simeq \frac{dx}{2}\left(\frac{\partial y}{\partial x}\right)^2
+\end{eqnarray}
+.... On retrouve l'équation de d'Alembert.\\
+AN pour l'acier pour lequel $\rho=7200\;kg.m^{-3}$, d = 1 mm et $T_0 = 100\,N$ $\rightarrow v\simeq 140\,m/s$. On peut montrer que le poids est bel et bien négligeable devant la tension.\\
+
+\subsection{Onde électromagnétique dans le vide}
+Obtention rapide de d'Alembert à partir des équations de Maxwell.\\
+Commentaire.\\
+\subsection{Commentaires}
+Solution générale en onde plane
+\begin{eqnarray}
+y(x,t) = f(t-\frac{x}{v}) +  g(t+\frac{x}{v}) 
+\end{eqnarray}
+Existe il des solutions telles que, l'équation étant linéaire, leur somme puisse décrire l'ensemble des solutions ?\\
+Oui ce sont les ondes progressives.
+
+\section{Ondes progressives}
+
+\subsection{Ondes planes progressives monochromatiques}
+\begin{eqnarray}
+\psi(x,t) = \psi_0\cos(\omega t - kx +\phi_0)
+\end{eqnarray}
+$\omega$ : pulsation, k module du vecteur d'onde.\\
+\subsubsection{Relation de dispersion}
+\begin{eqnarray}
+\omega^2 = k^2v^2
+\end{eqnarray}
+On peut définir aussi la vitesse de phase ici $v = \omega/k$.\\
+On peut choisir pour deux représentations pour décrire cette onde : on regarde dans l'espace à un instant donné ou comment évolue l'onde en un point lorsque le temps évolue.\\
+$v_{\phi} = \frac{\lambda}{T}$.
+
+\subsection{Linéarité et représentation en ondes planes}
+$\psi_0\cos(\omega t - kx - \phi)$ et $\psi_0\sin(\omega t - kx - \phi)$ sont solutions, donc la somme est solution, d'où 
+\begin{eqnarray}
+\underline{\psi}(x,t) = e^{i(\omega t - kx + \phi)}
+\end{eqnarray}
+est solution, bine que seule sa partie réelle ait du sens.\\
+Il est possible de faire une décomposition en ondelette, c'est à dire que l'on peut représenter une onde comme la somme d'ondes planes :
+\begin{eqnarray}
+\underline{\psi}(x,t) = \int\int d\omega dk \underline \psi(\omega, k)e^{i(\omega t - kx)}
+\end{eqnarray}
+
+\subsection{Transport d'énergie par une OPPM}
+On considère ici le cas d'une portion de corde entre x et x+dx.
+\begin{eqnarray}
+e_c dx = \frac{1}{2}\mu dx \left(\frac{\partial y}{\partial t}\right)^2\\
+\frac{1}{2} T_0 dx \left(\frac{\partial y}{\partial x}\right)^2\\
+\end{eqnarray}
+On peut aussi regarder la puissance entrant par la gauche $\mathcal{P} = -\vec{T}.\vec{v}= -T_0 \frac{\partial y}{\partial x}\frac{\partial y}{\partial t}$. Traitement ensuite des cas où l'onde se propage selon les x croissants ($\mathcal{P} = \frac{T_0}{v}\left(\frac{\partial y}{\partial t}\right)^2 >0$) ou décroissants ($\mathcal{P} = -\frac{T_0}{v}\left(\frac{\partial y}{\partial t}\right)^2< 0$).\\
+On peut faire un bilan énergétique, en calculant la puissance extérieure due aux forces de tension, l'énergie mécanique, afin d'obtenir une équation type électromag avec un vecteur flux type Poynting.\\
+
+\section*{Questions}
+Pouvez vous écrire l'équation de conservation de l'énergie électromagnétique ?\\
+
+Vous parlez de puissance en entrée... cette énergie est elle stockée ?\\
+
+Lorsque vous écrivez les ondes sous la forme d'intégrale double : pourquoi une intégrale double ?\\
+En réalité c'est une intégrale simple car $\omega$ et k sont liés.\\
+
+Qu'est ce qu'une onde sphérique ?\\
+Décrit une one émise par une source ponctuelle, décrit par la solution ... de l'eq de d'Alembert.\\
+
+Qu'est ce qu'une onde stationnaire ?\\
+Somme de deux ondes progressives de même amplitude évoluant dans des sens opposés. C'est une onde décrite par une fonction composée d'un produit de deux fonctions dépendant l'une du temps et l'autre de la position.\\
+
+Qu'est ce qui définit les fréquences de résonance ?\\
+Les conditions au bord.\\
+
+Pourquoi l'amplitude de la corde ne diverge pas contrairement à ce qu'exprime les équations ?\\
+On a linéarisé le système, ce qui n'est plus valide passé une certaine amplitude $\rightarrow$ effets non linéaires.\\
+
+Y a t'il des effets dissipatifs ? Cela modifie t-il le comportement ondulatoire ?\\
+
+Qu'est ce qu'un soliton ?\\
+Quelle est l'équation caractéristique de ces phénomènes ?\\
+
+Quelle est la physique du ricochet ?
+
+\section*{Remarques}
+Il faut raccourcir la partie Ondes progressives en élaguant un peu, pour avoir le temps de traiter les ondes stationnaires.\\
+Pour le transfert de l'énergie, c'est peut être trop long avec la corde, le faire peut être plus avec l'énergie électromagnétique.\\
+Avec les 40 minutes il faut choisir un exemple, electromag pour l'énergie seulement et câble coax ou corde pour le reste.\\
+Possibilité de mettre d'Alembert en intro et de ne traiter donc que les différentes solutions.
+
+
+
+
+
+
+\end{document}

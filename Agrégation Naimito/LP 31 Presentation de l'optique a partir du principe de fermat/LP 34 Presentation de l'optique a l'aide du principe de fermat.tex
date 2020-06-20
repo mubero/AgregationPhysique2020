@@ -1,0 +1,160 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 31 Présentation de l'optique géométrique à l'aide du principe de Fermat}
+	\author{Emy}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\section{introduction}
+Annonce du plan et du résultat final: expliquer comment nos perceptions peuvent êtres faussées du à la trajectoire non nécessairement rectiligne des rayons lumineux.
+
+\section{Principe de Fermat}
+\subsection{Enoncé}
+Enoncé historique du principe de Fermat, puis formulation moderne à l'aide du schéma optique. Cet énoncé moderne est moins restrictif et prend donc en compte certains cas particuliers.
+\paragraph{Chemin optique}
+schéma correspondant : 2 points A et B reliés par une trajectoire $\mathcal{C}$\\
+Le chemin optique est def comme 
+\begin{eqnarray}
+L_{AB} = \int_A^BndS
+\end{eqnarray}
+où n est l'indice de réfraction du milieu. Le chemin optique est, selon le principe de Fermat, stationnaire.\\
+Schéma correspondant: 2 courbes relient deux points A et B, $\mathcal{C}$ et $\mathcal{C}'$, alors $\delta L = L-L' = 0$ au premier ordre en $||\vec{\delta M}||_{max}$ si on note $\vec{\delta M}$ le vecteur différence entre les deux trajectoires.
+\subsection{Premières conséquences}
+\paragraph{Cas d'un milieu homogène}
+\begin{eqnarray}
+L_{AB} = \int_A^BndS = n\int_A^BdS = nAB
+\end{eqnarray}
+minimum si la trajectoire du rayon est rectiligne.
+\paragraph{Retour inverse}
+\begin{eqnarray}
+L_{AB} =\int_A^BndS = \int_B^An(-dS) = n\int_B^AdS'\; FAUX\;!!!
+\end{eqnarray}
+car dans ce cas on a un truc positif égal à un truc négatif.
+\begin{eqnarray}
+\Rightarrow L_{AB} =\int_A^BndS = n\int_B^AdS'
+\end{eqnarray}
+Un rayon emprunte donc la même trajectoire dans un sens que dans l'autre.
+
+\section{Lois de Snell-Descartes}
+schéma rayon passant par un dioptre séparant deux milieux d'indices $n_1$ et $n_2$, le rayon allant de A vers B et passant à travers le dioptre au point I, avec un angle incident $i$.\\
+\begin{eqnarray}
+L_{AB} &=& L_{AI}+L_{IB}\\
+\delta L_{AB} &=& n_1\vec{u}_1.\vec{\delta I} -\vec{u}_2.\vec{\delta I} = (n_1\vec{u}_1-\vec{u}_2).\vec{\delta I} = 0
+\end{eqnarray}
+On a donc $n_1\vec{u}_1-\vec{u}_2\perp \vec{\delta I}=\vec{II}'$. et donc $n_1\vec{u}_1-n_2\vec{u}_2= \alpha  \vec{N}$.
+
+\subsection{Lois de réfraction}
+\begin{eqnarray}
+\vec{u}_2 = \frac{n_2\vec{u}_1+\alpha\vec{N}}{n_2} \Rightarrow \vec{u}_2 \in (\vec{u}_1,\vec{N})
+\end{eqnarray}
+et 
+\begin{eqnarray}
+n_1\vec{u}_1-n_2\vec{u}_2= \alpha  \vec{N}\\
+n_1\vec{u}_1\times\vec{N}-n_2\vec{u}_2\times\vec{N}= 0\\
+n_1 \mathrm{sin}(i) = n_2 \mathrm{sin}(r)
+\end{eqnarray}
+
+\subsection{Lois de réflection}
+Schéma\\
+\begin{eqnarray}
+\vec{u}_2 = \frac{n_2\vec{u}_1+\alpha\vec{N}}{n_1} = \vec{u}_1 + \frac{\alpha \vec{N}}{n_1} \Rightarrow \vec{u}_2 \in (\vec{u}_1,\vec{N})
+\end{eqnarray}
+et 
+\begin{eqnarray}
+n_1\vec{u}_1-n_1\vec{u}_2= \alpha  \vec{N}\\
+n_1\vec{u}_1\times\vec{N}-n_1\vec{u}_2\times\vec{N}= 0\\
+ \mathrm{sin}(i) = \mathrm{sin}(r)\\
+ i=r
+\end{eqnarray}
+expérience avec demi cylindre de plexiglas sur un disque gradué (ici photos au vidéoprojecteur pour que l'expérience soit bien claire pour le public) pour mesurer 
+\begin{eqnarray}
+r(i) =\arcsin\left(\frac{n_1\mathrm{sin}(i)}{n_2}\right)\simeq\arcsin\left(\frac{\mathrm{sin}(i)}{n_2}\right) 
+\end{eqnarray}  si on travaille dans l'air. Avec les deux cas $n_1>n_2$ et $n_1<n_2$, et mise en évidence de l'angle limite dans le cas $n_1>n_2$, en effet on a 
+\begin{eqnarray}
+n_1\sin(i) = n_2\sin(r) \Rightarrow -1 < \sin(r) < 1 \Rightarrow -\frac{n_1}{n_2} < \sin(i) < \frac{n_1}{n_2}
+\end{eqnarray}
+Il existe donc un angle d'incidence limite au delà duquel il n'existe plus de rayon réfracté : il ya alors réflexion totale.
+
+\section{Equations du rayon dans un milieu non homogène}
+Schéma : modélisation d'un milieu non homogène via une stratification de couche avec une différence d'indice $\delta n$ d'une couche à l'autre. Par conséquent on a $\vec{grad}\,n$ qui est normal aux surfaces équi-indice. On a donc, en partant de 
+\begin{eqnarray}
+n_1\vec{u}_1-n_1\vec{u}_2= \alpha  \vec{N},\\
+n\vec{u}-(n+dn)(\vec{u}+\vec{du})= \alpha  \vec{N}\; \mathrm{ici}\\
+\mathrm{c.a.d}\;\;d(n\vec{u}) = \alpha\vec{N} \\\
+\Rightarrow d(n\vec{u}) = \beta \vec{grad}\,n\\
+\Rightarrow (n\vec{du} + dn\vec{u}).\vec{u} = \beta \vec{grad}\,n.\vec{u}\\
+\Rightarrow dn = \beta \vec{grad}\,n.\vec{u} =  \beta \frac{dn}{ds}
+\end{eqnarray}
+Et finalement on obtient 
+\begin{eqnarray}
+\frac{dn\vec{u}}{ds} = \vec{grad}\,n,
+\end{eqnarray}
+c'est le théorème fondamental de l'optique.
+\subsection{Application au phénomène su mirage}
+Schéma (plus calculs).\\
+Illustration avec laser traversant cuve avec gradient d'indice dû à un gradient de salinité de l'eau dans la cuve.
+
+\section{Conclusion}
+Récapitulatif des principaux résultats, + application au calcul du trajet de la lumière dans tout milieu donc on connait l'indice optique. Analogie avec la lentille gravitationnelle.
+
+\section{Questions}
+Concernant les schémas des mirages : expliquer mieux le schéma.\\
+
+Pourquoi l'indice de réfraction dépend t'il de la densité du milieu ?\\
+
+Analogie avec les lentilles gravitationnelles :  l'indice optique du vide intersidéral varie t'il ? \\
+
+Cuve avec sel : l'eau de la cuve est elle saturée en sel ? le choix du sel pour créer une variation d'indice optique est il pertinent ?\\
+
+Pourquoi, pour cette expérience, ajoute t-on de la fluorescéine ?\\
+
+Et pourquoi, dans ce cas, voit on le trajet des rayons émis par le laser ?
+
+
+\section{Commentaires et réponses aux questions}
+Regarder formule de Clausius Mosoti : lien entre l'indice optique et la densité du milieu. Regarder aussi le modèle de Drude-Lorrentz qui exprime comment le champ électrique porté par une onde lumineuse polarise le milieu de propagation. \\
+La fluorescéine ne peut s'utiliser qu'avec un laser vert (et non rouge), car elle réémet dans le jaune (phénomène d'absorption-émission : fluorescence) : les photons rouges ne sont pas assez énergitiques pour l'exciter.\\
+Message majeur de cette leçon : les résultats ici donnés ne relèvent pas d'une analyse différentielle mais d'un principe variationnel.\\
+Il faut aller plus vite : il faut faire + court et dire plus de choses.\\
+Il faut définir la notion de rayon lumineux, et l'optique géométrique !!!!\\
+Expliciter pourquoi utiliser le principe de Fermat et pas les équations de Maxwell : on veut montrer l'optique sous un angle variationnel. Peut être faire l'équation de Eikonal en intro pour montrer que l'on peut retrouver ça à partir de Maxwell.\\
+Ponctuer la leçon, tenter de ne pas être monotone, il faut presser les calculs : les expliquer, faire des analogies (ici avec les potentiels en mécanique pour l'indice), des illustrations..etc Il faut mener les calculs et pas juste les présenter, dos au jury, sans parler.\\
+Conseil écrire EN GROS les calculs sur des feuilles de note à part pour pouvoir n'y jeter qu'un oeil et ne pas les lire en les gardant en mains.\\
+Utiliser des termes qui souligne l'intérêt ce que l'on est en train de faire.\\
+Attention aussi à la rigueur mathématique : il faut être irréprochable sur les notations, et sur l'énonciation des grandeurs en jeu.\\
+L'introduction doit partir d'un physique très générale, tout comme la conclusion doit ouvrir à d'autres domaines.\\
+Conclure sur les manip, surtout après le calcul d'incertitude dont on doit commenter le résultat.\\
+Bonne application de la réflexion totale : fibres optiques à saut d'indice. et rq : réflexion totale $\neq$ bonne réflexion : elle est TOTALE !! la réfraction est ici interdite par la physique. c'est grâce à ça que le taux d'atténuation des fibres est très faible.\\
+
+
+\end{document}

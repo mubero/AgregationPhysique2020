@@ -1,0 +1,11 @@
+\contentsline {subsection}{\numberline {0.1}Pr\IeC {\'e}-requis}{2}
+\contentsline {subsection}{\numberline {0.2}Introduction}{2}
+\contentsline {section}{\numberline {1}Atmosph\IeC {\`e}re isotherme}{2}
+\contentsline {section}{\numberline {2}Ensemble canonique}{3}
+\contentsline {subsection}{\numberline {2.1}Contexte}{3}
+\contentsline {paragraph}{Remarque :}{3}
+\contentsline {subsection}{\numberline {2.2}Distribution canonique des \IeC {\'e}tats microscopiques}{4}
+\contentsline {subsection}{\numberline {2.3}Distribution statistique des variables internes}{4}
+\contentsline {subsection}{\numberline {2.4}Fonction de partition et \IeC {\'e}nergie libre}{6}
+\contentsline {section}{\numberline {3}Application : Mod\IeC {\`e}le d'Einstein}{6}
+\contentsline {section}{\numberline {4}Conclusion}{9}

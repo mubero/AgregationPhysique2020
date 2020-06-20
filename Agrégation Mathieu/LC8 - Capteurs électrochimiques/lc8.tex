@@ -1,0 +1,434 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\usepackage{wasysym}
+\usepackage{graphicx}
+
+\author{Mathieu Sarrat}
+\title{LC8 - Capteurs électrochimiques}
+
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+\begin{document}
+\maketitle
+
+\section*{Pré-requis, niveau, objectifs}
+
+\subsubsection*{Niveau}
+\begin{itemize}
+	\item Terminale SPCL
+\end{itemize}
+
+\subsubsection*{Pré-Requis}
+\begin{itemize}
+	\item Oxydoréduction (couple oxydant-réducteur, réaction d'oxydoréduction).
+	\item Piles électrochimiques et électrocinétique (pile, résistance, courant et tension électrique, voltmètre et ampèremètre).
+	\item Dosages (dosage par étalonnage).
+	\item Réactions de combustion.
+\end{itemize}
+
+\subsubsection*{Objectifs}
+\begin{itemize}
+	\item Notion de potentiel d'électrode
+	\item Loi de Nernst : énoncé, exemples
+	\item Capteurs électrochimiques : principe, exemples, applications
+	\item Ouverture : vers la prévision du sens des réactions d'oxydoréduction
+\end{itemize}
+
+\newpage
+\section*{Introduction}
+
+La leçon d'aujourd'hui va nous permettre de mettre en application ce que nous avons établi précédemment au sujet de l'oxydoréduction. Les phénomènes d'oxydoréduction ont de très nombreuses applications. Nous avons vu précédemment qu'on pouvait utiliser ces réactions pour produire de l'énergie électrique (piles électrochimiques). Nous allons voir aujourd'hui qu'il est possible de se servir du phénomène d'oxydoréduction pour fabriquer un capteur électrochimique, qui nous renseignera par exemple sur la composition d'une solution ou d'un gaz. Ces capteurs sont par exemple utilisés dans l'automobile pour analyser la composition des gaz d'échappement, mais aussi dans la sécurité (détecteurs de gaz) ou encore en laboratoire de chimie, pour analyser la composition d'une solution ou en mesurer certaines caractéristiques, comme le pH par exemple.\\
+
+Avant d'aller plus loin, définissons ce qu'est un capteur : un capteur est un dispositif qui permet de mesurer une grandeur physique et de convertir cette mesure en un signal que l'on pourra interpréter. On réalise cette interprétation grâce à un modèle qui nous permet de déduire un certain nombre d'informations. On parle de capteur électrochimique car le principe de fonctionnement de ce capteur repose sur le phénomène d'oxydoréduction : ce capteur mesure une différence de potentiel électrique, que l'on pourra interpréter en terme de concentrations, pourvu qu'il existe des espèces chimiques manifestant des propriétés redox.\\
+
+Le plan de la leçon est le suivant :
+\begin{itemize}
+	\item dans un premier temps, on va définir la notion de potentiel d'électrode. La différence de potentiel mesurée par un capteur électrochimique est, en effet, une différence entre deux potentiels d'électrode. Ce sera l'occasion d'un bref rappel sur les piles électrochimiques;
+	\item dans un second temps, nous allons voir comment à partir de la connaissance de ce potentiel d'électrode nous pouvons remonter à des informations sur la composition d'une solution ou d'un mélange de gaz;
+	\item enfin nous détaillerons des applications concrètes de capteurs électrochimiques.
+\end{itemize}
+
+\newpage
+\section{Piles électrochimiques et potentiel d'électrode}
+
+\subsection{Pile électrochimique}
+
+\begin{itemize}
+	\item \textbf{Définition :} une pile est un dispositif chimique dont le rôle est de produire de l'énergie électrique (de nature cinétique, mise en mouvement d'électrons dans un circuit connecté à la pile) à partir d'un stockage d'énergie chimique (énergie potentielle).\\
+
+	\item \textbf{Pile Daniell} \textcolor{red}{[Diapos + Pile sur la paillasse]}, développée en 1836, est l'une des toutes premières sources durables d'énergie électrique (utilisée pour alimenter les télégraphes dès la première moitié du dix-neuvième siècle). Il s'agit d'une \textbf{pile à compartiments}. Elle était constituée de deux compartiments, également appelés \textbf{demi-piles} ou encore \textbf{électrodes} :
+\begin{itemize}
+	\item un morceau de zinc métallique plongé dans une solution de sulfate de zinc (ions Zn2+ en solution), l'anode (pôle négatif)
+	\item un morceau de cuivre métallique plongé dans une solution de sulfate de cuivre (ions Cu2+ en solution), la cathode (pôle positif)
+	\item l'objectif étant de produire un courant électrique dans un circuit extérieur (une charge) à la pile, il est nécessaire que l'ensemble charge $+$ électrodes forme un circuit fermé. On relie dans la pile les deux compartiments par un pont salin ou par un vase poreux (cas de la pile sur la paillasse).\\
+	
+	\item on représente la pile Daniell par l'écriture suivante :
+	\begin{equation}
+		\boxed{\text{Zn}(\text{s})/\text{Zn}^{2+} || \text{Cu}^{2+}/\text{Cu}(\text{s})}
+	\end{equation}
+\end{itemize}
+	Dans le cas présent, une électrode comprend à la fois l'oxydant et le réducteur d'un même couple redox : $\text{Zn}(\text{s})/\text{Zn}^{2+}$ et $\text{Cu}(\text{s})/\text{Cu}^{2+}$. En général, une électrode est constituée d'un oxydant, d'un réducteur (pas nécessairement du même couple) et d'un métal conducteur (qui peut ou pas appartenir à un couple redox).\\
+	
+	\item \textcolor{red}{MANIP :} comment savoir quel est le pôle positif et quel est le pôle négatif (c.a.d où est la cathode et où est l'anode) dans la pile ? Il faut savoir dans quel sens les électrons vont circuler hors de la pile : on connecte pour cela un galvanomètre (mesure $I$ ainsi que son signe, donne l'info. sur le sens de parcours des électrons) et une résistance de protection en série entre les deux demi-piles. On constate que les électrons partent bien du compartiment zinc en direction du compartiment cuivre (car les électrons se déplacent selon le sens opposé à celui donnant $I$ positif).
+\end{itemize}
+
+\subsection{Potentiel d'électrode}
+
+Supposons que la résistance $R$ soit énorme\footnote{Par rapport à la résistance interne de la pile.} : le courant qui va la traverser, et donc celui qui va traverser le galvanomètre, sera "énormément" faible, à tel point qu'il devient négligeable : on dira que la pile ne débite pas. Cette situation est équivalente à celle où on connecte un voltmètre entre les bornes/électrodes/demi-piles.\\
+
+Le voltmètre mesure la tension aux bornes de la pile. Comme le courant ne circule pas, la tension mesurée est appelée \textbf{tension à vide} ou encore \textbf{force électromotrice} $\Delta E$ de la pile \footnote{Puisque c'est elle qui met les électrons en mouvement.}. Cette tension électrique correspond à une différence de potentiel entre les deux électrodes. Il semble donc judicieux de définir une grandeur physique appelée potentiel pour caractériser chacune des deux électrodes. Ainsi, on définit :
+\begin{equation}
+	\boxed{\Delta E \equiv E_\text{CATHODE} - E_\text{ANODE} = E_C - E_A}
+\end{equation}
+pour avoir $\Delta E$ positif.\\
+
+Il y a toutefois un hic : si la tension entre deux bornes est définie sans ambiguïté, ce n'est pas le cas du potentiel. Deux couples de $E$ différents peuvent donner une même valeur de $\Delta E$ :
+\begin{equation}
+	\begin{split}
+	\Delta E & = E_C - E_A \\
+ 			 & = E_C \textcolor{blue}{- E_r + E_r} - E_A \\
+ 			 & = (E_C - E_r) - (E_A - E_r) \\
+ 			 & = {E_C}^{\text{'}} - {E_A}^{\text{'}},
+	\end{split}
+\end{equation}
+et bien entendu, $E_C \neq {E_C}^{\text{'}}$.\\ 
+
+Il faut impérativement définir une référence lorsqu'on donne une valeur au potentiel électrique. Parler de tension électrique a un sens, parler de potentiel sans préciser la référence n'en a pas. De plus, choisir une référence ne suffit pas : puisqu'il y a deux électrodes, encore faut-il que la référence prise pour chacune des deux électrodes soit la même.\\
+
+On a besoin de définir une référence universelle, qui sera donnée par une électrode particulière appelée \textbf{électrode standard à l'hydrogène}. Cette électrode est constituée :
+\begin{itemize}
+	\item d'une solution d'ions oxonium de concentration 1 $\text{mol.L}^{-1}$,
+	\item de dihydrogène gazeux maintenu à une pression de 1 bar et barbotant dans la solution précédente,
+	\item d'un fil de platine plongé dans la solution, qui est chimiquement inerte et qui sert à collecter les électrons,
+\end{itemize}
+Elle est donc constituée du couple $\text{H}^+/H_2\text{(g)}$.\\
+
+Le potentiel associé à cette électrode est fixé par convention :
+\begin{equation}
+	\boxed{E_\text{ESH} = 0 \text{V}} \quad\text{quelque soit la température T.}
+\end{equation}
+Ceci est une convention, un choix arbitraire : la grandeur mesurée par le voltmètre entre deux électrodes est une différence de potentiel $\Delta E$ qui ne dépend pas de la valeur de $E_0$. Peu importe la référence choisie du moment que le potentiel des deux électrodes est défini par rapport à la même référence.\\
+
+Imaginons alors une pile dont l'anode est constituée par l'ESH et dont la cathode est une électrode quelconque, de potentiel $E_C$. Par exemple, si on remplace le compartiment zinc de la pile Daniell par l'ESH :
+	\begin{equation}
+		\boxed{\text{H}^+/H_2\text{(g)} || \text{Cu}^{2+}/\text{Cu}(\text{s})}.
+	\end{equation}
+
+La différence de potentiel d'une telle pile s'écrirait :
+\begin{equation}
+	\boxed{\Delta E = E_C - E_\text{ESH} = E_C}.
+\end{equation}
+On peut donc interpréter le potentiel d'électrode comme la force électromotrice de la pile dont le pôle de droite (sur la représentation conventionnelle) est constitué par l'électrode considérée et dont le pôle de gauche est constitué d'une électrode standard à l'hydrogène !
+
+\newpage
+\subsection{\'Electrode au calomel saturé}
+
+Lorsqu'on donne la valeur d'un potentiel d'électrode (calcul, tables), celui-ci est déterminé par rapport à l'ESH. En pratique, cette électrode est difficile à utiliser. On utilise à la place d'autres électrodes comme référence lorsqu'on effectue une mesure de potentiel. Nous allons parler de l'électrode au calomel saturé.\\
+
+L'électrode au calomel saturé (E.C.S) est une électrode de potentiel constant, $E_\text{ECS} = 0.241 V$ à 298 K. Elle est constituée de plusieurs éléments \textcolor{red}{[Diapo]} :
+\begin{itemize}
+	\item un fil de platine au contact de mercure liquide,
+	\item le mercure liquide est placé au-dessus d'un précipité de chlorure mercureux ($\text{Hg}_2\text{Cl}_2$) également appelé calomel,
+	\item le calomel est lui même au contact d'une solution saturée de chlorure de potassium (KCl) .
+\end{itemize} 
+
+Comment mesurer un potentiel d'électrode en utilisant l'E.C.S. ?\\
+
+On mesure la différence de potentiel entre l'électrode étudiée et l'E.C.S. en plongeant l'E.C.S. dans l'électrode étudiée. Le contact électrique entre les deux électrodes est assuré par un verre fritté (poreux) qui limite grandement les échanges par convection mais qui assure le contact électrique entre les deux électrolytes. Une représentation équivalente de ce montage est celle d'une pile constituée des deux électrodes (étudiée et E.C.S.) \textcolor{red}{[Diapo]}, qui ne débite pas (le circuit extérieur étant un voltmètre de haute résistance).\\
+
+Attention, la différence de potentiel mesurée $\Delta E_\text{mes}$ ne donne pas directement le potentiel d'électrode $E$ de l'électrode étudiée :
+\begin{equation}
+	\Delta E_\text{mes} = E - E_\text{ECS},
+\end{equation}
+car $E$ est référencée par rapport au potentiel de l'ESH. On a donc :
+\begin{equation}
+	E = \Delta E_\text{mes} + E_\text{ECS}.
+\end{equation}
+
+L'électrode au calomel saturé a longtemps été utilisée en oxydoréduction, mais son usage tend à disparaître du fait de la toxicité du mercure. On la remplace souvent par une électrode au chlorure d'argent, dont le principe de fonctionnement est similaire : le mercure et le fil de platine sont remplacés par un fil d'argent et le précipité de calomel est remplacé par un précipité de chlorure d'argent.\\
+
+\textbf{Transition.} Nous avons montré que le potentiel d'électrode $E$ pouvait a priori caractériser une électrode à condition d'interpréter $E$ comme la force électromotrice d'une pile constituée de l'électrode et d'une électrode de référence universelle, appelée électrode standard à l'hydrogène. Comment relier $E$ aux propriétés chimiques des espèces présentes dans l'électrode ?
+
+\newpage
+\section{Relation de Nernst}
+
+Il nous faut trouver un modèle nous permettant de relier $E$ aux grandeurs physico-chimiques représentatives de l'électrode étudiée. La loi de Nernst nous permet de le faire.
+
+\subsection{Mise en évidence expérimentale}
+
+Nous allons étudier une électrode d'argent, constituée d'un morceau d'argent solide plongé dans une solution contenant les ions $\text{Ag}^+$. On se propose de montrer l'influence de la concentration en ions $\text{Ag}^+$ sur la valeur du potentiel d'électrode.\\
+
+\begin{itemize}
+	\item \textbf{Principe de la manip :} on prépare plusieurs solutions de nitrate d'argent, de concentrations différentes. On mesure la différence de potentiel $\Delta E_\text{mes}$ entre l'électrode d'argent et une électrode de référence au calomel saturé pour chacune de ces solutions, puis on trace $E = \Delta E_\text{mes} + E_\text{ECS}$ en fonction de $\text{log}_{10}[\text{Ag}^+]$. On étudie ensuite la courbe obtenue (on s'attend à une droite).
+	\item \textbf{Matériel et précautions particulières :}
+	\begin{itemize}
+		\item électrode d'argent, grattée (elle doit briller) et nettoyée à l'ammoniac,
+		\item électrode au calomel saturée, munie d'une allonge de protection (nitrate de potassium) pour éviter la précipitation du chlorure d'argent (très peu soluble dans l'eau)
+		\begin{equation}
+			\text{Ag}^+ + \text{Cl}^- = \text{AgCl(s)}.	
+		\end{equation}				
+		dans le verre fritté de l'électrode. Le fritté de l'allonge doit être suffisamment immergé pour faire une mesure correcte.
+		\item millivoltmètre,
+		\item solution mère de nitrate d'argent à $10^{-2} \text{mol.L}^{-1}$,
+		\item thermomètre (mesurer la température pour comparer le coefficient $RT\text{ln}(10)/\mathcal{F}$ à la valeur mesurée.),
+		\item penser à homogénéiser les solutions diluées, à mi remplissage de la fiole, et une fois le remplissage terminé (retourner sept fois)
+	\end{itemize}
+	\item \textbf{Faire en direct :} une dilution et une mesure, l'ajouter sur la courbe préalablement tracée durant la préparation. Exploiter les résultats.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+  \hline
+  Solution & 1 & 2 & 3 & 4\\
+  \hline
+  Concentration $(\text{mol.L}^{-1})$ & $1.0\times 10^{-2}$ & $1.0\times 10^{-3}$ & $5.0\times 10^{-3}$ & $1.0\times 10^{-4}$\\
+  \hline
+  $\text{log}_{10}[\text{Ag}^+]$ & & & &\\
+  \hline
+  $\Delta E_\text{mes}$ (V) & & & &\\
+  \hline
+  $E$ (V) & & & &\\
+  \hline
+\end{tabular}
+\end{center}
+
+\subsection{Énoncé de la relation de Nernst}
+
+\textcolor{red}{Modifier : réorganiser la partie, en ne donnant l'expression générale qu'à la fin. Commencer par des exemples : électrode d'argent, couples impliqués dans la pile Daniell,
+puis ESH et ECS (dans ce dernier cas, chercher la vraie réaction pour les questions). Retirer l'exemple 4.}\\
+
+\textbf{\'Enoncé :} dans le cas général d'une électrode constituée des deux espèces d'un couple Red/Ox quelconque, la demi-équation de réduction s'écrit 
+\begin{equation}
+	\text{a} \text{Ox} + \text{b} \text{B} + n \text{e}^- = \text{c} \text{Red} + d D,
+\end{equation}
+où $B$ et $D$ désignent des espèces chimiques quelconques (souvent $\text{H}^\text{+}$ et $\text{H}_2\text{O}$), dans un état physique quelconque. Les nombres $a,b,c$ et $d$ sont des coefficients stoechiométriques.\\
+
+\textbf{La loi de Nernst donnant le potentiel d'électrode du couple s'écrit} :
+\begin{equation}
+	E(\text{Ox}/\text{Red}) = E\textsuperscript{o}(\text{Ox}/\text{Red},T) + \frac{RT\text{ln}(10)}{n\mathcal{F}}\text{log}_{10} \frac{[\text{Ox}]^a[\text{B}]^b}{[\text{Red}]^c[\text{D}]^d},
+\end{equation}
+où
+\begin{itemize}
+	\item $E\textsuperscript{o}(T)$ est le potentiel mesuré dans les conditions standard (pression 1 bar, concentrations de 1 $\text{mol.L}^{-1}$). Il dépend de la température $T$ et est une caractéristique propre au couple oxydant/réducteur. On trouve sa valeur dans des tables.
+	\item $\mathcal{F} = 96500 \text{C.mol}^{-1}$ désigne la constante de Faraday, quantité de charge électrique par mole d'électrons;
+	\item $R$ désigne la constante des gaz parfaits;
+	\item $n$ désigne le nombre d'électrons figurant dans la demi-équation de réduction.\\ 
+\end{itemize}
+
+Pour $T = 25\textsuperscript{o}$C, cas dans lequel nous nous placerons dans toute la suite, la constante
+\begin{equation}
+	\frac{RT\text{ln}(10)}{\mathcal{F}} \simeq 0.06\;V.
+\end{equation}
+Pour une espèce liquide ou solide, on remplace la concentration de l'espèce dans le logarithme par 1. Pour une espèce gazeuse, on remplace la concentration par la pression du gaz en bar.\\
+
+Ceci étant quelque peu nébuleux, nous allons donner plusieurs exemples.\\
+
+\textbf{Exemple 1 : l'électrode d'argent.}\\ 
+Dans le cas de l'électrode précédente, il est possible de calculer le potentiel d'électrode avec la loi de Nernst. Écrivons tout d'abord la demi-équation de réduction :
+\begin{equation}
+	\text{Ag}^+ + 1\text{e}^- = \text{Ag(s)},
+\end{equation}
+d'où l'expression de la loi de Nernst à 298 K
+\begin{equation}
+	E(\text{Ag}^+/\text{Ag(s)}) = E\textsuperscript{o}(\text{Ag}^+/\text{Ag(s), 298 K}) + \frac{0.059}{1} \text{log}_{10}[\text{Ag}^{+}].\\
+\end{equation}
+
+\textbf{Exemple 2 : l'électrode standard à l'hydrogène.}\\
+Le couple constituant l'électrode est $\text{H}^+/H_2\text{(g)}$. Sa demi-équation de réduction s'écrit
+\begin{equation}
+	2\text{H}^+ + 2\text{e}^- = \text{H}_2(g).
+\end{equation}
+Comme le dihydrogène est une espèce gazeuse, on fait apparaître sa pression $p(\text{H}_2)$ \textbf{donnée en bar} dans l'expression de la loi de Nernst :
+\begin{equation}
+	E(\text{H}^+/H_2\text{(g)}) = E\textsuperscript{o}(\text{H}^+/H_2\text{(g)}, 298 K) + \frac{RT}{1\mathcal{F}}\text{ln} \frac{[\text{H}^+]^2}{p(\text{H}_2)}.
+\end{equation}
+
+Par définition de l'ESH, $[\text{H}^+] = 1\;\text{mol.L}^{-1}$ et $p(\text{H}_2) = 1$ bar : le terme en log vaut 0 et
+\begin{equation}
+	E(\text{H}^+/H_2\text{(g)}) = E\textsuperscript{o}(\text{H}^+/H_2\text{(g)}, 298 K) = 0 
+\end{equation}
+pour toute température $T$ compte tenu de la convention fixant l'ESH comme référence des potentiels d'électrode.\\
+
+\textbf{Exemple 3 : l'électrode de référence au calomel saturé.}\\
+Le couple constituant l'électrode est $\text{Hg}_2\text{Cl}_2\text{(s)}/\text{Hg(l)}$. Sa demi-équation de réduction s'écrit
+\begin{equation}
+	\text{Hg}_2\text{Cl}_2\text{(s)} + 2\text{e}^- = 2\text{Hg}(l) + 2\text{Cl}^-.
+\end{equation}
+Ici, le mercure est liquide et le calomel est un précipité (donc solide). Ils n'interviennent pas dans la relation de Nernst (on leur attribue une "concentration"\footnote{L'activité d'un solide ou d'un liquide est prise à 1.} de 1) :
+\begin{equation}
+	E(\text{Hg}_2\text{Cl}_2\text{(s)}/\text{Hg(l)}) = E\textsuperscript{o}(\text{Hg}_2\text{Cl}_2\text{(s)}/\text{Hg(l)}, 298 K)
+	+ \frac{0.06}{2}\text{log}_{10}\frac{1}{[\text{Cl}^{-1}]^2}.
+\end{equation}
+à $T = 25\textsuperscript{o}$C. 
+Puisque la solution de chlorure de potassium dans laquelle baigne le précipité de calomel est saturée, la concentration en ions chlorure ne varie pas et le potentiel de l'ECS est fixé ($E \simeq 0.241\;V$) : on peut donc s'en servir comme électrode de référence.\\
+
+\textbf{Exemple 4 : potentiel d'oxydoréduction du couple ion permanganate/ion manganèse}\\
+Il est possible de définir un potentiel d'oxydoréduction pour tout couple oxydant réducteur. On assimile souvent ce potentiel au potentiel d'électrode et La valeur de ce potentiel est calculable en utilisant la loi de Nernst. On confondra la notion de potentiel d'oxydoréduction avec celle de potentiel d'électrode au niveau lycée. Ainsi, pour le couple ion permanganate/ion manganèse $\text{MnO}_4 {}^- / \text{Mn}^{2+}$, dont la demi-équation de réduction s'écrit
+\begin{equation}
+	\text{MnO}_4 {}^- + 8\text{H}^+ + 5\text{e}^- = \text{Mn}^{2+} + 4\text{H}_2\text{O},
+\end{equation}
+la loi de Nernst à 298 K s'écrit 
+\begin{equation}
+	E(\text{MnO}_4 {}^- / \text{Mn}^{2+}) = E\textsuperscript{o}(\text{MnO}_4 {}^- / \text{Mn}^{2+}, 298 K) 
+	+ \frac{0.059}{5}\text{log}_{10}\frac{[\text{MnO}_4 {}^-][\text{H}^+]^8}{[\text{Mn}^{2+}]}.
+\end{equation}
+On peut la réécrire en faisant apparaître le $pH = - \text{log}_{10}([\text{H}^+])$ :
+\begin{equation}
+	E(\text{MnO}_4 {}^- / \text{Mn}^{2+}) = E\textsuperscript{o}(\text{MnO}_4 {}^- / \text{Mn}^{2+}, 298 K) - \frac{8\times0.059}{5}\text{pH}
+	+ \frac{0.059}{5}\text{log}_{10}\frac{[\text{MnO}_4 {}^-]}{[\text{Mn}^{2+}]}\\
+\end{equation}
+
+Pour écrire la loi de Nernst, on doit se baser sur les espèces apparaissant dans la demi-équation de réduction, en faisant apparaître les ions $\text{H}^+$ si besoin, y compris en milieu basique. En effet, les potentiels standards $E\textsuperscript{o}$ sont calculés pour un $pH = 0$, ce qui correspond à une concentration de 1 $\text{mol.L}^{-1}$ en ions $\text{H}^\text{+}$.\\
+
+
+\subsection{Polarité et force électromotrice d'une pile}
+
+Afin d'illustrer une des nombreuses applications de la loi de Nernst, revenons brièvement à la pile Daniell : nous allons calculer sa force électromotrice grâce à la loi de Nernst.\\ 
+
+Les demi-équations de réduction des couples $\text{Zn}(\text{s})/\text{Zn}^{2+}$ et $\text{Cu}(\text{s})/\text{Cu}^{2+}$ s'écrivent 
+\begin{equation}
+	\text{Zn}^{2+} + 2\text{e}^- = \text{Zn}(\text{s})
+\end{equation}
+et 
+\begin{equation}
+	\text{Cu}^{2+} + 2\text{e}^- = \text{Cu}(\text{s}).\\
+\end{equation}
+
+On écrit une relation de Nernst pour chaque électrode, à $T = 25\textsuperscript{o}$C :
+\begin{equation}
+ 	E(\text{Zn}(\text{s})/\text{Zn}^{2+}) = E\textsuperscript{o}(\text{Zn}(\text{s})/\text{Zn}^{2+}, 298 K) + \frac{0.059}{2}\text{log}_{10}([\text{Zn}^{2+}])
+\end{equation}
+et
+\begin{equation}
+	E(\text{Cu}(\text{s})/\text{Cu}^{2+}) = E\textsuperscript{o}(\text{Cu}(\text{s})/\text{Cu}^{2+}, 298 K) + \frac{0.059}{2}\text{log}_{10}([\text{Cu}^{2+}]).\\ 
+\end{equation}
+
+Rappelons que $\Delta E = E(\text{Cu}(\text{s})/\text{Cu}^{2+}) - E(\text{Zn}(\text{s})/\text{Zn}^{2+})$, d'où
+\begin{equation}
+	\Delta E = \Delta E\textsuperscript{o} + \frac{0.059}{2}\text{log}_{10}\left(\frac{[\text{Cu}^{2+}]}{[\text{Zn}^{2+}]}\right).
+\end{equation}
+Comme nous avons pris des solutions de sulfate de cuivre et de sulfate de zinc de concentrations égales, l'argument du logarithme vaut 1 et
+\begin{equation}
+	\Delta E = \Delta E\textsuperscript{o}.\\
+\end{equation}
+
+Pour $T = 25\textsuperscript{o}$C, les tables donnent $E\textsuperscript{o}(\text{Zn}(\text{s})/\text{Zn}^{2+}) = -0.76\;V$ et $E\textsuperscript{o}(\text{Cu}(\text{s})/\text{Cu}^{2+}) = 0.34\;V$. Ainsi,
+\begin{equation}
+	\Delta E = 1.1\;V
+\end{equation}
+
+Remarquons que le potentiel de l'électrode de zinc est bien plus faible que celui de l'électrode de cuivre : l'électrode de zinc constitue bien l'anode de la pile et les électrons partent du zinc pour rejoindre le cuivre via un circuit externe connecté à la pile (en l'occurrence, le voltmètre).
+
+\textcolor{red}{[Manip : comparer avec une mesure sur la vraie pile Daniell]}.
+
+\newpage
+\textbf{Transition :} après avoir défini une grandeur propre à une électrode donnée, le potentiel d'électrode, nous avons mis en évidence sa dépendance vis à vis
+\begin{itemize}
+	\item de la température $T$,
+	\item de la concentration (ou de la pression si les espèces sont gazeuses) en ions oxydants et réducteurs présents dans l'électrode (notamment les ions $\text{H}^+$).\\
+\end{itemize}
+
+On travaille souvent à température constante lorsqu'on effectue une mesure. Dans de telles conditions, le potentiel d'électrode ne dépend plus que des concentrations en espèces aux propriétés rédox. Il peut donc servir à mesurer une concentration. 
+
+\section{Capteurs électrochimiques}
+
+\subsection{Dosage potentiométrique. Sélectivité d'un capteur électrochimique.}
+
+Prenons un exemple : celui d'une solution de nitrate d'argent de concentration inconnue. Les ions $\text{Ag}^+$ et $\text{NO}_3{}^-$ sont présents en solution. On plonge un morceau d'argent dans cette solution. On constitue ainsi une électrode d'argent, puisque les deux espèces du couple $\text{Ag}^+/\text{Ag(s)}$ sont en contact. On plonge une ECS dans la solution, après l'avoir munie d'une allonge de protection.\\
+
+L'allonge de protection sert à éviter le contact entre les ions argent et les ions chlorure (le chlorure d'argent est très peu soluble dans l'eau $\text{pKs(AgCl)} = 9.75$) au niveau du fritté de l'électrode de référence. La précipitation du chlorure d'argent dans le fritté finirait par le boucher, empêchant l'électrode de fonctionner.\\
+
+Pour fermer le circuit, on connecte un voltmètre aux deux électrodes. Le montage est alors \textbf{équivalent à une pile à compartiments} constituée d'une électrode d'argent et d'une électrode au calomel saturé. Les deux compartiments sont reliés par le verre fritté de l'ECS qui tient le rôle du vase poreux de la pile Daniell. Le voltmètre mesure la force électromotrice de cette pile,
+\begin{equation}
+	\Delta E = E(\text{Ag}^+/\text{Ag(s)}) - E_\text{ECS}.
+\end{equation}
+expression que l'on a pu établir grâce à la loi de Nernst exprimée pour les deux électrodes. Il faut faire attention à ne pas confondre la différence de potentiel mesurée par le voltmètre et le potentiel de l'électrode d'argent défini par rapport à l'ESH.\\
+
+On peut remonter à la concentration en ions argent de la solution en utilisant la droite d'étalonnage tracée lorsqu'on a souhaité mettre en évidence la loi de Nernst durant la seconde partie de la leçon. On réalise ainsi un \textbf{dosage potentiométrique par étalonnage} et notre montage constitue un capteur électrochimique des ions argent. \textcolor{red}{[MANIP à faire]}.\\
+
+Il faut bien comprendre qu'il n'est pas possible de mesurer une autre concentration que celle des ions argent avec le montage que nous venons de réaliser, car la différence de potentiel mesurée n'est sensible qu'à la présence de ces ions. De façon générale, \textbf{les capteurs électrochimiques sont des capteurs sélectifs}, conçus pour détecter seulement certaines espèces et totalement inutiles pour en détecter d'autres.\\
+
+\textbf{Remarque :} Dans le cas du dosage de l'argent, le conducteur métallique appartient au couple rédox étudié. L'ensemble argent métallique/ions argent constitue une électrode. On aurait pu mettre en évidence la loi de Nernst en utilisant le couple $\text{Fe}^{3+}/\text{Fe}^{2+}$. Dans ce cas, les deux espèces du couple se seraient retrouvées en solution. Pour collecter les électrons, il aurait donc fallu introduire une "électrode" solide (abus de langage) conductrice, mais inerte chimiquement (par exemple du platine) par rapport aux ions ferriques et ferreux. L'ensemble ions/platine solide constitue une électrode au sens d'une pile ou d'un capteur électrochimique.
+
+\subsection{Mesure du pH : électrode de verre}
+
+Il est possible de mesurer le pH d'une solution par une technique de potentiométrie, en utilisant une électrode de verre, sensible à la concentration en ions $\text{H}_3\text{O}^+$. \'A l'intérieur de la membrane de verre constituant l'électrode, i.e. dans la boule de verre, on trouve une solution tampon de pH fixée. L'électrode servant à mesurer le pH est généralement une \textbf{électrode combinée} : l'électrode de verre et l'électrode de référence (électrode au chlorure d'argent) sont contenues dans le même objet. L'idée est de réduire l'encombrement dans le récipient dans lequel on effectue les mesures, par exemple lors d'un titrage où le barreau aimanté, la burette et l'électrode doivent coexister dans un bécher.\\
+
+La conversion de la différence de potentiel mesurée en pH est réalisée par un pH-mètre grâce à un étalonnage préalable. Il existe une relation affine entre la différence de potentiel m
+Fonctionnement de l'électrode de verre. Ainsi, on a la relation suivante :
+\begin{equation}
+	\Delta E = \text{a} + \text{b}\;\text{pH},
+\end{equation}
+où a et b sont des constantes déterminées lors de l'étalonnage du pH-mètre.\\
+
+L'électrode ne doit pas rester à l'air libre : lorsqu'elle ne sert pas, on lui met un bouchon, contenant un liquide qu'il ne faut pas renverser. Lorsqu'on s'en sert, on la plonge dans un bécher contenant de l'eau distillée en attendant de faire les mesures. L'étalonnage est réalisé en utilisant deux solutions tampon ($pH = 4$ et 7 si on travaille en milieu plutôt acide ou $pH = 7$ et 10 si on travaille en milieu plutôt basique.). Pourquoi deux ? Pour déterminer complètement une droite, il faut fixer la position d'un point et la pente.
+
+\subsection{Mesure de la teneur en $\text{O}_2$ de gaz d'échappement : sonde lambda}
+
+Les voitures à essence ont tendance à émettre des substances polluantes et nocives pour l'organisme du fait d'une combustion non optimale de l'essence (monoxyde de carbone, hydrocarbures non brûlés, oxydes d'azote, essentiellement). En effet, dans un moteur de voiture, la proportion du mélange air/essence a une grande influence sur la formation des composants nocifs principaux . L'émission de ces polluants est minimale lorsque la combustion du carburant est complète, c'est à dire pour un mélange stoechiométrique de carburant et d'air (mélange de diazote et de dioxygène). Les proportions idéales sont les suivantes :
+\begin{equation}
+	\boxed{\text{1g de carburant pour 14.7g d'air}}.
+\end{equation}
+Dans ce cas, les produits de réaction sont du dioxyde de carbone et de l'eau, sans oublier le diazote de l'air, qui ne réagit pas mais qui est bien présent.\\ 
+
+On définit le \textbf{coefficient d'air} $\lambda$, ratio entre la quantité de dioxygène admise dans le cylindre du moteur et la quantité idéale. Ce coefficient est de 1 dans le cas idéal. \begin{itemize}
+	\item Si $\lambda < 1$, on parle de mélange riche en essence. Il y a un défaut d'air : le dioxygène est le réactif limitant dans la réaction de combustion. La combustion de l'essence est donc incomplète : du monoxyde de carbone et des hydrocarbures sont émis depuis le pot d'échappement.\\
+	\item si $\lambda > 1$, le mélange est pauvre en essence, qui joue le rôle de réactif limitant. Le diazote de l'air et le dioxygène restant vont réagir ensemble (du fait de la température élevée dans le moteur) et produire des oxydes d'azote.
+\end{itemize}
+
+Le contrôle de la teneur de l'air en dioxygène est donc important : la connaissance de cette teneur permet de mettre en place une chaîne d'asservissement de la quantité d'essence entrant dans le cylindre du moteur, le but étant de réaliser une combustion complète du carburant. La sonde lambda est un capteur de dioxygène mis au point dans les années 1970 dans l'industrie automobile. De nos toujours, toutes les voitures mises sur le marché en sont équipées car elle permet de réaliser cet asservissement.\\
+
+La sonde lambda est constituée d'un tube en céramique poreuse (zircone $\text{ZrO}_2$) jouant le rôle d'électrolyte solide : la conduction du courant est assurée par diffusion des ions oxyde $\text{O}^{2-}$, la zircone étant un isolant électronique \textcolor{red}{Cf. Fosset PCSI p 713}. Le tube est recouvert d'une couche de platine. La face externe du tube est en contact avec les gaz d'échappement et joue le rôle d'une première électrode. La face interne du tube est en contact avec l'air extérieur et joue le rôle d'une seconde électrode. Ainsi, les deux électrodes mesurent le potentiel du couple $\text(O)_2/\text{O}_2{}^{2-}$ (dioxygène gazeux/ion peroxyde). La différence de potentiel entre ces deux électrodes ne peut provenir que d'une différence de teneur en dioxygène :
+\begin{itemize}
+	\item dans le cas où $\lambda < 1$, il n'y a plus d'oxygène dans les gaz d'échappement et seul l'oxygène de l'air traverse l'électrolyte poreux, ce qui crée une grande différence de potentiel entre les deux électrodes;
+	\item si $\lambda > 1$, l'oxygène des gaz d'échappement et l'oxygène de l'air traversent tous les deux l'électrolyte et la différence de potentiel mesurée est faible.
+\end{itemize}
+
+\subsection{Détecteurs de fumée électrochimiques (facultatif)}
+
+Un détecteur de gaz est un appareil capable d'estimer la concentration d'un ou plusieurs gaz présents dans l'atmosphère. Il existe plusieurs technologies pour ces détecteurs, et notamment des détecteurs électrochimiques. Les principaux gaz détectés par cette technologie sont assez nombreux. On citera notamment le dichlore ou encore le monoxyde de carbone, deux gaz potentiellement dangereux pour l'être humain. Leur temps de réponse est variable : d'une dizaine de secondes à plusieurs minutes (les réactions d'oxydoréduction sont plutôt lentes). Leur durée de vie varie de quelques mois à quelques années.\\
+
+Détaillons le cas du capteur de monoxyde de carbone. Le capteur est schématiquement constitué de deux électrodes de platine (une électrode de travail et une contre-électrode, plongées dans une solution acide. Le monoxyde de carbone pénètre dans le capteur à travers une membrane perméable aux gaz, mais pas aux liquides. Il est alors dissout dans la solution du capteur.\\
+
+Le monoxyde de carbone s'oxyde au contact de l'eau et de l'électrode de travail :
+\begin{equation}
+	\text{CO} + \text{H}_2\text{O} = \text{CO}_2 + 2\text{H}^+ + 2\text{e}^-.\\
+\end{equation}
+A la contre-électrode se produit la réduction du dioxygène de l'air :
+\begin{equation}
+	\text{O}_2 + 4\text{H}^+ + 4\text{e}^- = 2\text{H}_2\text{O}.\\ 
+\end{equation}
+Les deux compartiments doivent être séparés pour que seuls les gaz ne passent pas d'une électrode à l'autre. En l'absence de dioxygène, les ions $\text{H}^+$ de la solution acide vont être réduits en dihydrogène gazeux. Il est donc nécessaire d'utiliser ce capteur dans un milieu oxygéné (ou de connecter au capteur un petit réservoir de dioxygène.\\
+
+Potentiels standards des couples présents :
+\begin{itemize}
+	\item $E\textsuperscript{o}(\text{CO}_2\text{(g)}/\text{CO},\text{(g)}) = -0.11$ V,
+	\item $E\textsuperscript{o}(\text{0}_2\text{(g)}/\text{H}_2\text{O,(l)}) = 1.23$ V
+\end{itemize}
+
+Un ampèremètre est connecté aux deux électrodes : en l'absence de monoxyde de carbone, l'ampèremètre n'est pas traversé par un courant. En présence de CO, une circulation de courant a lieu. Le capteur est relié à un système électronique, qui peut, par exemple, déclencher une alarme.
+
+\section*{Conclusion}
+
+Nous avons vu que le principe d'un capteur électrochimique reposait sur celui de la pile électrochimique à compartiments : on mesure la différence de potentiel électrique entre deux électrodes (association d'un oxydant et d'un réducteur dans un même compartiment). L'une des deux électrodes est conçue pour garder un potentiel fixe, afin de servir de référence : la différence de potentiel mesurée est alors une image du potentiel de l'électrode étudiée. Nous avons montré que la loi de Nernst nous permettait d'interpréter cette mesure en termes de concentration, et qu'on pouvait ainsi se servir de capteurs électrochimiques pour réaliser des dosages d'espèces présentant des propriétés redox. Nous avons insisté sur le fait qu'un capteur électrochimique était sélectif : il n'existe pas de capteur universel capable de mesurer la concentration de n'importe quelle espèce oxydante ou réductrice. Lorsqu'on souhaite réaliser un dosage par potentiométrie il est donc important de réfléchir au choix des électrodes constituant le capteur.
+
+On a brièvement mentionné la possibilité de définir un potentiel d'oxydoréduction pour tout couple oxydant-réducteur, par exemple dans le cas de l'ion permangante. Ce potentiel d'oxydoréduction est souvent confondu avec le potentiel d'électrode, c'est à dire qu'il correspondrait à la différence de potentiel que l'on mesurerait en réalisant une pile avec :
+\begin{itemize}
+	\item l'électrode standard à l'hydrogène,
+	\item une solution contenant les ions permanganate et manganèse dans laquelle on aurait plongé une "électrode" (abus de langage) métallique inattaquable par ces ions (par exemple une électrode de platine),
+	\item un pont salin pour relier les deux électrodes (ou demi-piles), le voltmètre servant à faire la mesure et à fermer le circuit, permettant à une très faible (mais certainement pas nulle) quantité d'électrons de circuler d'un compartiment à l'autre sous l'effet de la différence de potentiel.
+\end{itemize}
+Toute réaction d'oxydoréduction dans un bécher peut être modélisée par une pile de même équation bilan. La connaissance des potentiels d'oxydoréduction des deux couples réagissant ensemble nous permet de prédire le sens d'évolution de la réaction d'oxydoréduction, de la même manière qu'il nous permet de déterminer dans quel sens les électrons circulent hors de pile. Ceci sera l'objet de la prochaine leçon.
+\end{document}

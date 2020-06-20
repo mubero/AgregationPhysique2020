@@ -1,0 +1,12 @@
+\contentsline {subsection}{\numberline {0.0.1}Pr\IeC {\'e}-requis}{2}
+\contentsline {subsection}{\numberline {0.0.2}Introduction}{2}
+\contentsline {section}{\numberline {0.1}D\IeC {\'e}finitions et exemple}{2}
+\contentsline {section}{\numberline {0.2}digramme de phase}{2}
+\contentsline {subsection}{\numberline {0.2.1}Surface caract\IeC {\'e}ristique}{2}
+\contentsline {subsection}{\numberline {0.2.2}Diagramme PT}{2}
+\contentsline {subsection}{\numberline {0.2.3}Diagramme PV ou diagramme de Clapeyron}{2}
+\contentsline {subsection}{\numberline {0.2.4}Exemple de l'eau}{2}
+\contentsline {section}{\numberline {0.3}Lien avec la thermodynamique}{2}
+\contentsline {subsection}{\numberline {0.3.1}Condition d'\IeC {\'e}quilibre entre deux phases}{2}
+\contentsline {subsection}{\numberline {0.3.2}Chaleur latente}{3}
+\contentsline {section}{\numberline {0.4}Conclusion}{3}

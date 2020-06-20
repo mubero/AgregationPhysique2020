@@ -1,0 +1,24 @@
+\contentsline {subsection}{\numberline {0.0.1}Introduction}{2}
+\contentsline {section}{\numberline {0.1}Aspect ondulatoire de la mati\IeC {\`e}re}{2}
+\contentsline {subsection}{\numberline {0.1.1}Comportement ondulatoire des particules}{2}
+\contentsline {subsection}{\numberline {0.1.2}Relations de de Broglie}{2}
+\contentsline {section}{\numberline {0.2}Formalisme quantique}{2}
+\contentsline {subsection}{\numberline {0.2.1}Fonction d'onde}{2}
+\contentsline {subsection}{\numberline {0.2.2}\IeC {\'E}quation de Schr\IeC {\"o}dinger}{2}
+\contentsline {subsection}{\numberline {0.2.3}Particule libre}{2}
+\contentsline {subsection}{\numberline {0.2.4}In\IeC {\'e}galit\IeC {\'e} de Heisenberg}{3}
+\contentsline {subsection}{\numberline {0.2.5}Particule li\IeC {\'e}e}{3}
+\contentsline {section}{\numberline {0.3}Conclusion}{3}
+\contentsline {chapter}{\numberline {1}Plan Hugo}{4}
+\contentsline {section}{\numberline {1.1}Aspect ondulatoire de la mati\IeC {\`e}re}{4}
+\contentsline {subsection}{\numberline {1.1.1}Relation de de Broglie}{4}
+\contentsline {subsection}{\numberline {1.1.2}Exp\IeC {\'e}rience de Davisson et Germer}{4}
+\contentsline {subsection}{\numberline {1.1.3}Diffraction d'\IeC {\'e}lectrons par le graphite}{4}
+\contentsline {section}{\numberline {1.2}Notion de fonction d'onde}{4}
+\contentsline {subsection}{\numberline {1.2.1}Exp\IeC {\'e}rience des \IeC {\'e}lectrons}{4}
+\contentsline {subsection}{\numberline {1.2.2}Fonction d'onde}{5}
+\contentsline {subsection}{\numberline {1.2.3}\IeC {\'E}quation de Schr\IeC {\"o}dinger}{5}
+\contentsline {section}{\numberline {1.3}Applications et cons\IeC {\'e}quences}{5}
+\contentsline {subsection}{\numberline {1.3.1}Particule dans un puits infini}{5}
+\contentsline {subsection}{\numberline {1.3.2}Paquet d'onde}{5}
+\contentsline {subsection}{\numberline {1.3.3}In\IeC {\'e}galit\IeC {\'e}s d'Heisenberg}{5}

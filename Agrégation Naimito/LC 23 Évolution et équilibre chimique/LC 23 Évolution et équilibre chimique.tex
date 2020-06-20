@@ -1,0 +1,131 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 23 Évolution et équilibre chimique}
+	\author{Mathieu}
+	\date{Agrégation 2019}
+
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+
+\subsection*{Pré-requis}
+Niveau deuxième année.
+
+\section{Expériences introductives}
+\subsection{Dissociation de l'acide formique}
+\paragraph{Manip :} \textit{Terminale S Hachette édition 2012} p 328. \\
+
+On fait un tableau d'avancement pour expliciter la réaction de l'acide méthanoïque $HCOOH$ sur l'eau. On fait un suivi conductimétrique de l'avancement car les produits sont des ions (on connaît $\lambda_{H_3O^+}$ et $\lambda_{HCOO^-}$). On en déduit les concentrations à l'équilibre, en fonctions de différentes concentrations initiales d'acides (on fait différentes dilutions de la solution mère). A partir de ces valeurs on va pouvoir montrer que la constante d'équilibre $K_a$ est bel et bien une constante (qui ne dépend pas des proportions initiales).\\ Il faut prendre la précaution de faire toutes les mesures à la même température, $K_a$ et les $\lambda$ dépendant de T à priori, ce que l'on fait au moyen d'un bécher thermostaté à 25°C (température pour laquelle on connait les conductivités molaires).\\
+On en déduit que pour une température donnée, l'état d'équilibre atteint sera toujours le même, quelque soient les proportions initiales de réactifs (l'avancement sera donc lui différent).
+
+\subsection{Dimérisation du dioxyde d'azote}
+\paragraph{Manip :} On a la réaction
+\begin{eqnarray}
+2NO_{2(g)} = N_2O_{4(g)}
+\end{eqnarray}
+qui est exothermique, où les deux composés n'ont pas la même couleur : $NO_{2(g)}$ est incolore tandis que $N_2O_{4(g)}$ est brunâtre.\\
+On place originellement le gaz dans un volume entouré de glace. On le place ensuite à température ambiante et on voit que cela s'éclaircit.\\
+On démontre ainsi que la constante de réaction dépend de la température, et qu'imposer une variation de cette dernière permet donc de déplacer l'équilibre.
+
+\section{Interprétation thermodynamique}
+\subsection{Position du problème}
+Si on reprend le premier exemple introduit, on a une réaction de la forme 
+\begin{eqnarray}
+0 = \sum _i \nu_i A_i
+\end{eqnarray}
+où les $\nu_i$ sont négatifs pour les réactifs et positifs pour les produits.\\
+On peut introduire l'enthalpie libre 
+\begin{eqnarray}
+G(T,P,\{n_i\})\\
+dG = \sum_i \left(\frac{\partial G}{\partial n_i}\right)_{T,P,\{n_{autres}\}}dn_i\\
+or\; n_i = n_{i}^0 + \nu_i \xi\\
+dG = \sum_i \nu_i \left(\frac{\partial G}{\partial n_i}\right)_{T,P,\{n_{autres}\}}d\xi = \sum_i \nu_i \mu_i(T,P)d\xi\\
+\Delta_rG = \left(\frac{\partial G}{\partial \xi}\right)_{T,P} = \sum \nu_i\mu_i \;\rightarrow \;dG = \Delta_rG d\xi\\
+\mathrm{On\;a}\;\mu_i(T,P) = \mu_i^o(T)  +RT\ln a_i\\
+\mathrm{D'ou}\; \Delta _rG = \Delta _rG^o + \sum_i \nu_i RT\ln a_i = \Delta _rG^o + RT \ln \Pi a_i^{\nu_i}\\
+= \Delta_rG^o + RT \ln\mathcal{Q}_r
+\end{eqnarray}
+\subsection{Critère d'évolution spontanée}
+\begin{eqnarray}
+dU = \delta W + \delta Q\\
+dS = \frac{\delta Q}{T_{ext}} + \delta_i S\\
+G = U + PV - TS\;\Rightarrow\; dG = -T_{ext}\delta _i S 
+\end{eqnarray}
+a T, P et S constantes, d'où $dG \le 0$.
+
+\subsection{Prévision de l'évolution et équilibre}
+\begin{eqnarray}
+\Delta _rG d\xi = -T\delta_i S \; \Rightarrow \; \delta_i S = -\frac{\Delta_rG d\xi}{T}\ge 0
+\end{eqnarray}
+On a
+\begin{eqnarray}
+\Delta_rG = \Delta_rG^o + RT \ln\mathcal{Q}_r
+\end{eqnarray}
+or $\Delta_rG = 0$ à l'équilibre d'où 
+\begin{eqnarray}
+\Delta _rG^o(T) = -RT \ln \mathcal{Q}_r^{eq} \\
+\Rightarrow\;\Delta_rG = RT \ln \frac{\mathcal{Q}}{K^o}
+\end{eqnarray}
+Le signe de $\Delta _rG$ nous informe sur le sens d'évolution de la réaction car $\Delta_rG d\xi \le 0$, on en déduit que l'on peut prévoir le sens d'avancement de la réaction en comparant $\mathcal{Q}_r$ et $K^o$.
+
+\section{Influence de perturbations sur l'équilibre}
+\subsection{Notion de Variance}
+\subsection{Influence de la température}
+\subsection{Influence de la pression}
+
+\section*{Questions}
+Concernant la dimérisation 
+\begin{eqnarray}
+2NO_{2(g)} = N_2O_{4(g)}
+\end{eqnarray}
+quels sont les noms des produits en jeu ?\\
+On ne peut pas dire peroxyde car il n'y a pas de liaison O-O. On dit donc dioxyde d'azote et tetraoxyde de diazote.\\
+
+Pouvez vous calculer la variance dans ce cas ?\\
+On a comme variables $T,\,P,\,x_{NO_2},\,x_{N_2O_4}$. On a deux relations : $\sum x_i = 1$ et l'expression de $K^o$. On a donc $v=2$.\\
+
+Qu'est ce qu'une rupture d'équilibre ?\\
+
+Lorsqu'on fait la deuxième manip, comment contrôle t-on la pression ?\\
+
+Quel est l'impact de la pression sur cette réaction ?\\
+
+Dans la première manip, peut on montrer la dépendance de $K_a$ en la température ?\\
+Le problème va être pour les conductivités molaires, qui ne sont en général connue qu'à $25^oC$.
+
+\section*{Remarques}
+Il ne faut pas faire la dilution en direct : trop long.\\
+Concernant la dissociation de l'acide : il faut calculer les rendements pour les deux $C_i$ initiales, et commenter : introduit la loi de Dilution d'Ostwald.\\
+Attention pour les $\lambda^0$ ce sont les coeff à dilution infinie et non dans un état standard.\\
+Attention : le fait de ne pas atteindre l'équilibre (rupture d'équilibre) si l'on ajoute trop peu de réactif ne peut pas arriver si on a que des phases homogènes. L'exemple pertinent est le fait que le Ks n'est pas respecté pour une précipitation tant que l'on est pas à saturation.
+
+
+\end{document}

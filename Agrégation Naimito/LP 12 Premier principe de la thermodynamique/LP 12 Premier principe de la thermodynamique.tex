@@ -1,0 +1,160 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 12 Premier principe de la thermodynamique}
+		\author{Etienne}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsubsection{Pré-requis}
+Niveau MPSI 1ere année\\
+Forces\\
+variables d'états
+\subsubsection{Introduction}
+Caractère intuitif de la conservation de l'énergie, mais principe faisant toujours débat aujourd'hui. On se place en thermodynamique, et on sera donc ici dans des systèmes thermodynamiques, à l'équilibre, et donc décrit par quelques variables.\\
+
+\section{De la mécanique à la thermodynamique}
+\subsection{Energie d'un système thermodynamique}
+On définit un système $\mathcal{S}$, contenant N particules de masse m, et dont le centre de masse sera noté G.
+\begin{eqnarray}
+\varepsilon_c = \varepsilon_{macro} + \varepsilon_{micro} = \frac{1}{2}NmV_G^2 + \sum\frac{1}{2}mv_i^{*2}\\\varepsilon_p = \varepsilon_{p\,int} + \varepsilon_{p\,ext}\\
+= \varepsilon_{agit} + \varepsilon_M
+\end{eqnarray}
+Pour un système on définit donc l'énergie interne comme
+\begin{eqnarray}
+	U= \varepsilon_{agit} + \varepsilon_{p\,int},
+\end{eqnarray}
+c'est une fonction d'état, on va voir si elle est extensive.\\
+Exemple d'un mélange eau-huile
+
+\subsection{Transfert d'énergie sous forme de travail}
+On considère un gaz dans un volume V, fermé d'un coté par un piston...\\
+Il existe de nombreux types de travail : mécanique, de couple, électrique, magnétique, chimique (on donnera leurs expressions)..etc
+\subsection{Une autre forme de transfert d'énergie ? La chaleur}
+Exemple d'une bouilloire.\\
+Ici on va considérer en réalité des valeurs moyennes, puisque les valeurs microscopique fluctuent dans le temps et dans l'espace à des échelles que l'on ne peut percevoir avec des outils "courants".
+\section{Premier principe}
+\subsection{Énoncé}
+U fonction d'état.
+\begin{eqnarray}
+\Delta U = W+Q\\dU = \delta W + \delta Q
+\end{eqnarray}
+on note dU et $\delta W$ car U est une fonction définie à chaque état, et ne dépend pas du chemin suivi, on peut donc définir sa différentielle. Tandis que Q et W dépendent du chemin suivi.
+\subsection{Définition de la chaleur}
+Exemple de la terre autour du soleil.
+Exemple d'un système diatherme.
+\section{Transfert calorifique}
+\subsection{Capacités calorifiques}
+\begin{eqnarray}
+U(T,V)\\dU = \left(\frac{\partial U}{\partial T}\right)_VdT + \left(\frac{\partial U}{\partial V}\right)_TdV\\
+\delta Q = dU - \delta W\\
+\delta Q = \left(\frac{\partial U}{\partial T}\right)_VdT + \left[ \left(\frac{\partial U}{\partial V}\right)_T-P_0\right]dV\\
+C_v = \left(\frac{\partial U}{\partial T}\right)_V
+\end{eqnarray}
+avec $C_v$ en $J.K^{-1}$.
+\begin{eqnarray}
+\Delta U = Q_V = \int_{T_1}^{T_2}C_v(T,V)dT
+\end{eqnarray}
+Remarque : on peut aussi travailler avec l'enthalpie H, et définir $C_p= \left(\frac{\partial H}{\partial T}\right)_P$.
+
+\subsection{Application}
+Exemple d'un café : on veut sucrer(avec 10g de sucre à 20°C) un café à $50°C$ tout en conservant notre café à la même température.\\
+Seule la gravité travaille ici
+\begin{eqnarray}
+W = mgh\\
+\Delta U = \Delta U_{cafe} + \Delta U_{sucre} = 0 + mC_m(T_F-T_I)\\
+\Rightarrow h= \frac{C_m(T_F-T_I)}{g} = 1529m!!!
+\end{eqnarray}
+On peut aussi lancer le sucre avec une vitesse initiale de 622km/h, ou bien prendre un température initiale de 50,75°C.\\
+Permet de mettre en évidence la notion de transfert thermique.\\
+Commentaire quand aux capacités calorifiques de quelques métaux, de l'air et de l'eau dans ses trois états directement.
+\subsection{Calorimétrie}
+Explication du concept expérimental permettant de mesurer ces capacités calorifiques.\\
+La capacité calorifique dépend du nombre de degrés de liberté.
+
+\section*{Questions}
+Pour la calorimétrie : on travaille à pression constante ... sur les schéma on travaille sous vide .. qu'en est il ?\\
+Comment fait on donc en pratique pour étudier la capacité calorifique ?\\
+
+Concernant l'exemple de la tasse de café : comment obtient on le h ? Est ce réaliste ?\\
+
+Si je jette un caillou dans une marre, est ce que le caillou chauffe la marre ?\\
+
+Lorsque je tourne ma cuillère dans mon café, est ce que je chauffe mon café ?\\
+
+Quand un enfant remue sa soupe elle refroidit plus vite... pourquoi ?\\
+
+Pourquoi lorsqu'on souffle sur sa soupe elle refroidit encore plus vite ??\\
+
+A t-on toujours le droit de décomposer l'énergie cinétique et énergie c macro et micro ?\\
+Théorème de Koenig\\
+
+Pourquoi ne peut on pas toujours définir un centre de masse invariant pendant une transformation ?\\
+
+Qu'est ce qu'une fonction d'état ?\\
+
+Comment définit on un état thermodynamique ?\\
+
+Est on obligé d'être à ol'équilibre pour définir l'énergie interne ?\\
+
+Un exemple où l'on peut chauffer sans augmenter la température ?\\
+Un exemple ou Q=0 et où $\Delta T \neq 0$ ?\\
+Pompe à vélo, aérosol.\\
+
+Si on laisse une cocote sur le feu trop longtemps elle explose ... pourquoi ?\\ Si le gaz dans la cocote est parfait ... explose t-elle quand même ?\\
+
+\section*{Remarques}
+Leçon trop théorique : il faut plus d'exemples, et notamment plus d'exemples concrets.\\
+Concernant le centre de masse : on caractérise un état particulier, à un instant donné, on se moque donc du centre de masse.\\
+mauvaise définition d'état thermodynamique.\\
+Insister sur le passage microscopique $\rightarrow$ macroscopique.\\
+Définir la notion de transformation ou la mettre en pré-requis.\\
+Pour les moyennages de la pression etc... faire attention à la rigueur des expressions données, par ex pour la pression on définit la force moyenne reçue par chaque particule, puis on divise par la surface.\\
+
+Plan possible :\\
+
+Donner un exemple concret en introduction : on établit une problématique qu'on résout pendant la leçon\\
+Ex possible : on pose une masse sur le piston, on chauffe et la masse monte, ou bien exemple de la voiture qui freine.\\
+
+On définit l'énergie interne, et aussi la notion d'équilibre.\\
+
+Il faut revenir à un moment à l'exemple initial.
+
+
+
+
+
+\end{document}

@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Le potentiel chimique}{2}
+\contentsline {section}{\numberline {2}Changement d'\IeC {\'e}tat du corps pur}{2}
+\contentsline {section}{\numberline {3}Crit\IeC {\`e}re d'\IeC {\'e}volution}{2}
+\contentsline {subsection}{\numberline {3.1}Diagramme de phase}{2}
+\contentsline {paragraph}{Manip :}{2}
+\contentsline {section}{\numberline {4}M\IeC {\'e}langes binaires solide liquide}{2}
+\contentsline {subsection}{\numberline {4.1}Potentiel chimique d'un m\IeC {\'e}lange}{2}
+\contentsline {subsection}{\numberline {4.2}Refroidissement d'un m\IeC {\'e}lange}{2}
+\contentsline {subsection}{\numberline {4.3}M\IeC {\'e}lange binaire homog\IeC {\`e}ne}{2}
+\contentsline {subsection}{\numberline {4.4}M\IeC {\'e}lange binaire inhomog\IeC {\`e}ne}{2}
+\contentsline {subsubsection}{\numberline {4.4.1}Miscibilit\IeC {\'e} partielle \IeC {\`a} l'\IeC {\'e}tat solide}{2}

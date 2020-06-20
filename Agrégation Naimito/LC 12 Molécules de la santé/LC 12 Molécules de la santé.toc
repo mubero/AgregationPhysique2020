@@ -1,0 +1,7 @@
+\contentsline {subsection}{\numberline {0.1}Pr\IeC {\'e}-requis}{2}
+\contentsline {subsection}{\numberline {0.2}Intro}{2}
+\contentsline {section}{\numberline {1}Les m\IeC {\'e}dicaments}{2}
+\contentsline {subsection}{\numberline {1.1}Quelques d\IeC {\'e}finitions}{2}
+\contentsline {subsection}{\numberline {1.2}G\IeC {\'e}om\IeC {\'e}trie des mol\IeC {\'e}cules}{2}
+\contentsline {subsection}{\numberline {1.3}Aspirine}{2}
+\contentsline {section}{\numberline {2}Antiseptiques et d\IeC {\'e}sinfectants}{3}

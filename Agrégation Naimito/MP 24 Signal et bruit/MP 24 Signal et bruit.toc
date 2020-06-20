@@ -1,0 +1,11 @@
+\contentsline {paragraph}{Signal :}{2}
+\contentsline {paragraph}{Bruit :}{2}
+\contentsline {section}{\numberline {0.1}Caract\IeC {\'e}risation d'un bruit de quantification}{2}
+\contentsline {paragraph}{Remarque :}{2}
+\contentsline {paragraph}{Remarque}{2}
+\contentsline {subsubsection}{Rapport signal sur bruit}{3}
+\contentsline {section}{\numberline {0.2}D\IeC {\'e}tection synchrone}{3}
+\contentsline {paragraph}{Avec d\IeC {\'e}tection synchrone}{5}
+\contentsline {paragraph}{En transmettant le signal sans pr\IeC {\'e}caution}{5}
+\contentsline {subsection}{\numberline {0.2.1}Remarques pratiques}{6}
+\contentsline {subsection}{\numberline {0.2.2}questions/remarques}{6}

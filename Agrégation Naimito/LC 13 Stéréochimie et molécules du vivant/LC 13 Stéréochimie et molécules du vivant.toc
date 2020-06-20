@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Repr\IeC {\'e}sentation spatiale des mol\IeC {\'e}cules - Cram}{2}
+\contentsline {section}{\numberline {2}Stereoisom\IeC {\'e}rie de conformation}{2}
+\contentsline {subsection}{\numberline {2.1}Repr\IeC {\'e}sentation de Newman}{2}
+\contentsline {subsection}{\numberline {2.2}Etude \IeC {\'e}nerg\IeC {\'e}tique - stabilit\IeC {\'e}}{2}
+\contentsline {subsection}{\numberline {2.3}Les acides amin\IeC {\'e}s - prot\IeC {\'e}ines}{2}
+\contentsline {section}{\numberline {3}St\IeC {\'e}r\IeC {\'e}oisom\IeC {\`e}res de configuration}{2}
+\contentsline {subsection}{\numberline {3.1}Chiralit\IeC {\'e}}{2}
+\contentsline {subsection}{\numberline {3.2}\IeC {\'E}nantiom\IeC {\`e}res}{3}
+\contentsline {subsubsection}{\numberline {3.2.1}Cas d'un carbone asym\IeC {\'e}trique}{3}
+\contentsline {subsubsection}{\numberline {3.2.2}Cas de deux carbones asym\IeC {\'e}triques}{3}
+\contentsline {subsubsection}{\numberline {3.2.3}Activit\IeC {\'e} optique}{3}
+\contentsline {subsection}{\numberline {3.3}Diast\IeC {\'e}r\IeC {\'e}oisom\IeC {\`e}res}{3}

@@ -1,0 +1,203 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 44 Capacités thermiques : description, interprétations microscopiques}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\section{Généralités}
+\subsection{Aspect thermodynamique}
+\textit{Faroux-Renault Thermodynamique chap 6 partie 3.1 et 3.2 p111}\\
+Définition de $C_v$ à partir de l'énergie interne, puis de $C_p$ à partir de l'enthalpie. Expliciter, mais seulement qualitativement la différence entre les deux.\\
+
+\textit{Faroux-Renault Thermodynamique chap 6 partie 4 p114}\\
+Donner quelques valeurs, en déduire que l'eau est un cas spécial.
+%On a 
+%\begin{eqnarray}
+%\partial_TP|_P = \partial_ST|_V + \partial_SV|_T\partial_TV|_P\\
+%C_p = C_v + \frac{TV\alpha^2}{\chi_T}\\
+%\rightarrow C_p-C_v >0
+%\end{eqnarray}
+
+\subsection{Approche statistique}
+On a pris l'ensemble canonique comme pré-requis : être bref.\\
+
+\textit{Diu physique statistique Chap 2.I.C p 262}\\
+Définition de U comme étant l'énergie interne : limite thermodynamique de l'énergie moyenne au sens microscopique.\\
+
+\textit{Diu physique statistique Chap 2.II p269}\\
+ Expression dans le canonique à partir de la fonction de partition Z :
+\begin{eqnarray}
+\bar{E} &=& \sum_{\nu} P_{\nu}E_{\nu} = \sum_{\nu}\frac{1}{\mathcal{Z}} E_{\nu} e^{-\beta E_{\nu}} = -\frac{1}{\mathcal{Z}}\frac{\partial \mathcal{Z}}{\partial \beta} = -\frac{\partial \ln \mathcal{Z}}{\partial \beta}
+\end{eqnarray}
+où l'on a introduit $\beta =\frac{1}{k_BT}$. On voit de plus que si on dérive une nouvelle fois par $\beta$ 
+\begin{eqnarray}
+\frac{\partial^2 \ln \mathcal{Z}}{\partial \beta^2} &=& \frac{\partial}{\partial \beta}\left(-\frac{1}{\mathcal{Z}}\sum_{\nu}E_{\nu}e^{-\beta E_{\nu}}\right) = \frac{1}{\mathcal{Z}} \frac{\partial \mathcal{Z}}{\partial \beta}\frac{1}{\mathcal{Z}}\sum_{\nu}E_{\nu}e^{-\beta E_{\nu}} + \frac{1}{\mathcal{Z}} \sum_{\nu}E_{\nu}^2e^{-\beta E_{\nu}}\\
+&=& \bar{E^2} - \bar{E}^2
+\end{eqnarray}
+on obtient l'écart quadratique moyen $\Delta E^2$, que l'on peut donc lier à la capacité calorifique à volume constant 
+\begin{eqnarray}
+C_V = \frac{\partial \bar{E}}{\partial T} \Longrightarrow \Delta E^2 = - \frac{\partial \bar{E}}{\partial T}\frac{\partial T}{\partial \beta} = k_BT^2 C_V
+\end{eqnarray}
+
+\section{Les gaz parfaits}
+\subsection{Théorème d'équipartition de l'énergie}
+\textit{Diu chap III.V.C p304}\\
+On va maintenant l'appliquer au cas des gaz parfaits.
+
+\subsection{Les gaz parfaits monoatomiques}
+\textit{Diu chap III.IV.B p293}\\
+
+Hypothèse : \\
+Seulement des translations\\
+Pas d'interaction entre les particules.\\
+
+On a alors
+\begin{eqnarray}
+\varepsilon = \sum \frac{P_i^2}{2m}
+\end{eqnarray}
+On applique le théorème de l'équipartition de l'énergie
+\begin{eqnarray}
+U = \mathcal{N}_A \frac{3}{2}k_BT = \frac{3}{2}RT\\
+\Longrightarrow C_v = \frac{3}{2}R,\; AN\;:\;C_v = 12,5\;J.K^{-1}.mol^{-1}
+\end{eqnarray}
+	
+\subsection{Les gaz parfaits polyatomiques}
+\textit{Diu complément III.B p329 }\\
+Discuter le cas diatomique : 2 DDL de rotation et un de vibration,
+comparaison avec le GP monoatomique. Discussion, gelée des degrés de liberté.
+
+\section{Dans les solides}
+\subsection{Expérimentalement}
+Loi de Dulong et Petit à haute température.\\
+Comportement à basse température.
+
+\subsection{Modèle Einstein (1907)}
+Voir DIU, faire attention lorsqu'on définit le potentiel : les interactions entre mailles se font selon trois directions. Il ne faut donc pas prendre u(r) mais $u(x_i)$ et dire que l'isotropie revient à : il existe une seule pulsation : $\omega_x=\omega _y=\omega _z=\sqrt{K}{m}$. Au final on considère toujours bien un OH 3D, il faut juste faire attention à l'introduction.\\
+
+On se propose maintenant de mettre en œuvre les outils et méthodes développées de manière assez abstraite dans la partie précédente. On va ici tenter de modéliser le comportement d'un solide cristallin, constitué d'un arrangement régulier, périodique, d'atomes identique (on ne considère donc ici que le cas d'une maille monoatomique). On connais expérimentalement l'allure de la capacité calorifique en fonction de la température, ce qui va permettre de tester notre modèle.\\
+
+On considère que chacun des atomes qui constituent le cristal interagissent avec les N-1 autres au moyen d'un potentiel moyen dépendant uniquement de la position. Cela revient à dire que chaque atome oscille autour de sa position d'équilibre indépendamment de la position des atomes environnants. Cette approximation assez violente permet de traiter chaque atome indépendamment et ainsi d'avoir des équations découplées, d'où la simplicité de ce modèle.\\
+
+Un atome donné verra donc un potentiel $u(r)$ si on suppose le milieu isotrope, r=0 correspondant à la position d'équilibre. On peut alors faire l'hypothèse harmonique qui consiste à développer le potentiel à l'ordre 2 autour de la position d'équilibre 
+\begin{eqnarray}
+u(r) \simeq -u_0 + r^2\frac{1}{2}\frac{\partial^2 u}{\partial r^2}(r=0) \simeq u_0 + \frac{K}{2} r^2
+\end{eqnarray}
+où $u_0$ est une énergie de liaison par atome, et K représente une constante de raideur. On a alors que chaque atome correspond à un oscillateur harmonique tridimensionnel, de pulsation $\omega =\sqrt{K/m}$ où m est la masse d'un atome.\\
+
+Sachant que tous les atomes possèdent des spectres d'énergies identiques, on peut factoriser la fonction de partition totale du système. On a en effet l'énergie totale du système dans l'état $|\nu\rangle$ qui s'écrit comme 
+\begin{eqnarray}
+E_{\nu} = \sum_{i=1}^{N} \varepsilon_{\nu,i}
+\end{eqnarray} 
+où $\varepsilon_{\nu,i}$ est l'énergie de l'atome $i$. La fonction de partition du système s'écrit donc 
+\begin{eqnarray}
+\mathcal{Z} = \sum_{\nu} e^{-\beta E_{\nu}} = \sum_{\nu} \Pi_{i=1}^Ne^{-\beta \varepsilon_{\nu,i}} = \Pi_{i=1}^N \sum_{\nu}e^{-\beta \varepsilon_{\nu,i}} = z^N
+\end{eqnarray}
+en notant $z=\sum_{\nu}e^{-\beta \varepsilon_{\nu}}$ la fonction de partition d'un oscillateur harmonique, puisque tous les atomes/oscillateurs sont identiques.\\
+
+Il suffit donc ici de calculer la fonction de partition d'un oscillateur harmonique tridimensionnel, or on sait que le spectre d'énergies d'un tel système est 
+\begin{eqnarray}
+\varepsilon_{n_x,n_y,n_z} = -u_0 + \left[n_x +\frac{1}{2} +n_y +\frac{1}{2} + n_z +\frac{1}{2}\right]\hbar \omega
+\end{eqnarray}
+on en déduit donc 
+\begin{eqnarray}
+z = \sum_{n_i=0}^{\infty} e^{\beta (u_0 - (n_x+n_y+n_z+3/2)\hbar\omega)} = e^{\beta u_0} \left( \sum_{n=0}^{\infty} e^{-\beta(n+1/2)\hbar \omega}\right)^3
+\end{eqnarray}
+le terme au cube est une suite géométrique de premier terme $e^{-\beta\hbar\omega/2}$ et de raison $e^{-\beta \hbar \omega}$ et on a donc finalement
+\begin{eqnarray}
+z = e^{\beta u_0}\left(\frac{e^{-\beta \hbar \omega /2}}{1- e^{-\beta \hbar \omega}}\right)^3 = e^{\beta u_0}\left(\frac{1}{2\,\mathrm{sh} (\beta \hbar \omega /2)}\right)^3
+\end{eqnarray}
+On peut alors en déduire la fonction de partition du cristal 
+\begin{eqnarray}
+\mathcal{Z} = z^N = e^{\beta u_0 N}\left(\frac{1}{2\,\mathrm{sh} (\beta \hbar \omega /2)}\right)^{3N}
+\end{eqnarray}
+Cette dernière va nous permettre de dériver les différentes propriétés du système, notamment l'énergie moyenne 
+\begin{eqnarray}
+\bar{E}= -\frac{\partial \ln \mathcal{Z}}{\partial \beta} = -N\frac{\partial \ln z}{\partial \beta} = N\left(-u_0 + \frac{3}{2} \hbar \omega \coth \frac{\hbar \omega}{2k_B T}\right)
+\end{eqnarray}
+et ensuite la capacité calorifique
+\begin{eqnarray}
+C_V = \frac{\partial \bar{E}}{\partial T} = 3Nk_B\left(\frac{\hbar \omega}{2k_B T}\right)^2 \frac{1}{\mathrm{sh}^2\, \frac{\hbar \omega}{2k_BT}}
+\end{eqnarray}
+où on peut définir la chaleur d'Einstein du matériau 
+\begin{eqnarray}
+kT_E = \hbar \omega
+\end{eqnarray}
+qui tout comme $\omega$ dépend du matériau utilisé, pour reformuler la capacité calorifique comme 
+\begin{eqnarray}
+C_V = 3N k_B \left(\frac{T_E}{2T}\right)^2 \frac{1}{\mathrm{sh}^2\,\frac{T_E}{2T}}
+\end{eqnarray}
+Or lorsque l'on est à haute température on a 
+\begin{eqnarray}
+\mathrm{sh}\,\frac{T_E}{2T} \;\longrightarrow \; \frac{T_E}{2T}
+\end{eqnarray}
+et donc  
+\begin{eqnarray}
+C_V \;\longrightarrow \; 3N k_B
+\end{eqnarray}
+on retrouve alors bien la loi de Dulong et Petit. Ce résultat est donc conforme à nos attentes, cependant on obtient en réalité le même résultat en appliquant le théorème de l'équipartition de l'énergie qui stipule que pour un système macroscopique que l'on peut traiter avec la mécanique classique, chaque particule possède une énergie 
+\begin{eqnarray}
+\varepsilon = \frac{nDDL}{2} k_B T
+\end{eqnarray}
+Ici on a trois degrés de vibration et trois de translation ce qui amène à $\varepsilon = 3k_BT$ et on a bien ainsi la loi de Dulong et Petit. Cependant, ce que la théorie classique ne permet pas d'expliquer c'est le fait que $C_V$ décroisse à basse température, ce qui est cette fois partiellement décrit par le modèle d'Einstein. En effet il prédit une décroissance exponentielle vers 0 lorsque la température tend de même vers 0, ce qui est différent du comportement en $T^3$ attendu, mais est tout de même une avancée. En fait cette décroissance exprime le fait que lorsque l'on est à basse température, l'énergie d'agitation thermique $k_BT$ est comparable aux énergies de transitions entre les niveaux d'énergie quantique. La statistique canonique nous dit alors que ces niveaux d'énergie ont une probabilité d'occupation très faible, seul les niveaux de très basse énergie ont une probabilité non nulle d'être occupée et ainsi l'énergie moyenne tend vers 0. On voit bien ici que la description quantique est nécessaire et parvient à nous donner une certaine compréhension de la physique sous-jacente avec un modèle très simple.\\
+
+Si on veut retrouver le bon comportement à basse température il faut prendre en compte l'interaction entre premiers voisins dans le cristal. Cela conduit à l'établissement de différents modes de vibration : il n'y a donc plus une unique pulsation pour chacun des atomes mais N pulsations différentes. En quantifiant ces modes normaux on peut alors suivre le type de raisonnements pour arriver à un résultat reproduisant l'allure expérimentale de $C_V$.
+
+\section*{Questions}
+Comment on mesure $C_v$ ?\\
+En chauffant le matériau ou le liquide dans un calorimètre, et en mesurant l'évolution de la température en fonction de l'énergie fournie.\\
+
+D'où vient que U est une fonction croissante de la température ?\\
+Il faut le démontrer, en l'occurrence on le voit en liant $C_v$ à la variance de l'énergie.\\
+
+Qu'est ce que $\chi_T$ ?\\
+Compressibilité isotherme.\\
+
+Pourquoi avoir énoncé et pas démontré le théorème de l'équipartition de l'énergie ?\\
+
+Qu'est ce qu'une moyenne d'ensemble ?
+
+\section*{Remarques}
+Il faut contextualiser en disant à quoi ça sert, en donnant des ordres de grandeur, discuter notamment le cas de l'eau.\\
+Ajouter une fin d'intro "contextualisation".\\
+Il faut faire la démonstration du théorème de l'équipartition de l'énergie, et s'en servir pour discuter le cas des GP : moins répétitif.\\
+Il faut donner des exemples pour les gaz monoatomiques ects.\\
+Utiliser le hamiltonien et non l'énergie dans le cas classique.\\
+Utiliser la courbe originale de $C_v$ du diamant de la publication originale de Einstein pour la dernière partie.\\
+Ne pas introduire la capacité calorifique à partir de l'entropie, trop peu intuitif.
+
+\end{document}

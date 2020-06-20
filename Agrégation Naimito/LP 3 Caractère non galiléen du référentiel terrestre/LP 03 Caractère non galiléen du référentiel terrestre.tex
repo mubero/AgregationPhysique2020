@@ -1,0 +1,163 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 03 Caractère non galiléen du référentiel terrestre}
+	\author{Maxime}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection*{Pré-requis}
+- Mécanique du point \\
+- Oscillateurs harmoniques
+	
+\section{Introduction}
+Définition référentiel. \\
+Notion de référentiel galiléen, mise en valeur du fait que les référentiels réels ne le sont pas en général.
+\section{Référentiels galiléens et non galiléens}
+\subsection{Définitions}
+\paragraph{Référentiel galiléen}
+Référentiel dans lequel on vérifie le principe d'inertie.
+\paragraph{Référentiel non galiléen}
+Référentiel dans lequel le principe d'inertie n'est pas valable( ref accéléré ou en rotation par rapport à un ref galiléen)
+
+\subsection{Référentiels usuels}
+Référentiel de Copernic $R_0$, ayant pour centre le soleil et dont les axes sont définis à partir de 3 étoiles lointaines, galiléen pour des durées usuelles.\\
+Référentiel géocentrique $R_G$, centré sur la terre et avec les mêmes axes que $R_0$.\\
+Référentiel terrestre $R_T$, placé à la surface de la terre, avec l'axe Oz représentant l'altitude et l'axe oy pointant vers le nord.
+
+\subsection{Lois de la dynamique}
+
+Transformation des vitesses
+\begin{eqnarray}
+\frac{d\vec{A}}{dt}|_R = \frac{d\vec{A}}{dt}|_{R'}  + \vec{\Omega}_{R'/R}\times \vec{A}\\
+\Rightarrow \vec{V}(M)|_R = \vec{V}(O')|_R + \vec{V}(M)|_{R'}+ \vec{\Omega}_{R'/R}\times \vec{O'M}
+\end{eqnarray}
+On en déduit la composition des accélérations 
+\begin{eqnarray}
+\vec{a}|_R = \vec{a}|_{R'} + \vec{a}_e + \vec{a}_c\\
+\vec{a}_e = \vec{a}_{R'/R} + \frac{d\vec{\Omega}_{R'/R}}{dt}\times \vec{O'M} + \vec{\Omega}_{R'/R} \times (\vec{\Omega}_{R'/R} \times \vec{O'M})
+\end{eqnarray}
+$\rightarrow$ notion de forces de coriolis et d'inertie d'entrainement.
+
+\subsection{Exemples simples}
+\paragraph{Translation rectiligne uniforme}
+\begin{eqnarray}
+\vec{V}_{R'/R} = \vec{cste} \; \& \; \vec{\Omega}_{R'/R} = \vec{0}\; \Rightarrow \; \vec{a}_e = \vec{a}_c = \vec{0}
+\end{eqnarray}
+\subsubsection*{Référentiel uniformément accéléré}
+$\rightarrow$ on observe ici une force d'inertie d'entrainement.\\
+Exemple de la voiture, où l'on est collé au siège lors du démarrage.
+
+\subsubsection*{Référentiel en rotation uniforme}
+Notion de force centrifuge dans le cas d'un point fixe dans le référentiel en rotation, qui est en fait la force d'inertie d'entrainement dans ce cas particulier ($\vec{a}_{R'/R}=\vec{0}$ et $ \frac{d\vec{\Omega}_{R'/R}}{dt}\times \vec{O'M}=\vec{0}$)
+
+\section{Observation du caractère non galiléen du référentiel terrestre}
+\subsection{Marée océaniques}
+\subsubsection*{Définition du poids}
+
+PFS :
+\begin{eqnarray}
+m\vec{G} - m\vec{a}_e - m\vec{a}_c - \vec{P} = \vec{0}
+\end{eqnarray}
+Or dans le cas de la Terre $\vec{a}_c=\vec{0}$, donc 
+\begin{eqnarray} 
+\Rightarrow \vec{P} = m\vec{G} - m\vec{a}_e = m\vec{g}\; \Rightarrow \; \vec{g} = \vec{G} - \vec{a}_e
+\end{eqnarray}
+Si on cherche à exprimer l'accélération d'inertie d'entrainement su Terre on obtient :
+\begin{eqnarray}
+\vec{a}_e &=& \vec{a}(T)|_{R_0} + \vec{\Omega}_T\times( \frac{d \vec{TM}}{dt}|_{R_T} + \vec{\Omega}_T\times \vec{TM})\\
+&=& \vec{a}(T)|_{R_0} + \vec{\Omega}_T\times(\vec{\Omega}_T\times \vec{TM})
+\end{eqnarray}
+On exprime toutes les composantes de l'accélération de la pesanteur, dues la terre, la lune et le soleil et à la rotation de la terre autour de son axe.\\
+Schéma interaction gravitationnelle terre-lune. On y note M un point de la surface et T le centre de la Terre. \\
+On obtient 
+\begin{eqnarray}
+|| \vec{G}_a(M)-\vec{G}_a(T)|| \simeq \frac{2GM_LR_T}{D_{TL}^3}
+\end{eqnarray}
+Remarque concernant la période des marrées, plus impact du soleil menant aux "vives eaux" et "eaux calmes" selon si le soleil compense ou s'ajoute à l'effet de la lune.\\
+V Pérez p106
+
+\subsection{Pendule de Foucault}
+Pérez p109\\
+On applique le PFD au pendule que l'on considère comme parfait (liaison pivot idéale) en considérant le référentiel terrestre comme non galiléen et on obtient l'équation du pendule simple à un terme d'accélération de Coriolis près.\\
+Données et application chiffrée au pendule de Foucault situé à Paris.
+
+\subsection{Déviation vers l'Est}
+Déviation vers l'Est d'un objet lors de sa chute libre sur Terre due à la force de Coriolis.\\
+Pérez p113
+
+\section*{Questions}
+Comment établir un "vrai" référentiel galiléen ? Quel serait le référentiel inertiel idéal ?\\
+
+Concernant le pendule de Foucault, pourquoi prend on un pendule de très grande longueur ?\\
+$\rightarrow$ pour pouvoir observer un décalage conséquent du pendule en un aller retour (plus facile de percevoir l'angle)\\
+
+Comment établit on la période de rotation du plan du pendule de Foucault ?\\
+
+Quelle est l'amplitude des marrées ?\\
+
+Pourquoi néglige t'on accélération d'entrainement dans le problème des marrées ?\\
+
+Y a t'il d'autres applications du caractère non galiléen du référentiel terrestre ?\\
+
+Pourquoi le référentiel de Copernic n'est il pas rigoureusement galiléen ?
+
+\section*{Remarques}
+Ne pas mettre les marées dans cette leçon : trop risqué, et puis pas tellement lié au caractère non galiléen du référentiel non galiléen de la Terre, garder les deux autres exemples seulement. Les garder pour les questions.\\
+Pour le cas du cyclone on écrit Navier-Stokes avec les termes d'accélération de coriolis et d'entrainement.
+\paragraph{Or} \begin{eqnarray}
+\vec{a}_e = \vec{\Omega} \times \vec{\Omega} \times \vec{r} = -\vec{\nabla}(\frac{1}{2}\Omega^2s^2)
+\end{eqnarray}
+où $s$ est la distance à l'axe de rotation. On peut donc ajouter l'accélération d'entrainement dans le terme $\vec{grad}P$ pour obtenir une pression effective $\Pi$. En introduisant les longueurs caractéristiques d'un cyclone on voit que le nombre de Rosby est petit, on en déduit que l'équation se résume à
+\begin{eqnarray}
+\vec{e}_z \times \vec{u} = -\vec{\nabla}\Pi
+\end{eqnarray} 
+qui peut se résoudre comme
+\begin{eqnarray}
+\vec{u} = \vec{e}_z \times \vec{\nabla}\Pi
+\end{eqnarray} 
+Donc l'air va tourner et forme un cyclone. Un tel écoulement est dit géostrophique.\\
+$\rightarrow$ exemple possible et assez simple à traiter pour cette leçon.\\
+
+Le référentiel inertiel idéal est le référentiel comobile.\\ remarque : regarder ICRF : ref def à partir du barycentre du système solaire et dont les axes pointent vers des quasars.\\
+On peut connaître notre vitesse par rapport au référentiel comobile grâce au décalage vers le rouge (effet Doppler) du fond diffus cosmologique.\\
+
+La force de coriolis assure la conservation du moment cinétique.\\
+
+ autres exemples classiques :\\ x lancement des fusées à l'équateur.\\ x Usure asymétrique des rails de chemin de fer : le rail Est est plus usé que le rail Ouest pour les trains qui vont vers le Nord.\\ x (Lit des rivières asymétriques : à vérifier) 
+ 
+\end{document}

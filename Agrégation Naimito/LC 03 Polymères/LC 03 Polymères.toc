@@ -1,0 +1,14 @@
+\contentsline {subsection}{\numberline {0.0.1}Pr\IeC {\'e}-requis}{2}
+\contentsline {subsection}{\numberline {0.0.2}Introduction}{2}
+\contentsline {section}{\numberline {0.1}Du monom\IeC {\`e}re au polym\IeC {\`e}re}{2}
+\contentsline {subsection}{\numberline {0.1.1}Quelques d\IeC {\'e}finitions}{2}
+\contentsline {paragraph}{Polym\IeC {\`e}re}{2}
+\contentsline {paragraph}{Monom\IeC {\`e}re}{2}
+\contentsline {paragraph}{Degr\IeC {\'e} de polym\IeC {\'e}risation}{2}
+\contentsline {paragraph}{Notion de fonctionnalit\IeC {\'e}}{2}
+\contentsline {subsection}{\numberline {0.1.2}Retour sur la synth\IeC {\`e}se : polym\IeC {\'e}risation par polycondensation}{2}
+\contentsline {subsection}{\numberline {0.1.3}Polym\IeC {\'e}risation par polyaddition}{2}
+\contentsline {section}{\numberline {0.2}Du micro au macro : propri\IeC {\'e}t\IeC {\'e}s}{3}
+\contentsline {subsection}{\numberline {0.2.1}Liaisons intermol\IeC {\'e}culaires : propri\IeC {\'e}t\IeC {\'e}s thermiques}{3}
+\contentsline {subsection}{\numberline {0.2.2}Structure : propri\IeC {\'e}t\IeC {\'e}s m\IeC {\'e}caniques}{3}
+\contentsline {section}{\numberline {0.3}Conclusion}{3}

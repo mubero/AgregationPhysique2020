@@ -1,0 +1,15 @@
+\contentsline {subsubsection}{\numberline {0.0.1}Pr\IeC {\'e} requis}{2}
+\contentsline {subsubsection}{\numberline {0.0.2}Introduction}{2}
+\contentsline {section}{\numberline {1}Propagation d'une onde dans un plasma}{2}
+\contentsline {subsection}{\numberline {1.1}Mod\IeC {\'e}lisation}{2}
+\contentsline {subsection}{\numberline {1.2}Relation de dispersion}{2}
+\contentsline {section}{\numberline {2}Paquet d'onde}{2}
+\contentsline {subsection}{\numberline {2.1}D\IeC {\'e}finition}{2}
+\contentsline {subsection}{\numberline {2.2}Vitesses de groupe et de phase}{3}
+\contentsline {subsubsection}{\numberline {2.2.1}Vitesse de phase}{3}
+\contentsline {subsubsection}{\numberline {2.2.2}Vitesse de groupe}{3}
+\contentsline {subsubsection}{\numberline {2.2.3}\IeC {\'E}talement du paquet d'onde}{3}
+\contentsline {subsection}{\numberline {2.3}Interpr\IeC {\'e}tation de la vitesse de groupe}{3}
+\contentsline {section}{\numberline {3}Exemples}{3}
+\contentsline {subsection}{\numberline {3.1}Plasma}{3}
+\contentsline {subsection}{\numberline {3.2}C\IeC {\^a}ble coaxial}{4}

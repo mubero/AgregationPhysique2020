@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {0.1}Diffraction par une fente rectangulaire}{2}
+\contentsline {subsection}{\numberline {0.1.1}R\IeC {\'e}gime approch\IeC {\'e} de Fraunhoffer}{2}
+\contentsline {subsection}{\numberline {0.1.2}Analyse d'une figure de diffraction}{2}
+\contentsline {paragraph}{FAUX :}{3}
+\contentsline {subsection}{\numberline {0.1.3}Influence de $\lambda $, D et a}{3}
+\contentsline {section}{\numberline {0.2}Mesure d'objets de petite taille et th\IeC {\'e}or\IeC {\`e}me de Babinet}{4}
+\contentsline {subsection}{\numberline {0.2.1}Diam\IeC {\`e}tre d'un fil de cuivre}{4}
+\contentsline {subsection}{\numberline {0.2.2}Diam\IeC {\`e}tre des spores de lycopodes}{4}
+\contentsline {section}{\numberline {0.3}Crit\IeC {\`e}re de Reyleigh}{4}
+\contentsline {section}{\numberline {0.4}Questions}{4}
+\contentsline {subsubsection}{Pour le crit\IeC {\`e}re de Reyleigh :}{4}
+\contentsline {subsubsection}{Pour le fil de cuivre :}{5}
+\contentsline {subsubsection}{Pour la partie 1 :}{5}
+\contentsline {section}{\numberline {0.5}Remarques}{5}

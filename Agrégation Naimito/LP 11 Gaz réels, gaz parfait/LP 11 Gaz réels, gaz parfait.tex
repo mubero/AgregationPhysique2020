@@ -1,0 +1,286 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 11 Gaz réels, gaz parfait}
+		\author{Naïmo Davier}
+		\date{Agrégation 2019}
+		
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Introduction}
+\paragraph{Pré-requis} Mécanique du point et des collisions. Ensemble canonique en physique statistique.\\
+
+On va au cours de cette leçon introduire certaines notion de base de la thermodynamique dans le cadre de la modélisation d'un exemple simple : le gaz parfait. Cela sera aussi l'occasion de faire un parallèle direct entre thermodynamique et physique statistique. On terminera en explorant les limites de notre modèle, tout en regardant si on peut l'améliorer.
+
+\section{Le gaz parfait}
+\subsection{Gaz réels : une limite commune}
+\textbf{Thermodynamique} de \textit{B. Diu} p242.\\
+
+Commenter la courbe $pv/T = f(p)$ en disant que beaucoup de gaz se comportent de la même manière lorsqu'on est à basse pression. Cela suppose que dans cette limite un modèle simple doit exister, permettant de décrire une limite commune à tous les gaz.\\
+
+On va donc formuler des hypothèses sur lequel va s'appuyer notre modèle de gaz, le plus simple possible : le gaz parfait.
+
+\subsection{Hypothèses et lois empiriques}
+\textbf{Thermodynamique} de \textit{Pérez} p25.\\
+
+On veut ici étudier le comportement des gaz, omniprésents dans la vie quotidienne et apparaissant à première vue comme un objet thermodynamique assez simple : un ensemble d'atomes ou de molécules, se déplaçant dans l'espace et entrant parfois en collision. On va ici commencer par poser les hypothèses qui vont nous permettre de simplifier le problème afin de pouvoir l'étudier dans un premier temps avec des outils simples.\\
+On va donc supposer 
+\begin{itemize}
+	\item que les molécules sont de dimensions négligeable devant la distance moyenne qui les sépare, ce qui semble tout à fait raisonnable pour peu que le gaz soit suffisamment dilué. Si on considère par exemple une dizaine de moles de vapeur d'eau dans un volume de 1 mètre cube cela fait un volume moyen de $\frac{1}{10\mathcal{N}_A} = 1,7.10^{-25}$ m$^{3}$ par molécule et donc une distance intermoléculaire moyenne de 6 nm, ce qui est à peu près 60 fois plus grand que la taille d'une molécule d'eau qui est de 1 angstrœm environ.
+	\item que les forces d'interaction intermoléculaire sont uniquement de très courte portée et donc de type collision, que l'on supposera élastique ce qui se vérifie au niveau statistique. En effet ce sont les nuages électroniques qui vont se repousser lors d'une collision, et cette interaction électromagnétique a une portée de l'ordre du $nm$ : on constate alors qu'il va falloir des gaz plus dilués que pour la proposition précédente si on veut vérifier cette hypothèse au sens strict.
+	\item que les vecteurs quantité de mouvement des molécules sont distribués au hasard, hypothèse que l'on peut étendre sous la forme de trois hypothèses supplémentaires : densité homogène du gaz $n_v = \frac{dN}{dV} = \frac{N}{V}$, isotropie des vitesses, et indépendances des composantes des vitesse.
+\end{itemize}
+
+Ces hypothèses vont devoir rendre compte des lois empiriques observées pour des gaz dilués qui sont donc supposés être décrits pr notre modèle. Ces lois sont sont les
+\begin{itemize}
+	\item Loi de Boyle et Mariotte :\\
+	"A température constante le produit de la pression par le volume PV est constant".
+	\item Loi d'Avogadro :\\
+	"Des volumes égaux de gaz parfaits, à la même pression et à la même température contiennent le même nombre de moles".
+	\item Loi de Gay Lussac :\\
+	"A pression constante le volume occupé par une quantité déterminée de gaz est proportionnel à la température T".
+	\item Loi de J.Charles :\\
+	"A volume constant la pression d'une quantité déterminée de gaz parfait est proportionnelle à la température T".
+	\item Loi de J.Dalton :\\
+	"La pression d'un mélange de deux gaz est la somme des pression partielles", ces dernières étant les pression qu'aurait le gaz si il occupait tout le volume total seul.
+\end{itemize}
+
+\subsection{Origine physique et calcul de la pression}
+Calcul simpliste dans \textbf{Thermodynamique} de \textit{Pérez} p25, du même type mais plus détaillé dans \textbf{Thermodynamique} de \textit{Faroux et Renault} p27.\\
+Calcul rigoureux dans \textbf{Physique statistique} de \textit{Diu} p359.\\
+
+\subsubsection{Notion de pression}
+On va ici définir la notion de pression et la calculer dans le cas d'un gaz obéissant aux hypothèses précédemment formulées. \\
+La pression est la force par unité de surface qu'un fluide exerce sur une paroi suivant sa normale 
+\begin{eqnarray}
+d\vec{F}_{f\rightarrow S} = P\, dS\,\vec{n}_{f\rightarrow S},
+\end{eqnarray} 
+force résultant des collisions des particules fluides avec cette paroi. On visualise bien ce phénomène pour une paroi solide entourant le fluide, mais il faut l'étendre aux parois virtuelles que l'on peut former entre deux portions arbitraires de fluide. On comprend alors bien que la pression va être un champ scalaire $P(\vec{r})$ défini en tout point du fluide. 
+
+\subsubsection{Calcul de la pression}
+On va donc considérer ici les collisions des molécules de gaz contre un élément de surface $dS$, les particules arrivent avec une quantité de mouvement $m\vec{v}$ et repartent, après collision avec une vitesse $m\vec{v}'$. Si on considère ces collisions comme étant élastiques (hypothèse n'impactant de toute manière pas le résultat de nature statistique) on en déduit que la quantité de mouvement suivant la normale à la surface varie de $2mv_z$, c'est donc la quantité de mouvement qui a été cédée à la surface. Pour maintenant calculer la quantité de mouvement cédée par le gaz à la paroi, il faut compter le nombre de particules qui heurtent la surface pendant une durée $dt$, ce nombre est la moitié (car l'autre moitié s'éloigne de la surface) du nombre de particules contenues dans un cylindre (incliné) de hauteur $v\,dt$ et de section $dS$, on a donc, en notant $n_v = N/V$ la densité volumique de particules 
+\begin{equation}
+dN = \frac{1}{2} n_v\,v\cos\theta\, dt dS
+\end{equation}
+on en déduit donc 
+\begin{eqnarray}
+\delta P_z^{paroi} = dN \,\delta P_z^{particule} = n_v m v_z^2 dt dS
+\end{eqnarray}
+mais le calcul que l'on vient d'effectuer suppose que toutes les particules ont la même vitesse. Il faut donc moyenner ce résultat sur toutes les vitesses possibles, en remplaçant $v_z^2$ par sa valeur moyenne. Or les hypothèses que l'on a fait au départ supposent que 
+\begin{equation}
+\langle v_x^2 \rangle =\langle v_y^2 \rangle = \langle v_z^2 \rangle
+\end{equation}
+or on a la vitesse quadratique moyenne qui s'exprime comme 
+\begin{eqnarray}
+v_q^2=\langle v^2 \rangle = \langle v_x^2 \rangle + \langle v_y^2 \rangle + \langle v_z^2 \rangle = 3\langle v_z^2 \rangle
+\end{eqnarray}
+on en déduit donc finalement 
+\begin{eqnarray}
+F_z = \frac{\delta P_z}{dt} = \frac{N}{V}  m \frac{v_q^2}{3} dS = PdS\\
+\Longrightarrow P = \frac{ Nmv_q^2}{3V}
+\end{eqnarray}
+on a ainsi pu déterminer le lien entre pression et vitesse quadratique moyenne sans avoir eu besoin d'expliciter la distribution des vitesses.
+
+\subsection{Température cinétique et équation d'état}
+La température cinétique est définie comme une mesure de l'énergie cinétique moyenne de chaque particule, selon 
+\begin{eqnarray}
+\frac{E_c}{N} = \frac{3}{2}k_BT
+\end{eqnarray}
+où $k_B \simeq 1,38.10^{-23}$ J.K$^{-1}$ est la constante de Boltzmann. On dit que la température mesure l'agitation,, thermique du gaz et on appelle à ce titre énergie thermique le terme $k_BT$ qui représente à un facteur près l'énergie cinétique moyenne d'une particule. Or on peut aussi exprimer l'énergie cinétique du gaz à partir de la vitesse quadratique moyenne :
+\begin{eqnarray}
+E_c = N\frac{1}{2} m v_q^2
+\end{eqnarray}
+on en déduit ainsi le lien direct entre la vitesse quadratique moyenne et la température
+\begin{eqnarray}
+\frac{3}{2}N k_B T = N\frac{1}{2} m v_q^2 \Rightarrow v_q^2 = \frac{3k_BT}{m}
+\end{eqnarray}
+ 
+Cela nous conduit finalement, en injectant cette relation dans l'expression de la pression, à l'équation d'état des gaz parfaits 
+\begin{eqnarray}
+PV = N k_B T
+\end{eqnarray}
+souvent formulée à l'aide de la constante des gaz parfaits $R = \mathcal{N}_A k_B = 8,3144$ J.K$^{-1}$ sous la forme 
+\begin{eqnarray}
+PV = nRT
+\end{eqnarray}
+avec $n$ le nombre de moles de gaz.\\
+
+On peut maintenant regarder si cette équation d'état satisfait aux lois empiriques obtenues pour des gaz dilués, on constate alors qu'elle convient parfaitement, notre modèle semble donc satisfaisant sur ce point.\\
+
+Cette définition de la température semblant assez ad-hoc, on peut maintenant regarder le problème du point de vue de la physique statistique, et ainsi regarder les notions d'énergie interne et de capacité calorifique.
+
+\section{Énergie interne}
+\subsection{Théorème d'équipartition de l'énergie}
+\textbf{Physique statistique} de \textit{Diu} p293.\\
+
+Nous nous plaçons ici à la limite thermodynamique, c'est à dire que nous considérons que le système est assez grand pour négliger les fluctuations des diverses variables internes autour de leur position d'équilibre. Chaque variable interne prend alors une valeur unique, et peut donc être traité comme une variable externe à l'équilibre. \\
+
+Considérons le cas de particules indépendantes, et plaçons nous dans la limite continue, c'est à dire lorsque l'écart entre les différents états quantiques est suffisamment faible pour que l'on traite les états comme un continuum. Si ces particules sont libres le hamiltonien total du système s'écrit alors 
+\begin{eqnarray}
+\mathcal{H}(q_i,p_i) = \sum_{i}\alpha_i p_i^2
+\end{eqnarray}
+et ainsi, si l'on souhaite mesurer la valeur moyenne d'un des termes quadratiques on aura 
+\begin{eqnarray}
+\langle \alpha_m p_m^2 \rangle = \frac{1}{A} \int \prod_{i} dq_i dp_i \,\alpha_m p_m^2 e^{-\mathcal{H}/kT}
+\end{eqnarray}
+ où $A$ est la constante de normalisation de l'intégrale $A = \int dq_i dp_i e^{-\mathcal{H}/kT}$. On peut réécrire cette intégrale comme 
+\begin{eqnarray}
+\langle \alpha_m p_m^2 \rangle = \frac{1}{A} \int  \prod_{i\neq m} dq_i dp_i dq_m e^{-\alpha_i p_i^2/kT}
+\;\alpha_m\int dp_m \, p_m^2 e^{-\alpha_m p_m^2/kT}
+\end{eqnarray}
+où la dernière partie s'intègre par partie 
+\begin{eqnarray}
+\int dp_m \, p_m^2 e^{-\alpha_m p_m^2/kT} = -\left[p_m\frac{kT}{\alpha_m}  e^{-\alpha_m p_m^2/kT}\right] + \frac{kT}{2\alpha_m}\int dp_m e^{-\alpha_m p_m^2/kT}
+\end{eqnarray}
+or le terme intégré est nul lorsque les bornes sont $(0, +\infty)$ ou $(-\infty, +\infty)$ ce qui est toujours le cas en pratique. On obtient donc finalement 
+\begin{eqnarray}
+\langle \alpha_m p_m^2 \rangle = \frac{kT}{2} \frac{1}{A}\int \prod_{i} dq_idp_i e^{-\alpha_i p_i^2/kT} = \frac{kT}{2}
+\end{eqnarray}
+Ce résultat est bien entendu généralisable à un hamiltonien qui contiendrait des termes quadratiques pour les coordonnées, comme dans le cas de particules dans des potentiels harmoniques.
+
+\subsection{Application au gaz parfait, capacité calorifique}	
+\textbf{Thermodynamique} de \textit{Faroux et Renault} p34.\\
+
+Afin de comprendre le sens de ce théorème on va directement appliquer le théorème de l'équipartition au calcul de l'énergie interne d'un gaz parfait monoatomique : dans ce cas le hamiltonien est simplement composé d'une somme de 3N termes cinétiques dans le cas de N particules identiques de masse $m$ :
+\begin{eqnarray}
+\mathcal{H} = \sum_{i=1}^{N} \frac{\vec{p}_i\,^2}{2m}
+\end{eqnarray} 
+L'énergie interne est alors la moyenne de l'énergie cinétique, elle vaut donc, par application directe du théorème de l'équipartition de l'énergie
+\begin{eqnarray}
+U = \langle E_c\rangle = \frac{3}{2}NkT = \frac{3}{2} n R T
+\end{eqnarray}
+et on en déduit alors facilement la capacité calorifique à volume constant
+\begin{eqnarray}
+C_v = \frac{dU}{dT} = \frac{3kN}{2}
+\end{eqnarray}
+qui dépend ainsi du nombre de particule $N$, c'est pourquoi on donne le plus souvent la capacité calorifique molaire 
+\begin{eqnarray}
+c^{(m)}_v = \frac{C_v}{n} = \frac{3}{2} R = 12,6\,J.K^{-1}.mol^{-1}
+\end{eqnarray}
+qui colle bien avec les résultats expérimentaux comme on peut le voir pour l'argon. Ce n'est cependant pas le cas pour la molécule de dihydrogène, qui comme on peut le voir possède une capacité calorifique qui varie avec la température, et qui est nettement supérieure à $3R/2$. Il est toutefois facile de voir que dans le cas d'une molécule linéaire se rajoutent deux degrés de liberté de rotation, qui vont intervenir dans le hamiltonien sous la forme de termes 
+\begin{eqnarray}
+\mathcal{H}_{rot}^n  = \frac{1}{2}I_n  \left(\dot{\theta}_n^2 +  \dot{\phi}_n^2\sin^2\theta\right)
+\end{eqnarray}
+pour chacune des molécules. Ces termes additifs vont, par application du théorème de l'équipartition de l'énergie, mener à additionner un terme $NkT$ dans l'expression de l'énergie interne. On s'attend donc à avoir cette fois
+\begin{eqnarray}
+c_v^{(m)} = \frac{5}{2}RT
+\end{eqnarray}
+pour les gaz parfaits diatomiques. On peut ajouter à cela que l'élongation de la liaison ajoute un DDL quadratique sous la forme d'un oscillateur harmonique (en première approximation) et donc un autre terme $kT/2$ pour l'énergie.\\ 
+Cela explique donc la grande valeur de $c_v^{(m)}$ à haute température, mais il demeure cependant à expliquer le comportement à basse température où la capacité calorifique décroît jusqu'à température nulle où elle est alors égale à celle d'un gaz parfait monoatomique. On a donc l'impression qu'à très basse température tout se passe comme si le nombre de DDL baissait jusqu'au nombre de trois... On va maintenant expliquer ce phénomène appelé gel des degrés de liberté.
+
+\subsection{Gel des degrés de liberté}
+\textbf{Physique statistique} de \textit{Diu} complément III.B p 329.\\
+
+On a considéré pour appliquer le théorème de l'équipartition de l'énergie que l'écart entre les niveaux discrets d'énergie était très faible devant l'énergie thermique $kT$, ce qui est presque toujours valable pour les niveaux d'énergie cinétique dans le cas de volumes macroscopiques, mais moins évident pour les niveaux de rotation ou de vibration.\\
+Pour voir si cette approximation était correcte on peut regarder l'écart entre les deux premiers niveaux de vibrations, on a en effet 
+\begin{eqnarray}
+\mathcal{H}_{r}  = \frac{1}{2}I  \left(\dot{\theta}^2 +  \dot{\phi}^2\sin^2\theta\right) = \frac{1}{2I} \vec{\mathcal{L}}^2
+\end{eqnarray}
+où $\vec{\mathcal{L}}$ est le moment cinétique et $I$ le moment d'inertie par rapport au centre de masse. Or si on regarde ça du point de vue de la mécanique quantique on admettra que ce hamiltonien mène aux énergies propres discrètes 
+\begin{eqnarray}
+\varepsilon_r = \frac{\hbar^2}{2I}j(j+1)
+\end{eqnarray}
+avec $j$ un entier ou demi entier. On constate ainsi qu'à partir de cette expression on peut établir une température caractéristique $T_r$ définie comme
+\begin{eqnarray}
+kT_r = \frac{\hbar^2}{2I}
+\end{eqnarray}
+au dessous de laquelle les degrés de liberté de rotation seraient gelés, c'est à dire peu excité par l'agitation thermique car on aurait $kT < kT_r$. \\
+On peut suivre le même raisonnement pour les vibrations des liaisons qui composent la molécule, et ainsi déterminer là aussi une température caractéristique $kT_v = \hbar \sqrt{\frac{k}{m_R}}$ pour les vibrations, à cette vibration est aussi ajoutée un degré de liberté de translation interne qui va rajouter un terme $Kt/2$ à l'énergie.\\ 
+On donne quelques valeurs de ces températures caractéristiques dans le tableau suivant, on voit que bien que pour les DDL de rotation la température caractéristique soit faible elle est loin, pour $H_2$ par exemple, d'être très faible devant les températures usuelles, cela va donc nécessairement impacter la capacité calorifique : c'est ce que nous avons constaté au paragraphe précédent. Pour les DDL de vibration c'est vraiment très nette, on ne va réellement exciter les modes de vibration qu'à haute température, on constate ainsi sur la figure donnée qu'à 2000K le mode de vibration n'est presque pas excité. 
+	
+\section{Limites du modèle et gaz réels}	
+\subsection{L'équation de Van der Waals}
+\textbf{Thermodynamique} de \textit{Pérez} p 30.\\
+
+Comme nous avons pu le voir le modèle du gaz parfait repose sur des hypothèses fortes, et qu'il faut, ne serait ce que dans ce cas de figure déjà aller chercher du côté de la mécanique quantique pour expliquer certains comportements.\\
+
+On va maintenant regarder si l'on ne peut pas affiner notre modèle pour qu'il reste valable dans un contexte de gaz non nécessairement très dilués, et où les interactions de type Van der Waals sont donc à prendre en compte. Sans rentrer dans les détails, les interactions électromagnétiques de Van der Waals correspondent à une énergie potentielle d'interaction entre deux molécules que l'on peut modéliser sous la forme
+\begin{eqnarray}
+E_p(r) = 4E_0 \left[\left(\frac{r_1}{r}\right)^{12} - \left(\frac{r_1}{r}\right)^{6}\right]
+\end{eqnarray}
+avec $r$ la distance séparant les deux molécules, $E_0$ étant la valeur minimale de l'énergie potentielle et $r_1$ la valeur pour laquelle celle ci s'annule. \\
+
+Cette interaction va conduire à deux correction de l'équation d'état des gaz parfaits.
+
+\subsubsection{Terme correctif de volume}
+On voit bien que lorsque la distance intermoléculaire est inférieure à $r_0$ les molécules se repoussent, tout se passe donc comme si elles avaient un volume propre inaccessible aux autres molécules. On en déduit que le volume accessible aux autres molécules de gaz n'est pas $V$ comme dans le cas des gaz parfaits on où assimile les molécules à des points mais $V-nb$, où $b$ est le volume inaccessible relatif à une mole de gaz.
+
+\subsubsection{Terme correctif de pression}
+De même pour des $r>r_0$ on constate que l'interaction est attractive, on comprend alors que les molécules collées à la paroi solide entourant le gaz ne seront attiré que du coté intérieur par le gaz. Il en résulte un terme de pression, dû aux collisions contre les paroi, qu'il faut retrancher. Ce terme est proportionnel au nombre de collisions et ainsi à la densité volumique qui varie comme $n/V$, et à l'énergie d'interaction qui elle aussi est proportionnelle à la densité volumique de particules. Ce terme de pression interne est donc de la forme $a(n/V)^2$.\\
+On obtient finalement une équation d'état corrigée ayant la forme 
+\begin{eqnarray}
+\left(P + a\frac{n^2}{V^2}\right)(V-nb) = nRT
+\end{eqnarray}
+On l'appelle équation de Van der Waals.
+
+\subsection{Ordres de grandeur}
+On peut déterminer expérimentalement les valeurs des coefficients a et b pour les gaz bien représentés par ce modèle. Si on regarde le cas du dihydrogène on a 
+\begin{eqnarray}
+a = 2,48.10^{-2} \,J.m^{3}.mol^{-2}\hspace{1cm}\mathrm{et}\hspace{1cm} b = 2,66.10^{-5}m^3.mol^{-1}
+\end{eqnarray}
+On voit que pour avoir 
+\begin{eqnarray}
+\frac{nb}{V} > 1\%
+\end{eqnarray}
+il faut avoir $n/V > 37500$ mol.m$^{-3}$ ce qui relève d'un cas de densité extrême. De même pour avoir 
+\begin{eqnarray}
+\frac{an^2}{PV^2} > 1\% 
+\end{eqnarray}
+on doit avoir $n/\sqrt{P}V > 6$ mol.m$^{-3}$.Pa$^{-1/2}$ ce qui n'est pas énorme, puisque à pression et température ambiantes on a environ 40 mol.m$^{-3}$ : ce terme correctif va donc rapidement jouer un rôle important.
+
+\section*{Conclusion}
+\textbf{Physique statistique} de \textit{Couture et Zitoun} pour le développement du viriel dans le chapitre gaz réels.\\
+\textbf{Physique Statistique} de \textit{B. Diu} chapitre gaz parfaits quantiques pour les gaz de boson et ainsi l'idée du condensat de Bose Einstein.\\
+
+Ouvrir sur le fait que l'on peut prolonger cette amélioration du modèle en faisant un développement en puissance de P, ou de $n/V$ : développement du viriel. Dans le cas strictement parfait si on regarde à basse température on peut voir un phénomène intéressant : la condensation de Bose Einstein dont les deux exemples les plus usuels sont la supraconductivité et la superfluidité de l'hélium 4.
+
+\section*{Remarques}
+Enlever l'énoncé puis comparaison avec les lois empiriques.\\
+
+Introduire le sujet à l'aide de courbes expérimentales sur les gaz réels, et montrer qu'à basse pression ils ont tous le même comportement, ce qui suppose l'existence d'un modèle simple et général permettant de décrire les gaz dilués. Chercher peut être dans le livre de PCSI de P. Gracias.\\
+
+Ne pas faire la démonstration du théorème de l'équipartition de l'énergie : ne donner que le résultat, on peut à la rigueur donner que le calcul par IPP de cette intégrale est 
+\begin{eqnarray}
+\frac{\int dx\;a x^2 e^{-ax^2/kT}}{\int dx\; e^{-ax^2}} = \frac{kT}{2}
+\end{eqnarray}
+et directement appliquer à l'énergie.\\
+
+Concernant Van der Waals, préciser que dans le potentiel de Lennard Jones le terme en $1/r^6$ est un terme exact découlant de l'électromagnétisme, tandis que le terme en $1/r^{12}$ décrivant le fait que les nuages électroniques ne peuvent s'interpénétrer est lui ad-hoc : la puissance 12 vient du fait que c'est le carré du terme en $1/r^6$ et que c'est donc plus rapide de le calculer numériquement.\\
+
+Regarder le fait qu'à une température donné la courbe $P(n/V)$ devient croissante, ce qui est interdit : on voit alors que les interactions deviennent tellement fortes qu'on voit apparaitre une transition de phase vers le liquide (ne pas en parler mais à savoir pour les questions). Regarder le pérez p 156.\\
+
+A la place de Van der Waals on peut aussi faire le développement du Viriel, et calculer le deuxième terme $B_2(T)$, qui a le mérite de donner des résultats satisfaisants expérimentalement contrairement à VdW qui n'est que pédagogique.
+	
+\end{document}

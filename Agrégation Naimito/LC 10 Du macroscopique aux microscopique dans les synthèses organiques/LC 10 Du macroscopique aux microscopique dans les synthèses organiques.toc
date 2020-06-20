@@ -1,0 +1,15 @@
+\contentsline {subsection}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {1}Aspect macroscopique}{2}
+\contentsline {subsection}{\numberline {1.1}Rappels}{2}
+\contentsline {subsection}{\numberline {1.2}Cat\IeC {\'e}gories de r\IeC {\'e}action}{2}
+\contentsline {subsubsection}{\numberline {1.2.1}Substitution}{2}
+\contentsline {subsubsection}{\numberline {1.2.2}Addition}{2}
+\contentsline {subsubsection}{\numberline {1.2.3}\IeC {\'E}limination}{3}
+\contentsline {section}{\numberline {2}Aspect microscopique}{3}
+\contentsline {subsection}{\numberline {2.1}Polarisation}{3}
+\contentsline {subsection}{\numberline {2.2}Site donner ou r\IeC {\'e}cepteur}{3}
+\contentsline {subsection}{\numberline {2.3}M\IeC {\'e}canisme de r\IeC {\'e}action}{3}
+\contentsline {section}{\numberline {3}Synth\IeC {\`e}se de l'aspirine}{3}
+\contentsline {subsubsection}{\numberline {3.0.1}M\IeC {\'e}canisme r\IeC {\'e}actionnel}{4}
+\contentsline {section}{\numberline {4}Conclusion}{4}
+\contentsline {section}{\numberline {5}Remarques}{5}

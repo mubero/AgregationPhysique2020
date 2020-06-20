@@ -1,0 +1,157 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 18 Matériaux demi-conducteurs}
+	\author{Etienne}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\section{Caractéristique d'une thermistance}	
+	On va ici tracer la valeur de la résistance $R_{th}$ (mesurée à l'Ohmètre) en fonction de la température, mesurée à l'aide d'une résistance de platine.\\
+	On trace ensuite $ln(R_{th})$ en fonction de T afin de valider la pertinence de notre modèle qui prédit 
+	\begin{eqnarray}
+	\frac{R_{th}(T)}{R_0} = e^{B(\frac{1}{T}-\frac{1}{T_0})}
+	\end{eqnarray}
+	on peut ensuite faire une modélisation exponentielle de $R_{th}(T)$ afin d'avoir plus de précision sur la détermination des paramètres.\\
+	On en déduit finalement les valeurs de $B$ et $R_0$ : 
+	\begin{eqnarray}
+	R_0 = 10700 \pm 400\, \Omega\\
+	B = 4360 \pm 130\, K
+	\end{eqnarray}
+	On peut en déduire $E_g = h_BB$
+	
+\section{Sonde à effet Hall}
+On trace la tension de Hall (transverse) $U_H$ en fonction de la valeur du champ magnétique au niveau de la plaquette de germanium (on fait varier le champ en variant l'intensité parcourant les deux bobines), en alimentant cette plaquette à courant constant (I=28.646 mA, attention I ne doit pas dépasser 30 mA, dans la pratique on le fixe à l'aide d'une résistance en série du générateur de tension (puisqu'on doit alimenter en 12V)) avec un générateur courant tension.\\
+On peut ensuite modéliser $U_H(B)$ avec une droite
+\begin{eqnarray}
+	U_H =A_H \frac{I}{h} B 
+\end{eqnarray}
+avec h l'épaisseur de la plaquette (valant 1mm). On en déduit $A_H$ grâce au coefficient directeur obtenu après modélisation. On en déduit ensuite le nombre de porteurs $n_n$ selon 
+\begin{eqnarray}
+A_H = \frac{1}{n_n\,q_k}
+\end{eqnarray}
+On peut ainsi en déduire si le semi-conducteur est dopé ou non.
+
+\section{Jonction P-N : électroluminescence}
+On a un banc de diodes, de longueurs d'onde différentes, on choisit une intensité (ici 3 mA) et on regarde quelle est la tension seuil $V_S$ associée à cette intensité que l'on conserve constante d'une diode à l'autre. On regarde dans un même temps quel est le $\lambda_{max}$ du spectre de la diode. On trace finalement $\nu_{min} = \frac{1}{\lambda_{max}}$ en fonction de $V_S$ dont on peut déduire $E_g$ pour chaque semi-conducteur de chaque diode selon
+\begin{eqnarray}
+E_g = h\nu_{min} = eV_S
+\end{eqnarray}
+
+\section*{Questions}
+Pour la thermistance, pouvez vous représenter le schéma électrique associé à l'un des ohmètres ?\\
+
+Quel est l'ordre de grandeur du courant que l'ohmètre fait passer dans la résistance ?\\ 
+Quelque centaines de micro ampères.\\
+
+Pourquoi ne peut on utiliser un courant plus grand ?\\
+
+Car cela provoquerait un auto-échauffement de la résistance par effet Joule.\\
+
+Pensez vous que la résistance des fils parasite de manière conséquente la mesure de la résistance ?\\
+
+Connaissez vous l'ordre de grandeur de la résistance d'un fil de cuivre de 1m ?\\
+Quelques Ohm.\\
+
+Y aurait il un moyen de réduire l'incertitude liée à la mesure de température via la résistance de platine ?\\
+Il faudrait étalonner la résistance de platine, afin de s'affranchir de la nécessité de lire le tableau de valeurs R(T) donné par le constructeur.\\
+
+Serait il possible, cet étalonnage étant compliqué, d'utiliser l'expression théorique de $R_{pt}(T)$ ? Cela reviendrait à considérer au finale quelle incertitude ?\\
+Oui, celle due au ohmètre.\\
+
+Pourquoi la mobilité augmente t-elle avec la température ?\\
+
+Quelle est la différence de comportement entre un semi-conducteur et un conducteur ?\\
+
+Pourquoi, dans la pratique, utilise t-on une thermistance ? Une sonde de platine ?\\
+
+Pour la sonde à effet Hall, quelles sont les précautions à prendre concernant l'établissement du champ magnétique ?\\
+
+Quelle forme de champ cherche t-on à obtenir ?\\
+
+Quel est l'intérêt d'utiliser 2 bobines ?\\
+On double le nombre de spires : plus grand B.\\
+
+Pourquoi existe t-il la possibilité d'ajouter une tension de correction sur la plaquette ?\\
+Car si la prise de tension se fait sur deux points légèrement décalés par rapport à l'axe on aura un offset.\\
+
+Pourquoi choisir un entrefer parallélépipèdique pour conduire le champ ?\\
+Car on veut obtenir un champ homogène autour de notre plaquette.\\
+
+Que se passe t'il si on fait tourner un des entrefers d'un quart de tour autour de son axe ? L'entrefer est il massif ou feuilleté ?\\
+
+Pourquoi est il feuilleté ? Et comment doit on donc le placer (faut il mettre le feuilletage à la perpendiculaire de celui de l'entrefer de dessous ou non)?\\
+pour éviter l'échauffement dû aux courants de Foucault.\\
+
+Comment fonctionne le Teslamètre ?\\
+Grâce à l'effet Hall.\\
+
+Est ce un avantage pour un capteur d'avoir une caractéristique linéaire ? \\
+
+Manip surprise : pouvez vous mesurer la résistance de la plaquette ?\\
+il faut la retirer du circuit puis mesurer la résistance avec un ohmètre équipé de fil que l'on va aller coller de part et d'autre de la plaquette. On obtient 30 $\Omega$.\\ Peut on en déduire la mobilité  $\mu$ ?\\
+Oui selon
+\begin{eqnarray}
+R = \frac{\rho\, L}{l\,h} = \frac{L}{l\,h\,e\,n_n\,\mu} \Rightarrow \mu = \frac{L}{l\,h\,e\,n_n\,R} = 0.27\,m^2\,V^{-1}\,s^{-1}
+\end{eqnarray}
+\\
+Pour mesurer les $\lambda_{max}$ quel matériel avez vous utilisé ?\\
+Un spectromètre USB.\\
+
+Comment fonctionne cet appareil ?\\
+On disperse la lumière, et on met ensuite une barette de CCD pour chaque angle.\\
+
+Le photorécepteur a t'il sa propre sensibilité ?\\
+
+Comment avez vous donc fait pour l'étalonner ?\\
+
+Quel critère avez vous utilisé pour identifier le $\lambda_{max}$ pour un spectre donné ?\\
+
+Pouvez vous nous donner le schéma électrique associé au montage avec les DELL ?\\
+
+Pourquoi conserve t-on un le même courant pour toutes les DELL ?\\
+
+Comment pourrait on améliorer le protocole ?\\
+On pourrait caractériser chacune des DELL et ainsi identifier précisément la tension seuil associée à chacune des diodes.
+
+
+\section*{Remarques}
+Mettre plutôt les schémas électriques des appareils que leurs noms sur les schémas de manip.\\
+Il faut bien expliciter les différentes utilisation des semi conducteurs en introduction.\\
+On aurait pu mesurer le temps de réaction d'une photodiode, celles ci étant notamment utilisées dans les fibres optiques.
+	
+\end{document}

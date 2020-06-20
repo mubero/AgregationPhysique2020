@@ -1,0 +1,7 @@
+\contentsline {subsubsection}{\numberline {0.0.1}Introduction}{2}
+\contentsline {section}{\numberline {1}Mesures de c\IeC {\'e}l\IeC {\'e}rit\IeC {\'e}s}{2}
+\contentsline {subsection}{\numberline {1.1}Dans l'air : tube de Koundt}{2}
+\contentsline {subsection}{\numberline {1.2}Dans un solide : le laiton}{2}
+\contentsline {paragraph}{Module d'Young :}{2}
+\contentsline {paragraph}{Manipulation :}{2}
+\contentsline {section}{\numberline {2}Application : effet Doppler}{3}

@@ -1,0 +1,9 @@
+\contentsline {subsection}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {1}Diffraction par un r\IeC {\'e}seau}{2}
+\contentsline {subsection}{\numberline {1.1}Position du probl\IeC {\`e}me}{2}
+\contentsline {subsection}{\numberline {1.2}Calcul de l'intensit\IeC {\'e} diffract\IeC {\'e}e}{2}
+\contentsline {subsection}{\numberline {1.3}Application : le spectrom\IeC {\`e}tre}{3}
+\contentsline {section}{\numberline {2}Diffraction pas des r\IeC {\'e}seaux tridimensionnels}{3}
+\contentsline {subsection}{\numberline {2.1}Formule de Bragg}{3}
+\contentsline {subsection}{\numberline {2.2}Diffraction par des particules massives}{3}
+\contentsline {subsection}{\numberline {2.3}Docteurs : Mesure des param\IeC {\`e}tres de maille du graphite}{4}

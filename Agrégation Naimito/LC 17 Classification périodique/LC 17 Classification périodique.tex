@@ -1,0 +1,179 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 17 Classification périodique}
+	\author{Clément}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection{Pré-requis}
+Modèle de l'atome\\
+acide base et oxido réduction
+
+\subsection{Introduction historique}
+Existence de nombreux éléments dans la nature, au départ interprété comme la présence de quatre éléments de base : eau, feu, air, terre présents en différentes proportions. On a ensuite, avec l'apparition de la science moderne, tenté de les classer : Parler du raisonnement effectué par Mendeleïev pour les classer. C'est finalement l'établissement structure atomique au début du 20e qui aura permit de bien comprendre l'origine des propriétés de ces différents éléments.
+
+\section{Structure de la classification}
+\subsection{Numéro atomique}
+Rappels sur le numéro atomique et le nombre de masse. \\
+Règle de Klechkowsky : prendre un ou deux exemples et montrer alors comment les placer dans le tableau périodique.
+
+\subsection{Analyse}
+Commentaire de chacune des familles, \textit{Chimie tout en un PCSI} \textbf{Fosset} p111.\\
+Q : la structure atomique permet elle d'expliquer le comportement macroscopique des éléments ?
+\subsection{Les halogènes}
+
+\textbf{Le maréchal} \textit{Tome 2 Chimie organique et minérale} p273.\\
+
+On a du chlorure de potassium, du bromure de potassium et du iodure de potassium, on place un peu de chacun de ces produits dans des tubes à essai, et on les fait réagir avec du nitrate d'argent. On voit apparaître trois précipités de couleurs différentes. On se place ensuite sous la hotte pour ajouter de l'ammoniac dans chaque tube. On observe qu'un seul des précipités se dissout alors. On ajoute maintenant du thiosulfate de sodium ($Na_2S_2O_3$) et on observe (en théorie) la re-dissolution d'un des deux complexes restant.
+\subsubsection{Explication}
+On a 
+\begin{eqnarray}
+AgCl_ + 2NH_3 \longrightarrow Ag(NH_3)^+_2 + Cl^-\\
+A_gBr + 2 S_2O_3^{2-} = Ag(S_2O_3)_2^{3-} + Br^-
+\end{eqnarray}
+
+\section{Périodicité des propriétés physiques}
+\subsection{Énergie d'ionisation/affinité électronique}
+\textit{Chimie tout en un PCSI} \textbf{Fosset} p119.\\
+
+Définition de l'énergie d'ionisation énergie "consommée" par la réaction $X_{(g)} \rightarrow X^+_{(g)} + e^-$.\\
+On se propose de donner quelques valeurs, notamment pour les éléments suivants :
+
+Li, Be, B, C, N, O, F, Ne \\
+On en déduit que une loi quand à l'évolution de la stabilité dans une ligne.\\
+Idem pour une colonne avec F, Cl, Br, I et Ar.\\
+
+On définit l'affinité $X_{(g)} +e^- \rightarrow X^-_{(g)}$.\\
+Commentaire.
+
+\subsection{Électronégativité}
+\textit{Chimie tout en un PCSI} \textbf{Fosset} p122.\\
+
+Il existe plusieurs échelles, on se propose ici d'en comparer deux.\\
+L'échelle de Mulliken : 
+\begin{eqnarray}
+\chi = k\left(\frac{E_I + E_A}{2}\right) 
+\end{eqnarray}
+On voir que $\chi$ croit avec les deux énergies, d'ionisation et d'affinité chimique.\\
+Echelle de Pauling.\\
+
+Dire que les constantes des deux méthodes sont choisies telles que $\chi_{H}$ = 2,2.\\
+
+Bien que théoriquement équivalentes, les méthodes sont plus ou moins pratiques expérimentalement.\\
+
+Commenter la manière dont l'électronégativité  varie dans le tableau périodique des éléments, et l'expliquer avec les mains et un schéma sans expliciter formellement Slater.\\
+
+Préciser que ce concept permet d'expliquer pas mal de propriétés chimiques, comme on va le voir par la suite.
+
+\section{Périodicité des propriétés chimiques}
+\subsection{RedOx}
+Certains éléments on des propriétés réductrices marquées tel que le sodium :\\
+\textit{Chimie tout en un PCSI} \textbf{Fosset} p130.\\
+ \textbf{Le maréchal} \textit{Tome 1 Chimie générale} p69.\\
+ On voit que c'est tout à fait compatible avec le concept d'électronégativité : le sodium est à gauche du tableau périodique : il a une une faible électronégativité, il perd donc facilement ses électrons ce qui fait de lui un bon réducteur.\\
+ 
+ Regardons maintenant le cas de deux oxydations celles du carbone et du magnésium qui s'oxydent lors de leur combustion, \textbf{Cachau Hereillat} \textit{Red-OX} p138.\\
+ 
+ On peut ensuite mettre en évidence le caractère basique ou acide de leurs oxydes.
+  
+\subsection{Propriétés Acido-basiques des oxydes}
+\textbf{Manip} : Combustion du carbone et du magnésium,
+\textbf{Cachau Hereillat} \textit{Red-OX} p138.\\
+On identifie les propriétés acides ou basique des oxydes formés par la combustion en les dissolvant dans l'eau puis en utilisant un indicateur coloré (phénolphtaléine pour le carbone et BBT pour le magnésium).
+\begin{eqnarray}
+MgO_{(s)} + H_2O_{(l)} = Mg^+_{(aq)} + 2HO^-_{(aq)}\\
+CO_{2\,(g)} + H_2O_{(l)} = H_2CO_{3\,(aq)}\\
+H_2CO_{3\,(aq)} + H_2O_{(l)} = HCO_{3\,(aq)}^- + H_3O^+_{(aq)} 
+\end{eqnarray}
+
+Là encore on peut faire le même commentaire sur le magnésium : sa faible électronégativité fait de lui un bon réducteur, et fait ainsi de son oxyde une bonne base.
+
+\section{Conclusion}
+Utilité de la classification périodique, limitations pour les gros atomes. \\
+Le tableau périodique permet de classifier les atomes indépendamment, mais dans la nature on trouve très souvent ces atomes au sein de molécules, donc les propriétés sont souvent beaucoup plus compliquées à établir et expliquer.
+
+\section*{Questions}
+Pourquoi n'y a t'il pas le même nombre d'élément dans toutes les périodes ?\\
+Orbitales atomiques.\\
+
+Que représente de 2 de 2s ?\\
+Pouvez vous écrire la décomposition des orbitales de l'oxygène ?\\
+
+Où est placé le germanium dans le tableau (Z=32) ?\\
+
+Quel est le numéro atomique de l'élément à la ligne 5 et période 4 ?\\
+
+Où sont placés les métaux dans le tableau périodique ? Qu'y a t'il d'autres ?\\
+
+Qu'appelle t-on la classification en bloc ?\\
+Classification par orbitale : s, p d...\\
+
+Comment s'appelle la couche externe d'électrons ?\\
+
+Dans quel état sont les éléments ?\\
+
+Quels est l'état prépondérant ?\\
+Solide > gaz > liquide\\
+
+Combien y a t'il de liquides ?\\
+
+Pourquoi ne pas avoir présenté tous les halogènes dans l'expérience ?\\  
+
+Pouvez donner et justifier l'état physiques des halogènes ?\\
+Plus les atomes sont gros plus leurs nuages électroniques sont déformables et peuvent ainsi former des liaisons dipôle dipôle.\\
+
+Quelles sont les liaisons intermoléculaires ?\\
+Liaison faible en particulier de type Van Der Waals.\\
+ 
+Quel est le complexe formé par l'ion argent et le thiosulfate ?
+\begin{eqnarray}
+Ag(S_2O_3)^{3-}_2
+\end{eqnarray}
+
+Quelle est sa formule de Lewis ?\\
+
+Pourquoi redissout on AgBr avec le thiosulfate et pas avec l'ammoniac ?\\
+Car dans le cas de l'ammoniac $Ks\beta \ll 1$ : pas favorable, même si on met l'ammoniac en excès.
+
+\section*{Commentaires} 
+Il faut expliquer comment trouver la structure électronique d'un élément, et comment placer un élément dont on a déterminé la structure électronique.\\
+La manip des halogénures n'est pas au programme, donc à enlever. Passer plus de temps sur les commentaires et explications de la seconde expérience.\\
+Insister sur les propriétés réductrices ou oxydantes des différents éléments selon leur position. Montrer que plus on monte dans les halogènes plus on est oxydant et faire le lien avec l'électronégativité.\\
+Gagner du temps en enlevant le calcul dans la partie électronégativité, plutôt commenter les échelles.
+
+\end{document}

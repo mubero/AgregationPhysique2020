@@ -1,0 +1,121 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 29 Cinétique électrochimique}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection{Pré-requis}
+Niveau classes préparatoires,\\
+oxydo réduction, Nernst, électrodes, potentiels d'électrode.
+
+\subsection{Introduction}
+Notion d'électrolyse : intérêts et utilisation. Nécessité de faire des choix adaptés pour les électrodes, les géométries, les surtensions... Afin d'optimiser les procédés.
+
+\section{Aspects thermodynamiques et cinétiques des réactions chimiques}
+\subsection{Rappels thermodynamique}
+\textit{Chimie générale} de \textbf{McQuarrie} p931 pour Nernst et la notion d'intensité et de potentiel.\\
+
+C'est la thermodynamique, représentée par les potentiels thermodynamiques qui définit si la réaction peut se produire ou non. On peut calculer les potentiel RedOx des demies équations grâce à la relation de Nernst, et c'est ensuite le signe de la différence de potentiel $\Delta E =E_1-E_2$ qui détermine si la réaction est thermodynamiquement favorable selon
+\begin{eqnarray}
+	\Delta_rG = n_1n_2F\Delta E
+\end{eqnarray}
+où les $n_i$ sont les nombres d'électrons échangés dans a demie équation associée (ici on a considéré le cas générale de deux demies équations avec donc $(R) = n_2(1) - n_1(2)$).
+
+\subsection{Cinétique électrochimique}
+On définit la vitesse comme en cinétique homogène, il apparaît alors un lien entre vitesse de réaction et intensité : \textbf{Electrochimie} de \textit{Fabien Miomandre} \& \textit{all} p56.
+\begin{eqnarray}
+i = -\frac{dQ}{dt} \hspace{1cm} i = \mathcal{F}n\frac{d\xi}{dt}
+\end{eqnarray}
+Signe : par convention, dépend du signe que l'on veut avoir pour le courant circulant entre anode et cathode. Le courant est positif lorsqu'il rentre dans l'électrode.
+
+\subsection{Facteurs cinétiques}
+L'intensité $i$ dépend des mêmes facteurs que la vitesse des réactions chimiques :
+\begin{itemize}
+	\item les concentrations des différents réactifs
+	\item la température.
+\end{itemize}
+L'intensité $i$ dépend en outre de facteurs propres aux réactions électrochimiques :
+\begin{itemize}
+	\item la nature des électrodes
+	\item l'aire et l'état de surface des électrodes
+	\item la différence de potentiel entre les électrodes.
+\end{itemize}
+
+Contrairement au cas usuel des réactions chimiques usuelles ayant lieu dans tous le volume de la solution, les réactions électrochimiques se font à la surface d'une électrode. Il y a de ce fait un autre paramètre physique qui influe sur la cinétique : la diffusion et les autres modes de transport, comme nous allons le voir maintenant.
+ 
+\section{Courbes intensité-potentiel}
+\subsection{Modes de transports}
+Diffusion, convection et migration : \textbf{Electrochimie} de \textit{Fabien Miomandre} \& \textit{all} p75.\\
+$\longrightarrow$ Facteurs limitant. 
+%Existence de plusieurs régimes : soit c'est le transport des charges (par diffusion) qui limite la cinétique, soit c'est le transfert de charge (via la surface de l'électrode).
+
+\subsection{Courbes I(E)}
+\textbf{Electrochimie} de \textit{Fabien Miomandre} \& \textit{all} cahp 5 p91. Très physique, effectue les calculs menant aux équations des courbes I(E) à ne pas montrer : seulement montrer les différents cas (juste donner les courbes).\\
+Regarder la leçon de Mr \textit{Suet} : fait un bon topo sur quoi dire.
+\subsection{Différents cas}
+Présenter cas rapide et lent, et expliquer quel est l'impact de la limitation due à la diffusion (et convection).
+
+\subsection{Tracé expérimental pour le Fer}
+\textit{Brénon Audat} \textbf{Chimie inorganique et générale} p194
+
+
+\section{Application : formation industrielle du zinc}
+\subsection{Électrolyse}
+Voir poly de mr \textbf{Suet} : consiste à utiliser deux électrodes soumises à une tension pour forcer une réaction RedOx thermodynamiquement défavorable.
+
+\subsection{Formation du zinc}
+voir Wikipedia pour le principe : on brule puis dissout le minerai contenant le zinc, pour obtenir $Zn^{2+}$ en solution, on fait précipiter le reste puis on électrolyse le zinc.
+
+\section*{Questions}
+Y a t'il une différence entre réaction chimique et électrochimique ?\\
+
+Pouvez vous me faire le schéma d'un montage à trois électrodes, et expliquer où et pourquoi on branche générateur et multimètres ?\\
+Le potentiel de la contre électrode varie car le courant qui le traverse varie (c'est nous qui le faisons varier). Il faut que l'électrode soit le plus près possible de l'électrode de travail.\\
+
+L'électrode de référence doit elle être à égale distance des deux autres ?\\
+Non. \\
+
+A quelle condition peut on appliquer la loi de Nernst ?\\
+Il faut être à l'équilibre.
+
+\section*{Remarques}
+Contextualiser en présentant l'électrolyse (industrielle) du zinc.
+
+
+\end{document}

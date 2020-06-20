@@ -1,0 +1,140 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 18 Phénomènes de transport}
+	\author{Matthieu}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Introduction}
+diffusion d'une goutte d'encre dans un bécher, phénomène lent. Si on agite : convection, on homogénéise rapidement la concentration.\\
+
+Q :  comment décrire ces grandeurs hors équilibre ?
+
+\section{Principe d'une description macroscopique}
+\subsection{Équilibre thermodynamique local}
+Définition du volume sur lequel on va pouvoir définir localement les grandeurs thermodynamiques P, T...
+
+\subsection{Bilan d'une grandeur extensive}
+Sur un volume donné, à une grandeur extensive X on associe la densité volumique $x$ telle que $dX = x(\vec{r},t)dV$, on a alors 
+\begin{equation}
+X = \iiint x(\vec{r},t) dV
+\end{equation}
+	exemple avec la masse.\\
+	
+Au niveau temporel 
+\begin{eqnarray}
+	dX = X(t+dt)-X(t) = \iiint (x(t+dt,\vec{r}) - x(t,\vec{r}))dV = dt \iiint \frac{\partial x}{\partial t}dV
+\end{eqnarray}
+
+on a $dX = \delta X^c + \delta X^e$ (pour création et échange).\\
+Notion de courant et de flux pour le terme d'échange.\\
+Taux de création.	\\
+
+On en déduit un bilan local
+\begin{eqnarray}
+\frac{\partial x}{\partial t} + \vec{\nabla}. \vec{J} = \sigma_c
+\end{eqnarray}
+
+\subsection{Quelques grandeurs transportées}
+cas de particules  
+\begin{eqnarray}
+	\frac{\partial n}{\partial t} + \vec{\nabla}. \vec{J}_n = 0
+\end{eqnarray}
+permet d'obtenir l'équation de conservation de la masse en multipliant par la masse d'une particule
+\begin{eqnarray}
+\frac{\partial \rho}{\partial t} + \vec{\nabla}.(\rho\vec{v}) = 0
+\end{eqnarray}
+
+Cas du champ électromag :
+\begin{eqnarray}
+\frac{\partial}{\partial t}\left(\varepsilon_0\frac{E^2}{2} + \frac{B^2}{2\mu_0}\right) + \vec{\nabla}.\vec{\Pi} = -\vec{E}.\vec{J}
+\end{eqnarray}
+\section{Transport de la chaleur}
+\subsection{Modes de transport de la chaleur}
+\paragraph{Conduction}
+\paragraph{Convection}
+\paragraph{Rayonnement}
+
+\subsection{Bilan d'énergie interne}
+\begin{eqnarray}
+U = \iiint n_u(\vec{r},t)dV
+\end{eqnarray}
+et donc 
+\begin{eqnarray}
+\frac{\partial n_u}{\partial t} + \vec{\nabla}. \vec{J}_u = 0
+\end{eqnarray}
+
+On utilise le premier principe pour introduire la loi de Fourrier.\\
+Manip illustrant les différences de conductivité thermique.\\
+Analogies : Loi d'Ohm locale, Loi de Fick pour le transport de particules, Viscosité.
+
+\subsection{Équation de diffusion thermique}
+On part de Fourrier pour obtenir l'équation de la chaleur. On commente l'équation de diffusion obtenue qui est très générale.
+
+\section{Résolution de l'équation de diffusion}
+\subsection{En régime stationnaire}
+On obtient l'équation de Laplace dont les solutions sont connues lorsque les conditions aux bords le sont. Résolution type à 1D.
+\paragraph{Notion de résistance (thermique)}
+
+\subsection{Régime non stationnaire}
+distribution gaussienne.
+
+\section{Conclusion}
+Phénomènes prépondérants si on veux économiser l'énergie. Modèle seulement adaptés aux petits gradients.
+
+\section*{Questions}
+Êtes vous sûr que $\vec{J}$ était un flux volumique ?\\
+non c'est une densité surfacique de flux, en $W.m^{-2}$.\\
+
+Vous avez dit que le manteau terrestre était hautement déformable... c'est à dire ?\\
+
+A quoi pensez vous lorsque vous parlez de convection (pour le manteau) ?\\
+
+Y a t'il des matériaux qui ne sont pas à la fois bon conducteur thermique et électrique ?\\
+Oui le diamant par exemple.\\
+
+Y a t'il une raison générale pour dire que la réponse (courant) va être proportionnelle au gradient de potentiel ?\\
+
+Est ce toujours vrai ? Existe t'il des phénomène qui mènent à des transports de chaleur sans gradient de température ?\\
+Effet Peltier par exemple.\\
+
+Pouvez vous redéfinir la diffusivité thermique ?\\
+$a = \frac{\lambda}{\rho\,c_p}$ (on utilise $c_p$ car c'est la grandeur expérimentalement pertinente).
+
+\section*{Remarques}
+Cette leçon est très longue, il est possible de se focaliser sur un phénomène en particulier (transport de la chaleur par exemple). Résumer la première partie en la mettant en pré-requis : c'est de la thermodynamique et ce n'est pas propre à cette leçon.\\
+Possibilité d'évoquer la théorie de Onsager.\\
+Voir livre Rieutord
+
+\end{document}

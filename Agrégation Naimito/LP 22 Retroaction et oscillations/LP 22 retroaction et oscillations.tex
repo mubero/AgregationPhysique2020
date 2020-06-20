@@ -1,0 +1,82 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 22 Rétroaction et oscillations}
+	\author{Matthieu}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\section{Introduction}
+Notion d'interaction, notion de système.
+Interaction entre ce système et son environnement.\\
+Notion de système bouclé : qui contiens une ou des boucles de rétroaction.\\
+Définition d'un système linéaire.
+\section{Modélisation des systèmes bouclés - Asservissement}
+\subsection{Structure d'un système bouclé}
+Ex adaptation vitesse par un conducteur dans une voiture.\\
+Def asservissement.\\
+Schéma + explications d'un régulateur de vitesse.\\
+Correspond à une chaîne directe + une chaîne de retour
+\subsection{Modélisation d'un système bouclé}
+Système linéaire :
+\begin{eqnarray}
+a_k\frac{d^k S}{dt^k} + ... + a_0S=b_l\frac{d^l e}{dt^l} + ... + b_0e
+\end{eqnarray}
+Resolution de ce type d'équations en utilisant la transformée de Laplace
+\begin{eqnarray}
+E(p)=TL(e(t))=\int_0^{+\infty}e^{pt}e(t)dt\;avec \; p\in\mathcal{C}\\
+TL\frac{d^kS}{dt^k}=p^kS(p)
+\end{eqnarray}
+Application à une eq linéaire.
+\begin{eqnarray}
+H(p)=\frac{S(p)}{E(p)}
+\end{eqnarray}
+Fonction de transfert en Boucle ouverte ...
+\subsection{Application au régulateur}
+
+\section{Stabilité des systèmes bouclés, Oscillateurs}
+\subsection{Étude de la stabilité}
+Cas général ... stabilité dépend de la partie réelle des pôles de S(p) la TL de S.
+\paragraph{Exemple du régulateur de vitesse}
+\subsection{Oscillateurs quasi-sinusoïdaux}
+Cas de l'oscillateur à pont de Wien. Shéma + principe + caractérisation.
+
+\section{Questions}
+Qu'est ce qu'une contre réaction (différence avec la rétroaction)?\\
+
+Peut on modéliser un AOP en montage amplificateur non-inverseur comme un système bouclé ?\\
+
+Avantages des systèmes bouclés ?\\
+
+Pouvez vous modéliser analytiquement et proprement l'impact d'un bruit sur un système bouclé ?
+\end{document}

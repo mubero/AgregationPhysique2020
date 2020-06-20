@@ -1,0 +1,154 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 36 Diffraction par des structures périodiques}
+	\author{Naïmo Dvaier}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Introduction}
+Pré requis : interférences, diffraction, bases de mécanique quantique.\\
+Rappel concept de diffraction.
+\section{Diffraction par un réseau}
+\textbf{Optique} de \textit{Pérez} chap 27 p 351.
+
+\subsection{Position du problème}
+Définir la notion de réseau.\\ 
+Donner la condition d'interférences constructives dans le cas idéal de fentes infiniment fines, obtenir la relation fondamentale des réseaux
+\begin{eqnarray}
+\sin \theta - \sin \theta_0 = \frac{m\lambda}{a}
+\end{eqnarray}
+On veut maintenant établir la figure que l'on obtiendra sur un écran situé à l'infini (dans le plan focal d'une lentille convergente). On va donc se servir du formalisme pour la diffraction de Fraunhoffer, qui stipule que l'amplitude complexe (à l'infini) d'une onde diffractée par ouverture caractérisée par une transmittance $t(x,y)$ est sa transformée de Fourrier
+\begin{eqnarray}
+\underline{T} (u,v) = \iint_{\mathbb{R}^2} t(x,y) e^{-2i\pi(ux+vy)}\; dx\,dy
+\end{eqnarray}
+avec $u$ et $v$ les fréquences spatiales. ($u$ est définie dans le cas géométrique précédent comme $u = \frac{\sin\theta - \sin\theta_0}{\lambda}$).
+\subsection{Calcul de l'intensité diffractée}
+Si le réseau comporte N motifs identiques décrits par la transmittance $t(x,y)$ et numérotés le long de l'axe x de $-n$ à $n$ on a alors l'intensité de l'onde diffractée qui s'écrit comme 
+\begin{eqnarray}
+\underline{\psi} &=& \iint \sum_{m= -n}^{n} t(x+ma, y) e^{-2i\pi(ux+vy)}\; dx\,dy\\
+&=& \sum_{m= -n}^{n} \int \underline{\tau}(x+ma, v) e^{-2i\pi ux} \;dx
+\end{eqnarray}
+où $\underline{\tau}(x, v) = \int t(x,y) e^{-2i\pi yv} dy$. En réalisant les changements de variable $X = x - ma$ pour chacune des intégrales on obtient 
+\begin{eqnarray}
+\underline{\psi} = \sum_{m= -n}^{n} e^{2i\pi uma}\int \underline{\tau}(X, v) e^{-2i\pi uX} \;dX = \sum_{m= -n}^{n} e^{2i\pi uma} \underline{T}(u,v)
+\end{eqnarray}
+On constate qu'on a une suite géométrique de raison $e^{2i\pi u a}$ et qui vaut donc 
+\begin{eqnarray}
+\sum_{m= -n}^{n} e^{2i\pi uma} = e^{-2i\pi una} \sum_{m= 0}^{N} e^{2i\pi uma} = e^{-2i\pi una} \frac{1 - e^{2i\pi uNa}}{1-e^{2i\pi ua}} = \frac{\sin N\pi u a}{\sin \pi u a}
+\end{eqnarray}
+On obtient donc finalement 
+\begin{eqnarray}
+\underline{\psi} = \frac{\sin N\pi u a}{\sin \pi u a} \underline{T}(u,v)
+\end{eqnarray}
+Dont on déduit l'intensité 
+\begin{eqnarray}
+I = \psi \psi ^* = \frac{\sin^2 N\pi u a}{N^2 \sin^2 \pi u a}N^2|\underline{T}(u,v)|^2
+\end{eqnarray}
+On constate que cette intensité est le produit d'un facteur de forme $|\underline{T}(u,v)|^2$ dépendant de la forme des motifs diffractant, et d'un facteur de structure $\frac{\sin^2 N\pi u a}{\sin^2 \pi u a}$ dépendant de la structure du réseau. \\
+La fonction $\frac{\sin^2 N\pi u a}{N^2 \sin^2 \pi u a}$ appelée fonction réseau est maximale en $u=\frac{m}{a} \Longrightarrow \sin\theta - \sin\theta_0 = \frac{m\lambda}{a}$ : on retrouve la relation des réseau obtenue avec notre schéma précédent.\\
+
+Donner et commenter la figure dans le cas d'un réseau de fente et parler de la notion d'inversion d'échelles.
+
+\subsection{Application : le spectromètre}
+schéma de principe. Expliquer de manière qualitative et garder du temps pour la partie 3D.\\
+
+Pour les questions regarder :\\
+la notion de dispersion angulaire, de pouvoir de résolution et les réseaux réels (notamment le résonateur acousto optique) dans le \textit{Pérez}.
+
+\section{Diffraction pas des réseaux tridimensionnels}
+\textbf{Physique des solides} de \textit{W. Ashcroft} p 111 (rayons X) et 434 (électrons).\\
+
+On élargit le cas précédent à 3D. Il existe des cas dans la nature : les mailles cristallines. Exemple de la maille cubique.
+
+\subsection{Formule de Bragg}
+On l'établit géométriquement. Justifier le fait que l'on considère une réflexion en disant que l'on peut le justifier avec von Laue (qui utilise la notion de réseau de bravais et de réseau réciproque que l'on a pas le temps d'introduire). Préciser le fait que c'est valable pur n'importe quel plan atomique.\\ 
+Discussion sur les longueurs d'ondes utilisables pour sonder la matière, il faut utiliser des rayons X.\\
+
+ Mais, dualité onde corpuscule : on peut utiliser des particules, ici notamment des électrons.
+
+\subsection{Diffraction par des particules massives}
+Formules de de Broglie. Cas des électrons dans le \textit{W. Ashcroft} p434. Expliquer l'intérêt : on sonde surtout la surface.\\
+On comprend alors que on va pouvoir utiliser différentes particules afin de sonder différents aspect en ayant accès notamment à différentes longueurs d'onde et différents types d'interactions (notamment si la particule sonde est chargée ou non). \\
+Regarder \textbf{Panorama de la physique}.
+
+\subsection{Docteurs : Mesure des paramètres de maille du graphite}
+Schéma du dispositif, principe utilisé pour accélérer les électrons. Calcul de $\lambda_{db}$ pour les électrons envoyés par le dispositif considéré. On applique Bragg. On trace ensuite D (le diamètre des anneaux) en fonction de $1/\sqrt{U}$ avec U la tension. Dans la pratique on a $D_1$ et $D_2$ car il y a deux longueur caractéristiques pour la maille hexagonale. On remonte aux paramètres de maille à partir des deux coefficients directeur de nos droite.
+
+\section*{Questions}
+Vous parlez en conclusion de diffraction des ondes acoustiques pour les échographies .. êtes vous sûr ?\\
+Non. ça intervient mais ce n'est pas le principe.\\
+
+Quel est le but d'une échographie ?\\
+
+Vous nous montrez pour la photo d'une figure de diffraction pour maille cubique et on y voit des pics.. pourquoi voit on des cercles dans la deuxième manip ?\\
+
+Pourquoi utiliser des électrons plutôt que des rayons X ? Existe t'il d'autres types de diffraction ?\\
+
+Est il possible pour la diffraction à 3D d'avoir $p\neq 1$ ?\\
+
+Si l'approche géométrique est plus concise, pourquoi faire le calcul précédente ?\\
+Par ce que cette deuxième approche est plus pauvre puisqu'elle ne tient pas compte de l'épaisseur des fentes.\\
+
+Pour établir le PR du réseau, comment justifiez vous le $(\Delta u)_{1/2} = \frac{1}{L}$ ?\\
+
+
+
+
+\section*{Remarques}
+Attention : il faut redéfinir les symboles dès qu'on réutilise un symbole pour une autre quantité.\\
+Mettre des schémas pour le PR et pour l'invariance de Bragg par rotations.\\
+Plutôt faire la méthode inductive pour la troisième partie : on part de l'observation pour introduire la théorie.\\
+Le jury précise qu'il veut voir de la diffraction à 3D et avec autre chose que de la lumière.\\
+On peux compacter le calcul pour les réseaux 
+\begin{eqnarray}
+I_1(u) \propto sinc^2(u)\\
+I_N = \sum e^{in\phi}I_1(u)
+\end{eqnarray}
+suite géométrique 
+\begin{eqnarray}
+I_N = R(u)I_1(u)
+\end{eqnarray}
+
+Il y a deux facteurs : la périodicité, et la forme du motif diffractant.\\
+
+Il faut enlever la première manip : enlever le spectromètre.\\
+
+Pour savoir pourquoi il n'y a que l'ordre 1 pour les réseaux 3D regarder le résonateur acousto optique.\\
+
+Parler de la diffraction de gros trucs : neutrons, atomes neutres, molécules...ect en ouverture. A regarder dans \textbf{panorama de la physique}
+\end{document}

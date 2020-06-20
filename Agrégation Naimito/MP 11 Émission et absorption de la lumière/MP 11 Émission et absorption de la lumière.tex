@@ -1,0 +1,104 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 11 Émission et absorption de la lumière}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\section{Émission de la lumière}
+\subsection{Mesure de la constante de Rydberg}
+\subsubsection{Étalonnage}
+On étalonne le spectromètre avec la lampe à Hélium. On obtient une droite en trançant $\lambda_{tab} (\lambda_{mesure})$. On obtient un résultat compatible avec une droite de la forme $\lambda_{tab} = \lambda_{mesure}$, le spectre est donc correctement étalonné.
+
+\subsubsection{Manipulation}
+On regarde les différentes raies de la lampe à eau, et on trace 
+\begin{eqnarray}
+\frac{1}{\lambda}(\frac{1}{m^2})
+\end{eqnarray}
+(attention ici à ne regarder que les raies dues à l'hydrogène et non pas celles du dioxygène) afin de confronter la formule de Rydberg
+\begin{eqnarray}
+\frac{1}{\lambda} = R_y\left(\frac{1}{n^2}-\frac{1}{m^2}\right)
+\end{eqnarray}
+et d'ainsi en déduire la valeur de la constante de Rydgerg $R_y$. Avec l'ordonnée à l'origine on remonte à n, on trouve ici n = 2 ce qui correspond à la série de palmer.
+
+\subsection{Doublet du sodium}
+On va déterminer l'écart entre les deux raies du doublet du sodium à l'aide d'un michelson. On cherche pour cela le nombre de franges observées entre deux annulations du contraste. On trace pour cela une droite représentant le nombre de franges comptés en fonction du nombre d'annulation du contraste observées. Le coefficient directeur de la droite obtenue est alors égal au nombre de franges entre deux annulations de contraste $\Delta x$.
+On en déduit l'écart entre les deux doublets selon
+\begin{eqnarray}
+\Delta \lambda = \frac{\lambda_0^2}{2\Delta x}
+\end{eqnarray}
+
+\section{Absorption de la lumière, loi de Beer Lambert}
+
+\subsubsection{Mesure de l'absorbance en fonction de nl}
+
+\subsubsection{Estimation des incertitudes}
+On fait 16 mesures avec 16 positions différentes mais équivalentes de la diapo et on fait une incertitude statistique.\\
+On divise alors l'incertitude SUR LA MOYENNE par $\sqrt{16}$.
+
+
+\section*{Questions}
+Pour évaluer l'incertitude statistique dans la dernière manip, faut il bouger le spectro ou la diapo ?\\
+Source non constante : il ne faut donc pas bouger le spectro.\\
+
+Comment fonctionne un spectromètre ? Pouvez vous faire un schéma de principe ?\\
+Miroir cvg placé de telle sorte à ce que l'entrée du spectro soit à son foyer objet, envoie un faisceau parallèle vers un réseau à la sortie duquel on re-focalise sur une barette CCD.\\
+
+Concernant la manip sur Rydberg, qu'est ce qui nous donne le droit d'associer l'ordonnée à l'origine à un entier ?\\
+Il faut regarder les incertitudes et montrer que c'est compatible.\\
+
+D'où vient l'hydrogène dans la lampe à eau ? Pourquoi a t-on aussi du dioxygène ?\\
+On a une tension de quelques milliers de volts qui accélère des électrons qui vont aller percuter les molécules d'eau et briser les liaisons. Il y a donc surtout de l'hydrogène et de l'oxygène (atomique) mais aussi quelques molécules.\\
+
+D'ou provient la forme des raies observées au spectro, pourquoi sont elles si larges ?\\
+Cela vient de l'appareil : soit de la fibre optique, soit du réseau (ne vient pas de la CCD puisqu'on observe plusieurs pixels). On peut le voir en prenant une fibre de plus petit diamètre on voit que l'on gagne en résolution, et on peut alors arriver à la limite du réseau. On en conclut qu'ici c'est la fibre qui limite.\\
+
+Peut on résoudre le doublet du sodium avec la fibre la plus fine et le spectro ?\\
+Non, par contre on peut le faire sur l'hélium. \\
+
+Pouvez vous en déduire le pouvoir de résolution du spectro ?\\
+oui : si on ne peut résoudre le sodium, mais tout de même distinguer qu'on a pas un pic unique, on a donc un pouvoir de résolution d'environ 1nm.\\
+
+Pour Beer lambert, à lc constant, le problème (l'absorbance) est il toujours le même ?\\
+Seulement dans le cas très dilué, au delà Beer Lambert n'est plus valable : on a plus un comportement linéaire.
+
+\section*{Remarques}
+Pour estimer la position des raies : on prend la position des deux largeur à mi-hauteur : et on en déduit la position du max avec une meilleure précision.\\
+Idem pour les pertes de contraste au Michelson, on note quand le contraste disparait et quand il réapparaît et on prend la moyenne des deux.\\
+
+\end{document}

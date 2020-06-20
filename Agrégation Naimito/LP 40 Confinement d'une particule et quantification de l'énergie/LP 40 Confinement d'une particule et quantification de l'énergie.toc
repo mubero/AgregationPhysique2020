@@ -1,0 +1,9 @@
+\contentsline {subsection}{\numberline {0.1}Introduction, pr\IeC {\'e}-requis}{2}
+\contentsline {section}{\numberline {1}Puits de potentiel infini}{2}
+\contentsline {section}{\numberline {2}Atome d'hydrog\IeC {\`e}ne}{2}
+\contentsline {subsection}{\numberline {2.1}Mod\IeC {\`e}le de Borh}{2}
+\contentsline {subsection}{\numberline {2.2}Mod\IeC {\`e}le quantique}{2}
+\contentsline {subsubsection}{\numberline {2.2.1}Moment cin\IeC {\'e}tique et harmoniques sph\IeC {\'e}riques}{3}
+\contentsline {subsubsection}{\numberline {2.2.2}D\IeC {\'e}finition du probl\IeC {\`e}me}{3}
+\contentsline {subsubsection}{\numberline {2.2.3}\IeC {\'E}quation aux valeurs propres}{3}
+\contentsline {subsubsection}{\numberline {2.2.4}Solutions et discussion}{3}

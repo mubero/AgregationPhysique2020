@@ -1,0 +1,168 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 08 Notion de viscosité d'un fluide, écoulements visqueux}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection{pré-requis}	
+	Mécanique du point\\
+	Notion de particule fluide, fluide parfait, lois de conservation, équation d'Euler.
+\subsection{Introduction}
+On a vu les fluides parfaits qui correspondent au cas idéal où les particules ne se voient pas, or dans la pratique on peut constater une différence de comportement très nette entre du miel et de l'eau. Comment expliquer et décrire cette différence : en introduisant la notion de viscosité.
+	
+\section{Équations du mouvement}
+\subsection{Transfert de quantité de mouvement : viscosité}
+\subsubsection{La viscosité vue par le frottement}
+\textbf{Hydrodynamisme physique} de \textit{Guyon et Petit} p 64.\\ 
+On traite la viscosité en regardant deux couches de fluides allant à des vitesses différences et frottant ainsi l'une contre l'autre.\\
+Transfert de quantité de mouvement : obtenir ainsi l'équation liant la dérivée temporelle de la vitesse et la viscosité 
+\begin{eqnarray}
+\frac{\partial \vec{v}}{\partial t} = \nu \Delta \vec{v}
+\end{eqnarray}
+
+\subsubsection{Interprétation dans le cas du gaz}
+\textbf{Hydrodynamisme physique} de \textit{Guyon et Petit} p 68.\\ 
+Montrer que l'on peut visualiser le transfert de quantité de mouvement comme le passages de particules d'une couche à l'autre, transférant au passage de la quantité de mouvement d'une couche à l'autre. Ne pas rentrer dans les détails analytiques.\\
+
+Donner quelques valeur de viscosité pour situer les valeurs associée aux fluides que l'on a l'habitude de manipuler. Donner la variation de la viscosité avec la température pour les gaz et les liquides.
+
+\subsection{Équation de la quantité de mouvement}
+Rappeler la notion de tenseur des contraintes en stipulant qu'il existe des forces de volumiques (externes) comme la gravité par exemple, et des forces de contraintes internes au fluide. Ces dernières s'appliquent sur les surfaces élémentaires qui délimitent le volume d'une particule fluide, le tenseur des contraintes est alors défini comme le tenseur liant le vecteur de surface élémentaire et la force de contrainte qui s'y applique 
+\begin{eqnarray}
+d\vec{f} = [\sigma]\vec{dS}
+\end{eqnarray}
+Préciser que l'on peut monter que si l'on suppose qu'il ne dépend que des propriétés locales de l'écoulement alors $[\sigma]$ est symétrique (\textit{Guyon Petit} p128).\\
+
+\textbf{Une introduction à la dynamique des fluides} de \textit{M. Rieutord} p 19.\\
+\textbf{Hydrodynamisme physique} de \textit{Guyon et Petit} p 130.\\ 
+Montrer que dans le cas de faibles perturbations un développement de $[\sigma]$ au premier ordre en $s_{ij}$ (théorie de la réponse linéaire) nous donne alors 
+\begin{eqnarray}
+\sigma_{ij} = -P\delta_{ij} + \eta\left(2s_{ij} - \frac{2}{3}\delta_{ij}s_{kk}\right) + \zeta \delta_{ij} s_{kk}
+\end{eqnarray} 
+avec la convention de sommation d'Einstein. Les fluides décrits par cette réponse linéaire et instantanée des contraintes sous l'effet d'une déformation sont dits "newtoniens".\\ 
+On montre ensuite que lorsqu'on intègre sur un élément de fluide attaché à l'écoulement et que l'on applique le théorème de Ostrogradsky on obtient l'équation locale 
+\begin{eqnarray}
+\rho \frac{D v_i}{D t} &=& \rho f_i^v + \partial_j\sigma_{ij}\\
+&\stackrel{Fl\,Newt}=& \rho f_i^v -\partial_i P + \eta \partial_j\left(\partial_iv_j + \partial_jv_i\right) - \frac{2\eta}{3}\partial_i s_{kk} + \zeta \partial_i s_{kk}\\
+&=& \rho f_i^v -\partial_i P + \eta \partial_j \partial_jv_i + \left(\zeta+ \frac{\eta}{3}\right) \partial_i \partial_kv_k
+\end{eqnarray}
+qui se réécrit de manière vectorielle comme
+\begin{eqnarray}
+\rho \frac{D\vec{v}}{D t} = \rho \vec{f}^v - \vec{\nabla}P + \eta \Delta \vec{v}  + \left(\zeta+ \frac{\eta}{3}\right) \vec{\nabla} (\vec{\nabla}.\vec{v})
+\end{eqnarray}
+Cette équation peut être simplifiée dans le cas où on peut négliger la compressibilité du fluide, on obtient alors l'équation de Navier Stokes 
+\begin{eqnarray}
+\rho \frac{D\vec{v}}{D t} = \rho \vec{f}^v - \vec{\nabla}P + \eta \Delta \vec{v}
+\end{eqnarray}
+Donner les conditions aux limites / interfaces qui permettent de la résoudre en pratique.\\
+Cette équation s'identifie à l'équation d'Euler  
+\begin{eqnarray}
+\rho \frac{D\vec{v}}{Dt} = -\vec{\nabla} P + \rho\vec{f}^v
+\end{eqnarray}
+dans le cas où la viscosité est nulle.\\
+On constate de plus que l'on retrouve le terme $\eta \Delta \vec{v}$ que l'on avait établit en définissant la viscosité.
+
+\subsection{Loi de similitude}
+\textbf{Une introduction à la dynamique des fluides} de \textit{M. Rieutord} p 111.\\ 
+On adimensionne Navier stokes pour faire apparaître le nombre de Reynolds $Re =\frac{\rho U L}{\eta}$ (définir quel est son sens en terme de rapport de 2 tps caract : inertie et viscosité) et la notion de similitude de deux écoulements.\\
+Discuter la nature de l'écoulement en fonction de la valeur du Reynolds.
+
+\subsection{Diffusion de la vorticité}
+\textbf{Hydrodynamisme physique} de \textit{Guyon et Petit} p 306.\\ 
+Commencer par définir la notion de vorticité 
+\begin{eqnarray}
+\vec{\omega} = \vec{\nabla}\times \vec{v}
+\end{eqnarray}
+puis obtenir rapidement l'équation de transport de la vorticité
+\begin{eqnarray}
+\frac{D\vec{\omega}}{Dt} = (\vec{\omega}.\vec{\nabla})\vec{v} + \nu \Delta \vec{\omega}
+\end{eqnarray}
+Le réviser pour les questions mais ne pas le traiter : intérêt limité en 40 min.
+
+\section{Exemples simples}
+\subsection{Écoulement de Couette plan}
+Sauter si on manque de temps, \textbf{Hydrodynamisme physique} de \textit{Guyon et Petit} p 161.
+
+\subsection{Écoulement de Poiseuille cylindrique}
+\textbf{Hydrodynamisme physique} de \textit{Guyon et Petit} p 164.\\ 
+Traiter directement le cas pratique du poiseuille cylindrique. 
+
+\subsection{Dissipation d'énergie}
+Commenter la perte de charge (\textit{Rieutord} p 133) : dans le cas d'un fluide non parfait il y a une perte d'énergie le long des lignes de courant, due à la dissipation à cause du frottement. Si la section est constante alors la vitesse d'écoulement l'est aussi, et si la canalisation est horizontale on en déduit alors que la perte de charge se traduit par une baisse de la pression le long d'une ligne de courant : ce que l'on voit clairement dans le cas d'une forte viscosité avec poiseuille. Exprimer alors la puissance dissipée par la canalisation
+\begin{eqnarray}
+P = L G_p Q
+\end{eqnarray}
+avec $Q$ le débit et $G_p = \frac{dP}{dx}$.\\
+
+Pour le couette plan on peut faire calculer la puissance fournie par la plaque supérieure qui va à la vitesse v, la vitesse à $x=0$ étant nulle c'est que toute cette puissance a été dissipée par la viscosité. Voir les fiches leçon d'Etienne Thibierge.
+
+\section*{Conclusion}
+On a vu comment définir la viscosité et comment la prendre en compte dans l'équation du mouvement gouvernant la dynamique du fluide : l'équation de Navier Stokes. On aura aussi vu et qu'elle était à l'origine d'une dissipation d'énergie (perte de charge) : intérêt de la superfluidité.
+
+\pagebreak
+
+\section*{Questions}
+Concernant le modèle microscopique de la viscosité, comment garantie t-on la conservation de la quantité de mouvement ?\\
+
+L'équation de Navier Stokes donnée est elle générale ? Si non que représente le terme supplémentaire qui n'est pas mentionné ici ?\\
+
+Dans quel cadre ces termes apparaissent t-ils ?\\
+
+Comment la viscosité varie t-elle avec la température pour les liquides ? pour les gaz ?\\
+Elle diminue avec T pour les liquides, car la cohésion des molécules de liquide diminue avec T  les molécules "sortent" de leurs puits de potential avec l'agitation thermique). Pour les gaz c'est l'inverse, lorsque T augment la fréquence des collisions augmente aussi, ce qui entraine une augmentation de la viscosité.\\
+
+Concernant le nombre de Reynolds, que signifie "un grand" ou un "petit" Reynolds ?\\
+Ca dépend de l'écoulement : si il devient instable alors on est à grand Re. Si l'écoulement est stable, on a une longueur caractéristique et un écoulement laminaire.\\
+
+Comment définiriez vous un écoulement turbulent ? \\
+Écoulement chaotique spatialement, avec une longueur de corrélation inférieure à l'échelle de l'écoulement.
+
+Quelle différence entre fluide incompressible et écoulement incompressible ?\\
+Un écoulement est dit incompressible si la vitesse de l'écoulement est petite devant celle du son, caractérisé par le nombre de Mach.\\
+
+Quelle est la définition de "$Cx$" ?
+\begin{eqnarray}
+F_{trainee} = \frac{1}{2}\rho V^2 \mathrm{x}S\mathrm{x}\,Cx
+\end{eqnarray}
+\\
+Qu'est ce qu'un fluide Newtonien ?\\
+Temps caractéristique de relaxation faible devant le temps caractéristique imposé par le cisaillement $\partial_xv_y$. Correspond à une relation linéaire entre déformation et contrainte.
+	
+\end{document}

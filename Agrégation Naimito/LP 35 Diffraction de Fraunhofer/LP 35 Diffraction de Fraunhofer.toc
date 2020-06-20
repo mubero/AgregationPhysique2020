@@ -1,0 +1,14 @@
+\contentsline {subsubsection}{pr\IeC {\'e}requis}{2}
+\contentsline {section}{\numberline {0.1}Introduction}{2}
+\contentsline {paragraph}{D\IeC {\'e}finition}{2}
+\contentsline {paragraph}{Exp\IeC {\'e}rience}{2}
+\contentsline {section}{\numberline {0.2}Th\IeC {\'e}orie scalaire de la diffraction}{2}
+\contentsline {subsection}{\numberline {0.2.1}Principe d'Huygens-Fresnel}{2}
+\contentsline {subsection}{\numberline {0.2.2}Diffraction en champ proche}{2}
+\contentsline {section}{\numberline {0.3}Diffraction en champ lointain}{2}
+\contentsline {subsection}{\numberline {0.3.1}Approximation de Fraunhofer}{2}
+\contentsline {subsection}{\numberline {0.3.2}Calcul de quelques figures de diffraction}{3}
+\contentsline {subsubsection}{Fente rectangulaire}{3}
+\contentsline {subsubsection}{Ouverture circulaire}{3}
+\contentsline {section}{\numberline {0.4}Lien entre diffraction et formation des images}{3}
+\contentsline {subsection}{\numberline {0.4.1}Influence de la rotation de l'\IeC {\'e}clairage}{3}

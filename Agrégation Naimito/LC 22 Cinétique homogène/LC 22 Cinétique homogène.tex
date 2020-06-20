@@ -1,0 +1,140 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 22 Cinétique homogène}
+	\author{Hugo}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+1ere année de CPGE.\\
+
+Le \textit{Chimie tout en un PCSI de Fosset} suffisant	
+\section{Étude cinétique d'une réaction chimique}
+	\textbf{Manip :} On a deux solutions d'ions fer II de concentrations différentes, et une solution d'acide oxalique, auxquelles on ajoute du permanganate (violet),
+\begin{eqnarray}
+5Fe^{2+}_{(aq)} + MnO^{-}_{4(aq)} + 8H^+_{(aq)} \;=\; 5Fe^{3+}_{(aq)} + Mn^{2+}_{(aq)} + 4H_2O_{(l)}
+\end{eqnarray}	
+	 on constate alors que bien que les deux réactions soient favorables thermodynamiquement l'une est beaucoup plus rapide que l'autre(on voit la couleur violette disparaître et la couleur jaunâtre des ions Fer III apparaître).\\
+
+Il existe dans la pratique des réactions très rapides comme la décomposition d'un explosif dont on ne peut percevoir l'évolution à l'oeil nu, et des réactions lentes comme celle que l'on vient de voir.\\
+
+ Cela soulève plusieurs questions, notamment comment caractériser la vitesse de réaction, comment influer dessus, et comment expliquer ces différences ?
+
+\subsection{Vitesse de réaction}
+Pour caractériser la vitesse d'une réaction donnée on va pouvoir parler de vitesse de réaction.
+Définition de la vitesse de disparition et de formation en illustrant avec la réaction précédente.\\
+Définition plus générale de la vitesse de réaction à partir de l'avancement, en faisant le tableau d'avancement de la réaction précédente pour introduire la relation générale.\\
+
+Il demeure toujours la \textit{Question} :  qu'est ce qui influence cette vitesse ?
+
+\subsection{Facteurs cinétiques- partie optionnelle : rappels de lycée}
+On va rappeler, au cours d'une manipulation simple, quels sont les facteurs qui peuvent influer sur la vitesse. \\
+
+\textit{Sarrazin Verdaguer p183}\\
+
+On fait réagir KI et $H_2SO_4$ dans l'eau distillée avec $C_0(H_2SO_4)$ cste et en faisant varier la concentration initiale de de $KI$. On observe alors la vitesse de réaction qui est "représentée" par la coloration. On en déduit que plus les concentrations des réactifs sont importantes plus les vitesses de réaction sont conséquentes.\\
+
+On peut faire varier un autre facteur : la température.\\
+
+On va, maintenant que l'on a rappelé la dépendance de la vitesse en la température, étudier cet aspect plus précisément.
+
+\subsection{Réactions admettant un ordre}
+Exemple :
+\begin{eqnarray}
+C_3H_6O + I_2 + H^+ \rightarrow C_3H_5OI + I^- + 2H^+\\
+v= k[C_3H_6O]^{\alpha}[I_2]^{\beta}[H^+]^{\gamma}
+\end{eqnarray}
+ou donner exemple phénoménologue selon la manip suivante choisie.\\
+
+	Définition générale.
+	
+\section{Etude expérimentale : iodation de la propanone}
+\subsection{Suivi cinétique}
+\textit{Manip possible : décoloration de la phénolphtaléine en milieu basique,} \textbf{Girard}.\\
+
+Existence de différents moyens de suivi:\\
+ chimique : trempe puis dosage, mais très long\\
+ Physique : PH métrique, conductimétrique, photométrique... plus commode et automatisable.\\
+
+On a un bécher avec 20mL de diiode à $1,00.10^{-4}$mol/L, et un second avec 10mL d'acide chlorhydrique à 0,1 mol/L et 20mL de propanone à 2mol/L. On mélange nos deux bêcher ét on fait une suivi colorimétrique basé sur beer Lambert.\\
+On peut refaire l'expérience avec différentes concentrations initiales pour déterminer les différents ordres.
+
+\subsection{Exploitation}
+On a $[C_3H_6O], [H^+] \gg [I_2]$, on peut donc considérer que seul $[I_2]$ varie, ce qui permet de déterminer $\beta$.\\
+A partir des courbes faites avec différents différentes conditions initiales on peut déterminer les deux autres ordres.\\
+
+Explication de la méthode générale, avec les différentes manière de traiter les données pour déterminer le premier ordre (ici $\beta$) (modéliser, prendre le ln, traces $\frac{dC}{dt}(C)$...).
+
+Une fois l'ordre déterminé on peut en déduire le mécanisme.
+
+\subsection{Interprétation microscopique}
+\textit{Chimie tout en un Fosset} p214 pour la notion d'ordre, p241 pour Arrhénius et p302 pour Van't Hoff.\\
+
+On peut décomposer la réaction en réactions élémentaires (donner la définition), qui suivent la loi de Van't Hoff.\\
+
+Proposition d'un mécanisme pour la réaction de la partie précédente. Montrer qu'on retrouve la même loi de vitesse.\\
+
+Étape cinétiquement déterminante. Énergie d'activation. Loi d'Arrhenius.\\
+
+\textbf{Conclusion} Ouverture à la catalyse.
+
+\section*{Questions}
+C'est quoi l'unité d'une vitesse de réaction ?\\
+
+Comment appelle t-on les vitesses volumiques ?\\
+Vitesses globales de réaction.\\
+
+Une solution contenant des iodures peut elle être oxydée à l'air ?\\
+Oui par le dioxygène, il ne faut donc pas la préparer trop tôt.\\
+
+Pouvez vous nous donner la réaction de l'iodation de la propanone ?
+\begin{eqnarray}
+C_3H_6O + I_2 = C_3H_5OI + I^- + H^+
+\end{eqnarray}
+$H^+$ est donc un catalyseur. Il faut donc écrire la réaction comme ça tout en précisant qu'elle est catalysée.\\
+
+
+
+\section*{Remarques}
+Attention pour la première manip : selon les concentrations initiales on peut avoir en fin de séance des intermédiaires réactionnels, formés à partir du manganèse III, et qui ont alors une couleur différente des produits attendus.\\
+
+La réaction de l'iodation de la propanone est peut être un peu compliquée pour introduire les ordres puisqu'elle fait intervenir un catalyseur : $H^+$.\\
+
+Ce plan est long, possibilité d'enlever la manip qualitative sur l'influence de la concentration et de la température qui est niveau lycée.
+
+	
+\end{document}

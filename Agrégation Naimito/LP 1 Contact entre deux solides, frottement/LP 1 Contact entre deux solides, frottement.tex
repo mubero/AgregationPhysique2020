@@ -1,0 +1,112 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 1 Contact entre deux solides, frottement}
+	\author{Laurent}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\section*{introduction}
+Omniprésence et utilité des frottements dans la vie courante.\\
+Exemples : vélo, marche, rail de chemin de fer. Importance dans le cas d'un système composé de solides en contact.
+
+\section{Avant le glissement}
+\subsection{Paramètres influant sur le frottement statique : approche empirique}
+Expérience solide glissant sur un plan incliné : mise en évidence de l'existence d'un angle limite à partir duquel l'objet se met en mouvement. remarque sur le caractère imprécis de cette expérience : même avec un protocole stricte on observe une plage assez large d'angles limites pour un même système. Tirer le solide avec un newtonmètre est plus précis : présentation de mesures réalisées auparavant, affichées avec regressi. On observe que $F_t(m)$ une droite, où $F_t$ est la force minimale à partir duquel le solide se met en mouvement.
+\subsection{Modèle}
+\subsection{Description du contact}
+Différents cas : surface de contact, point(s) de contact... Dans la pratique les surface ne sont pas parfaitement planes : pose la question des limites du modèle.
+
+\subsection{Comment modéliser les actions de contact}
+Rôle des différentes composantes des différentes forces en jeu : réaction $\vec{R}$ et moment $\vec{\Gamma}$.
+
+\subsection{Modélisation du plan incliné}
+Application du PFD : voir Pérez.
+Résultat 
+\begin{eqnarray}
+\vec{R}_T = \mu_s\vec{R}_N
+\end{eqnarray}
+le coefficient dynamique $\mu_s$ est indépendant de la masse.
+
+\subsection{Modélisation du cas du plan horizontal}
+Notion de cône de non glissement.
+
+\section{Frottement dynamique}
+\subsection{Condition de glissement}
+Glissement si $R_T =< \mu_sR_N$, et lors du glissement $R_T = \mu_dR_N$ où $\mu_d$ est le coefficient de frottement dynamique.
+
+\subsection{Lois de Coulomb}
+\begin{eqnarray}
+\vec{R}_T \times \vec{v}_g = \vec{0}\\
+autres
+\end{eqnarray}
+
+\subsection{Expérience de Timochenko}
+Schéma + explications.\\
+Résolution analytique à l'aide su PFD.
+
+\section{Exemples}
+\section{Conclusion}
+\section{Questions}
+Vous avez dit que la masse n'influe pas sur le glissement ou le non glissement ... est ce vrai ?\\
+
+Illustration : cas du plan incliné : ici pourquoi l'angle de glissement est indépendant de la masse.\\
+
+Quel est le sens physique des lois de Coulomb ?\\
+
+Comment définissez vous le coefficient de frottement statique $\mu_s$ ?\\
+
+Questions sur les composantes de la réaction...\\
+
+Dans la résolution de l'expérience de Timochenko, pourquoi ne considérez vous pas le frottement avec le second galet.
+
+\section{Commentaires}
+Attention : si on utilise une convention sur un schéma alors on la respecte.\\
+Il faut moins lire les notes.\\
+Choix de tout projeter discutable : il faut apprendre à gérer le tableau.\\
+C'est une leçon empirique, mais attention, pour le plan incliné il faut rester très quantitatif car cette manip n'est vraiment pas précise, surtout avec le matériel généralement disponible. Il faut passer moins de temps sur les expérience : le but d'une manip qualitative est d'illustrer : elle ne doit pas prendre trop de temps.\\
+Il faut s'attarder sur le formalisme et le faire proprement, notamment concernant la vitesse de glissement.\\
+Donner des ordres de grandeur pour $\mu_s$\\
+Illustrer avec un problème concret de mécanique.\\
+Parler du travail des forces de frottement.\\
+Plan du prof :\\
+I) Approche empirique (avec notion de degrés de libertés)\\
+II) Lois de Coulomb\\
+III) Puissance des forces de frottement\\
+IV) Exemple
+
+
+
+
+
+
+\end{document}

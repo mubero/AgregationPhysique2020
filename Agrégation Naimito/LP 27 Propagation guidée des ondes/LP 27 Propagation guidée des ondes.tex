@@ -1,0 +1,105 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 27 Propagation guidée des ondes}
+	\author{Naïmo Davier}
+	\date{Agrégation 2019}
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\section{Fibre optique}
+\textbf{Optique physique} de \textit{Richard Taillet} aux éditions de Boeck (Noir et bleu) p 259.
+
+\subsection{Guide géométrique simple}
+Condition de réflexion totale : l'onde est alors confinée dans la fibre.
+
+\subsection{Modes de transmissions}
+Condition d'interférences constructives $\Longrightarrow$ notion de modes.
+
+\subsection{Dispersion et bande passante}
+On en déduit que la fibre est dispersante, ce qui induit une limitation quand à la fréquence maximale que l'on peut transmettre.
+
+
+\section{Ondes électromagnétiques entre deux conducteurs plans}
+\textbf{Electromagnétisme} de \textit{Pérez} p 594\\
+\textbf{Electromagnétisme 2} de \textit{Faroux et Renault} 
+
+\subsection{Calcul des champs}
+On pose les bases, on explicite les conditions de passage pour l'interface vide-conducteur qui constituent ici nos conditions aux bords.
+
+\subsection{Dispersion du mode TE}
+Regarder directement le cas TE en disant que dans le cas pratique du guide rectangulaire, il n'existe pas de TEM.\\
+
+Raccorder les résultats à la partie I.\\
+
+Pour avoir un mode TEM dans un guide il faut donc placer un conducteur au centre qui autorise une différence de potentiel entre lui et le guide : câble coaxial.
+
+\section{Câble coaxial}
+\textbf{Electromagnétisme} de \textit{Pérez}\\;
+\textbf{Onde électromagnétiques dans le vide et les milieux conducteurs} de \textit{C Garing} p39.\\
+
+Expliquer que l'on peut réaliser une modélisation simple. Donner les résultats (selon le temps).
+
+
+\section*{Questions}
+Quelle est la définition de transverse électrique ?\\
+
+Pour une propagation libre, que peut on dire de $E_z$ et $B_z$ ?\\
+Ils sont nuls $\rightarrow$ dans le vide : TEM.\\
+
+Pourquoi ne peut il y avoir de propagation dans un guide d'onde conducteur ?\\
+
+Quelles sont les conditions limites vérifiées par le champ ?\\
+
+Les ondes électromagnétiques sont elles les seules à être guidée ?\\
+
+Fréquence de coupure d'une flûte ?\\
+
+\section*{Remarques}
+Le message de cette leçon est de faire apparaître la notion de guidage d'une onde.\\
+On prend l'équation de propagation comme pré-requis.\\
+C'est un problème de conditions limites.\\
+Il faut mettre en valeur l'intérêt des guides d'ondes par rapport aux antennes : on limite la puissance émise, on la canalise uniquement vers les points d'intérêts. \\
+Choix des ondes électromagnétiques pertinentes, mais les conditions au limite sont plus compliquées.\\
+On peut aussi traiter les équations acoustiques, où d'Alembert est alors scalaire, et oùles conditions aux limites sont plus faibles.\\
+Il faut discuter le signe des constantes que l'on établit.\\
+Parler d'ondes évanescentes.\\
+Pour les conditions limites : Il faut donner les relations de passage !\\
+
+$E_t$ continu.
+
+$[E_n] = \frac{\sigma}{\varepsilon_0}$
+
+et donner aussi pour B.
+
+	
+\end{document}

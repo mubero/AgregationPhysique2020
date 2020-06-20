@@ -1,0 +1,152 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 05 Mesure de température}
+	\author{Maxime}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+
+\subsubsection{Introduction}
+Existence de nombreux types de capteurs de températures.
+\section{Etalonnage des capteurs de température}
+\subsection{Résistance de platine}
+On va étalonner à partir de points fixes : $T_{vap}$ de l'eau, de l'azote, et température de fusion de l'eau, sachant que la résistance de platine varie avec la température comme 
+\begin{eqnarray}
+R = AT + R_0
+\end{eqnarray}
+on mesure donc la résistance au niveau de ces trois points fixes, puis on trace $R(T)$.\\ On est à la pression atmosphérique, et on mesure 
+\begin{eqnarray}
+T_{fus}(eau) = 0^oC\; :\hspace{0.5cm} R = 100.6\, \Omega\\
+T_{vap}(eau)=100^oC\; :\hspace{0.5cm} R = 137.5\, \Omega\\
+T_{vap}(azote)=-196^oC\; :\hspace{0.5cm} R = 19.88\, \Omega
+\end{eqnarray}
+on en déduit 
+\begin{eqnarray}
+A = 0.399\,\Omega/K\\R_0 = 99\, \Omega
+\end{eqnarray}
+\subsection{Thermistance}
+Cette fois on attend une dépendance en $T$ de la forme 
+\begin{eqnarray}
+R = \alpha e^{\beta/T}\;\rightarrow \; \ln R = \ln \alpha + \frac{\beta}{T}
+\end{eqnarray}
+On utilise la résistance de platine précédemment étalonnée pour mesurer la température d'une solution dont la température varie (on fait chauffer de l'eau avec une plaque), et on étalonne ainsi la thermistance. Ici on trouve 
+\begin{eqnarray}
+\alpha = 2.87 \,k\Omega\\
+\beta = 32.4 \, ^oC
+\end{eqnarray}
+
+\section{Sensibilité des capteurs}
+
+\subsection{Résistance de platine}
+On a ici une évolution linéaire de la résistance avec la température, on a donc une sensibilité $s$ constante qui vaut ici $A$.
+\subsection{Thermistance}
+Le calcul de la sensibilité n'est cette fois pas instantané 
+\begin{eqnarray}
+s = f(T) = \frac{dR}{dT} = \beta R = \beta \alpha e^{\beta/T}
+\end{eqnarray}
+on mesure $s$ à deux températures données a partir de la courbe $R(T)$, on a 
+\begin{eqnarray}
+A\;20\,^oC\; : \; s = 0.3 \,k\Omega /K \\
+A\;70\,^oC\; : \; s = 0.15 \,k\Omega /K 
+\end{eqnarray}
+
+\section{Mesure de la température de vaporisation de l'éthanol}
+
+\subsection{Avec la résistance de platine}
+On peut maintenant faire une application des deux parties précédentes en mesurant la température d'ébullition de l'éthanol, selon
+\begin{eqnarray}
+T = \frac{R-R_0}{A} \; \Rightarrow \; \Delta T =\frac{\Delta R}{A}
+\end{eqnarray}
+où l'incertitude sur la résistance est donnée par l'ohmmètre
+\subsection{Avec la thermistance}
+Cette fois l'incertitude sera 
+\begin{eqnarray}
+T = \frac{\beta}{\ln \frac{R}{\alpha}} \; \Rightarrow \; \Delta T = \frac{\beta \Delta R}{R (\ln \frac{R}{\alpha})^2}
+\end{eqnarray}
+
+\section{Mesure de la température de Curie du fer}
+On veut mesurer la température de Curie qui est la température de transition de phase entre ferro et para-magnétique. On mesure pour ça la différence de tension entre deux thermocouples.
+
+
+\section*{Questions}
+Comment fonctionne un thermomètre à gaz ?\\
+Utilise la relation des gaz parfaits : on met de l'hélium dans une enceinte, dans la quelle on met le matériau dont on veut mesurer la température, on mesure ensuite la pression et on en déduit la température.\\
+
+Comment fait on pour que le gaz soit parfait ?\\
+On prend des gaz nobles qui interagissent très peu.\\
+
+Pourquoi la résistance de la résistance de platine varie lorsque la température varie ?\\
+Interactions électrons-phonons.\\
+
+Pourquoi n'y a t'il pas d'incertitudes sur les mesures de résistance pour l'étalonnage ?\\
+Si on prend les incertitudes et que l'on a que trois points, alors l'incertitude sur les températures devient énorme.\\
+
+Comment fonctionne une thermistance ?\\
+Faite d'un semi conducteur, il y des paires électrons trou qui sont formées lorsque la température augmente, et elles conduisent le courant $\rightarrow$ la résistance diminue.\\
+
+Comment varie ce nombre de paires avec la température ? Lien explicite avec la résistance ?\\
+$n = \alpha e^{-E_g/kT}$\\
+
+Dans ces relations quelle est l'unité de température ? Donc dans quelle unité de température doit on tracer $R(T)$ pour observer la relation attendue ?\\
+
+Pourquoi n'observe t'on pas exactement une droite pour $\ln R(1/T)$ ?\\
+Parce que en plus de $n$ il y a la mobilité qui joue et qui dépend de la température (elle décroît avec la température en l'occurrence).\\
+
+Comment fonctionne un thermocouple ? Peut on faire un thermomètre avec un seul thermocouple ?\\
+.... Oui : mais on fait intervenir la température du voltmètre du coup.\\
+
+Pourquoi fait on un montage 4 fils pour utiliser la résistance de platine ?\\
+On branche le voltmètre aux bornes de la résistance, et le générateur de courant en parallèle (plutôt que d'utiliser un ohmmètre), pour ne pas mesurer la somme $R+R_{fils}$, car on a $R_{fils} \simeq 0.2\, \Omega$ ce qui est conséquent si on a une sensibilité de $0.4\, \Omega K^{-1}$.\\
+
+
+\section*{Remarques}
+On doit travailler en Kelvin, surtout sur un montage de mesure de température.\\
+En introduction, on peut parler de ce qu'est la température en elle même.\\
+Regarder graphes PV en fonction de $1/V$ à température constante pour définir la température comme 
+\begin{eqnarray}
+T = \frac{PV}{nR}
+\end{eqnarray}
+dans la limite $V\rightarrow \infty$.\\
+Justifier les valeurs utilisées pour les températures de point fixe utilisées pour l'étalonnage.\\
+Il faut regarder les notices pour le ohmmètre et autres, pour dire "l'incertitude est de tant de \% avec tant de dixit, on a donc ...".\\
+Si dans la modélisation de régressi on prend en compte les incertitudes, les incertitudes sur les coefficients ne sont pas délirantes.\\
+Les thermistances sont assez différentes de l'une à l'autre (incertitudes sur le dopage) mais elles sont toujours très sensibles (et vraiment pas chères), on peut l'illustrer en prenant deux thermistances différentes. On peut en conclure que ces résistances seront utilisées pour des applications requérant une petite précision si on ne les étalonne pas (ex : four).\\
+Pour avoir le temps de mesurer la température de Curie peut être passer la mesure de température d'ébullition de l'éthanol en point fixe.\\
+Faire la remarque que dans l'idéal il faudrait utiliser des points triples.\\
+Pour les sensibilités, fusionner cette partie dans la précédente en mettant en valeur la différence de sensibilité, sans lui accorder une partie à part entière.\\
+Pour les questions : regarder les thermomètres à distance, basé sur le principe de corps noir : on regarde le $\lambda_{max}$ ou la puissance rayonnée par le corps, ce qui permet, si on connait l'émissivité du matériau, de remonter à sa température.\\
+
+Il faut bien maitriser la physique sous-jacente à chaque principe de mesure de la température.\\
+
+Il faut savoir expliquer le concept de thermocouple (et savoir que c'est utilisé de 900K à 1300K, en dessous on utilise les résistances de platine, et au dessus les conducteurs fondent). 
+
+\end{document}

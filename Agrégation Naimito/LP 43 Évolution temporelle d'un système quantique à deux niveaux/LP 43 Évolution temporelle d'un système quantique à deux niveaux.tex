@@ -1,0 +1,78 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 43 Évolution temporelle d'un système quantique à deux niveaux}
+	\author{Etienne}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Introduction}
+Quantification de l'énergie, qui ne peut prendre comme valeurs que les valeurs propres du Hamiltonien du système. Notion de base hilbertienne constituée par les vecteurs propres du Hamiltonien. Le système évolue selon l'équation de Schrödinger. Evolution d'un ket dans le cas où on peut considérer l'équation aux valeurs propres (hamiltonien indépendant du temps).
+
+\section{$NH_3$ en tant que système à deux niveaux, évolution naturelle}
+\subsection{Description modèle}
+Schéma de la molécule d'ammoniac.\\  Il a été observé expérimentalement que l'ammoniac émettait des ondes centimétriques $\Rightarrow$ oscillation du moment dipolaire. Question : comment se fait cette oscillation ?\\
+Représentation du potentiel axial selon l'axe $\perp$ au plan formé par les atomes d'hydrogène. Ce potentiel comporte deux puits : deux états stables. D'un point de vue classique l'atome d'azote va se placer dans un de ces états stable et y demeurer. Du point de vue quantique l'atome d'azote va pouvoir passer d'un état à l'autre pas effet tunnel et ainsi générer une oscillation du moment dipolaire.
+
+\subsection{États symétriques et antisymétriques}
+On modélise notre potentiel par deux puits infinis, séparés par une barrière de hauteur finie, on a dans ce cas une quantification des niveaux d'énergie dans chacun des puits. On aura ainsi des états similaires au cas du puits infini seul, mais pour chacun des puis. On ne considèrera ici que le premier niveau (fondamental) pour chaque puits, les transitions énergétiques entre les niveaux de plus grade énergie correspondant à des émission de rayonnement dans d'autres domaines (que celui des ondes centimétriques qui nous intéresse). \\
+Les états considérés seront donc de la forme 
+\begin{eqnarray}
+\phi_S(x)  = \frac{1}{\sqrt{2}} \left(\phi_1+\phi_2\right)\\
+\phi_A(x)  = \frac{1}{\sqrt{2}} \left(\phi_1-\phi_2\right)
+\end{eqnarray}
+	On a donc un état symétrique et un antisymétrique...
+	
+\subsection{Évolution temporelle, fréquence d'inversion}
+Pour observer une inversion, il faut que l'azote soit initialement d'un coté.
+On a donc par exemple $\psi(x,0) = \phi_1(x)$. On en déduit $\psi(x,t)$ en appliquant l'opérateur évolution $U = e^{-i\mathcal{H}t/\hbar}$ à $\psi(x,0)$. On constate alors que l'on a une oscillation de Rabi entre les états $\phi_1$ et $\phi_2$. A partir de la fréquence de cette oscillation on peut déterminer la longueur d'onde de l'onde émise.
+
+\section{Molécule d'ammoniac dans un champ électrique}
+\subsection{Champ statique, inversion de population}
+.... Effet MASER.
+
+\section*{Questions}
+Existe t-il d'autres cas où les états propres sont aussi symétriques et antisymétrique ?\\
+Oui, dans le cas de la liaison covalente, voir Cohen Tanoudji.
+
+\section*{Remarques}
+Si on choisit de traiter la molécule d'ammoniac : on doit partir des observations puis faire et justifier la modélisation.\\ 
+On peut directement faire l'AN avec les modèle de puits infinis avec barrière infinie et montrer que la fréquence obtenue n'est pas dans le bon domaine (IR). On passe ensuite à la barrière de potentiel fini.\\ 
+Il faut justifier pourquoi les états symétriques et antisymétriques sont états propres, et pourquoi on a un hamiltonien non diagonal. En effet si on a un hamiltonien diagonal dans la base $|\phi_D\rangle$, $|\phi_G\rangle$ alors on a pas de passage possible de l'un à l'autre, il faut donc ajouter un terme d'effet tunnel qui couple les deux cavités de manière symétrique, ce qui entraine que les états symétriques et antisymétriques soient états propres.\\
+On peut aussi traiter pour cette leçon la RMN, et alors parler d'écho de spin et d'oscillation de Rabi.
+
+
+\end{document}

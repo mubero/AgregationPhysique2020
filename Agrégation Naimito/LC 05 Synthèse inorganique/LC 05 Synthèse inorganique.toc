@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Pr\IeC {\'e}requis}{2}
+\contentsline {section}{\numberline {2}Les complexes inorganiques}{2}
+\contentsline {subsection}{\numberline {2.1}D\IeC {\'e}finition}{2}
+\contentsline {subsection}{\numberline {2.2}Propri\IeC {\'e}t\IeC {\'e}s}{2}
+\contentsline {subsection}{\numberline {2.3}Utilisation des complexes}{2}
+\contentsline {section}{\numberline {3}Synth\IeC {\`e}se d'un complexe}{3}
+\contentsline {subsection}{\numberline {3.1}Le trioxalatoferrate(III)}{3}
+\contentsline {subsection}{\numberline {3.2}Synth\IeC {\`e}se "en direct" de ce complexe.}{3}
+\contentsline {subsection}{\numberline {3.3}Rendement}{4}
+\contentsline {subsection}{\numberline {3.4}Dosage du complexe sec}{4}
+\contentsline {section}{\numberline {4}Autre synth\IeC {\`e}se possible}{4}
+\contentsline {section}{\numberline {5}Conclusion}{4}

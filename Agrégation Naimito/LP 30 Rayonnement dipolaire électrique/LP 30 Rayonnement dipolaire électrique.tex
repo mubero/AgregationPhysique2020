@@ -1,0 +1,89 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 30 Rayonnement dipolaire électrique}
+	\author{Laurent}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection{Pré-requis}
+
+
+\subsection{Introduction}
+Expérience : on met de l'acide sulfurique dans du thiosulfate et on observe que la lumière qui traverse devient rougeâtre tandis que la solution diffuse dans le bleu. On peut montrer notamment que le rayonnement est polarisé.
+
+\section{Position du problème et approximations}
+On cherche à exprimer le potentiel vecteur.\\
+On établit les approximations qui vont nous permettre d'arriver à une expression plus simple de $\vec{A}$. On pourra ensuite s'en servir pour calculer les champs électriques et magnétiques.
+
+\section{$\vec{B}$ et $\vec{E}$}
+
+On calcule $\vec{B}$ et $\vec{E}$ en coordonnée sphériques grâce à l'expression de $\vec{A}$ que l'on a établie. 
+
+\section{Approximation de champ lointain}
+On regarde ensuite quels sont les termes dominants au vu des approximations faites, lorsqu'on en champ lointain, c'est à dire lorsque $r\gg\lambda$.
+
+\section{Puissance rayonnée}
+On calcule le vecteur de Poynting pour accéder à la puissance portée par l'onde émise.
+On en déduit que les charges rayonnent lorsqu'elles sont accélérées.\\
+On peut montrer que la puissance dépend de l'angle par rapport à la source.
+
+\section{Applications}
+\subsection{Diffusion Reyleigh}
+\subsection{Antenne}
+
+\section*{Questions}
+Quelle est la différence entre diffusion Thomson et diffusion rayonnante ?\\
+
+Sur l'antenne, quelle approximation doit être levée ?\\
+
+Pourquoi cela permet d'avoir une meilleure directivité ?\\
+A cause du phénomène d'interférence, on interfère destructivement selon certaines directions et constructivement selon d'autres.\\
+
+Pourquoi avez vous dit que l'onde à longue distance peut être assimilée à une plane ?\\
+Elle ne l'est que localement, et on peut le dire car l'expression de E et B varie peu par translation dans le plan orthogonal à $\vec{k}$.\\
+
+
+Quelle est la relation entre E, A et V ?\\
+
+Existe t'il d'autres sources de rayonnements ?\\
+	
+\section*{Remarques}
+	Il faut expliciter clairement que le champ rayonné est polarisé.
+	
+	
+\end{document}

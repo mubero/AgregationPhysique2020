@@ -1,0 +1,176 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 16 Solvants}
+	\author{Matthieu}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection{Pré-requis}
+Première année de prépa.\\
+Classification, VSEPR, dosage, moment dipolaire, modèle de Lewis
+
+\subsection{Introduction}
+Omniprésence. Gros impact du solvant sur la réaction $\rightarrow$ choix important. Liaisons faibles (Van der Waals) entre le solvant et les molécules solvatées.
+
+\section{Interactions faibles}
+\subsection{Nécessité expérimentales}
+Liaisons covalentes de l'ordre du kJ.mol$^{-1}$. Chaleur latente de vaporisation 100 x + faibles... il y a donc d'autres types de liaisons.
+
+\subsection{Interactions de Van der Waals}
+Certaines molécules possèdent un moment dipolaire $\Rightarrow$ interactions dipolaires. Il existe 3 types d'interactions de VdW : Keesom(moments dipolaires permanents), Debye(une des 2 molécules induit un moment dipolaire sur l'autre) et London(dipôles instantanés), qui sont fonction de la polarisabilité des molécules liées.\\
+On observe bien cette fois que ces interactions ont des énergies du même ordre de grandeur que les chaleurs latentes associées.\\
+
+Nécessité d'introduire un nouveau type de liaisons pour expliquer certaines températures de fusion anormalement élevées (au regard des liaisons de VdW)
+
+\subsection{Liaison hydrogène}
+Schéma type et principe. Énergie de 10 à 40 kJ.mol$^{-1}$.\\
+Exemple des acides fumarique et maléïque : dans un cas seulement on peut former une liaison hydrogène intermoléculaire (dans l'autre elle est intramoléculaire).\\
+Exemple du Kevlar.
+
+Nous allons maintenant voir comment ces liaisons se manifestent à l'échelle macroscopique pour les solvants.
+
+\section{Solvants}
+\subsection{Définition}
+Définir explicitement le terme solvant.
+
+\subsection{Propriétés et classification}
+énergie potentielle électrostatique
+\begin{eqnarray}
+U(r) \propto \frac{1}{r\varepsilon_r}
+\end{eqnarray}
+$\rightarrow$ Importance de la constante diélectrique du solvant. $\varepsilon_r$ caractérise le pouvoir dispersant.
+
+\paragraph{Polarité}
+Impact. On peut classer les familles de solvant par polarité :\\
+eau > ac carbo > alcools > cétones > éthers > alcanes
+
+\paragraph{Proticité}
+Définition.
+
+\subsection{Dissolution}
+Dissoudre un composé consiste à le disperser dans le solvant, dont les molécules vont entourer, "solvater" les molécules de composé.\\
+
+Il y a plusieurs étapes :
+\paragraph{Ionisation} : $HCL = H^+  Cl^-$
+\paragraph{Dispersion} : $H^+Cl^- = H^+ + Cl^-$
+\paragraph{Solvatation} : les ions sont entourés par le solvant $H^+_{(aq)} + Cl^-_{(aq)}$.\\
+
+Catégories de solvants : polaires protiques, polaires et aprotiques, apolaires et aprotiques... intérêt de chaque classe, et exemples.\\
+En générale on solubilise bien une molécule avec un solvant du même type.\\
+
+\textbf{Manip} : on solubilise du sel dans trois solvants différents : de l'eau, du cyclohexane et de l'éthanol. Seule l'eau parvient à dissoudre le sel qui est un solide ionique : se dissout bien dans un solvant polaire protique. Le cyclo est apolaire aprotique : très mauvais solvant pour le sel. Cas de l'éthanol plus ambigu : moins polaire que l'eau...
+
+\subsection{Miscibilité}
+Deux solvants de mêmes types se mélangent, mais ce n'est plus le cas pour deux solvants de type différents.
+
+\paragraph{Manip :} \textit{Hachette 2nde 2010 p 211}. On met de la bétadine (diiode) dans de l'eau (le tout dans une ampoule à décanter) : elle diffuse, on ajoute du cyclohexane : on voit les deux solvant distinctement séparés par une interface (avec le diiode dans l'eau). On secoue en dégazant. Le cyclohexane est un bien meilleur solvant que l'eau pour le diiode : on constate après avoir secoué que (presque) tout le diode est allé dans le cyclohexane (si on a pas trop mis de bétadine).\\
+
+Si on rajoute de la bétadine et que l'on secoue à nouveau on constate qu'il ya alors de la bétanine solvatée dans les deux solvants : il y a un équilibre de partage.
+
+\section{Extraction liquide-liquide}
+Principe. Expression du coefficient de partage.
+\paragraph{Manip :} \textit{Chime organique expérimentale} de \textbf{Chavanne} p 153. On extrait l'acide propanoïque avec de l'ether.
+
+
+\section*{Questions}
+En première année, est ce la première fois que l'on parle de ces interactions ? des solvants ?\\
+On a parlé des solvants en première mais c'est la première fois que l'on parle de liaisons VdW.\\
+
+En quoi les chaleurs latentes nous montrent la nécessité de parler de liaisons VdW ?\\
+Parce que les liaisons covalentes correspondent à des énergies 100x + grande.\\
+
+La notion de chaleur latente a t-elle déjà été abordée ?\\
+Oui au lycée, peut être sans la nommer ainsi.\\
+
+Y a t'il un autre critère qui motive la recherche de liaisons autres que covalentes ?\\
+Les molécules ont les mêmes propriétés après vaporisation puis condensation : les molécules et donc les liaisons covalentes sont intactes.\\
+
+Concernant l'énergie potentielle électrostatique ne serait il pas plus facile pour les élèves de parler de force ? Quelle est la force associée ?
+\begin{eqnarray}
+F = \frac{Z_+Z_- e^2}{4\pi \varepsilon r^2 \varepsilon_r}
+\end{eqnarray}
+
+Pouvez vous justifier que le cyclohexane soit apolaire ?\\
+Les liaisons qui composent la molécule ont des moments dipolaires nuls (ou quasi nuls).\\ 
+
+Comment définit on le moment dipolaire d'une molécule ?\\
+On fait la somme vectorielle des moments dipolaires des liaisons.\\
+
+L'acétone est elle une molécule polaire ? Et quel est sont autre nom ?\\
+propanone, et oui il suffit de la dessiner pour le voir.\\
+
+L'éther diéthylique est il polaire ?\\
+Oui si on applique VSEPR on voit que l'on a un oxygène central du type $AX_2E_2$ : la molécule est coudée et donc polaire.\\
+
+Problèmes liés aux solvants ?\\
+Toxicité et inflammabilité.\\
+
+Quels sont les solvants à risque ?\\
+Benzène, le cyclohexane, le toluene, le methanol.\\
+
+Quels sont les conséquences sur les méthodes utilisées pour les manipuler ?\\
+Il faut gérer leur élimination et prendre des précautions pour les manipuler.\\
+
+Dans l'exemple choisi de la solvatation de HCl : quel est l'état de HCl ?\\
+La molécule est solvatée, puis les ions se séparent, et ils sont ensuite dispersés puis solvatés, il faut donc écrire 
+\begin{eqnarray}
+HCl_{(aq)} \rightarrow (H^+Cl^-)_{(aq)} \rightarrow H^+_{(aq)} + Cl^-_{(aq)}
+\end{eqnarray}
+
+Pouvez vous montrer qu'un solvant polaire aprotique solvate moins un bien un anion qu'un cation ?\\
+
+Qu'y at'il dans la bétadine ?\\ Du diiode et un polymère.\\
+
+Était-ce important de mesurer les volumes pour la 2e manip ?\\
+Non, du moins pas précisément, mais on veut tout de même que tout le diiode aille dans le cyclohexane la première fois.\\
+
+Dans une ampoule à décanter, jusqu'où peut on remplir ?\\
+La moitié.\\
+
+Où faut il placer l'interface ?\\
+Dans la partie large de l'ampoule pour pouvoir agiter au niveau de l'interface.
+
+\section*{Remarques}
+Il faut écourter la première partie, qui n'est pas vraiment pertinente : si c'est nouveau c'est trop rapide ... Si c'est des rappels c'est trop long et il y a trop de superflu comme les différents types d'interactions de VdW.\\
+
+Plutôt parler de liaisons intermoléculaires que d'interaction faible car ce terme peut prêter à confusion.\\
+
+Citer les dangers et inconvénients liés aux solvants.\\
+
+Projeter les protocoles avec la flexcam ou un diapo.
+\end{document}

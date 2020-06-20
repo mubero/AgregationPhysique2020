@@ -1,0 +1,317 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\usepackage{wasysym}
+\usepackage{graphicx}
+
+\author{Mathieu Sarrat}
+\title{LP25 - Oscillateurs ; portraits de phase et non-linéarités}
+
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+\begin{document}
+\maketitle
+
+\section*{Pré-requis et objectifs}
+
+\begin{itemize}
+	\item Dynamique et énergétique du solide.
+\end{itemize}
+
+\newpage
+\section*{Introduction}
+
+Durant nos études de physique, nous avons souvent eu à traiter des problèmes linéaires, dont l'une des propriétés essentielles est qu'ils vérifient le principe de superposition.\textcolor{red}{Expliquer et faire un schéma, $s_1$, $s_2$ et $s_1 + s_2$}.\\
+
+Or, du pendule simple au mouvement des planètes dans le système solaire, en passant par de nombreux systèmes bouclés comme les oscillateurs quasi-sinusoïdaux, les systèmes et phénomènes physique sont en grande majorité non-linéaires : le principe de superposition ne s'applique plus, de même que toutes les méthodes d'analyse qui reposent sur lui.\\ 
+
+La résolution analytique d'une équation non-linéaire est en générale difficile, voire même impossible. Au contraire, on sait résoudre un problème linéaire, d'où la tentation dans un premier temps de linéariser autour d'un état d'équilibre les équations à résoudre : on introduit une perturbation de l'équilibre, de faible ampleur. Cette approche ramène généralement à un problème de type oscillateur harmonique.\\
+
+Oui mais voilà, certains systèmes sont instables et dans ce cas une petite perturbation finit par prendre tellement d'ampleur qu'on ne peut plus la considérer comme telle. La description de tels phénomènes sur de longues durées est impossible dans l'approximation linéaire.\\
+
+Avec le développement des moyens de calcul informatique, il est désormais possible de traiter par simulation les problèmes non-linéaires et de progresser dans l'étude de phénomènes complexes comme l'évolution à long terme des systèmes instables ou les phénomènes chaotiques.\\
+
+De la même façon qu'il existe des résultats, des méthodes d'analyse et des comportements communs aux systèmes linéaires (ondes planes, modes propres, analyse de Fourier, fonctions de transfert), il en existe également pour les systèmes non-linéaires. Durant cette leçon nous allons dégager quelques uns des grands concepts de la physique non-linéaire à travers l'exemple important des oscillateurs : en effet, tout système s'écartant d'une position d'équilibre peut être considéré comme un oscillateur.
+
+\newpage
+\section{Oscillations d'un pendule}
+
+\subsection{Approche énergétique \textcolor{red}{(Diapo 1)}}
+
+Soit un \textbf{pendule simple}, constitué d'une masselotte $m$ suspendue au bout d'un fil de masse négligeable de longueur $\ell$. On suppose que les actions de contact ne travaillent pas (liaisons idéales).\\
+
+Calculons l'énergie mécanique de la masse, $E = E_k + E_p$ :
+\begin{itemize}
+	\item énergie cinétique
+	\begin{equation}
+		E_k = \frac{1}{2}m \ell^2 \dot{\theta}^2
+	\end{equation}
+	
+	\item énergie potentielle
+	\begin{equation}
+		E_p = mg\ell \left(1 - \text{cos}\;\theta\right)
+	\end{equation}
+\end{itemize}
+en prenant l'origine de l'énergie potentielle à $\theta = 0$.\\
+
+Puisque \textbf{l'énergie potentielle ne dépend pas du temps, le système est conservatif} : l'énergie mécanique $E$ est une constante du mouvement
+\begin{equation}
+	E = \frac{1}{2}m \ell^2 \dot{\theta}^2 + mg\ell \left(1 - \text{cos}\;\theta\right).\\
+\end{equation}
+
+Entre $\theta = -\pi/2$ et $\theta = +\pi/2$, le potentiel présente un minimum et deux maxima. Le système a donc deux positions d'équilibre instable et une position d'équilibre stable. On distingue deux types de mouvement en fonction de l'énergie mécanique :
+\begin{itemize}
+	\item mouvement oscillant si $E < E_{p,max}$
+	\item mouvement révolutif si $E > E_{p,max}$.
+\end{itemize}
+
+De la \textbf{conservation de l'énergie}, $dE/dt = 0$, on en déduit l'équation du mouvement
+\begin{equation}
+	\boxed{\ddot{\theta} + \omega_0^2 \text{sin}\;\theta = 0},
+\end{equation}
+où 
+\begin{equation}
+	\omega_0 = \sqrt{\frac{g}{\ell}}
+\end{equation}
+est la pulsation relative aux oscillations du pendule. On obtiendrait la \textbf{même équation pour un pendule pesant}, seule l'expression de $\omega_0$ changerait.\\
+
+Cette équation est \textbf{fondamentalement non-linéaire}, du fait du terme en sinus. Plutôt que de la résoudre analytiquement, nous allons adopter une autre approche.
+
+\subsection{Étude dans l'espace des phases}
+
+On privilégie souvent une approche numérique pour résoudre les équations non-linéaires. Ici nous allons introduire un outil de représentation du comportement du système : \textbf{le portrait de phase}.\\
+
+\begin{itemize}
+	\item \textbf{Espace des phases :} espace dont tout point représente l'état physique du système. Sa dimension est égale au nombre de degrés de liberté du système, soit deux ($\theta$ et $\dot{\theta}$) dans le cas du pendule.\\
+	
+	\item \textbf{Trajectoire de phase :} partant d'une condition initiale donnée $(\theta_0, \dot{\theta}_0)$, on représente l'évolution du système par une trajectoire continue dans l'espace des phases, représentant l'ensemble des états occupés successivement par le système au cours du temps. Deux trajectoires de phase ne se coupent pas.\\
+	
+	\item \textbf{Portrait de phase :} ensemble des trajectoires de phase possibles, chacune 		partant d'une condition initiale donnée.\\
+\end{itemize}
+
+On représente le portrait de phase du pendule dans l'espace $\theta$ et $\dot{\theta}/\omega_0$. \textcolor{red}{Montrer le portrait de phase du pendule simple (simulation), commenter le sens de parcours des trajectoires} :
+\begin{itemize}
+	\item mouvement \textbf{révolutif} : trajectoires ouvertes, choisir une condition initiale 				et montrer le sens de parcours;\\
+	\item mouvement \textbf{oscillant} : trajectoires elliptiques aux petits angles (des 				cercles avec notre choix de coordonnées), déformées mais fermées pour des oscillations 			de plus grande ampleur. Montrer le sens de parcours (on ne parcourt pas les 					trajectoires dans n'importe quel sens);\\
+	\item une \textbf{séparatrice} sépare les deux domaines.\\
+\end{itemize}
+
+Essayons maintenant d'interpréter les différentes formes de trajectoires. Aux petits angles, si on s'arrête à l'ordre 1, on peut écrire
+\begin{equation}
+	\text{sin}\;\theta,
+\end{equation}
+d'où 
+\begin{equation}
+	\ddot{\theta} + \omega_0^2\theta = 0.
+\end{equation}
+On reconnaît une équation linéaire, du type oscillateur harmonique, dont les solutions sont :
+\begin{equation}
+	\theta (t) = \theta_0 \text{cos}\; (\omega_0 t) \quad\text{et}\quad
+	\dot{\theta}(t) = - \theta_0 \omega_0 \text{sin}\;(\omega_0 t),
+\end{equation}
+d'où l'équation de la trajectoire de phase
+\begin{equation}
+	\boxed{\theta^2 + \left(\frac{\dot{\theta}}{\omega_0}\right)^2 = \theta_0^2}.
+\end{equation}
+On reconnaît bien une ellipse.\\
+
+Le mouvement est périodique, de période
+\begin{equation}
+	T = T_0 \equiv \frac{2\pi}{\omega_0}.
+\end{equation}
+
+\subsection{Du linéaire au non-linéaire}
+
+De nombreux potentiels ne sont pas harmoniques :
+\begin{itemize}
+	\item potentiel de Morse (liaison chimique),
+	\item potentiel de Lennard-Jones (interactions intermoléculaires pour un gaz rare 					monoatomique),
+	\item mais aussi le potentiel du pendule
+		\begin{equation}
+			E_p(\theta) = mg\ell \left(1 - \text{cos}\;\theta \right).\\
+		\end{equation}
+\end{itemize}
+
+Ces potentiels possèdent tous un minimum, que l'on associe à une position d'équilibre stable autour de laquelle le système physique peut osciller. Autour de cette position d'équilibre ($\theta_\text{eq}$ pour le pendule), on peut développer l'énergie potentielle comme suit :
+\begin{equation}
+	\boxed{E_p(\theta) = E_p(\theta_\text{eq}) + \frac{d E_p}{d\theta}_{\theta_\text{eq}} 			\left(\theta - \theta_\text{eq}\right) + \frac{1}{2} 
+	\frac{d^2 E_p}{d\theta^2}_{\theta_\text{eq}}\left(\theta - \theta_\text{eq}\right)^2 + ...}
+\end{equation}
+Le second terme est nul, puisque on le calcul au niveau de la position d'équilibre. Le terme d'ordre 2 est parabolique et donne naissance à une force de rappel, type oscillateur harmonique.\\
+
+Si on poursuit le développement, on introduit des effets anharmoniques dans le comportement de l'oscillateur. Allons jusqu'à l'ordre 4 du développement, pour le pendule simple $(\theta_\text{eq} = 0)$ :
+\begin{equation}
+	E_p(\theta) \simeq \frac{mg\ell}{2}\theta^2 - \frac{mg\ell}{24}\theta^4,
+\end{equation} 
+d'où l'énergie mécanique
+\begin{equation}
+	E = \frac{1}{2}m \ell^2 \dot{\theta}^2 + mg\ell \frac{\theta^2}{2}
+	\left(1 - \frac{\theta^2}{12}\right)
+\end{equation}
+et l'équation du mouvement, l'ajout de termes anharmoniques ne modifiant rien à la conservation de $E$ :
+\begin{equation}
+	\boxed{\ddot{\theta} + \omega_0^2\theta - \frac{\omega_0^2}{6}\theta^3 = 0}.\\
+\end{equation}
+
+Ce modèle est plus proche de la réalité et implique l'apparition d'effets non-linéaires.
+
+\subsubsection*{Perte d'isochronisme des oscillations d'un pendule pesant}
+
+Dans un oscillateur harmonique, la période des oscillations ne dépend pas de leur amplitude $\theta_m$. \'A l'ordre 4 du développement de l'énergie potentielle, la période est donnée par la \textbf{formule de Borda :}
+\begin{equation}
+	\boxed{T = T_0\left(1 + \frac{\theta_m^2}{16}\right)}.
+\end{equation}
+On voit clairement que $T$ a une dépendance quadratique vis à vis de l'amplitude des oscillations.\\
+
+On se propose de mesurer la période des oscillations en fonction de leur amplitude pour un pendule pesant, constitué d'une tige de longueur $\ell$ et de masse $M$ et d'une masselotte $m$ fixée à son extrémité. En supposant que la tige soit un fil :
+\begin{equation}
+	\omega_0 = \sqrt{\frac{g\ell\left(m + \frac{M}{2}\right)}{m\ell^2 + I}},
+\end{equation}
+avec
+\begin{equation}
+	I = \frac{1}{3}M\ell^2 \quad\text{le moment d'inertie de la tige.}\\
+\end{equation}
+
+\textbf{Matériel :}
+\begin{itemize}
+	\item pendule pesant avec potentiomètre pour mesurer l'angle,
+	\item rapporteur fixé sur le support,
+	\item balance,
+	\item carte d'acquisition avec Latis Pro,
+	\item alimentation stabilisée pour alimenter le potentiomètre (relier les deux bornes 			centrales, qui deviennent la masse et relier la masse de la carte d'acquisition à cet 			endroit).\\
+\end{itemize}
+
+La formule de Borda est respectée tant que l'amplitude des oscillations n'est pas trop importante. Pour des angles supérieurs, il est nécessaire de pousser plus loin le développement de $E_p$.\\
+
+\textbf{Consignes :}
+\begin{itemize}
+	\item mesurer de 10 degrés en 10 degrés jusqu'à 90 durant la préparation,
+	\item faire une seule mesure en direct, pour $\theta = 80$ degrés (on montrera ainsi plus 			facilement la contribution des harmoniques).
+	\item l'amortissement est responsable d'une variation de l'amplitude et donc de la période 		au cours du mouvement, on ne mesurera donc qu'une seule période pour chaque valeur d'angle. Influence de l'amortissement $\Delta \theta$ sur la période mesurée :
+	\begin{equation}
+		\frac{\Delta T}{T} = 2 \left(\frac{\Delta \theta}{\theta}\right) 
+		\frac{\theta^2/16}{1 + \theta^2/16}
+	\end{equation}
+\end{itemize}
+
+\subsubsection*{Apparition d'harmoniques}
+
+Tracer la dérivée du signal et faire la transformation de Fourier (les harmoniques ont un poids relatif plus important dans la dérivée que dans le signal d'origine). Montrer l'harmonique de rang 3, voire ceux d'ordre supérieur.\\
+
+Qualitativement, si on injecte $\text{sin}\;(\omega t)$ dans l'équation du mouvement, on obtient un terme en sinus cube, que l'on peut réécrire
+\begin{equation}
+	\text{sin}^3\;(\omega t) = \frac{3\;\text{sin}\;(\omega t) - \text{sin}\;(3\omega t)}{4}.\\
+\end{equation}
+
+On va donc adopter une méthode perturbative : on cherche une solution de la forme
+\begin{equation}
+	\theta(t) = \theta_m \left(\text{sin}\;(\omega t) + \epsilon \text{sin}\;(3\omega t)\right)
+\end{equation}
+avec $\theta_m, \epsilon$ petits.\\
+
+Si on développe jusqu'à l'ordre 3 :
+\begin{equation}
+	0 = \text{sin}\;(\omega t)\left[\theta_m\left(\omega_0^2 - \omega^2\right) 
+	- \frac{\theta_m^3}{8}\omega_0^2\right]
+	+ \text{sin}\;(3\omega t)\left[\theta_m\left(\epsilon\omega_0^2 - 9\epsilon\omega^2\right)		+ \theta_m^3\frac{\omega_0^2}{24}\right],\quad\forall\;t.
+\end{equation}
+Chacun des termes devant les sinus vaut 0. Le premier terme restitue la formule de Borda. Le second terme nous donne
+\begin{equation}
+	\epsilon \simeq \frac{\theta_m^2}{192} \quad\text{en supposant}\;\omega \sim \omega_0.
+\end{equation}
+
+La présence d'harmoniques explique la forme des trajectoires de phase non-circulaires. Si on décomposait en série de Fourier le mouvement périodique général, on trouverait des harmoniques d'ordre supérieur (5, 7 et ainsi de suite).\\
+
+De façon générale, les phénomènes non-linéaires périodiques sont connus pour voir les harmoniques du fondamental se développer.
+
+
+\section{L'oscillateur à double puits}
+
+\subsection{L'équation de Duffing \textcolor{red}{(Diapo 2)}}
+
+\subsubsection*{a/ L'oscillateur de Duffing}
+
+Le développement à l'ordre 3 du potentiel du pendule nous a permis d'étudier un cas particulier d'un oscillateur de Duffing, décrit de façon générale par l'équation suivante
+\begin{equation}
+	\boxed{\ddot{x} + r\dot{x} + \alpha x + \beta x^3 = f\text{cos}\;(\omega t)},
+\end{equation}
+introduite par l'ingénieur Georg Duffing pour modéliser les vibrations forcées de machines industrielles.\\
+
+On peut interpréter physiquement chacun des termes de cette équation,
+\begin{itemize}
+	\item $r\dot{x}$ traduit un effet dissipatif, si $r > 0$, type frottement visqueux,
+	\item $\alpha x + \beta x^3$ traduit la raideur du système : si $\beta > 0$, la raideur 			augmente lorsque l'amplitude du mouvement augmente.
+	\item $f \text{cos}\;(\omega t)$ traduit un forçage sinusoïdal.\\
+\end{itemize}
+
+Le potentiel associé à la force de raideur s'écrit
+\begin{equation}
+	\boxed{E_p(x) = \frac{\alpha}{2}x^2 + \frac{\beta}{4}x^4}.
+\end{equation}
+Dans le cas du pendule, on avait (localement) $\alpha > 0$ et $\beta < 0$.\\
+
+\subsubsection*{b/ Notion de bifurcation}
+
+On va étudier, à travers l'espace des phases, le mouvement du système dans ce potentiel de Duffing.\\
+
+On prend $\beta > 0$ :
+\begin{itemize}
+	\item si $\alpha > 0$, \textbf{la position $x = 0$ 
+		traduit un équilibre stable} (point fixe, car $\ddot{x} = \dot{x} = 0$)\\
+	\item si $\alpha < 0$, $x = 0$ devient un équilibre instable, et deux nouvelles 
+	positions d'équilibre stable apparaissent, en $x = \pm \sqrt{|\alpha|/\beta}$.\\
+	\item à la transition, il y a brisure spontanée de symétrie : le système choisit l'une des 			deux solutions d'équilibre. Le comportement change qualitativement selon que 
+		$\alpha < 0$ ou $\alpha > 0$. On dit qu'il y a \textbf{bifurcation} lorsque la solution 		des équations change qualitativement \textbf{pour une valeur critique d'un 
+		paramètre}.\\
+	\item tracer le \textbf{diagramme de bifurcation}.\\
+\end{itemize}
+
+\subsubsection*{c/ Cas du potentiel à deux puits}
+\textcolor{green}{Manip : simulation dans le cas du potentiel à deux puits, sans dissipation ni forçage}, discuter les comportements (piégé dans un puits ou passage d'un puits à l'autre) selon l'énergie mécanique.\\
+
+Dans ce cas précis, on peut établir une analogie avec les transitions de phase du deuxième ordre, type ferromagnétisme. Autres exemples : régulateur à boules, barre d'Euler.\\
+
+
+\subsection{Introduction de la dissipation : notion d'attracteur}
+
+Nous allons maintenant introduire de la dissipation et observer les conséquences dans l'espace des phases (simulation) : $r > 0$ et $\beta > 0$.\\
+
+Si $\alpha < 0$ : simulation à présenter, $x_0 = 0.8$, $\dot{x}_0 = 1$, $r = 0.5$.\\
+
+Les positions d'\textbf{équilibre stable deviennent des attracteurs}. Les positions d'équilibre instable deviennent des repellants.\\
+
+
+\subsection{Introduction du forçage : vers le chaos}
+
+\begin{itemize}
+	\item Un système chaotique se caractérise par une \textbf{grande sensibilité aux conditions initiales} : deux situations initiales infiniment proches vont finir par \textbf{diverger exponentiellement} l'une de l'autre (exposants de Lyapunov), produisant des effets très différents : c'est le fameux \textbf{effet papillon}.
+	
+	\item Un phénomène chaotique est \textbf{déterministe} : si on connaît avec exactitude les conditions initiales, on sait prédire l'état du système à un instant ultérieur. La difficulté vient du fait qu'expérimentalement ou numériquement, il est impossible de connaître les CI exactement. En résulte notre \textbf{incapacité à prédire l'évolution du système au-delà d'une certaine durée} (horizon de Lyapunov), bien que le problème soit parfaitement déterministe.
+	
+	\item Tout système non-linéaire n'est pas nécessairement chaotique : il faut pour cela un minimum de trois degrés de liberté (ex : aiguille d'une boussole dans un champ magnétique tournant, ou \textbf{oscillateur de Duffing avec forçage}, le temps devenant une dimension de l'espace des phases à considérer, le Hamiltonien dépendant du temps).
+	
+	\item L'équation de Duffing en régime forcé se ramène à un système de trois équations 		différentielles d'ordre 1 :
+	\begin{equation}
+		\dot{x} = y \quad;\quad \ddot{y} = -ry -\alpha x - \beta x^3 + f \text{cos}\;z \quad;			\quad \dot{z} = \omega.
+	\end{equation}
+	$x$, $y$ et $z$ sont les 3 degrés de liberté.
+	
+	\item \textcolor{green}{Manip : mise en évidence de la sensibilité aux conditions 				initiales, cf diapos ou simulation en direct, c'est selon. Montrer l'horizon de 				prédictibilité. Cas du système solaire : au-delà de quelques millions d'année, on ne peut 		plus prédire les trajectoires des planètes.}
+\end{itemize}
+
+\section*{Conclusion}
+
+
+\end{document}

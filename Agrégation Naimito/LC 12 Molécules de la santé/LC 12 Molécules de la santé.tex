@@ -1,0 +1,131 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 12 Molécules de la santé}
+	\author{Maxime}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Pré-requis}
+Réactions acido basiques et redOx, isoméries, formules topologiques.\\
+Niveau lycée (1ère STL).
+
+\subsection{Intro}
+Historiquement les molécules thérapeutiques sont utilisées depuis l'antiquité au travers de plantes médicinales. Aujourd'hui on référence et créé ces molécules artificiellement.
+
+\section{Les médicaments}
+\subsection{Quelques définitions}
+Médicament : toute substance qui possède des pouvoir curatifs pour les maladies. Il peut être naturel ou synthétique.\\
+La molécule qui est responsable de l'effet bénéfique est appelée principe actif : "molécules ayant des propriétés thérapeutiques".\\
+Ces molécules sont synthétisées par des labo qui déposent alors des brevets : "princeps", et qui privatise alors la molécule pour une dizaine d'année. Après cette durée on verra apparaître des génériques : médicament basé sur la même molécule, mais fait par un autre labo.\\
+
+On ajoute des excipients aux médicaments pour modifier le goût, la forme et texture, la vitesse d'action sur le corps...ect.\\
+Exemple : effervescence
+\begin{eqnarray}
+HCO_3^- + R-COOH \rightarrow CO_{2(g)} + R_COO^- + H_2O
+\end{eqnarray}
+
+Formulation : liste des composés avec doses (forme générique).\\
+
+Il faut en général voir que selon la dose le principe actif peut être bénéfique ou agir comme un poison.
+
+\subsection{Géométrie des molécules}
+En général deux isomères n'ont pas les mêmes propriétés. Exemple :
+\begin{eqnarray}
+C_4H_{10}O \;:\; \mathrm{peut\;etre\;du\;}\textbf{diethylether}\; \mathrm{ou \;du\;}\textbf{butan-1-ol}
+\end{eqnarray}
+Autre exemple : thalidomide : médicament contre la nausée.\\
+
+Le problème c'est que même si l'on ingère qu'un isomère, le mélange va se racémiser dans le corps.
+
+\subsection{Aspirine}
+Utilisée pour les maux de têtes notamment. Le principe actif est l'acide acétylsalicilique. \\
+\textit{Manip : Synthèse de l'aspirine, }\textbf{Le maréchal tome 2 p151}.\\
+Filtrage en direct.\\
+Calcul du rendement à partir du produit recristallisé fait en préparation.\\
+Caractérisation banc Koffler.
+
+\section{Antiseptiques et désinfectants}
+Tuent les germes pouvant causer des maladies.\\
+Antiseptique : s'applique sur de la matière vivante (élimine des germes sur une plaie par exemple).\\
+Désinfectant : s'applique sur de la matière inerte (pour éliminer des germes sur des objets comme de l'eau de javel par exemple).\\
+
+Exemples : l'eau oxygénée (mercurochrome), diiode, permanganate, ions hypochlorite (eau de javel).\\
+Point commun : ce sont tous des oxydants. (donner les couples).\\
+
+\textit{Dosage du diiode contenue dans la bétadine}, \textbf{Cachau Héreillat : RedOx.}\\
+
+\textbf{Conclusion :} Ouverture sur les médicaments frauduleux, et mentionner que cela fait partie des domaines où de gros efforts sont à faire en terme de chimie verte.\\
+On peut aussi ouvrir sur la construction de nano-structures pour cibler l'effet des molécules.
+
+\section*{Questions}
+Lors de la synthèse de l'aspirine, comment choisis t-on les proportions initiales ?\\
+L'acide salicylique doit être le réactif limitant pour que le produit final soit pur.\\
+
+Comment aurait on pu vérifier la pureté du produit ?\\
+Chromato sur couche mince : comparaison avec un comprimé industriel.\\
+
+La réaction est elle totale en théorie ?\\
+Oui.\\
+
+Pourquoi un rendement si faible alors ?\\
+Parce qu'on perd beaucoup en recristallisant.\\
+
+L'aspirine est elle soluble dans l'eau ? Connaissez vous un ordre grandeur de la solubilité dans l'eau ?\\
+qq g/L.\\
+
+Que devient l'acide acétylsalicylique dans un comprimé effervescent lorsqu'on met le comprimé dans l'eau ?\\
+Équation (1) en remplaçant l'acide par l'acide acétylsalicylique. Il se retrouve donc sous forme basique, qui est beaucoup plus soluble.\\
+
+Que se passe t-il alors dans l'estomac ?\\
+Il y a recristallisation puisque le Ph de l'estomac est très acide.\\
+
+Nom de $S_2O_4^{2-}$ ?\\
+tetrathionate\\
+
+\section*{Remarques}
+C'est bien de préciser qu'en pratique on part du phénol avant d'arriver à l'acide salicylique.\\
+
+Insister que l'aspirine obtenue doit être pure. Mentionner la CCM pour le vérifier.\\
+
+Introduire le terme posologie.\\
+
+Commenter le fait que dans le cas de l'aspirine il n'y a pas de problème de chiralité.\\
+
+
+
+	
+\end{document}

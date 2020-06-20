@@ -1,0 +1,97 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 12 Photo-récepteurs}
+	\author{Clément}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	On a un montage optique comprenant :\\
+	Lampe + condenseur + diaphragme\\
+	Lentille convergente qui focalise sur la photodiode, avec entre les deux un filtre de couleur (multi filtre).\\
+	
+\section{Caractéristique de la photodiode}
+On trace tout d'abord i(E) pour la photodiode, en prenant la tension au borne d'une résistance en série avec la diode, et la tension au borne du circuit constitué de la résistance et de la diode en série. On obtient la caractéristique classique d'une diode. On peut ensuite regarder l'effet de la tension de polarisation sur cette caractéristique.
+
+\section{Sensibilité}
+On utilise un AOP pour avoir une tension nulle aux bornes de la diode, fixant ainsi la tension de polarisation à 0. On cherche ici à mesurer la sensibilité qui caractérise quelle est l'intensité fournie par la photodiode en fonction de l'intensité lumineuse reçue :
+\begin{eqnarray}
+S = \frac{\Delta i}{\Delta e}
+\end{eqnarray}
+ou  e est l'éclairement défini comme e = $\phi\,A$ avec $\phi$ le flux et A l'aire du capteur. On trace $i(\phi)$ et on obtient $S$ en modélisant la courbe obtenue par une droite.
+
+\section{Réponse spectrale}
+
+\begin{eqnarray}
+\mathcal{S} = \frac{I}{P} = \frac{V}{IP} = f(\lambda)
+\end{eqnarray}
+On trace $\mathcal{S}$ en fonction de la longueur d'onde (fixée grâce aux filtres) en mesurant l'intensité en sortie de photodiode, et la puissance lumineuse grâce à un puissancemètre (qui n'a quand à lui pas de sensibilité spectrale (photodiode étalonnée et corrigée)). On obtient une courbe en cloche possédant un maximum, qui va ainsi caractériser la photodiode.
+
+\section{Capteur CCD}
+
+On réalise une figure de diffraction sur une barrette CCD à l'aide d'un laser, dont on fait varier l'intensité selon la loi de Mallus au moyen de deux polariseurs.
+
+
+\section*{Questions}
+Qu'est ce qu'un photo-multiplicateur ?\\
+permet d'avoir $10^6$ électrons à l'arrivée (capteur) pour un électron initialement arraché par un photon.\\
+
+Pour la première manip, pourquoi fait on l'image du filament sur la lentille ?\\
+
+De quelle surface avez vous besoin pour l'image de la lampe dur la photodiode ?\\
+
+Devez vous modifier la largeur du trou source pour passer du fluxmètre à la diode ?\\
+Non car on doit demeurer dans les mêmes conditions, on doit donc régler le trou source pour que la taille de la tache luminueuse soit telle qu'elle corresponde au plus petit des capteurs.\\
+
+La caractéristique de la diode passe par trois cadrants, pouvez vous les commenter ?\\
+
+On observe que i(e) est une droite (S est donc constante), est ce un bon point ? Quels sont les avantages et inconvénients\\
+La sensibilité est donc constante sur plusieurs décades, on a donc la même précision dans tous les domaines.\\
+
+La caractéristique d'une photorésistance est une exponentielle décroissante, quelle est donc le domaine dans lequel on va l'utiliser, et pourquoi peut on l'utiliser ?\\
+On va l'utiliser dans la partie ou la dérivée est la plus grande, à petit e donc. Capteur de lumière pour un réverbère par exemple, si on lui fait commander un interrupteur.\\
+
+Quel autre aspect important doit on présenter pour la sensibilité spectrale ?\\
+La largeur spectrale.\\
+
+Quels sont les trois autre caractéristique de la photodiode que l'on a pas envisagé ?\\
+Le temps de réponse, diagramme de rayonnement (sensibilité angulaire), 
+
+\section*{Remarques}
+On trace en général $\mathcal{S}$ normée.\\
+Regarder matériaux pyroélectriques.
+
+\end{document}

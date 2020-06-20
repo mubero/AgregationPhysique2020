@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Amplification en tension}{2}
+\contentsline {paragraph}{Applications :}{2}
+\contentsline {paragraph}{Remarque :}{2}
+\contentsline {paragraph}{Remarque :}{3}
+\contentsline {section}{\numberline {2}Amplification en courant}{3}
+\contentsline {subsection}{\numberline {2.1}Amplificateur de classe B}{3}
+\contentsline {paragraph}{Applications des ampli courants :}{3}
+\contentsline {subsection}{\numberline {2.2}Amplificateur de classe AB}{4}
+\contentsline {section}{\numberline {3}Amplification en puissance}{5}
+\contentsline {paragraph}{Applications :}{5}
+\contentsline {section}{\numberline {4}Notice pour le distorsiom\IeC {\`e}tre}{7}

@@ -1,0 +1,95 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LP 19 Bilans thermiques : flux conductifs, convectifs et radiatifs}
+	\author{Clément}
+	\date{Agrégation 2019}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Introduction}
+Nécessite de comprendre les transferts thermiques pour optimiser les systèmes thermiques : moteurs, isolation..etc
+
+\section{Rayonnement et convection}
+\subsection{Rayonnement}
+La matière émet et absorbe de la chaleur, il y a de l'émission due à l'agitation thermique, et de l'absorption et augmente cette agitation thermique. Pour le rayonnement on va s'intéresser principalement au corps noir, définition.\\
+Loi de Planck
+\begin{eqnarray}
+E_{0\lambda} = \frac{2\pi c_1}{\lambda^5(e^{c_2/\lambda T}-1)}
+\end{eqnarray}
+on dérive par rapport à $\lambda$ pour trouver le maximum d'émission ou d'absorption. Cas du soleil.\\
+
+Loi de Stephan : on a pour la densité de puissance $E_0 = \int_0^{\infty}E_{0\lambda}d\lambda = \sigma T^4$.
+
+\subsection{Conduction thermique}
+Hypothèse des milieux continus (on travaille à des échelles grandes devant la taille des molécules et du libre parcours moyen). \\
+Loi de Fourrier 
+\begin{eqnarray}
+\vec{j} = -\lambda \vec{\nabla}T
+\end{eqnarray}
+On définit alors le flux de chaleur comme
+\begin{eqnarray}
+\Phi = \iint _S \vec{j}.\vec{n}dS
+\end{eqnarray}
+on a alors 
+\begin{eqnarray}
+Q = \int_0^t \Phi dt
+\end{eqnarray}
+
+\section{Convection thermique}
+\subsection{Première approche}
+\subsection{Analyse dimensionnelle}
+\begin{itemize}
+	\item Transfert de quantité de mouvement
+	\item Transfert convectif d'enthalpie
+	\item Transfert conductif transverse
+\end{itemize}
+
+Nombres de Prandtl, Nusselt etc...
+
+\section{Application : chauffage ...}
+
+
+\section*{Questions}
+D'où vient l'expression de l'expression du nombre de Nusselt en fonction des nombres de Prandtl et de Reynolds ?\\
+
+Des exemples où un bilan radiatif permet de déterminer la température d'un corps ?\\
+Les planètes.
+
+\section{Plan conseillé}
+\subsubsection{Omniprésence de ces phénomènes}
+Présence quotidienne : terre chauffée par le soleil et par son centre via le manteau, chauffage dans une maison etc...
+\subsection{Rappels sur les flux conductifs et radiatifs}
+\subsection{Convection}
+Manip des deux erlen : l'un rempli d'eau tiède colorée, l'autre d'eau froide sans colorant, on pose le premier sur le secont et on observe.
+
+\end{document}

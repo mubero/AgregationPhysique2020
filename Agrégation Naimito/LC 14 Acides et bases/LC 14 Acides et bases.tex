@@ -1,0 +1,180 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 14 Acides et bases}
+	\author{Maria}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	
+\subsection*{Pré-requis}
+Niveau première S.
+
+\subsection*{Introduction}
+Présence des acides et bases dans la vie courante. Évocation du PH dans certains facteurs écologiques.
+
+\section{PH, acides et bases, définitions}
+\subsection{Approche expérimentale}
+
+Mesure avec du papier PH du PH de différentes solutions :\\
+	- Destop dilué\\
+	- Acide chlorhydrique\\
+	- Eau du robinet
+	
+\subsubsection{Mesure du PH de trois solutions présentant un ion commun}
+Acide nitrique à 1.01 mol$L^{-1}$ : $H-NO_3$\\
+Acide chlorhydrique à 0.01 mol/L : $H-Cl$\\ 
+Chlorure de sodium : $Na-Cl$\\
+On regarde ici l'influence de chacun des ions sur le PH et on déduit que c'est l'ion $H^+$ qui affecte le PH de la solution.
+
+\subsection{Définition du PH}
+\begin{eqnarray}
+PH = -\log [H_3O^+]
+\end{eqnarray}
+Le PH est neutre pour de l'eau à 25°C et vaut alors 7.\\
+Réaction d'autoprotolyse de l'eau :
+\begin{eqnarray}
+2H_2O = = H_3O^+ + HO^-
+\end{eqnarray}
+On définit alors le produit ionique de l'eau comme la constante de cette réaction : $Ke = [H_3O^+][HO^-]$.
+
+\subsection{Théorie de Bronsted et Laury}
+Un acide est une espèce capable de céder des protons $H^+$, tandis qu'une base est une espèce capable de capter un ion Hydronium $H^+$. On peut donc définir la réaction d'un acide $AH$ avec l'eau comme étant 
+\begin{eqnarray}
+AH + H_2O = A^- + H_3O^+
+\end{eqnarray}
+Et de même pour une base $B$
+\begin{eqnarray}
+B + H_2O = BH^+ + HO^-
+\end{eqnarray}
+Définition espèces amphotères : espèce pouvant se comporter comme un acide ou une base. Ex : $H_2O$.
+
+\section{Réaction acido-basiques}
+\subsection{Définition générale}
+\subsection{Réaction d'un acide dans l'eau}
+Acide fort : acide complètement dissocié : $K_r = \infty$
+\begin{eqnarray}
+AH_{(aq)} + H_2O_{(l)} &=& A^-_{(aq)} + H_3O^+_{(aq)}\\
+EI\hspace{1.5cm} n\hspace{1.2cm} exces &=& 0 \hspace{1.5cm} 0\\
+EF\hspace{1.5cm} 0 \hspace{1.2cm} exces &=& n \hspace{1.5cm} n
+\end{eqnarray}
+Cas d'un acide faible : définition du PKa puis projection de la courbe correspondant à la détermination du Pka d'un acide faible par PH-métrie.\\
+On a une courbe de la forme 
+\begin{eqnarray}
+PH = PKa + \log\frac{[A^-]}{[AH]}
+\end{eqnarray}
+On peut en déduire Ka selon $PKa = -\log Ka$, donc l'expression obtenue se déduit de 
+\begin{eqnarray}
+Ka = \frac{[H_3O^+][A^-]}{[AH]}
+\end{eqnarray}
+De même on peut déduire la constante de protonation d'une base faible comme 
+\begin{eqnarray}
+Kb = \frac{[AH][HO^-]}{[A^-]}
+\end{eqnarray}
+On peut noter que $KaKb = Ke$ et que par conséquent $Pka + PKb = 14$.\\
+On a
+\begin{eqnarray}
+PH = PKa + \log\frac{[A^-]}{[AH]}
+\end{eqnarray}
+on peut donc en déduire les domaines de prédominance de $AH$ et $A^-$....
+
+\section{Régulation du PH}
+\subsection{Solution tampon}
+Cas de l'acide lactique formé par le corps humain lors d'un effort intense, effet néfaste sur le corps et réaction du corps pour gérer cet acide grâce à une solution tampon. Schéma.
+
+\section*{Questions}
+Vous avez parlé dans l'introduction des savons neutres, si ceux ci le sont, que sont autres (acides ou basiques) ?\\
+
+Comment est créé l'acide sulfurique ?\\
+
+Pourquoi l'acide sulfurique est il agressif pour les monuments en pierre ?\\
+
+Pourquoi utiliser des doubles flèches sur les réactions ? \\
+$\rightarrow$ double flèche : réaction à l'eq, = : on ne sait pas si la réaction est totale ou non.\\
+
+Comment introduit on la réaction d'autroprotolyse de l'eau à un élève de terminale ?\\
+Comment peut on justifier (à part avec le PH) l'existence de cette réaction ?\\
+$\rightarrow$ PHmétrie.\\
+
+D'où sortent les deux couples de l'eau $H_2O/H_3O^+$ et $H_2O/HO^-$ ? Pouvez vous l'expliquer à partir de la réaction d'autoprotolyse de l'eau ? (Rq : il faut le faire à partir de là)\\
+
+Différence entre réaction totale et quasi totale ?\\
+$\rightarrow$ dans un cas il reste une petite quantité $\epsilon$ du réactif limitant quand dans l'autre il n'en reste rien.\\
+
+Intérêt du diagramme de prédominance acide-base ?\\
+
+Qu'est ce qu'une solution tampon ?\\
+Comment mettre en évidence la nature d'une telle solution ?\\
+
+Comment écrit on le Ka ? A t'il une unité ?\\
+
+\section*{Commentaires}
+Ne parler que des réactifs, substances .. que l'on maîtrise.\\
+Si on parle de pluies acides ou autre : maîtriser le phénomène et connaître les réactions en jeu.\\
+Les pluies acides attaquent les bâtiments car l'acide sulfurique réagit avec le calcaire de la pierre. Les canalisations sont entartrées (par du Ca) c'est pourquoi on utilise de l'acide pour les déboucher.\\
+Concentration en eau de l'eau...??? 1kg / masse molaire de l'eau 18g/L $\rightarrow$ 55 $molL^{-1}$.
+Pour ce qui est du PH de l'eau concernant la mise en évidence de l'autoprotolyse de l'eau, attention le PH vaut à 25°C !!!\\
+Concernant AZF : réaction mettant en jeu $NO_3^{-}$ et $NH_4^+$  : degrés d'oxydation de N très différents : réaction d'oxydation réduction, explose si on met un coup de marteau !\\
+Pour mesurer un PKa : repérer la demie équivalence lors d'un dosage ou par conductimétrie.\\
+Acides aminés : fonction amine ($NH_2$) sur le carbone en position $\alpha$ de la fonction acide carboxylique.\\
+Alcalinité d'une eau minérale = basicité d'une eau minérale (va être due à l'ion hydrogénocarbonate $HCO_3^-$).\\
+3 formes possibles d'un acide aminé selon le PH :
+\begin{eqnarray*}
+&NH_3^+&\\
+&|&\\
+H-&CH&-COOH\hspace{2cm}\mathrm{charge} +1
+\end{eqnarray*}
+ou
+\begin{eqnarray*}
+&NH_3^+&\\
+&|&\\
+H-&CH&-COO^- \hspace{2cm}\mathrm{charge}\; 0
+\end{eqnarray*}
+ou
+\begin{eqnarray*}
+&NH_2&\\
+&|&\\
+H-&CH&-COO^- \hspace{2cm}\mathrm{charge} -1
+\end{eqnarray*}
+
+\section*{Remarques}
+Un peu léger en terme de contenu, le niveau est ici un peu bas, il faut, si on place au niveau terminale, s'adresser à un élève de niveau exceptionnel. Notamment mettre en pré-requis la définition du PH.\\ Il faut un fil conducteur, aller vers un objectif qui doit être atteint et mis en valeur au niveau de la conclusion.\\ Ici illustrer avec des applications de réactions acido-basiques, il faut présenter des réactions avec des produits du quotidien, et ne pas perdre de temps avec l'introduction des notions. Il est aussi possible de mentionner et décrire des phénomènes impliquant des réactions acido-basiques telles que les pluies acides par exemple, et leur effet sur la pierre (le calcaire).\\
+Mettre en valeur l'intérêt de l'échelle de PKa pour pouvoir estimer quelles vont êtres les réactions prédomianantes d'un problème donné.\\
+Attention à l'attitude : mise des lunettes pour la manipulation de produits dangereux, bonne manipulation de la verrerie.\\
+Prévoir une quantité de manip et de contenu raisonnable pour ne pas trop stresser par rapport au délai.
+
+
+\end{document}

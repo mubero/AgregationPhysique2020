@@ -1,0 +1,267 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\usepackage{wasysym}
+\usepackage{graphicx}
+
+\author{Mathieu Sarrat}
+\title{LC6 - Dosages}
+
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+\begin{document}
+\maketitle
+
+\section*{Pré-requis, niveau, objectifs}
+
+
+\subsubsection*{Niveau :}
+\begin{itemize}
+	\item Niveau : Terminale S
+\end{itemize}
+
+\subsubsection*{Pré-requis :}
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\subsubsection*{Objectifs :}
+\begin{itemize}
+	\item Contrôle de la qualité par dosage (par étalonnage, par titrage direct)
+	\item Équivalence dans un titrage
+	\item Utiliser les lois de Beer-Lambert et de Kohlrausch.
+\end{itemize}
+
+\subsubsection*{Matériel :}
+\begin{itemize}
+	\item
+	\item 
+\end{itemize}
+
+\newpage
+\section*{Introduction}
+
+On réalise des dosages dans de nombreux domaines : santé, environnement, contrôle de qualité dans l'industrie. Réaliser un dosage consiste à déterminer, avec la plus grande précision possible, la concentration d'une espèce chimique dissoute en solution. Il existe plusieurs grandes catégories de dosages, et plusieurs méthodes pour les réaliser. Certaines de ces méthodes sont destructives, c'est à dire qu'elles impliquent une réaction chimique entre l'espèce à doser et un réactif ajouté par l'expérimentateur. D'autres ne le sont pas.\\
+
+Dans cette leçon, de niveau terminale S, on se propose de réaliser un dosage par étalonnage et un dosage par titrage direct : on se placera dans le contexte du contrôle de qualité de produits de la vie quotidienne.
+
+\section{Dosage par étalonnage : colorant E131 dans le sirop de menthe}
+\textcolor{red}{Livre : Terminale S Hachette. Physique Chimie Enseignement Spécifique.}\\
+
+La toxicité du bleu patenté, colorant alimentaire E131, est mal connue. On le soupçonnerait notamment d'aggraver ou de provoquer l'hyperactivité chez certains enfants. Interdit dans certains pays, il est cependant autorisé en Europe, où il est utilisé en médecine (en cancérologie, notamment) ou dans la confiserie. On le trouve également dans certains sirops de menthe \footnote{\textcolor{red}{Si pas de sirop de menthe, il reste le bonbon Schtroumpf, ou, à défaut, préparer une solution de bleu patenté de concentration connue.}}.\\  
+
+La dose journalière admissible (DJA) est la dose d'additif qu'une personne peut ingérer tous les jours de sa vie sans risque appréciable pour sa santé, c'est à dire sans effet secondaire. Elle est en moyenne 100 fois inférieure à la dose pour laquelle on a vu, dans les études toxicologiques, apparaître un risque. Dans le cas du bleu patenté elle est de $2.5 \text{mg}/\text{kg}$ de masse corporelle. \textbf{Un enfant boit 0.2 L de sirop de menthe : on veut déterminer la quantité de bleu patenté qu'il ingère et la comparer à la DJA. Pour cela, on va réaliser un dosage spectrophotométrique par étalonnage.}\\
+
+Un dosage par étalonnage consiste à \textbf{déterminer la concentration d'une espèce en solution en comparant une grandeur physique}, caractéristique de la solution, \textbf{à la même grandeur physique mesurée pour des solutions étalon}. Dans le cas du dosage du bleu patenté, cette grandeur physique est l'absorbance de la solution. 
+
+\subsection{Notions de spectrophotométrie}
+
+On plonge une cuve contenant la solution à analyser dans un spectrophotomètre. Cet appareil envoie de la lumière dans le domaine visible sur la solution. Cette lumière sera partiellement absorbée. On quantifie la capacité de la solution à absorber dans le visible par son absorbance $A$. On suppose que seul le bleu patenté absorbe dans le sirop de menthe. Forts de cette hypothèse, nous pouvons relier l'absorbance de la solution à la concentration en bleu patenté grâce à la \textbf{loi de Beer-Lambert} :
+\begin{equation}
+	A = k C,
+\end{equation}
+où $C$ est la concentration en bleu patenté en mol/L et $k$ une constante de proportionnalité. L'absorbance est sans unité.\\
+
+L'absorbance dépend de l'espèce absorbante, de l'épaisseur de solution traversée par la lumière incidente, du solvant, de la longueur d'onde. Il est donc nécessaire, pour avoir une meilleure précision, de régler le spectrophotomètre sur la longueur d'onde la mieux absorbée par la molécule dont on veut mesurer la concentration. Il faut vérifier que l'appareil ne sature pas.\\
+
+On doit également étalonner l'appareil (on dit \textbf{faire le blanc}), c'est à dire mesurer l'absorbance d'une cuve contenant le solvant dans lequel on dissout le bleu patenté. Cette valeur sera automatiquement retranchée à l'absorbance mesurée par l'appareil.\\
+
+\textcolor{blue}{Manip :} montrer le spectre d'absorption du bleu patenté.
+
+\subsection{Réalisation du dosaqe}
+
+Pour le dosage, nous avons besoin de réaliser une gamme de solutions étalon, c'est à dire de concentrations parfaitement connues.\\
+\textcolor{red}{Préparation : réaliser toutes les dilutions et la courbe d'étalonnage en préparation.}\\
+
+\begin{itemize}
+	\item Présenter la droite d'étalonnage et la gamme étalon (sous forme d'un tableau),
+	\item Placer le dernier point sur la courbe,
+	\item Expliquer la modélisation linéaire (si $C = 0$, l'absorbance doit être nulle).\\
+\end{itemize}  
+
+\textcolor{blue}{Manip :} mesurer l'absorbance du sirop de menthe, relever la concentration, calculer la masse de bleu patenté dans 0.2 L de bleu patenté. Conclure sur la DJA.
+Masse molaire $\text{M(E131)} = 1159,4 \text{g}.\text{mol}^-1$.\\
+
+L'intérêt de ce type de méthode est double
+\begin{itemize}
+	\item elle peut fonctionner si l'espèce colorée est présente en faible concentration : ce type de dosage sera sans doute plus précis d'un dosage volumétrique;
+	\item la méthode est non destructive : elle ne met pas en jeu de réaction chimique.
+\end{itemize}
+
+\section{Dosage par titrage direct (\textcolor{red}{Cachau Acide Base page 291})}
+
+Le Destop est un déboucheur de canalisations bien connu, composé essentiellement d'hydroxyde de sodium (et d'un peu d'ammoniac). L'étiquette annonce que le Destop contient de la soude à 20\% en masse. Le pourcentage massique en ammoniac est bien plus faible, il est de l'ordre de 0.65\%. On se propose de doser la soude (et plus précisément les ions hydroxyde $\text{HO}^-$ par titrage direct.\\
+
+Un dosage par titrage direct est une technique de dosage mettant en jeu une réaction chimique entre une solution titrée (dont on veut déterminer la concentration en une espèce donnée, le réactif titré) et une solution titrante, de concentration connue avec précision en un réactif titrant qui va réagir avec le réactif titré. C'est la mesure de la quantité de réactif titrant versée dans la solution titrée qui va nous renseigner sur la quantité en réactif titré que l'on a dosée. Par conséquent, la réaction de dosage \textbf{doit être quantitative}, c'est à dire
+\begin{itemize}
+	\item rapide : pour des raisons pratiques,
+	\item totale : le réactif titrant versé doit réagir en totalité avec l'espèce titrée,
+	\item unique : le réactif titrant ne doit pas réagir avec une autre espèce présente éventuellement dans la solution titrée.
+\end{itemize}
+Ces deux derniers points sont capitaux : la quantité de réactif titrant versée dans la solution titrée doit être révélatrice de la quantité de réactif titré.\\
+
+Les ions $\text{HO}^-$ sont une base forte, susceptible de réagir de façon totale avec un acide fort. Dans le dosage que nous comptons réaliser :
+\begin{itemize}
+	\item la solution de DesTop est la solution titrée, de concentration $C_1$ en ions $\text{HO}^-$ (le réactif titré). On dose un échantillon de volume $V_1$, placé dans un bécher (on a dilué la solution au préalable).
+	\item la solution titrante sera une solution d'acide chlorhydrique (acide fort) de concentration connue avec précision $C_2$ en ions oxonium $\text{H}_3\text{O}^+$ (réactif titrant). La solution titrante est placée dans une burette graduée, permettant de contrôler avec précision le volume de solution versé.
+\end{itemize}
+
+La réaction de dosage, qui est totale, sera donc la suivante :
+\begin{equation}
+	\text{HO}^- + \text{H}_3\text{O}^+ \rightarrow \text{H}_2\text{O}.\\
+\end{equation}
+
+\textbf{Remarque :} on a dit que le DesTop contenait de l'ammoniac $\text{NH}_3$, une base faible, mais en très faible quantité par rapport à la soude. En toute rigueur l'ammoniac réagira lui aussi avec les ions oxonium : la réaction de dosage n'est donc pas unique, en toute rigueur. Cependant, l'expérience (et le programme des classes supérieures) montre que l'ammoniac ne réagira avec les ions oxonium qu'après que toute la soude ait été dosée. La réaction entre les ions oxonium et l'ammoniac est bien moins favorable que celle entre les ions oxonium et les ions hydroxyde. On négligera donc cette réaction secondaire.
+
+\subsection{Notion d'équivalence}
+
+L'objectif du dosage par titrage direct est de déterminer la quantité de matière en espèce titrée présente dans l'échantillon de solution titrée que l'on souhaite doser. Ceci est possible lorsqu'on atteint \textbf{l'équivalence du titrage} : à l'équivalence, les réactifs titrant et titrés ont été introduits en proportions stoechiométriques. Ils ont donc réagi en totalité et ne sont plus présents dans le milieu réactionnel.\\
+
+\textcolor{blue}{Manip : dresser le tableau d'avancement.}\\
+
+A l'équivalence, les réactifs sont totalement consommés, donc 
+\begin{equation}
+	n_0(\text{H}_3\text{O}^+) - \xi_E = 0 \quad\text{et}\quad n_0(\text{HO}^-) - \xi_E = 0,
+\end{equation}
+d'où $n_0(\text{H}_3\text{O}^+)$ et $n_0(\text{HO}^-)$ donc
+\begin{equation}
+	C_1 V_1 = C_2 V_E,	
+\end{equation}
+où $V_E$ est le volume équivalence, volume de solution titrante versé à l'équivalence, à mesurer grâce à une burette.\\
+
+\textbf{Il reste à trouver un moyen de mesurer $V_E$ avec précision : plusieurs méthodes sont possibles.} Dans notre cas, les espèces chimiques réactives présentent des priopriétés acido-basiques : un suivi pH-métrique est donc possible. Les espèces en solution sont également des ions : un suivi conductimétrique est donc possible. On retiendra cette dernière option.
+
+\subsection{Réalisation du dosage}
+\subsubsection{Dilution du Destop}
+
+La solution mère de Destop a une concentration $C_0$. On va diluer cette solution. La solution diluée a une concentration $C_1$.\\
+
+\textcolor{blue}{Manip : réaliser la dilution dans les règles de l'art.}
+
+\subsubsection{Titrage conductimétrique}
+
+Les ions chlorure et sodium participent également à la conductivité de la solution, quand bien même ils ne réagissent pas.\\	
+
+\begin{itemize}
+	\item Méthode de suivi : conductimétrie et réalisation pratique. 
+		Tracé de $\sigma = f(V)$. Pas besoin de la conductivité corrigée.
+	\item Mesure du volume équivalent et calcul de la concentration. 
+		Incertitudes sur $V_E$ et $C_1$.
+	\item Remonter à la concentration initiale $C_0$, 
+		calcul du pourcentage massique et comparer à l'étiquette du produit.
+\end{itemize}
+
+\newpage
+\section{Dosage des ions chlorure par la méthode de Mohr}
+\subsection{Principe}
+
+On dose une solution d'ions chlorure $\text{Cl}^-$ de concentration molaire $C_1$ à l'aide d'une solution d'ions $\text{Ag}^+$ de concentration molaire $C_2$ connue, en présence d'une solution de 
+\textbf{chromate de potassium servant d'indicateur de fin de réaction}. C'est un dosage par titrage direct.
+
+\subsubsection*{Expériences préliminaires :} 
+Dans trois tubes à essais,
+\begin{itemize}
+	\item \textbf{Tube 1 :}
+		\begin{itemize}
+			\item 1 mL d'une solution incolore de chlorure de sodium à 0,1 mol.$\text{L}^{-1}$,
+			\item quelques gouttes d'une solution incolore de nitrate d'argent.
+		\end{itemize}		 
+		Il se forme un précipité blanc de chlorure d'argent AgCl. Ce précipité est un solide peu 				soluble dans l'eau :
+		\begin{equation}
+			\boxed{\text{Ag}^+_\text{(aq)} + \text{Cl}^-_\text{(aq)} = \text{AgCl}_\text{(s)}}
+		\end{equation}
+		
+	\item \textbf{Tube 2 :}
+		\begin{itemize}
+			\item 1 mL d’eau distillée,
+			\item quelques gouttes d'une solution jaune de 
+			chromate de potassium $(2\;\text{K}^+_\text{(aq)}+{\text{CrO}_4^{2-}}_\text{(aq)})$,
+			\item quelques gouttes de solution de nitrate d'argent.	
+		\end{itemize}
+		On observe la formation d'un précipité rouge de chromate d'argent $\text{Ag}_2\text{CrO}_4$
+		\begin{equation}
+			\boxed{2\;\text{Ag}^+_\text{(aq)} + {\text{CrO}_4^{2-}}_\text{(aq)} 
+			= \text{Ag}_2\text{CrO}_{4,\text{(s)}}}
+		\end{equation}
+		
+	\item \textbf{Tube 3 :}
+		\begin{itemize}
+			\item 1 mL de solution de chlorure de sodium,
+			\item quelques gouttes de solution de chromate de potassium,
+			\item ajouter \textbf{progressivement} la solution de nitrate d’argent.
+		\end{itemize}
+		On observe \textbf{d'abord un précipité blanc} de chlorure d'argent (précipité coloré en 			jaune dû aux ions chromate) \textbf{puis un précipité rouge} de chromate d'argent.\\
+	
+	 	Lorsque deux précipités peuvent se former, c'est le moins soluble dans l'eau qui apparaît 			en premier : le chlorure d'argent précipite avant le chromate d'argent, donc \textbf{AgCl 			est moins soluble dans l'eau que $\text{Ag}_2\text{CrO}_4$}. C'est le phénomène de 					\textbf{précipitation préférentielle}.
+\end{itemize}
+
+\subsubsection*{Remarques :}
+\textcolor{blue}{Solubilité du chlorure d'argent :} 
+	pKs(AgCl) $=$ 9.75, d'où $K_s(AgCl) = 10^{-9.75}$
+d'où
+\begin{equation}
+	s = \sqrt{K_s(\text{AgCl})} = \sqrt{[\text{Ag}^+]_\text{eq}[\text{Cl}^-]_\text{eq}}
+	= 1.33\times10^{-5}\;\text{mol/L},
+\end{equation}
+$s$ étant la concentration en ions argent et chlorure à l'équilibre lorsque le solide existe et
+$K_s$ étant la \textbf{constante de dissolution}, constante d'équilibre de la réaction
+$\text{AgCl}_\text{(s)} = \text{Ag}^+_\text{(aq)} + \text{Cl}^-_\text{(aq)}$.
+
+\textcolor{blue}{Solubilité du chromate d'argent :} pKs($\text{Ag}_2\text{CrO}_4$) $=$ 11.95, 
+d'où $K_s(\text{Ag}_2\text{CrO}_4) = 10^{-11.95}$. Donc, comme à l'équilibre $[\text{Ag}^+] = 2s$ et $[\text{CrO}_4^{2-}] = s$,
+\begin{equation}
+	K_s = [\text{Ag}^+]^2[\text{CrO}_4^{2-}] = 4s^3 \quad\text{et donc}\quad s 
+	= \left(\frac{K_s}{4}\right)^\frac{1}{3} = 6.54\times10^{-5}\;\text{mol/L}.
+\end{equation}
+
+La solubilité du chlorure d'argent est bien plus faible que celle du chromate d'argent.
+
+\subsubsection*{Principe du dosage de Mohr}
+\textcolor{blue}{Faire un schéma.}\\
+On verse un peu de chromate de potassium dans la solution d'ions chlorure (de concentration $C_1$ à déterminer) contenue dans un bécher, puis on dose en versant progressivement une solution de concentration connue de nitrate d'argent ($C_2$ en ions argent) contenue dans une burette. 
+
+Qu'observera-t-on initialement pendant le dosage ?
+\begin{itemize}
+	\item \textbf{Avant l'équivalence :} les ions argent sont le réactif limitant, qui va réagir 				préférentiellement avec les ions chlorure. Un précipité blanc se forme.
+	\item \textbf{Après l'équivalence :} il ne reste plus d'ions chlorure, donc l'excès d'ions 					argent va réagir avec les ions chromate. Un précipité rouge se forme.
+\end{itemize}
+C'est l'apparition de la \textbf{coloration rouge persistante} (il faut agiter et surveiller assez longtemps) qui indique l'équivalence et donc la fin du dosage des ions chlorure.
+
+\subsection{Dosage des ions chlorure d'un sérum physiologique (Cachau Redox p404)}
+
+L'équation du titrage s'écrit
+\begin{equation}
+	\boxed{\text{Ag}^+_\text{(aq)} + \text{Cl}^-_\text{(aq)} = \text{AgCl}_\text{(s)}}.
+\end{equation}
+
+\'A l'équivalence
+\begin{equation}
+	n_i(\text{Ag}^+) = n_i(\text{Cl}^-) \quad\text{d'où}\quad  C_2\;V_\text{eq} = C_1\;V_1
+\end{equation} 
+où $V_1$ est le volume de solution titrée. Calculer la concentration en ions chlorure et comparer avec l'étiquette.
+
+\subsubsection*{Matériel et protocole :}
+\begin{itemize}
+	\item Sérum physiologique à 0.15 mol/L environ;
+	\item Solution de nitrate d'argent à $1.00\times10^{-1}$ mol/L;
+	\item Solution de chromate de potassium à 5\%.\\
+\end{itemize}
+
+Prélever $V_1 =$ 10,00 mL de solution de sérum physiologique (pipette jaugée) de concentration $C_1$ en ion chlorure et les introduire dans un bécher. Ajouter deux gouttes de solution de chromate de potassium à 5\%. On titre par une solution de nitrate d'argent de concentration $C_2 = 1.00\times10^{-1}\;\text{mol}.\text{L}^{-1}$.
+
+\section*{Conclusion}
+
+Comparer avantages et inconvénients des deux types de dosage.
+
+\end{document}

@@ -1,0 +1,153 @@
+\documentclass[12pt,prb,aps,epsf]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+%\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{here}
+\usepackage{titlesec}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{MP 14 Polarisation des ondes électromagnétiques}
+\author{Clément}
+
+\maketitle
+
+\tableofcontents
+
+\pagebreak
+
+\section{Polarisation rectiligne}
+\subsection{Loi de Malus}
+On fait ici varier l'angle $\theta$ entre les axes de deux polariseurs successifs placés devant un laser et on regarde la puissance lumineuse $P$ (à l'aide d'un Watt-mètre) à la sortie des deux polariseurs.On trace ensuite
+\begin{eqnarray}
+P(\theta) = P_0\cos(\theta-\theta_0) + P_{min}
+\end{eqnarray}
+que l'on modélise ensuite sur régressi. On déduit de la modélisation les valeurs de 
+\begin{eqnarray}
+P_{min} = 410 \pm 6 \;\mu W\\
+P_{min} = 242 \pm 2 \;nW
+\end{eqnarray}
+
+\paragraph{Coefficient d'extinction}
+\begin{eqnarray}
+\eta = \frac{P_{min}}{P_{max}} = (6\pm 0.08 ).10^{-4}
+\end{eqnarray}
+
+\subsection{Polarisation de la lumière réfléchie}
+On va ici mesurer l'angle de Brewster, angle pour lequel la lumière réfléchie est totalement polarisée rectilignement, si on place un polariseur sur le trajet du rayon réfléchi, on va pouvoir éteindre complètement le point sur l'écran.\\
+On peut montrer que l'angle de Brewster correspond au cas où le rayon réfracté et le rayon réfléchi forment un angle droit.\\
+On peut notamment utiliser cet angle pour déterminer l'indice de réfraction d'un milieu.
+\begin{eqnarray}
+i_B = 58\pm 1^{o}\\
+n = \tan i_B\\
+\rightarrow n = 1.06 \pm 0.02
+\end{eqnarray}
+On a un calcul d'incertitudes intéressant ici 
+\begin{eqnarray}
+U_c(n)^2 = \left(\frac{\partial\tan i_B}{\partial i_B}U(i_B)\right) ^2 \rightarrow \left(\frac{U_c(n)}{n}\right) = (1+\tan ^2i_B)\frac{U(i_B)}{\tan i_B}
+\end{eqnarray}
+
+\section{Polarisation elliptique}
+\subsection{Création d'une polarisation elliptique}
+On part ici avec un laser, non polarisé à priori (on le montre avec un polariseur : pas d'extinction totale).\\
+On place un polariseur devant le laser pour former une source polarisée.\\
+On place ensuite un lame $\frac{\lambda}{4}$ afin de créer une polarisation elliptique. On fait attention à ce que le décalage entre l'axe de la $\frac{\lambda}{4}$ et de la source soit faible afin d'avoir une ellipse allongée et ainsi pouvoir observer clairement le min et le max de cette ellipse avec un polariseur.\\
+
+
+\subsection{Caractérisation}
+
+On va maintenant placer un polariseur selon le min de l'ellipse créée (min d'intensité sur l'écran), on retire ensuite la $\frac{\lambda}{4}$ (sans la dérégler), et on en place une deuxième dont on va aligner un des axes avec celui du polariseur (on le fait en utilisant un deuxième polariseur). On remet notre $\frac{\lambda}{4}$ et on peut maintenant caractériser l'ellipse formée en modifiant la direction de l'axe de l'analyseur : si on a un min nul c'est que l'on avait bel et bien crée une ellipse totale. En effet la deuxième $\frac{\lambda}{4}$ transforme la polarisation elliptique en rectiligne si les axes sont alignés.\\
+Pour ajuster les min on ne le fait pas à l'oeil trop peu précis mais avec ...\\
+Ici pour trouver le min on tourne vers la droite : correspond à un vecteur de la forme (a, -b), cela correspond donc à
+\begin{eqnarray}
+\left(
+\begin{matrix}
+1 & 0\\  
+0 & i\\ 
+\end{matrix}
+\right)
+\left(
+\begin{matrix}
+a\\ib\\
+\end{matrix}\right)
+=\left(
+\begin{matrix}
+a\\-b\\
+\end{matrix}\right) \rightarrow \mathrm{polarisation\;gauche}
+\end{eqnarray}
+\paragraph{Attention :} la matrice de jones liée à la $\frac{\lambda}{4}$ dépend du choix des positions de l'axe rapide et de l'axe lent pour la seconde $\frac{\lambda}{4}$.\\
+
+Ouverture en parlant du lien écran CCD-polarisation.
+
+\section*{Questions}
+Comment avez vous calculé les incertitudes pour les angles et les puissances dans la première partie ?\\
+
+La courbe modélisée sert uniquement à déterminer $P_{min}$ ?\\
+
+Retrouve t-on le même $P_{min}$ si on refait la mesure pour $\theta = \pi/2$ maintenant ?\\
+
+Ya t'il un protocole alternatif permettant de meilleurs résultats ?\\
+En mettant le montage dans une grosse boite opaque...
+
+N'est ce pas mieux si l'on regarde 
+\begin{eqnarray}
+\frac{P(\theta) - P_{min}}{P_{max}-P_{min}}
+\end{eqnarray}
+?\\
+
+Comment fonctionne un polariseur ?\\
+molécules dichromiques \\
+
+Existe t-il d'autres moyens/types ?\\
+
+Que signifie "le laser n'est pas polarisé" ? comment le montre t'on ?\\
+
+Qu'est ce qu'une polarisation elliptique ?\\
+
+A quelle fréquence oscille le champ ?\\
+
+Pouvez vous donner l'expression des composantes du champ électrique dans le cas général ?\\ 
+
+Quelles polarisations peut on obtenir à partir de ces composantes du champ ?\\
+
+Comment sont fait les lasers utilisés ?\\
+
+Et comment est donc la polarisation du rayon émis ?\\
+
+Explications pas à pas de la dernière manip ?
+
+
+\section*{Remarques}
+Pour l'angle de Brewster : il faut trouver quelque chose de plus explicite visuellement qu'un simple écran : flexcam, capteur, photo-diode avec un oscillo...\\
+Le mieux dans cette manip c'est de placer les éléments en direct : il faut manipuler plus. On peut aussi ajouter plus de points en direct 3 ou 4.\\
+Pour trouver $P_{min}$ il semble plus judicieux de le mesurer directement, indépendamment de toute modélisation.\\ 
+Ne pas faire les schémas de chaque étape : il vaut mieux commenter en direct et montrer que l'on maitrise.\\
+Il faut tracer pour le première partie 
+\begin{eqnarray}
+\frac{P(\theta)-P_{min}}{P_{max}-P_{min}} = \frac{P_0\cos^2(\theta) + P_{min}-P_{min}}{P_0} = \cos^2(\theta)
+\end{eqnarray}
+pour que cela ne dépende pas des conditions extérieures de la manip.\\
+
+Biblio :\\
+
+Polarisation des ondes électromagnétiques de HUARD.
+\end{document}

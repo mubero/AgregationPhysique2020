@@ -1,0 +1,152 @@
+\documentclass[12pt,prb,aps,epsf]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{latexsym} 
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{array,multirow,makecell}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usetikzlibrary{calc, shapes, backgrounds, arrows, decorations.pathmorphing, positioning, fit, petri, tikzmark}
+\usepackage{here}
+\usepackage{titlesec}
+%\usepackage{bm}
+\usepackage{bbold}
+
+\geometry{hmargin=2cm,vmargin=2cm}
+
+\begin{document}
+	
+	\title{LC 07 Cinétique et catalyse}
+	\author{Naïmo Davier}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+\subsection{Introduction}
+Niveau terminale S\\
+	\textbf{Pré-requis} :  oxydo réduction, spectroscopie.\\
+	\textbf{Manip :} On a deux solutions d'ions fer II de concentrations différentes, et une solution d'acide oxalique, auxquelles on ajoute du permanganate (violet),
+	\begin{eqnarray}
+	5Fe^{2+}_{(aq)} + MnO^{-}_{4(aq)} + 8H^+_{(aq)} \;=\; 5Fe^{3+}_{(aq)} + Mn^{2+}_{(aq)} + 4H_2O_{(l)}
+	\end{eqnarray}	
+	on constate alors que bien que les deux réactions soient favorables thermodynamiquement l'une est beaucoup plus rapide que l'autre(on voit la couleur violette disparaître et la couleur jaunâtre des ions Fer III apparaître).\\
+	
+	Q : peut on influer sur cette évolution temporelle ? Et si oui comment ?
+	
+\section{Évolution temporelle d'un système chimique}
+\subsection{Modélisation}
+on considère les deux demies équations 
+\begin{eqnarray}
+3I^-_{(aq)} &=& I^-_{3\,(aq)} + 2e^-\\
+H_2O_{2\,(aq)}+2H^+_{(aq)} + 2e^- &=& 2H_2O_{(l)}
+\end{eqnarray}
+qui mènent à l'équation 
+\begin{eqnarray}
+H_2O_{2\,(aq)} + 2I^-_{(aq)} + 2H^+_{(aq)} = I_{2\,(aq)} + 2H_2O_{(l)}
+\end{eqnarray}
+dont on fait le tableau d'avancement. 
+On voit que si on connait l'avancement on connaît l'état du système. Q : comment suivre cet avancement ?
+
+\subsection{Méthode de suivi de l'avancement}
+On explicite les deux types de méthode : suivi qualitatif sur les ruptures de propriétés chimiques (changement de couleur ou de phase notamment), suivi quantitatif d'une grandeur corrélée à l'avancement. Ce suivi peut être réalisé au moyen de différentes méthodes : conductimétrie, spectrophotométrie, PH-métrie.\\
+\textbf{Manip illustrative} Suivi spectrophotométrique de la réaction explicitée précédemment, dans laquelle le diiode est coloré. \textbf{Le maréchal} \textit{Tome 1 Chimie générale} p271.\\ Après mise en place de la cuve on peut directement passer aux résultats obtenus en préparation car la réaction est lente.
+
+\subsection{Temps de demie réaction}
+En supposant la réaction totale on peut estimer l'absorbance finale à partir de la concentration initiale en eau oxygénée, et ainsi en déduire le temps de demie réaction sur la courbe sans attendre que la réaction soit totalement terminée. En effet on a $\varepsilon$ qui est connu, et on a, en considérant la réaction comme totale $[I_3^-]_f = 3[I^-]_0$, on en déduit 
+\begin{eqnarray}
+A_f = 3 l \varepsilon[I^-]_0
+\end{eqnarray}
+
+On a vu comment décrire et analyser la cinétique, on va maintenant voir si on peut influer sur elle.
+
+\section{Facteurs cinétiques}
+On peut influer sur la cinétique de plusieurs manières différentes : en jouant sur les concentrations initiales des réactifs, sur la température, sur l'agitation...\\
+
+Remplacer les trois manip suivante par la décomposition des ions thiosulfate en milieu acide \textbf{Sarrazin Verdaguer} p183.
+
+\subsection{Effet de la concentration}
+Couples en jeu dans la manip illustrative 
+\begin{eqnarray}
+S_2O_3^{2-}/S\hspace{1cm} SO_2/S_2O_3^{2-}
+\end{eqnarray}	
+associée à la réaction 
+\begin{eqnarray}
+S_2O_3^{2-} + 2H^+ = SO_2 + S + H_2O
+\end{eqnarray}
+On prend deux solutions avec des concentrations initiales de thiosulfate différentes, puis on introduit simultanément la même quantité d'acide dans les deux : on voit alors que la vitesse de réaction dépend des quantités initiales.
+
+\subsection{Effet de la température}
+On introduit la solution la moins concentrée de la partie précédente dans deux tubes à essai plongés l'un dans la glace et l'autre dans l'eau chaude. On voit alors que la température influe aussi sur la vitesse.
+
+\subsection{Présence d'un catalyseur}
+Définition catalyseur : espèce accélérant la réaction mais n'apparaissant pas dans l'équation de réaction et n'influant pa sur l'équilibre chimique.\\
+Intérêt en chimie verte et dans l'industrie : permet de gagner du temps et donc de l'énergie $\rightarrow$ plus rentable.
+
+\subsubsection{Catalyse homogène}
+Si le catalyseur est dans le même phase que les réactifs on parle alors de catalyse homogène. Illustration :
+
+On prend trois tubes à essai, deux avec de l'eau oxygénée (témoin), et un avec de l'eau distillée. On ajoute des ions $Cl^-$ dans les tubes. Puis on ajoute le catalyseur $Fe^{3+}$ dans un seulement, on constate alors qu'ils accélère la production d'oxygène gazeux : on voit plus de bulles se former.
+
+\subsubsection{Catalyse hétérogène}
+Cette fois le catalyseur est dans une phase différente de celle des réactifs, en général le catalyseur est solide alors que les réactifs sont liquides. On peut citer le cas intéressant du pot catalytique : les gazs d'échappements contiennent des éléments très toxiques en plus d'être polluants comme de l'oxyde d'azote et du monoxyde de carbone. On peut cependant les faire passer dans un pot catalytique, dont les paroi internent sont recouvertes de catalyseurs qui vont alors permettre de réduire ou oxyder ces gaz toxiques selon 
+\begin{eqnarray}
+2NO_{(g)} + 2CO_{(g)} &=& N_{2\,(g)} + 2CO_{2\,(g)}\\
+2CO_{(g)} + O_{2\,(g)} &=& 2CO_{2\,(g)}
+\end{eqnarray}
+formant ainsi du diazote déjà abondant dans l'atmosphère et du $CO_2$ qui bien que polluant n'est pas toxique ce qui est un moindre mal.\\
+
+On peut aussi citer l'utilisation d'un catalyseur à base de fer dans la synthèse industrielle de l'ammoniac, ce dernier permettant au procédé d'être efficace la réaction étant lente sinon.
+
+\subsubsection{Catalyse enzymatique}
+Définition, schéma de principe. Utilisation dans le corps (dans les cellules, pour la digestion). \textbf{Atkins \& De Paula} \textit{Chimie physique} p878.
+
+\section{Conclusion}
+Synthèse.
+
+\section*{Questions}
+Pouvez vous écrire les demies équations pour l'iode et l'eau oxygénée ?\\
+
+Pouvez vous justifier la verrerie utilisée pour la deuxième manip ?\\
+
+Pouvez vous choisir la valeur d'absorbance choisie ?\\
+Il ne faut pas que le spectro sature, en général on se place au niveau du max car alors le caractère non monochromatique du spectro pose moins problème, mais dans le cas de l'iode on doit faire un compromis : $C_0$ doit être suffisamment grande pour que la réaction se fasse en un temps raisonnable, mais alors à $\lambda_{max}$ le spectro sature.\\
+
+Pouvez vous citer un exemple où le solvant influe sur la vitesse de réaction ?\\
+Les réactions $SN_1$.\\
+
+Quelle est la structure de Lewis de l'ion thiosulfate ? Quel est alors le degré d'oxydation du soufre ?\\
+l'un est à 0 et l'autre est à +IV.\\
+
+Peut on alors parler de dismutation ?\\
+Non.\\
+
+Pourquoi la vitesse de réaction augmente avec la température ? Et avec les concentrations ?\\
+
+Vous avez parlé de l'ammoniac, quel est le catalyseur utilisé dans sa synthèse ?\\
+Catalyseur à base de Fer.
+
+\section*{Remarques}
+Pour la première équation, il faut écrire les demies équations, et le faire sans ses notes pour montrer qu'on maitrise et pour l'aspect pédagogique.\\
+Donner des exemples de catalyseur en orga et dans les synthèses industrielles.
+Regarder les synthèses de l'ammoniac et de l'acide sulfurique, et en orga on peut parler de la catalyse par les métaux hétérogènes : regarder les travaux de Paul Sabatier. Regarder "procédé Wacker".
+
+	
+	
+\end{document}

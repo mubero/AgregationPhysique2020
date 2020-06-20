@@ -1,0 +1,357 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\usepackage{wasysym}
+\usepackage{graphicx}
+
+\author{Mathieu Sarrat}
+\title{LC16 - \'Evolution et équilibre chimique}
+
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+\begin{document}
+\maketitle
+
+\section*{Pré-requis, niveau, objectifs}
+
+\begin{itemize}
+	\item Langage de la Thermodynamique, Potentiel chimique, Premier et Second Principes de la Thermodynamique, Grandeurs de réaction. 
+	\item Constante d'équilibre, quotient de réaction.
+	\item Conductimétrie.\\
+\end{itemize}
+
+\begin{itemize}
+	\item Niveau : MP (deuxième année).\\
+\end{itemize}
+
+\begin{itemize}
+	\item Faire le lien entre les notions introduites en MPSI et la thermochimie du second principe.
+	\item Perturbation d'un équilibre chimique et évolution du système physico-chimique en conséquence.
+\end{itemize}
+
+\section*{Introduction}
+
+Les réactions chimiques font qu'un système tend à évoluer vers un équilibre dynamique dans lequel réactifs et produits sont présents, mais ne subissent plus de nouvelles transformations. Dans bon nombre de cas, alors que cet équilibre est atteint, le mélange présente des concentrations appréciables à la fois en réactifs et en produits, de sorte que la réaction chimique ne puisse pas être considérée comme totale. Les notions de quotient réactionnel, d'équilibre chimique et de constante d'équilibre ont déjà été introduites en première année. L'objectif de cette leçon est d'établir des liens entre ce qui a été vu à ce sujet et ce qui a été fait en thermochimie cette année (les principes de la thermodynamique, les grandeurs de réaction). On mettra ensuite en évidence la dépendance de l'état d'équilibre vis à vis de plusieurs facteurs (température et pression notamment) et on introduira la notion de déplacement d'équilibre. L'utilisation de ces phénomènes est d'une importance majeure en chimie, en particulier lorsqu'on souhaite optimiser un procédé industriel.
+
+\newpage
+\section{Expériences introductives}
+
+Commençons par mener deux expériences sur lesquelles nous reviendrons régulièrement au cours de la leçon.
+
+\subsection{Dissociation de l'acide formique dans l'eau}
+
+\newpage
+\subsection{Dimérisation du dioxyde d'azote}
+
+\textcolor{red}{[Expérience qualitative :]} 	
+ 	\begin{itemize}
+ 		\item plonger l'ampoule dans de l'eau froide : elle se décolore à mesure que $T$ diminue.
+ 		\item plonger l'ampoule dans de l'eau chaude : la teinte rouge brun réapparaît et se renforce à mesure que la température augmente.
+ 	\end{itemize}
+\textcolor{red}{Donner les explications pendant que le système se thermalise.}\\
+ 	
+Le dioxyde d'azote est un gaz coloré (brun rouge) toxique, produit notamment par les moteurs à combustion dans les automobiles. Il est considéré comme \textbf{polluant majeur} de l'atmosphère : dissout dans l'eau il se transforme en acide nitrique. Industriellement, il intervient dans le procédé de fabrication de l'acide nitrique (à partir de l'ammoniac). La structure électronique radicalaire de ce gaz fait que deux molécules de $\text{NO}_2$ sont capables de s'associer pour former un \textbf{dimère incolore}, le péroxyde d'azote $\text{N}_2\text{O}_4$ :
+\begin{equation}
+	 2\;\text{NO}_2\text{(g)} = \text{N}_2\text{O}_4\text{(g)}.\\
+\end{equation}
+
+Le quotient réactionnel s'écrit (les \textbf{activités chimiques} des gaz sont le rapport de leur pression partielle sur la pression standard) :
+\begin{equation}
+	Q_R = \frac{p(\text{N}_2\text{O}_4)p^o}{p^2(\text{NO}_2)}
+\end{equation}
+
+\'A l'équilibre $Q_R = K^o = 10.2$ si $T = $ 298 K. En modifiant la température du système, on constate un changement de couleur du gaz. On ne peut l'expliquer que par la réaction chimique ci-dessus, du dioxyde se transforme en peroxyde incolore lorsqu'on refroidit, et vice versa lorsqu'on réchauffe. 
+ 		
+\newpage
+\section{Interprétation thermodynamique}
+
+On va maintenant établir un lien entre ce qui a été vu en première année (la loi d'action de masse pour calculer la constante d'équilibre $K^o(T)$, la comparaison du quotient de réaction $Q_R$ avec $K^o(T)$ et ce qui a été introduit en seconde année (principes de la thermodynamique appliqués à la chimie, grandeurs de réaction, potentiel et activité chimique). 
+
+\subsection{Position du problème}
+
+On se limitera au cas relativement simple d'un système physico-chimique siège d'une réaction chimique unique, donnée par une équation bilan. Le système comporte plusieurs constituants appartenant à une ou plusieurs phases. Par exemple, dans le cas de la première expérience menée,
+\begin{equation}
+	\text{HCOOH} + \text{H}_2\text{O} = \text{HCOO}^- + \text{H}_3\text{O}^+.
+\end{equation}
+Cette équation peut être écrite sous la forme générique
+\begin{equation}
+	0 = \sum_i \nu_i \text{A}_i,
+\end{equation}
+où $\text{A}_i$ désigne un \textbf{constituant physico-chimique participant à la réaction} : un réactif si $\nu_i < 0$, un produit si $\nu_i > 0$, $\nu_i$ étant un \textbf{nombre stoechiométrique algébrique}, dont la valeur absolue est égale au coefficient stoechiométrique figurant dans l'équation bilan.\\
+
+En chimie, on travaille souvent à \textbf{pression et température extérieures fixées}. Le choix de la fonction enthalpie libre $G$, fonction de $T$ et $p$, semble naturel pour modéliser thermodynamiquement le comportement du système :
+\begin{equation}
+	G \equiv G(T,p,\{n_i\}),
+\end{equation}
+où $n_i$ désigne la quantité de matière en espèce $\text{A}_i$. \'A température et pression constantes, la variation de $G$ ne dépend que de celle des $n_i$ :
+\begin{equation}
+	dG = \sum_i \left(\frac{\partial G}{\partial n_i}\right)_{T,p,\{n_{j\neq i}\}}dn_i.\\
+	\label{eq:1_dG}
+\end{equation}
+
+Le \textbf{système est supposé fermé} : sauf précision contraire, la variation des quantités de matière des espèces présentes dans le système sera imputée à une réaction chimique. Dans ce cas, les quantités $n_i$ ne sont pas indépendantes les unes des autres au cours de la réaction. La variation $dn_j$ de la quantité de matière $n_j$ d'un réactif $\text{A}_j$ s'accompagne de la disparition ou de la production d'une quantité d'autres espèces parfaitement calculable. On introduit pour cela l'\textbf{avancement molaire $\xi$} (variable de De Donder), tel que
+\begin{equation}
+	n_i = n_i^{(0)} + \nu_i \xi.
+	\label{eq:2_avancement}
+\end{equation}
+Ainsi, 
+\begin{itemize}
+	\item si $\xi = 0$, le système est dans son état initial;
+	\item si $\xi > 0$, le système évolue dans le sens direct (formation des produits);
+	\item si $\xi < 0$, le système évolue dans le sens indirect (formation des réactifs).
+\end{itemize}
+En différenciant \eqref{eq:2_avancement} et en injectant le résultat dans \eqref{eq:1_dG}, on obtient
+\begin{equation}
+	dG = \sum_i \nu_i \left(\frac{\partial G}{\partial n_i}\right)_{T,p,\{n_{j\neq i}\}} d\xi = \sum_i \nu_i \mu_i(T,p,\text{comp.}) d\xi
+\end{equation}
+où $\mu_i$ est le potentiel chimique de l'espèce $\text{A}_i$.\\
+
+Introduisons l'\textbf{enthalpie libre de réaction} $\Delta_r G$ (où $\Delta_r$ désigne l'opérateur de Lewis) :
+\begin{equation}
+	\Delta_r G \equiv \left(\frac{\partial G}{\partial \xi}\right)_{T,p} = \sum_i \nu_i \mu_i.
+	\label{eq:3_defDeltarG}
+\end{equation}
+Il en découle
+\begin{equation}
+	\boxed{dG = \Delta_r G \;d\xi}.\\
+	\label{eq:4_evoreac}
+\end{equation}
+
+On fait l'\textbf{hypothèse de l'équilibre incomplet} : toutes les fonctions thermodynamiques prennent les valeurs d'équilibre du mélange isolé chimiquement non réactif. Comme on a pu le voir auparavant,
+\begin{equation}
+	\mu_i (T,p,\text{comp.}) = \mu_i^o(T) + RT\text{ln}(a_i),
+\end{equation}
+où $a_i$ désigne l'activité chimique de l'espèce $\text{A}_i$ et $\mu_i^o$ son potentiel chimique standard, c'est à dire :
+\begin{itemize}
+	\item calculé pour la pression standard $p = p^o = 1$ bar,
+	\item pour un état standard de référence (par exemple solution infiniment diluée si $\text{A}_i$ est un soluté, corps pur si solvant ou phase condensée, gaz parfait). 
+\end{itemize}
+
+Injectons cette expression dans \eqref{eq:3_defDeltarG}. On obtient la relation importante suivante :
+\begin{equation}
+	\boxed{\Delta_r G = \Delta_r G^o + RT \text{ln} \left(\prod_i a_i^{\nu_i}\right) =  \Delta_r G^o  + RT \text{ln}(Q_R)},
+	\label{eq:6_deltargQ}
+\end{equation}
+avec 
+\begin{itemize}
+	\item l'\textbf{enthalpie libre standard de réaction}
+	\begin{equation}
+		\Delta_r G^o = \sum_i \nu_i \mu_i^o(T),
+	\end{equation}
+	fonction de $T$ seulement, et
+	\item le \textbf{quotient de réaction} 
+	\begin{equation}
+		Q_R = \prod_i a_i^{\nu_i},
+	\end{equation}
+	introduit en première année, par identification avec la loi d'action de masse.\\
+\end{itemize}
+
+Jusqu'ici nous n'avons fait qu'écrire l'enthalpie libre du système : à pression et température fixées, sa variation ne provient que d'une variation de la composition du système du fait d'une réaction chimique. Il est temps de contraindre cette variation en appliquant les principes de la thermodynamique.
+
+\subsection{Critère d'évolution spontanée}
+
+Si une réaction chimique a lieu, c'est que le système est initialement hors-équilibre. Il va évoluer vers un état d'équilibre chimique, comme nous l'avons vu expérimentalement en première partie. Changer les conditions extérieures provoque également une évolution, comme l'a montré la seconde expérience. Toute évolution doit respecter le Premier et le Second Principe de la Thermodynamique :
+\begin{equation}
+	dU = \delta W + \delta Q
+\end{equation}
+et
+\begin{equation}
+	dS = \frac{\delta Q}{T_\text{ext}} + \delta_c S,
+\end{equation}
+où $T_\text{ext}$ désigne la température du milieu extérieur. La quantité $\delta_c S$, toujours positive ou nulle, est l'entropie créée dans le système du fait de l'irréversibilité de la transformation subie par le système.\\
+
+Par définition, l'enthalpie libre s'écrit
+\begin{equation}
+	G = H - TS = U + PV - TS.
+\end{equation} 
+On différencie cette expression, on injecte le premier principe à la place de $dU$, on remplace $\delta Q$ en utilisant le second principe et on suppose que le travail est dû aux forces de pression :
+\begin{equation}
+	dG = (T_\text{ext} - T)dS + (p - p_\text{ext})dV + Vdp - SdT - T_\text{ext}\delta_c S.
+\end{equation}
+On suppose une évolution à température et pression constantes ($p = p_\text{ext}$ et $T = T_\text{ext}$, $dT = 0$ et $dp = 0$), le système étant à l'équilibre thermique et mécanique avec le milieu extérieur, de sorte que
+\begin{equation}
+	dG = - T \delta_c S.\\
+	\label{eq:5_evospont}
+\end{equation}
+
+Puisque $\delta_c S \geq 0$, on en déduit immédiatement un \textbf{critère d'évolution spontanée} :
+\begin{equation}
+	\boxed{dG \leq 0}.
+\end{equation}
+\textcolor{red}{Le système ne peut évoluer spontanément qu'en réduisant son enthalpie libre !}
+
+\subsection{Prévision de l'évolution et équilibre chimique}
+
+Nous avons calculé $dG$ de deux façons différentes en formulant les mêmes hypothèses. On peut égaliser \eqref{eq:4_evoreac} et \eqref{eq:5_evospont}, ce qui nous conduit à
+\begin{equation}
+	\delta_c S = - \frac{\Delta_r G}{T_\text{ext}}d\xi \geq 0.
+\end{equation}
+Cette équation, équivalente à $dG \leq 0$, traduit que la seule source d'irréversibilité dans ce problème est la réaction chimique. Les Principes de la Thermodynamique établissent un lien direct entre l'avancement de la réaction chimique et le potentiel chimique des espèces réactives présentes dans le système (à travers l'enthalpie libre de réaction) :
+\begin{itemize}
+	\item si $\Delta_r G < 0$, alors $d\xi > 0$ et la réaction évolue dans le sens direct (formation des produits),
+	\item si $\Delta_r G > 0$, alors $d\xi < 0$ et la réaction évolue dans le sens indirect (formation des réactifs).
+	\item si $\Delta_r G = 0$, alors $\delta_c S = 0$ : il n'y a plus de création d'entropie, et donc plus de réaction chimique : \textbf{le système est à l'équilibre}.
+\end{itemize}
+
+On peut tracer $G$ en fonction de $\xi$. La valeur de $\Delta_r G$ à $\xi$ donné correspond à la pente au point d'abscisse $\xi$. \textbf{Cette grandeur varie au cours de la réaction} : $\Delta_r G$ n'est pas une constante. Deux cas sont possibles \textcolor{red}{[DIAPO : $G(\xi)$ et commentaires.]} :
+\begin{itemize}
+	\item soit la courbe $G(\xi)$ est une fonction monotone : le système évolue jusqu'à atteindre la valeur minimale de $G$ permise par l'avancement qui prend alors la valeur $\xi_\text{min}$ ou $\xi_\text{max}$. En ce point, $\Delta_r G \neq 0$, ce n'est donc pas vraiment un état d'équilibre. Cette situation correspond à la disparition d'au moins une espèce $\text{A}_i$ du système : \textbf{la réaction est totale et il n'y a pas d'équilibre chimique}.
+	\item soit la courbe $G(\xi)$ présente un minimum pour une valeur $\xi = \xi_\text{eq}$, correspondant à $\Delta_r G = 0$ : le système évolue de sorte que $\xi$ tende vers $\xi_\text{eq}$ et donc \textbf{vers un état d'équilibre chimique}.\\ 
+\end{itemize}
+
+Pour parfaire le lien avec ce qui a été vu en première année, reprenons l'équation \eqref{eq:6_deltargQ} :
+\begin{equation}
+	\Delta_r G = \Delta_r G^o + RT \text{ln}(Q_R).
+\end{equation}
+L'enthalpie libre standard de réaction $\Delta_r G^o$ \textbf{ne dépend que de la température}. Sa valeur est donc fixe dans nos conditions de travail supposées. Par conséquent, la valeur de $\Delta_r G$ est corrélée au quotient réactionnel $Q_R$, ce qui n'est pas surprenant à la lumière de la discussion précédente. Si un équilibre existe, alors il vérifie
+\begin{equation}
+	0 = \Delta_r G^o + RT \text{ln}(Q_R)^\text{eq} \quad\text{donc}\quad (Q_R)^\text{eq} = \text{exp}\left(-\frac{\Delta_r G^o}{RT}\right).
+\end{equation}
+Le quotient de réaction à l'équilibre $(Q_R)^\text{eq}$ prend une valeur appelée constante d'équilibre de la réaction $K^o(T)$ :
+\begin{equation}
+	\boxed{K^o(T) \equiv \text{exp}\left(-\frac{\Delta_r G^o}{RT}\right) = Q_R^\text{eq} \quad\text{ce qui implique}\quad \Delta_r G^o = - RT \text{ln}\;K^o(T)}.
+\end{equation}
+Ceci est la vraie définition de la constante d'équilibre d'une réaction chimique. On en déduit
+\begin{equation}
+	\Delta_r G = RT\text{ln}\;\left(\frac{Q_R}{K^o(T)}\right)
+\end{equation}
+
+\textcolor{red}{DIAPO : diagramme d'évolution superposé à $G(\xi)$ et commentaires.}\\
+
+En résumé :
+\begin{itemize}
+	\item le signe de $\Delta_r G$ nous informe sur le sens de l'évolution de la réaction,
+	\item le signe de $\Delta_r G^o$ nous renseigne si $K^o(T)$ est supérieure ou inférieure à 1,
+	\item la valeur de $\Delta_r G^o$ nous renseigne sur l'état d'équilibre final, \textbf{\textcolor{red}{mais ne dit en aucun cas s'il peut être atteint !}}.
+\end{itemize}
+
+Car \textbf{l'avancement réactionnel $\xi$ est nécessairement borné}, il ne peut pas prendre n'importe quelle valeur puisqu'il est contraint par les quantités initiales de réactifs introduites dans le système. En des termes moins mathématiques, on ne peut pas consommer plus de réactifs qu'il y en a dans le bécher.
+
+Si la courbe $G(\xi)$ présente un minimum pour lequel $\Delta_r G = 0$, il n'est pas garanti que le système puisse l'atteindre (il tentera en tout cas de s'en approcher le plus possible). Pour réaliser cet équilibre, l'avancement à l'équilibre $\xi_\text{eq}$ doit appartenir aux valeurs permises pour $\xi$, compte tenu de la quantité de réactifs introduite initialement. Si ce n'est pas le cas, $G$ diminuera autant qu'elle le pourra, \textbf{mais l'état final ne sera pas un équilibre}.\\
+
+\section{Influence de perturbations sur l'équilibre}
+
+Nous avons expliqué comment la thermodynamique permettait de prédire l'existence d'un équilibre chimique et de calculer la constante qui le caractérise. Que se passe-t-il si l'on vient à perturber un équilibre chimique préalablement réalisé ? Les résultats que nous allons établir dans cette partie vont nous permettre d'expliquer plusieurs observations formulées en première partie.
+
+\subsection{Variance}
+
+La variance $v$ d'un système indique le nombre de paramètres intensifs qu'un expérimentateur peut imposer sans pour autant modifier la nature et l'état physique des espèces en équilibre. Il s'agît du nombre de degrés de liberté du système, que l'on calcule comme
+\begin{equation}
+	v \equiv N - k,
+\end{equation}
+où $N$ est le nombre total de paramètres intensifs décrivant le système et $k$ le nombre de relations entre eux.\\
+
+Considérons l'équilibre de dimérisation du dioxyde d'azote introduit en première partie :
+\begin{equation}
+	2\text{NO}_2 \text{(g)} = \text{N}_2\text{O}_4 \text{(g)}.
+\end{equation}
+Tous les constituants sont en phase gaz. Les variables intensives sont $T$, $p$ et les fractions molaires (ou pressions partielles) en chacun des deux gaz, donc $N = 4$. Il existe une relation entre les fractions molaires
+\begin{equation}
+	x_{\text{NO}_2} + x_{\text{N}_2\text{O}_4} = 1.
+\end{equation}
+La constante d'équilibre ajoute une contrainte supplémentaire entre ces grandeurs, soit $k = 2$, d'où $v = 2$. En fixant $p$ et $T$, les fractions molaires et donc les quantités de matière de chaque gaz sont automatiquement fixées.\\
+
+Prenons maintenant le cas de la dissociation de l'acide formique dans l'eau :
+\begin{equation}
+	\text{HCOOH} + \text{H}_2\text{O} = \text{HCOO}^- + \text{H}_3\text{O}^+.
+\end{equation}
+Les paramètres intensifs décrivant l'équilibre sont : $T$, $p$, les concentrations en eau, acide, base conjuguée et ions oxonium, soit un total de 6 paramètres. Ici le système est une solution, la fraction molaire en eau est très largement supérieure à celles en autres constituants. On considère l'eau en excès, ce qui revient à fixer sa fraction molaire. On a ensuite une relation de conservation de la matière reliant les concentrations en espèces solvatées par l'eau, et une constante d'équilibre (le $K_A$), soit trois contraintes. La variance est donc de 3. Fixer $T$ et $p$ ne suffit plus à déterminer totalement l'état d'équilibre du système physico-chimique, il reste encore un degré de liberté, donné par la concentration initiale en acide. Cela explique pourquoi les solutions acides présentées en partie 1, bien qu'ayant des concentrations initiales différentes en acide formique, vérifient la même constante d'équilibre (et donc le même équilibre).\\
+
+De façon générale, $Q_R = K^o$ à l'équilibre. Si on modifie un nombre de paramètres intensifs inférieur ou égal à la variance, on modifie soit $Q_R$, soit $K^o$ : la nature de l'équilibre est préservée (les mêmes constituants dans le même état), mais sa position (valeur de l'avancement réactionnel) est déplacée. On parle de déplacement d'équilibre. On disposera de deux façons pour déplacer un équilibre (le perturber sans le rompre) :
+\begin{itemize}
+	\item en faisant varier la constante d'équilibre : on joue sur la température,
+	\item en faisant varier le quotient réactionnel : on joue sur les activités initiales des réactifs et produits.\\
+\end{itemize}
+
+Remarque : imposer plus de paramètres intensifs que ce que la variance permet pour un équilibre donné provoque une rupture (et donc une modification de la nature) de cet équilibre : la nature des constituants physico-chimiques va changer.
+
+\subsection{Réponse à un changement de température - loi de Van't Hoff}
+
+\textbf{La constante d'équilibre ne dépend que de la température}.\\
+
+Partons de l'équation
+\begin{equation}
+	\text{ln}\;K^o(T) = - \frac{\Delta_r G^o}{RT}.
+\end{equation}
+On veut déterminer la variation de la constante d'équilibre sous l'effet d'un changement de température $dT$, d'où le calcul de
+\begin{equation}
+	\frac{d\;\text{ln} K^o}{dT} = - \frac{1}{R}\frac{d \Delta_r G^o/T}{dT}.
+\end{equation}
+En utilisant la relation de Gibbs-Helmholtz
+\begin{equation}
+	H_i^o = -T^2 \frac{d}{dT}\left(\frac{\mu_i^o}{T}\right),
+\end{equation}
+on obtient la \textbf{loi de Van't Hoff}
+\begin{equation}
+	\boxed{\frac{d\text{ln}\;K^o}{dT} = \frac{\Delta_r H^o}{RT^2}}.\\
+\end{equation}
+
+\textbf{Revenons au cas de la dimérisation du dioxyde d'azote} :
+\begin{equation}
+	 2\;\text{NO}_2 = \text{N}_2\text{O}_4.
+\end{equation}
+Cette réaction est exothermique : $\Delta_r H^o < 0$. En plongeant la seringue initialement à $T_1$ dans de l'eau chaude à température $T_2 > T_1$, $dT = T_2 - T_1> 0$ et par conséquent d'après la loi de Van't Hoff, la constante d'équilibre diminue : $K_2^o < K_1^o$. Le quotient réactionnel étant égal à $K_1^o$ avant variation de température, on se trouve dans la situation où
+\begin{equation}
+	Q_R(EP) > K_2^o.
+\end{equation}
+La réaction chimique va redémarrer et progresser dans le sens indirect, vers la formation de dioxyde d'azote de couleur brune. On constate bien que le contenu de la seringue vire au brun. L'équilibre entre $\text{NO}_2$ et $\text{N}_2\text{O}_4$ existe toujours, mais il s'est déplacé dans le sens endothermique. Si on plonge la seringue dans de l'eau froide, le contraire se produit, la couleur s'estompe : le système évolue en formant du peroxyde d'azote.\\
+
+Il s'agît-là d'un \textbf{effet modérateur (on parle de loi de modération)} : une élévation de température force le système à évoluer dans un sens où il absorbe de la chaleur, le but étant de réduire la température et donc de s'opposer à l'augmentation initiale. On retiendra donc qu'\textbf{une augmentation de température tend à déplacer l'équilibre dans le sens endothermique}. A contrario, une diminution de $T$ déplace l'équilibre dans le sens exothermique. Le système évolue de manière à réduire la perturbation ayant provoqué son évolution.
+
+\subsection{Réponse à un changement de pression - loi de le Châtelier}
+
+On peut réitérer le même type d'expérience, mais cette-fois ci en faisant varier la pression. On pourrait introduire le gaz dans une seringue et appuyer brutalement sur le piston de la seringue contenant le dioxyde d'azote. Dans un premier temps, la réduction soudaine du volume disponible pour le gaz provoquerait une intensification de la coloration. Dans un second temps, la coloration s'atténuerait par rapport à celle d'avant la compression.\\
+
+D'un point de vue thermodynamique, la constante d'équilibre $K^o$ est insensible à la pression : on joue cette fois-ci sur le quotient réactionnel. Ce dernier s'écrit
+\begin{equation}
+	Q_R = \frac{p(\text{N}_2\text{O}_4)p^o}{p^2(\text{NO}_2)}.
+\end{equation}
+Rappelons qu'il existe une relation entre pression partielle, fraction molaire de chacun des gaz et pression totale $p$ :
+\begin{equation}
+	p(\text{N}_2\text{O}_4) = x(\text{N}_2\text{O}_4) p \quad\text{et}\quad p(\text{NO}_2) = x(\text{NO}_2) p
+\end{equation}
+d'où 
+\begin{equation}
+	Q_R =  \frac{x^2(\text{N}_2\text{O}_4) p^o}{x^2(\text{NO}_2) p}.
+\end{equation}
+Si $p$ augmente $Q_R$ diminue, donc $Q_R(EP) < K^o$ (on avait, avant compression, $Q_R(EI) = K^o$). La réaction va reprendre, dans le sens direct.\\
+
+Il est intéressant de remarquer que l'exposant affecté à la pression dans l'expression de $Q_R$ dépend directement de la stoechiométrie des composés gazeux dans l'équation de réaction. L'exposant sera positif si la somme des coefficients stoechiométriques des produits gazeux est supérieure à celle des réactifs gazeux, et vice versa. Finalement, on retiendra que l'\textbf{équilibre est déplacé dans le sens d'une diminution du nombre total de moles gazeuses}.
+
+\subsection{Loi de dilution d'Ostwald}
+
+Reprenons le cas de la dissociation de l'acide formique dans l'eau :
+\begin{equation}
+	\text{HCOOH} + \text{H}_2\text{O} = \text{HCOO}^- + \text{H}_3\text{O}^+.
+\end{equation}
+
+Le quotient de réaction s'écrit
+\begin{equation}
+	Q_R = \frac{[\text{HCOO}^-][\text{H}_3\text{O}^+]}{[\text{HCOOH}]c^o} = \frac{n(\text{HCOO}^-)n(\text{H}_3\text{O}^+)}{n(\text{HCOOH})Vc^o}
+\end{equation}
+en faisant apparaître le volume total $V$ de la solution et les quantités de matière des différents solutés.\\
+
+L'ajout d'eau (à pression, température et quantités de matière en solutés fixes) ne provoque qu'une augmentation de volume, et donc une diminution du quotient réactionnel :
+\begin{equation}
+	Q_R(EP) < Q_R(EI) = K^o(T).
+\end{equation}
+Le système va évoluer de manière à minimiser son enthalpie libre : la réaction chimique de l'acide avec l'eau reprend, dans le sens direct, jusqu'à un nouvel état final. Il s'ensuit une augmentation du nombre de molécules solvatées par l'eau. Ce nouvel état final est un état d'équilibre vérifiant la loi d'action de masse pour $K^o(T)$, pourvu qu'il reste suffisamment d'acide à dissocier.\\
+
+On retiendra que suite à l'ajout de solvant, l'équilibre est déplacé dans le sens d'une augmentation de la quantité de matière totale de soluté, et donc d'une compensation de la dilution effectuée : on retrouve encore une loi de modération. Ceci explique pourquoi un acide faible se dissocie d'autant mieux qu'il est dilué.
+
+\section{Conclusion}
+
+Ouverture vers l'optimisation de procédés industriels. La faisabilité thermodynamique n'implique pas une réaction rapide, d'où la nécessaire prise en compte de la cinétique dans les raisonnements.
+
+\end{document}
